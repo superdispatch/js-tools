@@ -1,0 +1,13 @@
+{
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent",
+  "packages": ["packages/*"],
+  "command": {
+    "publish": {
+      "ignoreChanges": ["**/dist/*.*"],
+      "conventionalCommits": true,
+      "message": "chore(release): Publish"
+    }
+  }
+}
