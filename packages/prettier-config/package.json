@@ -13,5 +13,8 @@
   "main": "./prettier.config.js",
   "files": [
     "./prettier.config.js"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
