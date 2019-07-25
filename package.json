@@ -2,6 +2,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "test": "jest --coverage",
     "lint": "prettier -l \"packages/**/*.{js,json}\"",
     "lint:fix": "prettier --write  \"packages/**/*.{js,json}\""
   },
