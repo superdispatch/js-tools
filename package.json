@@ -2,8 +2,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "lint": "prettier --list-changed",
-    "lint-fix": "prettier --write \"packages/**/*.{js,json}\""
+    "lint": "prettier -l \"packages/**/*.{js,json}\"",
+    "lint:fix": "prettier --write  \"packages/**/*.{js,json}\""
   },
   "workspaces": {
     "packages": [
