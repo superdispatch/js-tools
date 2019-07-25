@@ -4,20 +4,21 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "name": "@superdispatch/eslint-config-base",
-  "description": "Shared config for Prettier.",
+  "name": "@superdispatch/eslint-config",
+  "description": "Shared ESLint config.",
   "repository": "https://github.com/superdispatch/js-tools.git",
   "keywords": [
     "eslint"
   ],
-  "main": "./eslint-config-base.js",
+  "main": "index.js",
   "files": [
-    "./eslint-config-base.js"
+    "index.js"
   ],
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "eslint-config-prettier": "^6.0.0"
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }

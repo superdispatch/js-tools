@@ -1,16 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`inheritance env: env 1`] = `Object {}`;
+exports[`Inheritance config 1`] = `
+Object {
+  "env": Object {},
+  "globals": Object {},
+  "parser": null,
+  "parserOptions": Object {},
+  "plugins": Array [
+    "import",
+  ],
+  "settings": Object {},
+}
+`;
 
-exports[`inheritance globals: globals 1`] = `Object {}`;
-
-exports[`inheritance parser: parser 1`] = `null`;
-
-exports[`inheritance parserOptions: parserOptions 1`] = `Object {}`;
-
-exports[`inheritance plugins: plugins 1`] = `Array []`;
-
-exports[`inheritance rules: rules 1`] = `
+exports[`Inheritance rules 1`] = `
 Object {
   "array-bracket-newline": Array [
     "off",
@@ -416,5 +419,3 @@ Object {
   ],
 }
 `;
-
-exports[`inheritance settings: settings 1`] = `Object {}`;
