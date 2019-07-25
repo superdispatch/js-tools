@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "name": "@superdispatch/eslint-config-base",
+  "description": "Shared config for Prettier.",
+  "repository": "https://github.com/superdispatch/js-tools.git",
+  "keywords": [
+    "eslint"
+  ],
+  "main": "./eslint-config-base.js",
+  "files": [
+    "./eslint-config-base.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.0.0"
+  }
+}
