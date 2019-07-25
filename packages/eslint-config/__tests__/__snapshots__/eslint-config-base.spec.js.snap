@@ -5,12 +5,132 @@ Object {
   "env": Object {},
   "globals": Object {},
   "parser": null,
-  "parserOptions": Object {},
+  "parserOptions": Object {
+    "ecmaVersion": 2018,
+  },
   "plugins": Array [
     "import",
   ],
   "settings": Object {},
 }
+`;
+
+exports[`Inheritance dev rules 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+    "arrow-body-style": Array [
+-     1,
++     2,
+      "as-needed",
+@@ --- --- @@
+    "curly": Array [
+-     1,
++     2,
+      "all",
+@@ --- --- @@
+    "dot-notation": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-confusing-arrow": Array [
+-     1,
++     2,
+      Object {
+@@ --- --- @@
+    "no-div-regex": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-else-return": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-floating-decimal": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-implicit-coercion": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-lonely-if": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-undef-init": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-unneeded-ternary": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-useless-computed-key": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "no-useless-rename": Array [
+-     1,
++     2,
+    ],
+    "no-useless-return": Array [
+-     1,
++     2,
+    ],
+    "no-var": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "object-shorthand": Array [
+-     1,
++     2,
+      "always",
+@@ --- --- @@
+    "operator-assignment": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "prefer-arrow-callback": Array [
+-     1,
++     2,
+      Object {
+@@ --- --- @@
+    "prefer-destructuring": Array [
+-     1,
++     2,
+      Object {
+@@ --- --- @@
+    "prefer-numeric-literals": Array [
+-     1,
++     2,
+    ],
+    "prefer-object-spread": Array [
+-     1,
++     2,
+    ],
+    "prefer-template": Array [
+-     1,
++     2,
+    ],
+@@ --- --- @@
+    "yoda": Array [
+-     1,
++     2,
+      "never",
 `;
 
 exports[`Inheritance rules 1`] = `
@@ -25,7 +145,11 @@ Object {
     "off",
   ],
   "arrow-body-style": Array [
-    0,
+    1,
+    "as-needed",
+    Object {
+      "requireReturnForObjectLiteral": false,
+    },
   ],
   "arrow-parens": Array [
     "off",
@@ -38,6 +162,13 @@ Object {
   ],
   "brace-style": Array [
     "off",
+  ],
+  "camelcase": Array [
+    2,
+    Object {
+      "ignoreDestructuring": true,
+      "properties": "never",
+    },
   ],
   "comma-dangle": Array [
     "off",
@@ -55,19 +186,31 @@ Object {
     "error",
   ],
   "curly": Array [
-    0,
+    1,
+    "all",
   ],
   "dot-location": Array [
     "off",
   ],
+  "dot-notation": Array [
+    1,
+  ],
   "eol-last": Array [
     "off",
+  ],
+  "eqeqeq": Array [
+    1,
+    "smart",
   ],
   "for-direction": Array [
     "error",
   ],
   "func-call-spacing": Array [
     "off",
+  ],
+  "func-names": Array [
+    1,
+    "as-needed",
   ],
   "function-paren-newline": Array [
     "off",
@@ -83,6 +226,51 @@ Object {
   ],
   "implicit-arrow-linebreak": Array [
     "off",
+  ],
+  "import/default": Array [
+    2,
+  ],
+  "import/export": Array [
+    2,
+  ],
+  "import/first": Array [
+    1,
+  ],
+  "import/named": Array [
+    2,
+  ],
+  "import/namespace": Array [
+    2,
+  ],
+  "import/no-anonymous-default-export": Array [
+    1,
+    Object {
+      "allowAnonymousClass": false,
+      "allowAnonymousFunction": false,
+      "allowArray": false,
+      "allowArrowFunction": false,
+      "allowCallExpression": false,
+      "allowLiteral": false,
+      "allowObject": false,
+    },
+  ],
+  "import/no-deprecated": Array [
+    2,
+  ],
+  "import/no-duplicates": Array [
+    1,
+  ],
+  "import/no-mutable-exports": Array [
+    1,
+  ],
+  "import/no-named-as-default": Array [
+    1,
+  ],
+  "import/no-named-as-default-member": Array [
+    1,
+  ],
+  "import/no-unresolved": Array [
+    2,
   ],
   "indent": Array [
     "off",
@@ -117,6 +305,9 @@ Object {
   "newline-per-chained-call": Array [
     "off",
   ],
+  "no-alert": Array [
+    1,
+  ],
   "no-arrow-condition": Array [
     "off",
   ],
@@ -136,10 +327,16 @@ Object {
     "error",
   ],
   "no-cond-assign": Array [
-    "error",
+    0,
   ],
   "no-confusing-arrow": Array [
-    0,
+    1,
+    Object {
+      "allowParens": true,
+    },
+  ],
+  "no-console": Array [
+    1,
   ],
   "no-const-assign": Array [
     "error",
@@ -156,6 +353,9 @@ Object {
   "no-delete-var": Array [
     "error",
   ],
+  "no-div-regex": Array [
+    1,
+  ],
   "no-dupe-args": Array [
     "error",
   ],
@@ -168,8 +368,14 @@ Object {
   "no-duplicate-case": Array [
     "error",
   ],
+  "no-else-return": Array [
+    1,
+  ],
   "no-empty": Array [
-    "error",
+    1,
+    Object {
+      "allowEmptyCatch": true,
+    },
   ],
   "no-empty-character-class": Array [
     "error",
@@ -193,13 +399,16 @@ Object {
     "error",
   ],
   "no-floating-decimal": Array [
-    "off",
+    1,
   ],
   "no-func-assign": Array [
     "error",
   ],
   "no-global-assign": Array [
     "error",
+  ],
+  "no-implicit-coercion": Array [
+    1,
   ],
   "no-inner-declarations": Array [
     "error",
@@ -209,6 +418,9 @@ Object {
   ],
   "no-irregular-whitespace": Array [
     "error",
+  ],
+  "no-lonely-if": Array [
+    1,
   ],
   "no-misleading-character-class": Array [
     "error",
@@ -249,6 +461,13 @@ Object {
   "no-self-assign": Array [
     "error",
   ],
+  "no-shadow": Array [
+    2,
+    Object {
+      "builtinGlobals": true,
+      "hoist": "functions",
+    },
+  ],
   "no-shadow-restricted-names": Array [
     "error",
   ],
@@ -273,8 +492,14 @@ Object {
   "no-undef": Array [
     "error",
   ],
+  "no-undef-init": Array [
+    1,
+  ],
   "no-unexpected-multiline": Array [
     0,
+  ],
+  "no-unneeded-ternary": Array [
+    1,
   ],
   "no-unreachable": Array [
     "error",
@@ -291,11 +516,40 @@ Object {
   "no-unused-vars": Array [
     "error",
   ],
+  "no-use-before-define": Array [
+    1,
+    Object {
+      "functions": false,
+    },
+  ],
   "no-useless-catch": Array [
     "error",
   ],
+  "no-useless-computed-key": Array [
+    1,
+  ],
   "no-useless-escape": Array [
     "error",
+  ],
+  "no-useless-rename": Array [
+    1,
+  ],
+  "no-useless-return": Array [
+    1,
+  ],
+  "no-var": Array [
+    1,
+  ],
+  "no-warning-comments": Array [
+    2,
+    Object {
+      "location": "anywhere",
+      "terms": Array [
+        "todo",
+        "fixme",
+        "@ts-ignore",
+      ],
+    },
   ],
   "no-whitespace-before-property": Array [
     "off",
@@ -318,8 +572,18 @@ Object {
   "object-property-newline": Array [
     "off",
   ],
+  "object-shorthand": Array [
+    1,
+    "always",
+    Object {
+      "avoidQuotes": true,
+    },
+  ],
   "one-var-declaration-per-line": Array [
     "off",
+  ],
+  "operator-assignment": Array [
+    1,
   ],
   "operator-linebreak": Array [
     "off",
@@ -328,7 +592,36 @@ Object {
     "off",
   ],
   "prefer-arrow-callback": Array [
-    0,
+    1,
+    Object {
+      "allowNamedFunctions": false,
+      "allowUnboundThis": true,
+    },
+  ],
+  "prefer-destructuring": Array [
+    1,
+    Object {
+      "AssignmentExpression": Object {
+        "array": false,
+        "object": false,
+      },
+      "VariableDeclarator": Object {
+        "array": true,
+        "object": true,
+      },
+    },
+    Object {
+      "enforceForRenamedProperties": false,
+    },
+  ],
+  "prefer-numeric-literals": Array [
+    1,
+  ],
+  "prefer-object-spread": Array [
+    1,
+  ],
+  "prefer-template": Array [
+    1,
   ],
   "quote-props": Array [
     "off",
@@ -416,6 +709,14 @@ Object {
   ],
   "yield-star-spacing": Array [
     "off",
+  ],
+  "yoda": Array [
+    1,
+    "never",
+    Object {
+      "exceptRange": true,
+      "onlyEquality": false,
+    },
   ],
 }
 `;

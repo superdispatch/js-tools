@@ -12,7 +12,12 @@
   ],
   "main": "index.js",
   "files": [
-    "index.js"
+    "base.js",
+    "index.js",
+    "jest.js",
+    "node.js",
+    "react.js",
+    "typescript.js"
   ],
   "publishConfig": {
     "access": "public"
