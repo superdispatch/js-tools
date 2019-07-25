@@ -24,14 +24,16 @@ function testInheritance(configFile) {
     });
 
     it('dev rules', () => {
-      jest.resetModules();
       process.env.NODE_ENV = 'development';
+      jest.resetModules();
 
       const { rules: devRules } = getConfigForFile(configFile, 'bar/index.js');
 
       process.env.NODE_ENV = 'test';
 
-      expect(snapshotDiff(rules, devRules, { contextLines: 1, stablePatchmarks: true })).toMatchSnapshot();
+      expect(
+        snapshotDiff(rules, devRules, { contextLines: 1, stablePatchmarks: true }),
+      ).toMatchSnapshot();
     });
   });
 }

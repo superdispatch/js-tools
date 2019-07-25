@@ -9,6 +9,7 @@ Object {
     "ecmaVersion": 2018,
   },
   "plugins": Array [
+    "prettier",
     "import",
   ],
   "settings": Object {},
@@ -123,6 +124,10 @@ Snapshot Diff:
 +     2,
     ],
     "prefer-template": Array [
+-     1,
++     2,
+    ],
+    "prettier/prettier": Array [
 -     1,
 +     2,
     ],
@@ -621,6 +626,9 @@ Object {
     1,
   ],
   "prefer-template": Array [
+    1,
+  ],
+  "prettier/prettier": Array [
     1,
   ],
   "quote-props": Array [

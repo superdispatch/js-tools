@@ -4,8 +4,7 @@
   "scripts": {
     "tdd": "jest --watch",
     "test": "jest --coverage",
-    "lint": "prettier -l \"packages/**/*.{js,json}\"",
-    "lint:fix": "prettier --write  \"packages/**/*.{js,json}\""
+    "lint": "eslint \"packages/**/*.js\""
   },
   "workspaces": {
     "packages": [

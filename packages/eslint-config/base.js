@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
 
-  plugins: ['import'],
+  plugins: ['import', 'prettier'],
 
   extends: [
     //
@@ -24,6 +24,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
 
+    //
     // eslint-config-prettier
     'prettier',
   ],
@@ -353,5 +354,11 @@ module.exports = {
         allowAnonymousFunction: false,
       },
     ],
+
+    //
+    // eslint-plugin-import
+    //
+
+    'prettier/prettier': INCONSISTENCY,
   },
 };
