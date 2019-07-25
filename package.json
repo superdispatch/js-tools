@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage",
+    "lint": "prettier -l \"packages/**/*.{js,json}\"",
+    "lint:fix": "prettier --write  \"packages/**/*.{js,json}\""
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "lerna": "^3.16.4",
+    "prettier": "^1.18.2"
+  }
+}
