@@ -1,12 +1,12 @@
 'use strict';
 
-const { OFF, ERROR, INCONSISTENCY } = require('../internal/error-codes');
+const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
-    './base.js',
+    require.resolve('./base.js'),
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',

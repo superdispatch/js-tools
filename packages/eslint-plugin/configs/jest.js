@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
-  extends: './base',
   env: { jest: true },
+  // plugins: ['eslint-plugin-jest'],
+  extends: require.resolve('./base'),
 };

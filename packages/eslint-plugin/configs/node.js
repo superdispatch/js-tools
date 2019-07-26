@@ -1,15 +1,14 @@
 'use strict';
 
-const { OFF, ERROR } = require('../internal/error-codes');
+const { OFF, ERROR } = require('./internal/error-codes');
 
 module.exports = {
   env: { node: true },
 
-  plugins: ['node'],
+  plugins: ['eslint-plugin-node'],
 
   extends: [
-    './base',
-
+    require.resolve('./base'),
     // 'plugin:node/recommended'
   ],
 

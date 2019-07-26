@@ -41,16 +41,16 @@ Snapshot Diff:
 @@ --- --- @@
     ],
 +   "react-hooks/exhaustive-deps": Array [
-+     2,
++     "error",
 +   ],
 +   "react-hooks/rules-of-hooks": Array [
-+     2,
++     "error",
 +   ],
 +   "react/display-name": Array [
 +     2,
 +   ],
 +   "react/jsx-boolean-value": Array [
-+     2,
++     "error",
 +     "always",
 +   ],
 +   "react/jsx-child-element-spacing": Array [
@@ -123,7 +123,7 @@ Snapshot Diff:
 +     2,
 +   ],
 +   "react/no-danger-with-children": Array [
-+     2,
++     "error",
 +   ],
 +   "react/no-deprecated": Array [
 +     2,
@@ -153,7 +153,7 @@ Snapshot Diff:
 +     0,
 +   ],
 +   "react/prop-types": Array [
-+     0,
++     "off",
 +   ],
 +   "react/react-in-jsx-scope": Array [
 +     2,

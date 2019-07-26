@@ -37,7 +37,7 @@ Snapshot Diff:
 @@ --- --- @@
     ],
 +   "import/no-extraneous-dependencies": Array [
-+     2,
++     "error",
 +     Object {
 +       "devDependencies": true,
 +       "optionalDependencies": false,
@@ -47,79 +47,79 @@ Snapshot Diff:
     "import/no-mutable-exports": Array [
 @@ --- --- @@
     "no-console": Array [
--     2,
-+     0,
+-     "error",
++     "off",
     ],
 @@ --- --- @@
       "off",
 +   ],
 +   "node/exports-style": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-deprecated-api": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-extraneous-import": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-extraneous-require": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-missing-import": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-missing-require": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-unpublished-bin": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-unpublished-import": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-unpublished-require": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-unsupported-features/es-builtins": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-unsupported-features/es-syntax": Array [
-+     2,
++     "error",
 +   ],
 +   "node/no-unsupported-features/node-builtins": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/buffer": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/console": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/process": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/text-decoder": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/text-encoder": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/url": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-global/url-search-params": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-promises/dns": Array [
-+     2,
++     "error",
 +   ],
 +   "node/prefer-promises/fs": Array [
-+     2,
++     "error",
 +   ],
 +   "node/process-exit-as-throw": Array [
-+     2,
++     "error",
 +   ],
 +   "node/shebang": Array [
-+     2,
++     "error",
     ],
 `;
