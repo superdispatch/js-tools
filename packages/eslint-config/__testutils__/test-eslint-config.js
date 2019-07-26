@@ -1,3 +1,4 @@
+const path = require('path');
 const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
 const { isDeepStrictEqual } = require('util');
@@ -25,7 +26,9 @@ function createCLI(configFile) {
 function getConfigForFile(file, configFile) {
   const cli = createCLI(configFile);
 
-  return cli.getConfigForFile(file);
+  const { parser, ...config } = cli.getConfigForFile(file);
+
+  return { ...config, parser: parser && path.relative(process.cwd(), parser) };
 }
 
 function testInheritance(configFile, baseConfigFile) {
@@ -72,7 +75,5 @@ function testInheritance(configFile, baseConfigFile) {
 }
 
 module.exports = {
-  createCLI,
-  excludeEqual,
   testInheritance,
 };

@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inheritance config 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+  Object {
+    "env": Object {},
+    "globals": Object {},
+-   "parser": null,
++   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
+    "parserOptions": Object {
+      "ecmaVersion": 2018,
++     "sourceType": "module",
+    },
+    "plugins": Array [
+      "prettier",
+      "import",
++     "@typescript-eslint",
+    ],
+-   "settings": Object {},
++   "settings": Object {
++     "import/extensions": Array [
++       ".ts",
++       ".tsx",
++       ".d.ts",
++       ".js",
++       ".jsx",
++     ],
++     "import/parsers": Object {
++       "@typescript-eslint/parser": Array [
++         ".ts",
++         ".tsx",
++         ".d.ts",
++       ],
++     },
++     "import/resolver": Object {
++       "node": Object {
++         "extensions": Array [
++           ".ts",
++           ".tsx",
++           ".d.ts",
++           ".js",
++           ".jsx",
++         ],
++       },
++     },
++   },
+  }
+`;
+
+exports[`Inheritance dev rules 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Inheritance rules 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+  Object {
++   "@typescript-eslint/adjacent-overload-signatures": Array [
++     "error",
++   ],
++   "@typescript-eslint/array-type": Array [
++     2,
++     "array-simple",
++   ],
++   "@typescript-eslint/ban-types": Array [
++     "error",
++   ],
++   "@typescript-eslint/camelcase": Array [
++     2,
++     Object {
++       "ignoreDestructuring": true,
++       "properties": "never",
++     },
++   ],
++   "@typescript-eslint/class-name-casing": Array [
++     "error",
++   ],
++   "@typescript-eslint/consistent-type-definitions": Array [
++     2,
++     "type",
++   ],
++   "@typescript-eslint/explicit-function-return-type": Array [
++     "warn",
++   ],
++   "@typescript-eslint/explicit-member-accessibility": Array [
++     2,
++     Object {
++       "accessibility": "no-public",
++     },
++   ],
++   "@typescript-eslint/func-call-spacing": Array [
++     "off",
++   ],
++   "@typescript-eslint/indent": Array [
++     "off",
++   ],
++   "@typescript-eslint/interface-name-prefix": Array [
++     "error",
++   ],
++   "@typescript-eslint/member-delimiter-style": Array [
++     "off",
++   ],
++   "@typescript-eslint/no-angle-bracket-type-assertion": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-array-constructor": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-empty-interface": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-explicit-any": Array [
++     "warn",
++   ],
++   "@typescript-eslint/no-extra-parens": Array [
++     "off",
++   ],
++   "@typescript-eslint/no-inferrable-types": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-misused-new": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-namespace": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-non-null-assertion": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-object-literal-type-assertion": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-parameter-properties": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-triple-slash-reference": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-unused-vars": Array [
++     2,
++     Object {
++       "args": "after-used",
++       "ignoreRestSiblings": true,
++       "vars": "all",
++     },
++   ],
++   "@typescript-eslint/no-use-before-define": Array [
++     2,
++     Object {
++       "classes": true,
++       "functions": false,
++       "typedefs": false,
++     },
++   ],
++   "@typescript-eslint/no-var-requires": Array [
++     "error",
++   ],
++   "@typescript-eslint/prefer-function-type": Array [
++     2,
++   ],
++   "@typescript-eslint/prefer-interface": Array [
++     "error",
++   ],
++   "@typescript-eslint/prefer-namespace-keyword": Array [
++     "error",
++   ],
++   "@typescript-eslint/semi": Array [
++     "off",
++   ],
++   "@typescript-eslint/type-annotation-spacing": Array [
++     "off",
++   ],
+    "array-bracket-newline": Array [
+@@ --- --- @@
+    "camelcase": Array [
+-     1,
++     "off",
+      Object {
+@@ --- --- @@
+    "import/default": Array [
+-     2,
++     0,
+    ],
+    "import/export": Array [
+-     2,
++     0,
+    ],
+@@ --- --- @@
+    "import/named": Array [
+-     2,
++     0,
+    ],
+    "import/namespace": Array [
+-     2,
++     0,
+    ],
+@@ --- --- @@
+    "import/no-unresolved": Array [
+-     2,
++     0,
+    ],
+@@ --- --- @@
+      2,
++   ],
++   "no-array-constructor": Array [
++     "off",
+    ],
+@@ --- --- @@
+    "no-undef": Array [
+-     "error",
++     0,
+    ],
+@@ --- --- @@
+    "no-unused-vars": Array [
+-     "error",
++     "off",
+    ],
+    "no-use-before-define": Array [
+-     2,
++     "off",
+      Object {
+`;
