@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = {
-  extends: './packages/eslint-config',
+  extends: 'plugin:@superdispatch/app',
 
   overrides: [
     {
       files: ['**/*.spec.js', '**/__testutils__/**/*.js'],
-      extends: './packages/eslint-config/jest',
+      extends: 'plugin:@superdispatch/jest',
       rules: {
         'node/no-extraneous-require': 'off',
         'import/no-extraneous-dependencies': 'off',

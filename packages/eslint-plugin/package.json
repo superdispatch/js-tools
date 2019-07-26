@@ -4,8 +4,8 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "name": "@superdispatch/eslint-config",
-  "description": "Shared ESLint config.",
+  "name": "@superdispatch/eslint-plugin",
+  "description": "Shared ESLint plugin",
   "repository": "https://github.com/superdispatch/js-tools.git",
   "keywords": [
     "eslint"
@@ -13,12 +13,12 @@
   "main": "index.js",
   "files": [
     "internal/**",
-    "base.js",
+    "configs/base.js",
     "index.js",
-    "jest.js",
-    "node.js",
-    "react.js",
-    "typescript.js"
+    "configs/jest.js",
+    "configs/node.js",
+    "configs/react.js",
+    "configs/typescript.js"
   ],
   "publishConfig": {
     "access": "public"

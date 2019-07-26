@@ -19,8 +19,11 @@ function excludeEqual(val1, val2) {
   return result;
 }
 
-function createCLI(configFile) {
-  return new CLIEngine({ configFile, useEslintrc: false });
+function createCLI(name) {
+  return new CLIEngine({
+    useEslintrc: false,
+    baseConfig: { extends: `plugin:@superdispatch/${name}` },
+  });
 }
 
 function getConfigForFile(file, configFile) {
@@ -31,20 +34,20 @@ function getConfigForFile(file, configFile) {
   return { ...config, parser: parser && path.relative(process.cwd(), parser) };
 }
 
-function testInheritance(configFile, baseConfigFile) {
+function testInheritance(configName, baseConfigName) {
   describe('Inheritance', () => {
-    const { rules, ...config } = getConfigForFile('foo/index.js', configFile);
-    const { rules: baseRules, ...baseConfig } = !baseConfigFile
+    const { rules, ...config } = getConfigForFile('foo/index.js', configName);
+    const { rules: baseRules, ...baseConfig } = !baseConfigName
       ? {}
-      : getConfigForFile('foo/index.js', baseConfigFile);
+      : getConfigForFile('foo/index.js', baseConfigName);
 
     it('config', () => {
-      expect(!baseConfigFile ? config : snapshotDiff(baseConfig, config)).toMatchSnapshot();
+      expect(!baseConfigName ? config : snapshotDiff(baseConfig, config)).toMatchSnapshot();
     });
 
     it('rules', () => {
       expect(
-        !baseConfigFile
+        !baseConfigName
           ? rules
           : snapshotDiff(baseRules, rules, {
               contextLines: 1,
@@ -57,10 +60,10 @@ function testInheritance(configFile, baseConfigFile) {
       process.env.NODE_ENV = 'development';
       jest.resetModules();
 
-      const { rules: devRules } = getConfigForFile('foo/index.js', configFile);
-      const { rules: baseDevRules } = !baseConfigFile
+      const { rules: devRules } = getConfigForFile('foo/index.js', configName);
+      const { rules: baseDevRules } = !baseConfigName
         ? {}
-        : getConfigForFile('foo/index.js', baseConfigFile);
+        : getConfigForFile('foo/index.js', baseConfigName);
 
       process.env.NODE_ENV = 'test';
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const { OFF, ERROR } = require('./internal/error-codes');
+const { OFF, ERROR } = require('../internal/error-codes');
 
 module.exports = {
   env: { node: true },

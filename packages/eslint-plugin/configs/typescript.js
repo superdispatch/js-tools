@@ -1,6 +1,6 @@
 'use strict';
 
-const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
+const { OFF, ERROR, INCONSISTENCY } = require('../internal/error-codes');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
