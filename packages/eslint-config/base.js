@@ -1,9 +1,6 @@
 'use strict';
 
-const OFF = 0;
-const ERROR = 1;
-const WARNING = 2;
-const INCONSISTENCY = process.env.NODE_ENV === 'development' ? WARNING : ERROR;
+const { OFF, ERROR, WARNING, INCONSISTENCY } = require('./internal/error-codes');
 
 module.exports = {
   root: true,
