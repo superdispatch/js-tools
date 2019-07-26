@@ -7,69 +7,13 @@ Snapshot Diff:
 
   Object {
 -   "env": Object {},
--   "globals": Object {},
 +   "env": Object {
 +     "node": true,
 +   },
-+   "globals": Object {
-+     "ArrayBuffer": "readonly",
-+     "Atomics": "readonly",
-+     "BigInt": "readonly",
-+     "BigInt64Array": "readonly",
-+     "BigUint64Array": "readonly",
-+     "Buffer": "readonly",
-+     "DataView": "readonly",
-+     "Float32Array": "readonly",
-+     "Float64Array": "readonly",
-+     "GLOBAL": "readonly",
-+     "Int16Array": "readonly",
-+     "Int32Array": "readonly",
-+     "Int8Array": "readonly",
-+     "Intl": "readonly",
-+     "Map": "readonly",
-+     "Promise": "readonly",
-+     "Proxy": "readonly",
-+     "Reflect": "readonly",
-+     "Set": "readonly",
-+     "SharedArrayBuffer": "readonly",
-+     "Symbol": "readonly",
-+     "TextDecoder": "readonly",
-+     "TextEncoder": "readonly",
-+     "URL": "readonly",
-+     "URLSearchParams": "readonly",
-+     "Uint16Array": "readonly",
-+     "Uint32Array": "readonly",
-+     "Uint8Array": "readonly",
-+     "Uint8ClampedArray": "readonly",
-+     "WeakMap": "readonly",
-+     "WeakSet": "readonly",
-+     "WebAssembly": "readonly",
-+     "__dirname": "readonly",
-+     "__filename": "readonly",
-+     "clearImmediate": "readonly",
-+     "clearInterval": "readonly",
-+     "clearTimeout": "readonly",
-+     "console": "readonly",
-+     "exports": "readonly",
-+     "global": "readonly",
-+     "globalThis": "readonly",
-+     "module": "readonly",
-+     "process": "readonly",
-+     "queueMicrotask": "readonly",
-+     "require": "readonly",
-+     "root": "readonly",
-+     "setImmediate": "readonly",
-+     "setInterval": "readonly",
-+     "setTimeout": "readonly",
-+   },
+    "globals": Object {},
     "parser": null,
     "parserOptions": Object {
--     "ecmaVersion": 2018,
-+     "ecmaFeatures": Object {
-+       "globalReturn": true,
-+     },
-+     "ecmaVersion": 2019,
-+     "sourceType": "script",
+      "ecmaVersion": 2018,
     },
     "plugins": Array [
       "prettier",
@@ -93,7 +37,7 @@ Snapshot Diff:
 @@ --- --- @@
     ],
 +   "import/no-extraneous-dependencies": Array [
-+     "error",
++     2,
 +     Object {
 +       "devDependencies": true,
 +       "optionalDependencies": false,
@@ -103,89 +47,79 @@ Snapshot Diff:
     "import/no-mutable-exports": Array [
 @@ --- --- @@
     "no-console": Array [
--     1,
+-     2,
 +     0,
     ],
 @@ --- --- @@
-    ],
-+   "no-process-exit": Array [
-+     "error",
-+   ],
-    "no-prototype-builtins": Array [
-@@ --- --- @@
-    "no-wrap-func": Array [
-+     "off",
-+   ],
-+   "node/exports-style": Array [
-+     "error",
-+   ],
-+   "node/no-deprecated-api": Array [
-+     "error",
-+   ],
-+   "node/no-extraneous-import": Array [
       "off",
 +   ],
++   "node/exports-style": Array [
++     2,
++   ],
++   "node/no-deprecated-api": Array [
++     2,
++   ],
++   "node/no-extraneous-import": Array [
++     2,
++   ],
 +   "node/no-extraneous-require": Array [
-+     "error",
++     2,
 +   ],
 +   "node/no-missing-import": Array [
-+     "off",
++     2,
 +   ],
 +   "node/no-missing-require": Array [
-+     "error",
++     2,
 +   ],
 +   "node/no-unpublished-bin": Array [
-+     "error",
++     2,
 +   ],
 +   "node/no-unpublished-import": Array [
-+     "off",
++     2,
 +   ],
 +   "node/no-unpublished-require": Array [
-+     "error",
++     2,
 +   ],
 +   "node/no-unsupported-features/es-builtins": Array [
-+     "error",
++     2,
 +   ],
 +   "node/no-unsupported-features/es-syntax": Array [
-+     "error",
-+     Object {
-+       "ignores": Array [],
-+     },
++     2,
 +   ],
 +   "node/no-unsupported-features/node-builtins": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/buffer": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/console": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/process": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/text-decoder": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/text-encoder": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/url": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-global/url-search-params": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-promises/dns": Array [
-+     "error",
++     2,
 +   ],
 +   "node/prefer-promises/fs": Array [
-+     "error",
++     2,
 +   ],
 +   "node/process-exit-as-throw": Array [
-+     "error",
++     2,
 +   ],
 +   "node/shebang": Array [
-+     "error",
++     2,
     ],
 `;
