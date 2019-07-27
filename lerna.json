@@ -1,12 +1,17 @@
 {
-  "version": "0.0.0",
+  "version": "0.1.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "command": {
     "publish": {
       "message": "chore(release): Publish",
-      "ignoreChanges": ["**/__tests__/*.*", "**/__testutils__/*.*"]
+      "ignoreChanges": [
+        "**/__tests__/*.*",
+        "**/__testutils__/*.*"
+      ]
     }
   }
 }
