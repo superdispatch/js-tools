@@ -7,7 +7,7 @@ module.exports = {
 
   plugins: ['node'],
 
-  extends: [require.resolve('./base'), 'plugin:node/recommended-script'],
+  extends: ['./base', 'plugin:node/recommended-script'],
 
   rules: {
     //
