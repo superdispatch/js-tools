@@ -40,7 +40,15 @@ Snapshot Diff:
 + Second value
 
 @@ --- --- @@
-    ],
+  Object {
++   "@superdispatch/jsx-no-spread-object-expression": Array [
++     "error",
++   ],
+    "array-bracket-newline": Array [
+@@ --- --- @@
+    "quotes": Array [
++     0,
++   ],
 +   "react-hooks/exhaustive-deps": Array [
 +     "error",
 +   ],
@@ -151,7 +159,7 @@ Snapshot Diff:
 +     2,
 +   ],
 +   "react/no-unsafe": Array [
-+     0,
+      0,
 +   ],
 +   "react/prop-types": Array [
 +     "off",
@@ -161,6 +169,5 @@ Snapshot Diff:
 +   ],
 +   "react/require-render-return": Array [
 +     2,
-+   ],
-    "require-atomic-updates": Array [
+    ],
 `;

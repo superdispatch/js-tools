@@ -9,6 +9,12 @@ module.exports = {
 
   rules: {
     //
+    // @superdispatch/eslint-plugin
+    //
+
+    '@superdispatch/jsx-no-spread-object-expression': INCONSISTENCY,
+
+    //
     // eslint-plugin-react
     //
 
