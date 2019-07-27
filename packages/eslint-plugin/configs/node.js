@@ -5,12 +5,9 @@ const { OFF, ERROR } = require('./internal/error-codes');
 module.exports = {
   env: { node: true },
 
-  plugins: ['eslint-plugin-node'],
+  plugins: ['node'],
 
-  extends: [
-    require.resolve('./base'),
-    // 'plugin:node/recommended'
-  ],
+  extends: [require.resolve('./base'), 'plugin:node/recommended-script'],
 
   rules: {
     //

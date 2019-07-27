@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
 
-  plugins: ['import', 'prettier'],
+  plugins: ['import', 'prettier', '@superdispatch/eslint-plugin'],
 
   extends: [
     //

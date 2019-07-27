@@ -5,8 +5,8 @@ module.exports = {
 
   overrides: [
     {
-      files: ['**/*.spec.js', '**/__testutils__/**/*.js'],
       extends: 'plugin:@superdispatch/jest',
+      files: ['**/*.spec.js', '**/__testutils__/**/*.js'],
       rules: {
         'node/no-extraneous-require': 'off',
         'import/no-extraneous-dependencies': 'off',

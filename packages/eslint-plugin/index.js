@@ -3,11 +3,11 @@
 module.exports = {
   rules: {},
   configs: {
-    app: { extends: './configs/app' },
-    base: { extends: './configs/base' },
-    node: { extends: './configs/node' },
-    jest: { extends: './configs/jest' },
-    react: { extends: './configs/react' },
-    typescript: { extends: './configs/typescript' },
+    app: require('./configs/app'),
+    base: require('./configs/base'),
+    node: require('./configs/node'),
+    jest: require('./configs/jest'),
+    react: require('./configs/react'),
+    typescript: require('./configs/typescript'),
   },
 };
