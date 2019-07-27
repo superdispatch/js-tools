@@ -9,6 +9,7 @@ Object {
     "ecmaVersion": 2018,
   },
   "plugins": Array [
+    "@superdispatch",
     "prettier",
     "import",
   ],

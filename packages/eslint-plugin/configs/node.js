@@ -43,22 +43,12 @@ module.exports = {
     // eslint-plugin-node
     //
 
-    //
-    // Possible Errors
-
-    'node/no-extraneous-import': ERROR,
-    'node/no-extraneous-require': ERROR,
-    'node/no-missing-import': ERROR,
-    'node/no-missing-require': ERROR,
-    'node/no-unpublished-bin': ERROR,
-    'node/no-unpublished-import': ERROR,
-    'node/no-unpublished-require': ERROR,
-    'node/no-unsupported-features/es-builtins': ERROR,
-    'node/no-unsupported-features/es-syntax': ERROR,
-    'node/no-unsupported-features/node-builtins': ERROR,
-    'node/process-exit-as-throw': ERROR,
-    'node/shebang': ERROR,
-    'node/no-deprecated-api': ERROR,
+    /**
+     * Disable in favour of `import/no-extraneous-dependencies`.
+     *
+     * @see https://github.com/mysticatea/eslint-plugin-node/blob/HEAD/docs/rules/no-extraneous-require.md
+     */
+    'node/no-extraneous-require': OFF,
 
     //
     // Stylistic Issues

@@ -19,6 +19,7 @@ Snapshot Diff:
       "ecmaVersion": 2018,
     },
     "plugins": Array [
+      "@superdispatch",
       "prettier",
       "import",
 +     "react-hooks",
