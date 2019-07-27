@@ -7,7 +7,7 @@
     "bump": "lerna version",
     "tdd": "jest --watch",
     "test": "jest --coverage",
-    "lint": "eslint \"packages/**/*.js\""
+    "lint": "eslint \"*.js\" \"packages/**/*.js\""
   },
   "workspaces": {
     "packages": [
