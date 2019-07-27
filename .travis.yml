@@ -25,6 +25,14 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
+    script: yarn lerna publish from-git --yes
+    on:
+      tags: true
+      branch: master
+      repo: superdispatch/js-tools
+
+  - provider: script
+    skip_cleanup: true
     script: yarn lerna publish --yes --canary --no-git-tag-version
     on:
       tags: false
