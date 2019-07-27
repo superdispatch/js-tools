@@ -5,9 +5,8 @@
   "packages": ["packages/*"],
   "command": {
     "publish": {
-      "ignoreChanges": ["**/__tests__/*.*", "**/__testutils__/*.*"],
-      "conventionalCommits": true,
-      "message": "chore(release): Publish"
+      "message": "chore(release): Publish",
+      "ignoreChanges": ["**/__tests__/*.*", "**/__testutils__/*.*"]
     }
   }
 }
