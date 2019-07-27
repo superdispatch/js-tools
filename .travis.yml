@@ -19,8 +19,12 @@ script:
   - yarn lint
   - yarn test
 
+before_deploy:
+  - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+
 deploy:
   - provider: script
+    skip_cleanup: true
     script: yarn lerna publish --yes --canary --no-git-tag-version
     on:
       tags: false
