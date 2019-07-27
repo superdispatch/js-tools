@@ -103,7 +103,7 @@ Snapshot Diff:
 +     "off",
 +   ],
 +   "@typescript-eslint/interface-name-prefix": Array [
-+     "error",
++     "off",
 +   ],
 +   "@typescript-eslint/member-delimiter-style": Array [
 +     "off",
@@ -167,7 +167,7 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "@typescript-eslint/prefer-interface": Array [
-+     "error",
++     "off",
 +   ],
 +   "@typescript-eslint/prefer-namespace-keyword": Array [
 +     "error",
