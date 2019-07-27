@@ -33,6 +33,11 @@ ruleTester.run('jsx-no-spread-object-expression', rule, {
     },
     {
       errors: [expectedError],
+      code: '<App {...{ "foo-bar": "baz" }} />',
+      output: '<App foo-bar={"baz"} />',
+    },
+    {
+      errors: [expectedError],
       code: '<App {...{ foo: `bar ${baz} quoz` }} />',
       output: '<App foo={`bar ${baz} quoz`} />',
     },
