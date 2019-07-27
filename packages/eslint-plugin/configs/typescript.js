@@ -64,6 +64,11 @@ module.exports = {
     //
 
     /**
+     * @deprecated
+     */
+    '@typescript-eslint/prefer-interface': OFF,
+
+    /**
      * Requires using either `T[]` or `Array<T>` for arrays.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/array-type.md
@@ -90,6 +95,13 @@ module.exports = {
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
      */
     '@typescript-eslint/explicit-member-accessibility': [ERROR, { accessibility: 'no-public' }],
+
+    /**
+     * Ignore interface name prefix.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/interface-name-prefix.md
+     */
+    '@typescript-eslint/interface-name-prefix': OFF,
 
     /**
      * Disallow unused variables.
