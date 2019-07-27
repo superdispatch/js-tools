@@ -4,15 +4,15 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "name": "@superdispatch/prettier-config",
-  "description": "Shared config for Prettier.",
+  "name": "@superdispatch/tsconfig",
+  "description": "Shared config for TypeScript.",
   "repository": "https://github.com/superdispatch/js-tools.git",
   "keywords": [
-    "prettier"
+    "typescript"
   ],
-  "main": "prettier.config.js",
+  "main": "tsconfig.json",
   "files": [
-    "prettier.config.js"
+    "tsconfig.json"
   ],
   "publishConfig": {
     "access": "public"
