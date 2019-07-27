@@ -1,6 +1,7 @@
-"use strict";
+'use strict';
 
 module.exports = {
-  testEnvironment: "node",
-  roots: ["<rootDir>/packages/prettier-config"]
+  testEnvironment: 'node',
+  snapshotSerializers: [require.resolve('snapshot-diff/serializer.js')],
+  roots: ['<rootDir>/packages/eslint-plugin', '<rootDir>/packages/prettier-config'],
 };
