@@ -18,3 +18,11 @@ install:
 script:
   - yarn lint
   - yarn test
+
+deploy:
+  - provider: script
+    script: yarn lerna publish --yes --canary --no-git-tag-version
+    on:
+      tags: false
+      branch: master
+      repo: superdispatch/js-tools
