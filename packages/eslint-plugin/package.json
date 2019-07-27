@@ -14,7 +14,9 @@
   "files": [
     "index.js",
     "rules/**",
-    "configs/**"
+    "configs/**",
+    "!**/__tests__/**",
+    "!**/__testutils__/**"
   ],
   "publishConfig": {
     "access": "public"
