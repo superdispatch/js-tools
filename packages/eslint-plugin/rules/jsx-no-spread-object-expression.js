@@ -23,29 +23,22 @@ module.exports = {
             const updates = [];
 
             for (const property of node.argument.properties) {
-              switch (property.type) {
-                case 'Property': {
-                  const key =
-                    property.key.type === 'Literal'
-                      ? property.key.value
-                      : sourceCode.getText(property.key);
-                  const value = sourceCode.getText(property.value);
+              if (property.type === 'Property' && !property.computed) {
+                const key =
+                  property.key.type === 'Literal'
+                    ? property.key.value
+                    : sourceCode.getText(property.key);
+                const value = sourceCode.getText(property.value);
 
-                  updates.push(`${key}={${value}}`);
-
-                  break;
-                }
-
-                case 'SpreadElement':
-                case 'ExperimentalSpreadProperty': {
-                  updates.push(`{${sourceCode.getText(property)}}`);
-
-                  break;
-                }
-
-                default:
-                  // Skip updates when there is unsupported property type.
-                  return [];
+                updates.push(`${key}={${value}}`);
+              } else if (
+                property.type === 'SpreadElement' ||
+                property.type === 'ExperimentalSpreadProperty'
+              ) {
+                updates.push(`{${sourceCode.getText(property)}}`);
+              } else {
+                // Exit without updates when there is unsupported property type.
+                return [];
               }
             }
 
