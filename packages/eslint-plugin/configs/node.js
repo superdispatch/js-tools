@@ -21,6 +21,13 @@ module.exports = {
      */
     'no-console': OFF,
 
+    /**
+     * Require strict mode directives.
+     *
+     * @see https://eslint.org/docs/rules/strict
+     */
+    strict: ['error', 'global'],
+
     //
     // eslint-plugin-import
     //

@@ -1,3 +1,5 @@
+'use strict';
+
 const { resolveConfig } = require('prettier');
 
 it('exposes config', async () => {

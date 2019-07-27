@@ -1,3 +1,5 @@
+'use strict';
+
 const OFF = 'off';
 const ERROR = 'error';
 const WARNING = 'warn';

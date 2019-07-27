@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');

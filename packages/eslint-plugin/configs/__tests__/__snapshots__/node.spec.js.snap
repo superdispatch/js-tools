@@ -108,11 +108,11 @@ Snapshot Diff:
 +     "off",
     ],
 @@ --- --- @@
-    ],
-+   "no-process-exit": Array [
+    "no-octal": Array [
 +     "error",
 +   ],
-    "no-prototype-builtins": Array [
++   "no-process-exit": Array [
+      "error",
 @@ --- --- @@
     "no-wrap-func": Array [
 +     "off",
@@ -124,17 +124,17 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "node/no-extraneous-import": Array [
-      "off",
++     "off",
 +   ],
 +   "node/no-extraneous-require": Array [
 +     "off",
 +   ],
 +   "node/no-missing-import": Array [
-+     "off",
+      "off",
 +   ],
 +   "node/no-missing-require": Array [
 +     "error",
-+   ],
+    ],
 +   "node/no-unpublished-bin": Array [
 +     "error",
 +   ],
@@ -188,5 +188,13 @@ Snapshot Diff:
 +   ],
 +   "node/shebang": Array [
 +     "error",
++   ],
+    "nonblock-statement-body-position": Array [
+@@ --- --- @@
+      "off",
++   ],
++   "strict": Array [
++     "error",
++     "global",
     ],
 `;
