@@ -1,11 +1,9 @@
 language: node_js
 
-cache: yarn
-
 notifications:
   email: false
 
-node_js:
+node:
   - '10'
   - '12'
 
@@ -28,6 +26,7 @@ deploy:
     skip_cleanup: true
     script: yarn lerna publish from-git --yes
     on:
+      node: '10'
       tags: true
       branch: master
       repo: superdispatch/js-tools
@@ -36,5 +35,6 @@ deploy:
     skip_cleanup: true
     script: yarn lerna publish --yes --canary --no-git-tag-version --dist-tag $TRAVIS_BRANCH
     on:
+      node: '10'
       tags: false
       repo: superdispatch/js-tools
