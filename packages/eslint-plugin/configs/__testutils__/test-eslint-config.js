@@ -59,6 +59,9 @@ function testInheritance(configName, baseConfigName) {
     });
 
     it('dev rules', () => {
+      const { CI, NODE_ENV } = process.env;
+
+      delete process.env.CI;
       process.env.NODE_ENV = 'development';
       jest.resetModules();
 
@@ -67,7 +70,8 @@ function testInheritance(configName, baseConfigName) {
         ? {}
         : getConfigForFile('foo/index.js', baseConfigName);
 
-      process.env.NODE_ENV = 'test';
+      process.env.CI = CI;
+      process.env.NODE_ENV = NODE_ENV;
 
       expect(
         snapshotDiff(excludeEqual(baseRules, rules), excludeEqual(baseDevRules, devRules), {
