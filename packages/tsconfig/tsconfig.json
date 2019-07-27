@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    //
+    // Disable transpile.
+    //
+
+    "noEmit": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "target": "es2020",
+    "lib": ["dom", "es2020"],
+
+    //
+    // Type checks
+    //
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    //
+    // Module resolution
+    //
+
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+
+    //
+    // Experimental Options
+    //
+
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+}
