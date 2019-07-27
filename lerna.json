@@ -5,7 +5,7 @@
   "packages": ["packages/*"],
   "command": {
     "publish": {
-      "ignoreChanges": ["**/dist/*.*"],
+      "ignoreChanges": ["**/__tests__/*.*", "**/__testutils__/*.*"],
       "conventionalCommits": true,
       "message": "chore(release): Publish"
     }
