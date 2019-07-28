@@ -7,7 +7,10 @@
     "bump": "lerna version",
     "tdd": "jest --watch",
     "test": "jest --coverage",
-    "lint": "eslint \"*.js\" \"packages/**/*.js\""
+    "lint": "eslint \"{*,packages/**/*}.js\"",
+    "format-base": "prettier \"{*,packages/**/*}.{md,yml,json}\"",
+    "format": "yarn format-base --write",
+    "check-format": "yarn format-base --list-different"
   },
   "workspaces": {
     "packages": [
