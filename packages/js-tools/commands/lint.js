@@ -38,8 +38,8 @@ module.exports = async ({ fix, files }) => {
   }
 
   if (files.length === 0) {
-    eslintFiles.push(`**/*{${eslintExtensions.join(',')}`);
-    prettierFiles.push(`**/*{${prettierExtensions.join(',')}`);
+    eslintFiles.push(`**/*{${eslintExtensions.join(',')}}`);
+    prettierFiles.push(`**/*{${prettierExtensions.join(',')}}`);
   } else {
     files.forEach(file => {
       const ext = path.extname(file);
