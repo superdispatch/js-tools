@@ -10,7 +10,6 @@ Object {
   },
   "plugins": Array [
     "@superdispatch",
-    "prettier",
     "import",
   ],
   "settings": Object {},
@@ -125,10 +124,6 @@ Snapshot Diff:
 +     "warn",
     ],
     "prefer-template": Array [
--     "error",
-+     "warn",
-    ],
-    "prettier/prettier": Array [
 -     "error",
 +     "warn",
     ],
@@ -627,9 +622,6 @@ Object {
     "error",
   ],
   "prefer-template": Array [
-    "error",
-  ],
-  "prettier/prettier": Array [
     "error",
   ],
   "quote-props": Array [
