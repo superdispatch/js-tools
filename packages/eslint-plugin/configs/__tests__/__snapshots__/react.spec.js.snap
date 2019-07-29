@@ -20,7 +20,6 @@ Snapshot Diff:
     },
     "plugins": Array [
       "@superdispatch",
-      "prettier",
       "import",
 +     "react-hooks",
 +     "react",

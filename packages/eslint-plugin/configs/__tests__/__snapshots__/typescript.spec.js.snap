@@ -16,7 +16,6 @@ Snapshot Diff:
     },
     "plugins": Array [
       "@superdispatch",
-      "prettier",
       "import",
 +     "@typescript-eslint",
     ],
