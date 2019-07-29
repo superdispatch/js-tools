@@ -2,7 +2,7 @@
 
 'use strict';
 
-const { run } = require('./index');
+const run = require('.');
 
 run(process.argv).catch(error => {
   if (error.exitCode) {
