@@ -1,17 +1,25 @@
-### `@superdispatch/prettier-config`
+### `@superdispatch/js-tools`
 
-[![npm](https://img.shields.io/npm/v/@superdispatch/prettier-config)](https://www.npmjs.com/package/@superdispatch/prettier-config)
+[![npm](https://img.shields.io/npm/v/@superdispatch/js-tools)](https://www.npmjs.com/package/@superdispatch/js-tools)
 
 #### Installation
 
 ```bash
-yarn add @superdispatch/prettier-config -D
+yarn add @superdispatch/js-tools -D
 ```
 
 #### Usage
 
-Add to `prettier.config.js`:
+```bash
+# Run checks
+yarn js-tools lint
+
+# With autofixes
+yarn js-tools lint --fix
+```
+
+With `lint-staged`:
 
 ```js
-module.exports = require('@superdispatch/prettier-config');
+module.exports = { '*': 'js-tools lint --fix' };
 ```
