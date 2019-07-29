@@ -73,7 +73,6 @@ Snapshot Diff:
     },
     "plugins": Array [
       "@superdispatch",
-      "prettier",
       "import",
 +     "node",
     ],

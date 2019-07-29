@@ -1,0 +1,30 @@
+{
+  "license": "MIT",
+  "version": "0.1.2",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "name": "@superdispatch/js-tools",
+  "description": "CLI tools for JavaScript",
+  "repository": "https://github.com/superdispatch/js-tools.git",
+  "keywords": [
+    "eslint",
+    "prettier"
+  ],
+  "main": "index.js",
+  "bin": {
+    "js-tools": "bin.js"
+  },
+  "files": [
+    "bin.js",
+    "index.js",
+    "commands/**"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "execa": "^2.0.3",
+    "yargs": "^13.3.0"
+  }
+}
