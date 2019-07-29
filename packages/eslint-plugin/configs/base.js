@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
 
-  plugins: ['import', 'prettier', '@superdispatch/eslint-plugin'],
+  plugins: ['import', '@superdispatch/eslint-plugin'],
 
   extends: [
     //
@@ -351,11 +351,5 @@ module.exports = {
         allowAnonymousFunction: false,
       },
     ],
-
-    //
-    // eslint-plugin-import
-    //
-
-    'prettier/prettier': INCONSISTENCY,
   },
 };
