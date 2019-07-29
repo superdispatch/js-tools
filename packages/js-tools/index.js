@@ -15,7 +15,7 @@ module.exports = argv =>
         'lint',
         'Run linting',
         args => args.option('fix', { type: 'boolean', default: false }),
-        ({ fix }) => resolve(lint({ fix })),
+        ({ _, fix }) => resolve(lint({ fix, files: _.slice(1) })),
       )
       .parse();
   });
