@@ -88,7 +88,7 @@ Snapshot Diff:
 +     "type",
 +   ],
 +   "@typescript-eslint/explicit-function-return-type": Array [
-+     "warn",
++     "off",
 +   ],
 +   "@typescript-eslint/explicit-member-accessibility": Array [
 +     "error",

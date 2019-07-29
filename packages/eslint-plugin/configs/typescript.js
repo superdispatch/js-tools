@@ -90,6 +90,13 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': [INCONSISTENCY, 'type'],
 
     /**
+     * Ignore explicit return types on functions and class methods.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md
+     */
+    '@typescript-eslint/explicit-function-return-type': OFF,
+
+    /**
      * Enforce camelCase naming convention.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
