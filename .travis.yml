@@ -34,8 +34,9 @@ deploy:
 
   - provider: script
     skip_cleanup: true
-    script: yarn lerna publish --yes --canary --no-git-tag-version --dist-tag $TRAVIS_BRANCH
+    script: yarn lerna publish --yes --canary --no-git-tag-version
     on:
       node: '10'
       tags: false
+      branch: master
       repo: superdispatch/js-tools
