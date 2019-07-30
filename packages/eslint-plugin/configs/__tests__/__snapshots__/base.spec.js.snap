@@ -37,11 +37,6 @@ Snapshot Diff:
 +     "warn",
     ],
 @@ --- --- @@
-    "no-confusing-arrow": Array [
--     "error",
-+     "warn",
-      Object {
-@@ --- --- @@
     "no-div-regex": Array [
 -     "error",
 +     "warn",
@@ -331,10 +326,7 @@ Object {
     "off",
   ],
   "no-confusing-arrow": Array [
-    "error",
-    Object {
-      "allowParens": true,
-    },
+    0,
   ],
   "no-console": Array [
     "error",
