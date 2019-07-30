@@ -82,13 +82,6 @@ Snapshot Diff:
 +   "@typescript-eslint/class-name-casing": Array [
 +     "error",
 +   ],
-+   "@typescript-eslint/consistent-type-assertions": Array [
-+     "error",
-+     Object {
-+       "assertionStyle": "as",
-+       "objectLiteralTypeAssertions": "allow",
-+     },
-+   ],
 +   "@typescript-eslint/consistent-type-definitions": Array [
 +     "off",
 +   ],
