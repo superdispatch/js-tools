@@ -66,8 +66,11 @@ module.exports = {
     /**
      * @deprecated
      */
+    // TODO: Remove once it would be deleted from `@typescript-eslint/eslint-plugin`.
     '@typescript-eslint/prefer-interface': OFF,
+    // TODO: Remove after next `@typescript-eslint/eslint-plugin` release.
     '@typescript-eslint/no-angle-bracket-type-assertion': OFF,
+    // TODO: Remove after next `@typescript-eslint/eslint-plugin` release.
     '@typescript-eslint/no-object-literal-type-assertion': OFF,
 
     /**
@@ -84,18 +87,19 @@ module.exports = {
      */
     '@typescript-eslint/camelcase': [ERROR, { properties: 'never', ignoreDestructuring: true }],
 
-    /**
-     * Ignore consistent usage of type assertions.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
-     */
-    '@typescript-eslint/consistent-type-assertions': [
-      ERROR,
-      {
-        assertionStyle: 'as',
-        objectLiteralTypeAssertions: 'allow',
-      },
-    ],
+    // TODO: Enable after next `@typescript-eslint/eslint-plugin` release.
+    // /**
+    //  * Ignore consistent usage of type assertions.
+    //  *
+    //  * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
+    //  */
+    // '@typescript-eslint/consistent-type-assertions': [
+    //   ERROR,
+    //   {
+    //     assertionStyle: 'as',
+    //     objectLiteralTypeAssertions: 'allow',
+    //   },
+    // ],
 
     /**
      * Ignore object type definition (`interface` or `type`).
