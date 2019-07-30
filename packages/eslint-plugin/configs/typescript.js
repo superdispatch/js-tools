@@ -67,6 +67,8 @@ module.exports = {
      * @deprecated
      */
     '@typescript-eslint/prefer-interface': OFF,
+    '@typescript-eslint/no-angle-bracket-type-assertion': OFF,
+    '@typescript-eslint/no-object-literal-type-assertion': OFF,
 
     /**
      * Requires using either `T[]` or `Array<T>` for arrays.
@@ -83,11 +85,24 @@ module.exports = {
     '@typescript-eslint/camelcase': [ERROR, { properties: 'never', ignoreDestructuring: true }],
 
     /**
-     * Enforce camelCase naming convention.
+     * Ignore consistent usage of type assertions.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
+     */
+    '@typescript-eslint/consistent-type-assertions': [
+      ERROR,
+      {
+        assertionStyle: 'as',
+        objectLiteralTypeAssertions: 'allow',
+      },
+    ],
+
+    /**
+     * Ignore object type definition (`interface` or `type`).
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
      */
-    '@typescript-eslint/consistent-type-definitions': [INCONSISTENCY, 'type'],
+    '@typescript-eslint/consistent-type-definitions': OFF,
 
     /**
      * Ignore explicit return types on functions and class methods.
