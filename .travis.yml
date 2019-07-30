@@ -39,3 +39,4 @@ deploy:
       tags: false
       branch: master
       repo: superdispatch/js-tools
+      condition: $PUBLISH_CANARY = true
