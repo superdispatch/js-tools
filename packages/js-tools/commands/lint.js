@@ -24,7 +24,7 @@ function execLinter(cmd, args) {
   return execa(cmd, args, { stdio: 'inherit', preferLocal: true });
 }
 
-module.exports = async ({ fix, files }) => {
+module.exports = async ({ fix, files, quiet }) => {
   const eslintArgs = [];
   const eslintFiles = [];
   const prettierArgs = [];
@@ -35,6 +35,10 @@ module.exports = async ({ fix, files }) => {
     prettierArgs.push('--write');
   } else {
     prettierArgs.push('--list-different');
+  }
+
+  if (quiet) {
+    eslintArgs.push('--quiet');
   }
 
   if (files.length === 0) {

@@ -14,8 +14,15 @@ module.exports = argv =>
       .command(
         'lint',
         'Run linting',
-        args => args.option('fix', { type: 'boolean', default: false }),
-        ({ _, fix }) => resolve(lint({ fix, files: _.slice(1) })),
+        args =>
+          args
+            .option('fix', { type: 'boolean', default: false, description: 'Run auto-fixes' })
+            .option('quiet', {
+              type: 'boolean',
+              default: false,
+              description: 'Do not emit warnings',
+            }),
+        ({ _, fix, quiet }) => resolve(lint({ fix, quiet, files: _.slice(1) })),
       )
       .parse();
   });

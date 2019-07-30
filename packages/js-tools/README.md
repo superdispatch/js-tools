@@ -8,7 +8,18 @@
 yarn add @superdispatch/js-tools -D
 ```
 
-#### Usage
+#### `js-tools lint`
+
+Run linting
+
+```
+Options:
+  --help   Show help                                                   [boolean]
+  --fix    Run auto-fixes                             [boolean] [default: false]
+  --quiet  Do not emit warnings                       [boolean] [default: false]
+```
+
+##### Usage
 
 ```bash
 # Run checks
