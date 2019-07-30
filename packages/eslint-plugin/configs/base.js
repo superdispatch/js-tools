@@ -229,13 +229,6 @@ module.exports = {
     'arrow-body-style': [INCONSISTENCY, 'as-needed', { requireReturnForObjectLiteral: false }],
 
     /**
-     * Disallow arrow functions where they could be confused with comparisons.
-     *
-     * @see https://eslint.org/docs/rules/no-confusing-arrow
-     */
-    'no-confusing-arrow': [INCONSISTENCY, { allowParens: true }],
-
-    /**
      * Disallow unnecessary computed property keys on objects.
      *
      * @see https://eslint.org/docs/rules/no-useless-computed-key
