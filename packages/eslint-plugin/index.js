@@ -7,6 +7,7 @@ module.exports = {
   configs: {
     base: { extends: './configs/base' },
     node: { extends: './configs/node' },
+    'node-pkg': { extends: './configs/node-pkg' },
     jest: { extends: './configs/jest' },
     react: { extends: './configs/react' },
     typescript: { extends: './configs/typescript' },

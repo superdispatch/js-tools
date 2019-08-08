@@ -141,7 +141,7 @@ Snapshot Diff:
 +     "off",
 +   ],
 +   "node/no-unpublished-require": Array [
-+     "error",
++     "off",
 +   ],
 +   "node/no-unsupported-features/es-builtins": Array [
 +     "error",
