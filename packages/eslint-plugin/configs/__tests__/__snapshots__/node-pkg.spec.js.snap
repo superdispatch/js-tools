@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inheritance config 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Inheritance dev rules 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Inheritance rules 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+    "node/no-unpublished-require": Array [
+-     "off",
++     "error",
+    ],
+`;
