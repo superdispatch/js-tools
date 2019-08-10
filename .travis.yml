@@ -12,6 +12,10 @@ node_js:
   - '10'
   - '12'
 
+cache:
+  - npm
+  - yarn
+
 before_install:
   - npm i -g yarn
 
