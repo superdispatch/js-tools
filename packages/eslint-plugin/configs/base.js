@@ -158,7 +158,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-shadow
      */
-    'no-shadow': [WARNING, { builtinGlobals: true }],
+    'no-shadow': ERROR,
 
     /**
      * Disallow Initializing to `undefined`.
