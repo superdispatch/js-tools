@@ -6,11 +6,10 @@ Snapshot Diff:
 + Second value
 
   Object {
--   "env": Object {},
+    "env": Object {
+      "node": true,
+    },
 -   "globals": Object {},
-+   "env": Object {
-+     "node": true,
-+   },
 +   "globals": Object {
 +     "ArrayBuffer": "readonly",
 +     "Atomics": "readonly",
@@ -72,6 +71,7 @@ Snapshot Diff:
 +     "sourceType": "script",
     },
     "plugins": Array [
+      "simple-import-sort",
       "@superdispatch",
       "import",
 +     "node",

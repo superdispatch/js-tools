@@ -6,7 +6,9 @@ Snapshot Diff:
 + Second value
 
   Object {
-    "env": Object {},
+    "env": Object {
+      "node": true,
+    },
     "globals": Object {},
 -   "parser": null,
 +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
@@ -15,6 +17,7 @@ Snapshot Diff:
 +     "sourceType": "module",
     },
     "plugins": Array [
+      "simple-import-sort",
       "@superdispatch",
       "import",
 +     "@typescript-eslint",

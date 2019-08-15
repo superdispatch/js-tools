@@ -5,18 +5,20 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ -1,7 +1,9 @@
   Object {
--   "env": Object {},
-+   "env": Object {
+    "env": Object {
 +     "jest": true,
 +     "jest/globals": true,
-+   },
+      "node": true,
+    },
     "globals": Object {},
     "parser": null,
     "parserOptions": Object {
-      "ecmaVersion": 2018,
+@@ -9,8 +11,9 @@
     },
     "plugins": Array [
+      "simple-import-sort",
       "@superdispatch",
       "import",
 +     "jest",

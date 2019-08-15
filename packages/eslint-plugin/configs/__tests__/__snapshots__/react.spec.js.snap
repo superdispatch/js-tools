@@ -6,10 +6,10 @@ Snapshot Diff:
 + Second value
 
   Object {
--   "env": Object {},
-+   "env": Object {
+    "env": Object {
 +     "browser": true,
-+   },
+      "node": true,
+    },
     "globals": Object {},
     "parser": null,
     "parserOptions": Object {
@@ -19,6 +19,7 @@ Snapshot Diff:
       "ecmaVersion": 2018,
     },
     "plugins": Array [
+      "simple-import-sort",
       "@superdispatch",
       "import",
 +     "react-hooks",
