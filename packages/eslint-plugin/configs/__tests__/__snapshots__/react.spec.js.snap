@@ -11,6 +11,7 @@ Snapshot Diff:
 +     "browser": true,
 +   },
     "globals": Object {},
+    "noInlineConfig": undefined,
     "parser": null,
     "parserOptions": Object {
 +     "ecmaFeatures": Object {

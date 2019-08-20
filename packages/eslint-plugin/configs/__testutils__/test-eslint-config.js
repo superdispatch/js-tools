@@ -1,9 +1,9 @@
 'use strict';
 
 const path = require('path');
+const { isDeepStrictEqual } = require('util');
 const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
-const { isDeepStrictEqual } = require('util');
 
 function excludeEqual(val1, val2) {
   if (!val1 || !val2) {

@@ -62,6 +62,7 @@ Snapshot Diff:
 +     "setInterval": "readonly",
 +     "setTimeout": "readonly",
 +   },
+    "noInlineConfig": undefined,
     "parser": null,
     "parserOptions": Object {
 -     "ecmaVersion": 2018,
