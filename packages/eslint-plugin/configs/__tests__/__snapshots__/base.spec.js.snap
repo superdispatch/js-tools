@@ -4,6 +4,7 @@ exports[`Inheritance config 1`] = `
 Object {
   "env": Object {},
   "globals": Object {},
+  "noInlineConfig": undefined,
   "parser": null,
   "parserOptions": Object {
     "ecmaVersion": 2018,
@@ -207,6 +208,9 @@ Object {
   "func-names": Array [
     "error",
     "as-needed",
+  ],
+  "function-call-argument-newline": Array [
+    "off",
   ],
   "function-paren-newline": Array [
     "off",

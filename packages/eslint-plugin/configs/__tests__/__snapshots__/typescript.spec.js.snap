@@ -8,6 +8,7 @@ Snapshot Diff:
   Object {
     "env": Object {},
     "globals": Object {},
+    "noInlineConfig": undefined,
 -   "parser": null,
 +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
     "parserOptions": Object {
