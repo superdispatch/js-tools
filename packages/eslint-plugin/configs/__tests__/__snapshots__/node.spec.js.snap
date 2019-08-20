@@ -6,10 +6,11 @@ Snapshot Diff:
 + Second value
 
   Object {
-    "env": Object {
-      "node": true,
-    },
+-   "env": Object {},
 -   "globals": Object {},
++   "env": Object {
++     "node": true,
++   },
 +   "globals": Object {
 +     "ArrayBuffer": "readonly",
 +     "Atomics": "readonly",
@@ -71,7 +72,6 @@ Snapshot Diff:
 +     "sourceType": "script",
     },
     "plugins": Array [
-      "simple-import-sort",
       "@superdispatch",
       "import",
 +     "node",
@@ -102,19 +102,27 @@ Snapshot Diff:
 +   ],
     "import/no-mutable-exports": Array [
 @@ --- --- @@
+      2,
++   ],
++   "import/order": Array [
++     "error",
++     Object {
++       "newlines-between": "ignore",
++     },
+    ],
+@@ --- --- @@
     "no-console": Array [
 -     "error",
 +     "off",
     ],
 @@ --- --- @@
-    "no-octal": Array [
+    ],
++   "no-process-exit": Array [
 +     "error",
 +   ],
-+   "no-process-exit": Array [
-      "error",
+    "no-prototype-builtins": Array [
 @@ --- --- @@
-    "no-wrap-func": Array [
-+     "off",
+      "off",
 +   ],
 +   "node/exports-style": Array [
 +     "error",
@@ -129,11 +137,11 @@ Snapshot Diff:
 +     "off",
 +   ],
 +   "node/no-missing-import": Array [
-      "off",
++     "off",
 +   ],
 +   "node/no-missing-require": Array [
 +     "error",
-    ],
++   ],
 +   "node/no-unpublished-bin": Array [
 +     "error",
 +   ],
@@ -172,7 +180,7 @@ Snapshot Diff:
 +   ],
 +   "node/prefer-global/url": Array [
 +     "error",
-+   ],
+    ],
 +   "node/prefer-global/url-search-params": Array [
 +     "error",
 +   ],
@@ -189,6 +197,12 @@ Snapshot Diff:
 +     "error",
 +   ],
     "nonblock-statement-body-position": Array [
+@@ --- --- @@
+    ],
++   "simple-import-sort/sort": Array [
++     "off",
++   ],
+    "space-after-function-name": Array [
 @@ --- --- @@
       "off",
 +   ],

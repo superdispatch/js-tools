@@ -6,9 +6,7 @@ Snapshot Diff:
 + Second value
 
   Object {
-    "env": Object {
-      "node": true,
-    },
+    "env": Object {},
     "globals": Object {},
 -   "parser": null,
 +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
@@ -17,12 +15,11 @@ Snapshot Diff:
 +     "sourceType": "module",
     },
     "plugins": Array [
-      "simple-import-sort",
       "@superdispatch",
       "import",
++     "simple-import-sort",
 +     "@typescript-eslint",
-    ],
--   "settings": Object {},
++   ],
 +   "settings": Object {
 +     "import/extensions": Array [
 +       ".ts",
@@ -30,7 +27,8 @@ Snapshot Diff:
 +       ".d.ts",
 +       ".js",
 +       ".jsx",
-+     ],
+      ],
+-   "settings": Object {},
 +     "import/parsers": Object {
 +       "@typescript-eslint/parser": Array [
 +         ".ts",
@@ -207,6 +205,9 @@ Snapshot Diff:
     "import/no-unresolved": Array [
 -     2,
 +     "off",
++   ],
++   "import/order": Array [
++     "off",
     ],
 @@ --- --- @@
       "error",
@@ -228,4 +229,13 @@ Snapshot Diff:
 -     "error",
 +     "off",
       Object {
+@@ --- --- @@
+    "semi-style": Array [
++     "off",
++   ],
++   "simple-import-sort/sort": Array [
++     "error",
++   ],
++   "sort-imports": Array [
+      "off",
 `;

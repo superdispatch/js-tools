@@ -2,16 +2,13 @@
 
 exports[`Inheritance config 1`] = `
 Object {
-  "env": Object {
-    "node": true,
-  },
+  "env": Object {},
   "globals": Object {},
   "parser": null,
   "parserOptions": Object {
     "ecmaVersion": 2018,
   },
   "plugins": Array [
-    "simple-import-sort",
     "@superdispatch",
     "import",
   ],
@@ -274,12 +271,6 @@ Object {
   "import/no-unresolved": Array [
     2,
   ],
-  "import/order": Array [
-    "error",
-    Object {
-      "newlines-between": "ignore",
-    },
-  ],
   "indent": Array [
     "off",
   ],
@@ -467,7 +458,11 @@ Object {
     "error",
   ],
   "no-shadow": Array [
-    "error",
+    "warn",
+    Object {
+      "builtinGlobals": true,
+      "hoist": "functions",
+    },
   ],
   "no-shadow-restricted-names": Array [
     "error",
@@ -646,12 +641,6 @@ Object {
     "off",
   ],
   "semi-style": Array [
-    "off",
-  ],
-  "simple-import-sort/sort": Array [
-    "off",
-  ],
-  "sort-imports": Array [
     "off",
   ],
   "space-after-function-name": Array [
