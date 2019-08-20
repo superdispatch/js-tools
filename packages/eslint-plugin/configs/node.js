@@ -142,7 +142,6 @@ module.exports = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
      * */
-    'simple-import-sort/sort': OFF,
     'import/order': [ERROR, { 'newlines-between': 'ignore' }],
   },
 };

@@ -176,9 +176,5 @@ module.exports = {
      * @see https://github.com/lydell/eslint-plugin-simple-import-sort
      */
     'simple-import-sort/sort': ERROR,
-
-    // Turn off other import sorts prior to simple-import-sort
-    'sort-imports': OFF,
-    'import/order': OFF,
   },
 };
