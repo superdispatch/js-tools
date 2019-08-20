@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
 
-  plugins: ['import', '@superdispatch/eslint-plugin', 'simple-import-sort'],
+  plugins: ['import', '@superdispatch/eslint-plugin'],
 
   extends: [
     //
@@ -158,7 +158,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-shadow
      */
-    'no-shadow': ERROR,
+    'no-shadow': [WARNING, { builtinGlobals: true }],
 
     /**
      * Disallow Initializing to `undefined`.
@@ -351,41 +351,5 @@ module.exports = {
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
      */
     'import/newline-after-import': ERROR,
-
-    //
-    // simple-import-sort
-    //
-
-    //
-    // Style guide
-
-    /**
-     * Easy autofixable import sorting.
-     *
-     * P.S It only works for ES imports.
-     *
-     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
-     */
-    'simple-import-sort/sort': ERROR,
-
-    // Turn off other import sorts prior to simple-import-sort
-    'sort-imports': OFF,
-    'import/order': OFF,
   },
-
-  overrides: [
-    /**
-    * Use import/order for CommonJS modules
-    *
-    * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
-    * */
-    {
-      files: '**/*.js',
-      env: { node: true },
-      rules: {
-        'simple-import-sort/sort': OFF,
-        'import/order': [ERROR, { 'newlines-between': 'ignore' }],
-      },
-    },
-  ],
 };
