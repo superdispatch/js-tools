@@ -458,11 +458,7 @@ Object {
     "error",
   ],
   "no-shadow": Array [
-    "warn",
-    Object {
-      "builtinGlobals": true,
-      "hoist": "functions",
-    },
+    "error",
   ],
   "no-shadow-restricted-names": Array [
     "error",

@@ -205,9 +205,6 @@ Snapshot Diff:
     "import/no-unresolved": Array [
 -     2,
 +     "off",
-+   ],
-+   "import/order": Array [
-+     "off",
     ],
 @@ --- --- @@
       "error",
@@ -230,12 +227,9 @@ Snapshot Diff:
 +     "off",
       Object {
 @@ --- --- @@
-    "semi-style": Array [
-+     "off",
+      "off",
 +   ],
 +   "simple-import-sort/sort": Array [
 +     "error",
-+   ],
-+   "sort-imports": Array [
-      "off",
+    ],
 `;

@@ -102,14 +102,14 @@ Snapshot Diff:
 +   ],
     "import/no-mutable-exports": Array [
 @@ --- --- @@
-      2,
-+   ],
+    ],
 +   "import/order": Array [
 +     "error",
 +     Object {
 +       "newlines-between": "ignore",
 +     },
-    ],
++   ],
+    "indent": Array [
 @@ --- --- @@
     "no-console": Array [
 -     "error",
@@ -122,8 +122,7 @@ Snapshot Diff:
 +   ],
     "no-prototype-builtins": Array [
 @@ --- --- @@
-      "off",
-+   ],
+    ],
 +   "node/exports-style": Array [
 +     "error",
 +   ],
@@ -180,7 +179,7 @@ Snapshot Diff:
 +   ],
 +   "node/prefer-global/url": Array [
 +     "error",
-    ],
++   ],
 +   "node/prefer-global/url-search-params": Array [
 +     "error",
 +   ],
@@ -197,12 +196,6 @@ Snapshot Diff:
 +     "error",
 +   ],
     "nonblock-statement-body-position": Array [
-@@ --- --- @@
-    ],
-+   "simple-import-sort/sort": Array [
-+     "off",
-+   ],
-    "space-after-function-name": Array [
 @@ --- --- @@
       "off",
 +   ],
