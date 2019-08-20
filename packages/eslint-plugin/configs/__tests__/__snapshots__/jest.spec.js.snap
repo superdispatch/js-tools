@@ -12,6 +12,7 @@ Snapshot Diff:
 +     "jest/globals": true,
 +   },
     "globals": Object {},
+    "noInlineConfig": undefined,
     "parser": null,
     "parserOptions": Object {
       "ecmaVersion": 2018,

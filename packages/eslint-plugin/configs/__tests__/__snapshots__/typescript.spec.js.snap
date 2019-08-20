@@ -8,6 +8,7 @@ Snapshot Diff:
   Object {
     "env": Object {},
     "globals": Object {},
+    "noInlineConfig": undefined,
 -   "parser": null,
 +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
     "parserOptions": Object {
@@ -17,9 +18,9 @@ Snapshot Diff:
     "plugins": Array [
       "@superdispatch",
       "import",
++     "simple-import-sort",
 +     "@typescript-eslint",
-    ],
--   "settings": Object {},
++   ],
 +   "settings": Object {
 +     "import/extensions": Array [
 +       ".ts",
@@ -27,7 +28,8 @@ Snapshot Diff:
 +       ".d.ts",
 +       ".js",
 +       ".jsx",
-+     ],
+      ],
+-   "settings": Object {},
 +     "import/parsers": Object {
 +       "@typescript-eslint/parser": Array [
 +         ".ts",
@@ -225,4 +227,10 @@ Snapshot Diff:
 -     "error",
 +     "off",
       Object {
+@@ --- --- @@
+      "off",
++   ],
++   "simple-import-sort/sort": Array [
++     "error",
+    ],
 `;

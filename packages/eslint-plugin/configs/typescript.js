@@ -4,7 +4,7 @@ const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'simple-import-sort'],
   extends: [
     './base.js',
     'plugin:import/typescript',
@@ -160,5 +160,21 @@ module.exports = {
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-function-type.md
      */
     '@typescript-eslint/prefer-function-type': INCONSISTENCY,
+
+    //
+    // simple-import-sort
+    //
+
+    //
+    // Style guide
+
+    /**
+     * Easy autofixable import sorting.
+     *
+     * P.S It only works for ES imports.
+     *
+     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
+     */
+    'simple-import-sort/sort': ERROR,
   },
 };
