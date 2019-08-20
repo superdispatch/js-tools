@@ -136,12 +136,5 @@ module.exports = {
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-promises/fs.md
      */
     'node/prefer-promises/fs': ERROR,
-
-    /**
-     * Use import/order for CommonJS modules
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
-     * */
-    'import/order': [ERROR, { 'newlines-between': 'ignore' }],
   },
 };

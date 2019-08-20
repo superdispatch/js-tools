@@ -242,9 +242,6 @@ Object {
   "import/namespace": Array [
     2,
   ],
-  "import/newline-after-import": Array [
-    "error",
-  ],
   "import/no-anonymous-default-export": Array [
     "error",
     Object {

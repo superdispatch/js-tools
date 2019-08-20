@@ -344,12 +344,5 @@ module.exports = {
         allowAnonymousFunction: false,
       },
     ],
-
-    /**
-     * Enforces having one or more empty lines after the last top-level import statement or require call.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
-     */
-    'import/newline-after-import': ERROR,
   },
 };
