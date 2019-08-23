@@ -26,6 +26,13 @@ module.exports = {
     'react/jsx-boolean-value': [INCONSISTENCY, 'always'],
 
     /**
+     * Enforce shorthand or standard form for React fragments.
+     *
+     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
+     */
+    'react/jsx-fragments': [INCONSISTENCY, 'syntax'],
+
+    /**
      * Prevent problem with children and props.dangerouslySetInnerHTML.
      *
      * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/no-danger-with-children.md
