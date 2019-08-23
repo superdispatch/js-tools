@@ -38,6 +38,11 @@ Snapshot Diff:
 +     "warn",
     ],
 @@ --- --- @@
+    "no-console": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
     "no-div-regex": Array [
 -     "error",
 +     "warn",
