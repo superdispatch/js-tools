@@ -16,6 +16,7 @@ module.exports = argv =>
         'Run linting',
         args =>
           args
+            .positional('files', { default: [], describe: 'Files to lint' })
             .option('fix', { type: 'boolean', default: false, description: 'Run auto-fixes' })
             .option('quiet', {
               type: 'boolean',
