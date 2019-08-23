@@ -1,19 +1,19 @@
 {
-  "license": "MIT",
-  "version": "0.1.2",
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "name": "@superdispatch/tsconfig",
+  "version": "0.1.2",
   "description": "Shared config for TypeScript.",
-  "repository": "https://github.com/superdispatch/js-tools.git",
   "keywords": [
     "typescript"
   ],
-  "main": "tsconfig.json",
+  "repository": "https://github.com/superdispatch/js-tools.git",
+  "license": "MIT",
   "files": [
     "tsconfig.json"
   ],
+  "main": "tsconfig.json",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "publishConfig": {
     "access": "public"
   }

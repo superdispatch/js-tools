@@ -3,17 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
-  "scripts": {
-    "prebump": "yarn lint && yarn test",
-    "bump": "lerna version",
-    "tdd": "jest --watch -u",
-    "test": "jest --coverage",
-    "lint": "js-tools lint"
-  },
   "workspaces": {
     "packages": [
       "packages/*"
     ]
+  },
+  "scripts": {
+    "prebump": "yarn lint && yarn test",
+    "bump": "lerna version",
+    "lint": "js-tools lint",
+    "tdd": "jest --watch -u",
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
