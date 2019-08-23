@@ -1,19 +1,19 @@
 {
-  "license": "MIT",
-  "version": "0.1.2",
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "name": "@superdispatch/prettier-config",
+  "version": "0.1.2",
   "description": "Shared config for Prettier.",
-  "repository": "https://github.com/superdispatch/js-tools.git",
   "keywords": [
     "prettier"
   ],
-  "main": "prettier.config.js",
+  "repository": "https://github.com/superdispatch/js-tools.git",
+  "license": "MIT",
   "files": [
     "prettier.config.js"
   ],
+  "main": "prettier.config.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "publishConfig": {
     "access": "public"
   }

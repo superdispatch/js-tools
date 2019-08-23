@@ -1,16 +1,12 @@
 {
-  "license": "MIT",
-  "version": "0.1.12",
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "name": "@superdispatch/eslint-plugin",
+  "version": "0.1.12",
   "description": "Shared ESLint plugin",
-  "repository": "https://github.com/superdispatch/js-tools.git",
   "keywords": [
     "eslint"
   ],
-  "main": "index.js",
+  "repository": "https://github.com/superdispatch/js-tools.git",
+  "license": "MIT",
   "files": [
     "index.js",
     "rules/**",
@@ -18,9 +14,7 @@
     "!**/__tests__/**",
     "!**/__testutils__/**"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "index.js",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
@@ -36,5 +30,11 @@
     "eslint": "^6.1.0",
     "prettier": "^1.18.0",
     "typescript": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
