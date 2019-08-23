@@ -64,21 +64,11 @@ module.exports = {
     //
 
     /**
-     * @deprecated
-     */
-    // TODO: Remove once it would be deleted from `@typescript-eslint/eslint-plugin`.
-    '@typescript-eslint/prefer-interface': OFF,
-    // TODO: Remove after next `@typescript-eslint/eslint-plugin` release.
-    '@typescript-eslint/no-angle-bracket-type-assertion': OFF,
-    // TODO: Remove after next `@typescript-eslint/eslint-plugin` release.
-    '@typescript-eslint/no-object-literal-type-assertion': OFF,
-
-    /**
      * Requires using either `T[]` or `Array<T>` for arrays.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/array-type.md
      */
-    '@typescript-eslint/array-type': [INCONSISTENCY, 'array-simple'],
+    '@typescript-eslint/array-type': [INCONSISTENCY, { default: 'array-simple' }],
 
     /**
      * Enforce camelCase naming convention.
@@ -86,20 +76,6 @@ module.exports = {
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
      */
     '@typescript-eslint/camelcase': [ERROR, { properties: 'never', ignoreDestructuring: true }],
-
-    // TODO: Enable after next `@typescript-eslint/eslint-plugin` release.
-    // /**
-    //  * Ignore consistent usage of type assertions.
-    //  *
-    //  * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
-    //  */
-    // '@typescript-eslint/consistent-type-assertions': [
-    //   ERROR,
-    //   {
-    //     assertionStyle: 'as',
-    //     objectLiteralTypeAssertions: 'allow',
-    //   },
-    // ],
 
     /**
      * Ignore object type definition (`interface` or `type`).
@@ -130,18 +106,11 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': OFF,
 
     /**
-     * Disallow unused variables.
+     * Disable unused variable checks.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
      */
-    '@typescript-eslint/no-unused-vars': [
-      INCONSISTENCY,
-      {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: true,
-      },
-    ],
+    '@typescript-eslint/no-unused-vars': OFF,
 
     /**
      * Disallow the use of variables before they are defined.
@@ -169,7 +138,7 @@ module.exports = {
     // Style guide
 
     /**
-     * Easy autofixable import sorting.
+     * Easy auto-fixable import sorting.
      *
      * P.S It only works for ES imports.
      *

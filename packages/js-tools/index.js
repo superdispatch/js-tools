@@ -12,7 +12,7 @@ module.exports = argv =>
       .demandCommand()
       .usage('Usage: $0 <cmd>')
       .command(
-        'lint',
+        'lint [files...]',
         'Run linting',
         args =>
           args
@@ -22,7 +22,7 @@ module.exports = argv =>
               default: false,
               description: 'Do not emit warnings',
             }),
-        ({ _, fix, quiet }) => resolve(lint({ fix, quiet, files: _.slice(1) })),
+        ({ fix, quiet, files }) => resolve(lint({ fix, quiet, files })),
       )
       .parse();
   });

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "bump": "lerna version",
-    "tdd": "jest --watch",
+    "tdd": "jest --watch -u",
     "test": "jest --coverage",
     "lint": "js-tools lint"
   },
