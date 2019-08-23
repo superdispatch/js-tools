@@ -44,7 +44,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-console
      */
-    'no-console': ERROR,
+    'no-console': INCONSISTENCY,
 
     /**
      * Disallow empty block statements except `catch`.
