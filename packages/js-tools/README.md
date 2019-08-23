@@ -8,28 +8,38 @@
 yarn add @superdispatch/js-tools -D
 ```
 
-#### `js-tools lint`
-
-Run linting
+#### `$ js-tools <cmd>`
 
 ```
+Commands:
+  js-tools lint [files...]  Run linters
+
+Options:
+  --help  Show help                                                    [boolean]
+```
+
+#### `$ js-tools lint [files...]`
+
+```
+Run linters
+
+Positionals:
+  files  Files to lint                                     [array] [default: []]
+
 Options:
   --help   Show help                                                   [boolean]
+  --tools  Whitelist tools to run        [array] [choices: "eslint", "prettier"]
   --fix    Run auto-fixes                             [boolean] [default: false]
   --quiet  Do not emit warnings                       [boolean] [default: false]
+
+Examples:
+  js-tools                   lint all files
+  js-tools --fix             lint and fix all files
+  js-tools foo.js bar.js     lint only provided files
+  js-tools --tools prettier  lint only with Prettier
 ```
 
-##### Usage
-
-```bash
-# Run checks
-yarn js-tools lint
-
-# With autofixes
-yarn js-tools lint --fix
-```
-
-With `lint-staged`:
+##### With `lint-staged`:
 
 ```js
 module.exports = { '*': 'js-tools lint --fix' };

@@ -4,7 +4,7 @@ const yargs = require('yargs');
 const lint = require('./commands/lint');
 
 module.exports = argv =>
-  new Promise(resolve => {
+  new Promise(resolve =>
     yargs(argv.slice(2))
       .help()
       .strict()
@@ -13,17 +13,31 @@ module.exports = argv =>
       .usage('Usage: $0 <cmd>')
       .command(
         'lint [files...]',
-        'Run linting',
+        'Run linters',
         args =>
           args
+            .example('$0', 'lint all files')
+            .example('$0 --fix', 'lint and fix all files')
+            .example('$0 foo.js bar.js', 'lint only provided files')
+            .example('$0 --tools prettier', 'lint only with Prettier')
             .positional('files', { default: [], describe: 'Files to lint' })
-            .option('fix', { type: 'boolean', default: false, description: 'Run auto-fixes' })
+            .option('tools', {
+              type: 'array',
+              description: 'Whitelist tools to run',
+            })
+            .choices('tools', ['eslint', 'prettier'])
+            .option('fix', {
+              type: 'boolean',
+              default: false,
+
+              description: 'Run auto-fixes',
+            })
             .option('quiet', {
               type: 'boolean',
               default: false,
               description: 'Do not emit warnings',
             }),
-        ({ fix, quiet, files }) => resolve(lint({ fix, quiet, files })),
+        ({ fix, quiet, files, tools }) => resolve(lint({ fix, quiet, files, tools })),
       )
-      .parse();
-  });
+      .parse(),
+  );
