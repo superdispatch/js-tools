@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "prebump": "yarn lint && yarn test",
     "bump": "lerna version",
     "tdd": "jest --watch -u",
     "test": "jest --coverage",
