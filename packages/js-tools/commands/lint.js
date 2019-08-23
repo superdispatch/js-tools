@@ -123,7 +123,10 @@ function execLinter(cmd, args) {
   return execa(cmd, args, { stdio: 'inherit', preferLocal: true });
 }
 
-module.exports = async ({ fix, files, quiet }) => {
+module.exports = async ({ fix, files, quiet, tools }) => {
+  const skipESLint = tools != null && !tools.includes('eslint');
+  const skipPettier = tools != null && !tools.includes('prettier');
+
   const eslintArgs = [];
   const eslintFiles = [];
   const prettierArgs = [];
@@ -157,11 +160,11 @@ module.exports = async ({ fix, files, quiet }) => {
     });
   }
 
-  if (eslintFiles.length > 0) {
+  if (!skipESLint && eslintFiles.length > 0) {
     await execLinter('eslint', [...eslintArgs, ...eslintFiles]);
   }
 
-  if (prettierFiles.length > 0) {
+  if (!skipPettier && prettierFiles.length > 0) {
     await execLinter('prettier', [...prettierArgs, ...prettierFiles]);
   }
 };
