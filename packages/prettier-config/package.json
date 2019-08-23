@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/prettier-config",
-  "version": "0.1.2",
+  "version": "0.1.13",
   "description": "Shared config for Prettier.",
   "keywords": [
     "prettier"
