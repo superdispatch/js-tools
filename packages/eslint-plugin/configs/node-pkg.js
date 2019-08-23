@@ -3,7 +3,7 @@
 const { ERROR } = require('./internal/error-codes');
 
 module.exports = {
-  extends: ['./node'],
+  extends: [require.resolve('./node')],
 
   rules: {
     /**
