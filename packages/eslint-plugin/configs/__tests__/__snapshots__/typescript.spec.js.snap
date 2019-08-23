@@ -54,7 +54,15 @@ Snapshot Diff:
 
 exports[`Inheritance dev rules 1`] = `
 Snapshot Diff:
-Compared values have no visual difference.
+- First value
++ Second value
+
+@@ --- --- @@
+    ],
++   "no-var": Array [
++     "error",
++   ],
+  }
 `;
 
 exports[`Inheritance rules 1`] = `
@@ -69,7 +77,12 @@ Snapshot Diff:
 +   ],
 +   "@typescript-eslint/array-type": Array [
 +     "error",
-+     "array-simple",
++     Object {
++       "default": "array-simple",
++     },
++   ],
++   "@typescript-eslint/ban-ts-ignore": Array [
++     "error",
 +   ],
 +   "@typescript-eslint/ban-types": Array [
 +     "error",
@@ -82,6 +95,9 @@ Snapshot Diff:
 +     },
 +   ],
 +   "@typescript-eslint/class-name-casing": Array [
++     "error",
++   ],
++   "@typescript-eslint/consistent-type-assertions": Array [
 +     "error",
 +   ],
 +   "@typescript-eslint/consistent-type-definitions": Array [
@@ -108,10 +124,10 @@ Snapshot Diff:
 +   "@typescript-eslint/member-delimiter-style": Array [
 +     "off",
 +   ],
-+   "@typescript-eslint/no-angle-bracket-type-assertion": Array [
-+     "off",
-+   ],
 +   "@typescript-eslint/no-array-constructor": Array [
++     "error",
++   ],
++   "@typescript-eslint/no-empty-function": Array [
 +     "error",
 +   ],
 +   "@typescript-eslint/no-empty-interface": Array [
@@ -133,24 +149,13 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "@typescript-eslint/no-non-null-assertion": Array [
-+     "error",
++     "warn",
 +   ],
-+   "@typescript-eslint/no-object-literal-type-assertion": Array [
-+     "off",
-+   ],
-+   "@typescript-eslint/no-parameter-properties": Array [
-+     "error",
-+   ],
-+   "@typescript-eslint/no-triple-slash-reference": Array [
++   "@typescript-eslint/no-this-alias": Array [
 +     "error",
 +   ],
 +   "@typescript-eslint/no-unused-vars": Array [
-+     "error",
-+     Object {
-+       "args": "after-used",
-+       "ignoreRestSiblings": true,
-+       "vars": "all",
-+     },
++     "off",
 +   ],
 +   "@typescript-eslint/no-use-before-define": Array [
 +     "error",
@@ -166,14 +171,14 @@ Snapshot Diff:
 +   "@typescript-eslint/prefer-function-type": Array [
 +     "error",
 +   ],
-+   "@typescript-eslint/prefer-interface": Array [
-+     "off",
-+   ],
 +   "@typescript-eslint/prefer-namespace-keyword": Array [
 +     "error",
 +   ],
 +   "@typescript-eslint/semi": Array [
 +     "off",
++   ],
++   "@typescript-eslint/triple-slash-reference": Array [
++     "error",
 +   ],
 +   "@typescript-eslint/type-annotation-spacing": Array [
 +     "off",
@@ -214,6 +219,12 @@ Snapshot Diff:
 +     "off",
     ],
 @@ --- --- @@
+      "error",
++   ],
++   "no-empty-function": Array [
++     "off",
+    ],
+@@ --- --- @@
     "no-undef": Array [
 -     "error",
 +     "off",
@@ -227,6 +238,21 @@ Snapshot Diff:
 -     "error",
 +     "off",
       Object {
+@@ --- --- @@
+      },
++   ],
++   "prefer-const": Array [
++     "error",
+    ],
+@@ --- --- @@
+    ],
++   "prefer-rest-params": Array [
++     "error",
++   ],
++   "prefer-spread": Array [
++     "error",
++   ],
+    "prefer-template": Array [
 @@ --- --- @@
       "off",
 +   ],
