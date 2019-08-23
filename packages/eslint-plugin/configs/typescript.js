@@ -6,7 +6,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'simple-import-sort'],
   extends: [
-    './base.js',
+    require.resolve('./base.js'),
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',

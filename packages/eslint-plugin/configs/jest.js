@@ -4,7 +4,7 @@ const { ERROR } = require('./internal/error-codes');
 
 module.exports = {
   env: { jest: true },
-  extends: ['./base', 'plugin:jest/recommended', 'plugin:jest/style'],
+  extends: [require.resolve('./base'), 'plugin:jest/recommended', 'plugin:jest/style'],
 
   rules: {
     /**

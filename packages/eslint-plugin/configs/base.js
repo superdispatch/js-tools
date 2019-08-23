@@ -5,9 +5,7 @@ const { OFF, ERROR, WARNING, INCONSISTENCY } = require('./internal/error-codes')
 module.exports = {
   root: true,
 
-  parserOptions: {
-    ecmaVersion: 2018,
-  },
+  parserOptions: { ecmaVersion: 2018 },
 
   plugins: ['import', '@superdispatch/eslint-plugin'],
 

@@ -5,7 +5,7 @@ const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 module.exports = {
   env: { browser: true },
   plugins: ['react', 'react-hooks'],
-  extends: ['./base', 'plugin:react/recommended', 'prettier/react'],
+  extends: [require.resolve('./base'), 'plugin:react/recommended', 'prettier/react'],
 
   rules: {
     //
