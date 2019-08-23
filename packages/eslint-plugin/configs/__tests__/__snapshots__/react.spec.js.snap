@@ -83,6 +83,10 @@ Snapshot Diff:
 +   "react/jsx-first-prop-new-line": Array [
 +     "off",
 +   ],
++   "react/jsx-fragments": Array [
++     "error",
++     "syntax",
++   ],
 +   "react/jsx-indent": Array [
 +     "off",
 +   ],
