@@ -3,19 +3,118 @@
 const path = require('path');
 const execa = require('execa');
 
-const eslintExtensions = ['.js', '.jsx', '.ts', '.tsx'];
-const prettierExtensions = [
+const eslintExtensions = [
+  //
+  // JavaScript
   '.js',
+  '._js',
+  '.bones',
+  '.es',
+  '.es6',
+  '.frag',
+  '.gs',
+  '.jake',
+  '.jsb',
+  '.jscad',
+  '.jsfl',
+  '.jsm',
+  '.jss',
+  '.mjs',
+  '.njs',
+  '.pac',
+  '.sjs',
+  '.ssjs',
+  '.xsjs',
+  '.xsjslib',
+  //
+  // JSX
   '.jsx',
-  '.json',
+
+  //
+  // TypeScript
   '.ts',
   '.tsx',
+];
+
+const prettierExtensions = [
+  ...eslintExtensions,
+
+  //
+  // CSS
   '.css',
+  //
+  // PostCSS
+  '.pcss',
+  //
+  // Less
   '.less',
+  //
+  // SCSS
   '.scss',
+  //
+  // GraphQL
   '.graphql',
+  '.gql',
+  //
+  // Handlebars
+  '.handlebars',
+  '.hbs',
+  //
+  // HTML
+  '.html',
+  '.htm',
+  '.html.hl',
+  '.inc',
+  '.st',
+  '.xht',
+  '.xhtml',
+  //
+  // Vue
+  '.vue',
+  //
+  // JSON
+  '.json',
+  '.avsc',
+  '.geojson',
+  '.gltf',
+  '.JSON-tmLanguage',
+  '.jsonl',
+  '.tfstate',
+  '.tfstate.backup',
+  '.topojson',
+  '.webapp',
+  '.webmanifest',
+  //
+  // JSON5
+  '.json5',
+  //
+  // Flow
+  '.js.flow',
+  //
+  // Markdown
   '.md',
   '.markdown',
+  '.mdown',
+  '.mdwn',
+  '.mkd',
+  '.mkdn',
+  '.mkdown',
+  '.ronn',
+  '.workbook',
+  //
+  // MDX,
+  '.mdx',
+  //
+  // YAML
+  '.yml',
+  '.mir',
+  '.reek',
+  '.rviz',
+  '.sublime-syntax',
+  '.syntax',
+  '.yaml',
+  '.yaml-tmlanguage',
+  '.yml.mysql',
 ];
 
 function execLinter(cmd, args) {
