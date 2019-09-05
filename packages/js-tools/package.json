@@ -22,9 +22,13 @@
     "prettier-plugin-packagejson": "^2.0.1",
     "yargs": "^14.0.0"
   },
+  "devDependencies": {
+    "yarn-deduplicate": "^1.1.1"
+  },
   "peerDependencies": {
     "eslint": "^6.0.0",
-    "prettier": "^1.0.0"
+    "prettier": "^1.0.0",
+    "yarn-deduplicate": "^1.1.1"
   },
   "engines": {
     "node": ">=10.0.0"
