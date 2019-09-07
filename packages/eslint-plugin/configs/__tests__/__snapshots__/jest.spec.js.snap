@@ -22,6 +22,7 @@ Snapshot Diff:
       "import",
 +     "jest",
     ],
+    "reportUnusedDisableDirectives": undefined,
     "settings": Object {},
   }
 `;
