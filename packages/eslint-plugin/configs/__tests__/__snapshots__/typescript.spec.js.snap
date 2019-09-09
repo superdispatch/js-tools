@@ -20,7 +20,9 @@ Snapshot Diff:
       "import",
 +     "simple-import-sort",
 +     "@typescript-eslint",
-+   ],
+    ],
+    "reportUnusedDisableDirectives": undefined,
+-   "settings": Object {},
 +   "settings": Object {
 +     "import/extensions": Array [
 +       ".ts",
@@ -28,8 +30,7 @@ Snapshot Diff:
 +       ".d.ts",
 +       ".js",
 +       ".jsx",
-      ],
--   "settings": Object {},
++     ],
 +     "import/parsers": Object {
 +       "@typescript-eslint/parser": Array [
 +         ".ts",
@@ -173,6 +174,9 @@ Snapshot Diff:
 +   ],
 +   "@typescript-eslint/prefer-namespace-keyword": Array [
 +     "error",
++   ],
++   "@typescript-eslint/quotes": Array [
++     0,
 +   ],
 +   "@typescript-eslint/semi": Array [
 +     "off",
