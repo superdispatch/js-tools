@@ -25,6 +25,7 @@ Snapshot Diff:
 +     "react-hooks",
 +     "react",
     ],
+    "reportUnusedDisableDirectives": undefined,
     "settings": Object {},
   }
 `;
