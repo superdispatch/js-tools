@@ -1,6 +1,6 @@
 # JS Tools
 
-[![Build Status](https://travis-ci.com/superdispatch/js-tools.svg?branch=master)](https://travis-ci.com/superdispatch/js-tools)
+[![CircleCI](https://circleci.com/gh/superdispatch/js-tools.svg?style=svg)](https://circleci.com/gh/superdispatch/js-tools)
 
 - [@superdispatch/js-tools](https://github.com/superdispatch/js-tools/tree/master/packages/js-tools) - CLI utilities
 - [@superdispatch/eslint-plugin](https://github.com/superdispatch/js-tools/tree/master/packages/eslint-plugin) - shared ESLint config
