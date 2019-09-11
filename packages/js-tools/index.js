@@ -25,7 +25,7 @@ module.exports = argv =>
               type: 'array',
               description: 'Whitelist tools to run',
             })
-            .choices('tools', ['eslint', 'prettier'])
+            .choices('tools', ['eslint', 'prettier', 'yarn-deduplicate'])
             .option('fix', {
               type: 'boolean',
               default: false,

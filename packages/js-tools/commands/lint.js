@@ -1,8 +1,10 @@
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 const execa = require('execa');
 
+const yarnLockFileName = 'yarn.lock';
 const eslintExtensions = [
   //
   // JavaScript
@@ -126,16 +128,20 @@ function execLinter(cmd, args) {
 module.exports = async ({ fix, files, quiet, tools }) => {
   const skipESLint = tools != null && !tools.includes('eslint');
   const skipPettier = tools != null && !tools.includes('prettier');
+  const skipYarnDeduplicate = tools != null && !tools.includes('yarn-deduplicate');
 
   const eslintArgs = [];
   const eslintFiles = [];
   const prettierArgs = [];
   const prettierFiles = [];
+  const yarnDeduplicateFiles = [];
+  const yarnDeduplicateArgs = [];
 
   if (fix) {
     eslintArgs.push('--fix');
     prettierArgs.push('--write');
   } else {
+    yarnDeduplicateArgs.push('--list');
     prettierArgs.push('--list-different');
   }
 
@@ -146,9 +152,15 @@ module.exports = async ({ fix, files, quiet, tools }) => {
   if (files.length === 0) {
     eslintFiles.push(`**/*{${eslintExtensions.join(',')}}`);
     prettierFiles.push(`**/*{${prettierExtensions.join(',')}}`);
+
+    // Check yarn.lock file in root
+    if (fs.existsSync(yarnLockFileName)) {
+      yarnDeduplicateFiles.push(yarnLockFileName);
+    }
   } else {
     files.forEach(file => {
       const ext = path.extname(file);
+      const basename = path.basename(file);
 
       if (eslintExtensions.includes(ext)) {
         eslintFiles.push(file);
@@ -156,6 +168,10 @@ module.exports = async ({ fix, files, quiet, tools }) => {
 
       if (prettierExtensions.includes(ext)) {
         prettierFiles.push(file);
+      }
+
+      if (basename === yarnLockFileName) {
+        yarnDeduplicateFiles.push(file);
       }
     });
   }
@@ -166,5 +182,9 @@ module.exports = async ({ fix, files, quiet, tools }) => {
 
   if (!skipPettier && prettierFiles.length > 0) {
     await execLinter('prettier', [...prettierArgs, ...prettierFiles]);
+  }
+
+  if (!skipYarnDeduplicate && yarnDeduplicateFiles.length > 0) {
+    await execLinter('yarn-deduplicate', [...yarnDeduplicateArgs, ...yarnDeduplicateFiles]);
   }
 };
