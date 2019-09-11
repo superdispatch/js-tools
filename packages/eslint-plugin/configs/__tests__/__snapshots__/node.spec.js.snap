@@ -50,7 +50,7 @@ Snapshot Diff:
 +     "clearInterval": "readonly",
 +     "clearTimeout": "readonly",
 +     "console": "readonly",
-+     "exports": "readonly",
++     "exports": "writable",
 +     "global": "readonly",
 +     "globalThis": "readonly",
 +     "module": "readonly",
@@ -109,11 +109,11 @@ Snapshot Diff:
 +     "off",
     ],
 @@ --- --- @@
-    "no-octal": Array [
+    ],
++   "no-process-exit": Array [
 +     "error",
 +   ],
-+   "no-process-exit": Array [
-      "error",
+    "no-prototype-builtins": Array [
 @@ --- --- @@
     "no-wrap-func": Array [
 +     "off",
@@ -124,26 +124,29 @@ Snapshot Diff:
 +   "node/no-deprecated-api": Array [
 +     "error",
 +   ],
++   "node/no-exports-assign": Array [
++     "error",
++   ],
 +   "node/no-extraneous-import": Array [
-+     "off",
++     "error",
 +   ],
 +   "node/no-extraneous-require": Array [
 +     "off",
 +   ],
 +   "node/no-missing-import": Array [
-      "off",
++     "error",
 +   ],
 +   "node/no-missing-require": Array [
 +     "error",
-    ],
++   ],
 +   "node/no-unpublished-bin": Array [
 +     "error",
 +   ],
 +   "node/no-unpublished-import": Array [
-+     "off",
++     "error",
 +   ],
 +   "node/no-unpublished-require": Array [
-+     "off",
+      "off",
 +   ],
 +   "node/no-unsupported-features/es-builtins": Array [
 +     "error",
@@ -168,7 +171,7 @@ Snapshot Diff:
 +   ],
 +   "node/prefer-global/text-decoder": Array [
 +     "error",
-+   ],
+    ],
 +   "node/prefer-global/text-encoder": Array [
 +     "error",
 +   ],
