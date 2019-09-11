@@ -88,6 +88,9 @@ Snapshot Diff:
 +   "@typescript-eslint/ban-types": Array [
 +     "error",
 +   ],
++   "@typescript-eslint/brace-style": Array [
++     "off",
++   ],
 +   "@typescript-eslint/camelcase": Array [
 +     "error",
 +     Object {
@@ -223,11 +226,11 @@ Snapshot Diff:
 +     "off",
     ],
 @@ --- --- @@
-      "error",
-+   ],
+    ],
 +   "no-empty-function": Array [
 +     "off",
-    ],
++   ],
+    "no-empty-pattern": Array [
 @@ --- --- @@
     "no-undef": Array [
 -     "error",
@@ -249,14 +252,14 @@ Snapshot Diff:
 +     "error",
     ],
 @@ --- --- @@
-    ],
+    "prefer-object-spread": Array [
++     "error",
++   ],
 +   "prefer-rest-params": Array [
 +     "error",
 +   ],
 +   "prefer-spread": Array [
-+     "error",
-+   ],
-    "prefer-template": Array [
+      "error",
 @@ --- --- @@
       "off",
 +   ],
