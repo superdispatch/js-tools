@@ -18,8 +18,8 @@ Snapshot Diff:
     "plugins": Array [
       "@superdispatch",
       "import",
-+     "simple-import-sort",
 +     "@typescript-eslint",
++     "simple-import-sort",
     ],
     "reportUnusedDisableDirectives": undefined,
 -   "settings": Object {},
@@ -55,15 +55,7 @@ Snapshot Diff:
 
 exports[`Inheritance dev rules 1`] = `
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-    ],
-+   "no-var": Array [
-+     "error",
-+   ],
-  }
+Compared values have no visual difference.
 `;
 
 exports[`Inheritance rules 1`] = `
@@ -197,6 +189,11 @@ Snapshot Diff:
 +     "off",
       Object {
 @@ --- --- @@
+    "getter-return": Array [
+-     "error",
++     "off",
+    ],
+@@ --- --- @@
     "import/default": Array [
 -     2,
 +     "off",
@@ -226,13 +223,51 @@ Snapshot Diff:
 +     "off",
     ],
 @@ --- --- @@
+    "no-const-assign": Array [
+-     "error",
++     "off",
     ],
+@@ --- --- @@
+    "no-dupe-args": Array [
+-     "error",
++     "off",
+    ],
+    "no-dupe-class-members": Array [
+-     "error",
++     "off",
+    ],
+    "no-dupe-keys": Array [
+-     "error",
++     "off",
+    ],
+@@ --- --- @@
+      "error",
++   ],
 +   "no-empty-function": Array [
 +     "off",
-+   ],
-    "no-empty-pattern": Array [
+    ],
+@@ --- --- @@
+    "no-new-symbol": Array [
+-     "error",
++     "off",
+    ],
+@@ --- --- @@
+    "no-redeclare": Array [
+-     "error",
++     "off",
+    ],
+@@ --- --- @@
+    "no-this-before-super": Array [
+-     "error",
++     "off",
+    ],
 @@ --- --- @@
     "no-undef": Array [
+-     "error",
++     "off",
+    ],
+@@ --- --- @@
+    "no-unreachable": Array [
 -     "error",
 +     "off",
     ],
@@ -246,24 +281,14 @@ Snapshot Diff:
 +     "off",
       Object {
 @@ --- --- @@
-      },
-+   ],
-+   "prefer-const": Array [
-+     "error",
     ],
-@@ --- --- @@
-    "prefer-object-spread": Array [
-+     "error",
-+   ],
-+   "prefer-rest-params": Array [
-+     "error",
-+   ],
-+   "prefer-spread": Array [
-      "error",
-@@ --- --- @@
-      "off",
-+   ],
 +   "simple-import-sort/sort": Array [
 +     "error",
++   ],
+    "space-after-function-name": Array [
+@@ --- --- @@
+    "valid-typeof": Array [
+-     "error",
++     "off",
     ],
 `;

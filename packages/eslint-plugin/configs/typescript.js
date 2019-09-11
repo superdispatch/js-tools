@@ -3,23 +3,15 @@
 const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  plugins: ['simple-import-sort'],
   extends: [
     require.resolve('./base.js'),
     'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
+    require.resolve('./internal/typescript-recommended.js'),
     'prettier/@typescript-eslint',
   ],
 
   rules: {
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://eslint.org/docs/rules/no-undef
-     */
-    'no-undef': OFF,
-
     //
     // eslint-plugin-import
     //
