@@ -266,6 +266,13 @@ module.exports = {
     ],
 
     /**
+     * Do not enforce constants.
+     *
+     * @see https://eslint.org/docs/rules/prefer-const
+     */
+    'prefer-const': INCONSISTENCY,
+
+    /**
      * Prefer destructuring from arrays and objects.
      *
      * @see https://eslint.org/docs/rules/prefer-destructuring

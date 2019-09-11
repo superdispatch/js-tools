@@ -112,6 +112,10 @@ Snapshot Diff:
 +     "warn",
       Object {
 @@ --- --- @@
+    "prefer-const": Array [
+-     "error",
++     "warn",
+    ],
     "prefer-destructuring": Array [
 -     "error",
 +     "warn",
@@ -596,6 +600,9 @@ Object {
       "allowNamedFunctions": false,
       "allowUnboundThis": true,
     },
+  ],
+  "prefer-const": Array [
+    "error",
   ],
   "prefer-destructuring": Array [
     "error",
