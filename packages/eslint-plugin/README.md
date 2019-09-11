@@ -20,8 +20,10 @@ module.exports = {
   },
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
-    { files: ['*.ts', '*.tsx'], extends: 'plugin:@superdispatch/typescript' },
-    { files: '*.tsx', extends: 'plugin:@superdispatch/react' },
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: ['plugin:@superdispatch/react', 'plugin:@superdispatch/typescript'],
+    },
     {
       files: ['**/__tests__/**/*.ts', '**/__tests__/**/*.ts'],
       extends: 'plugin:@superdispatch/jest',
