@@ -79,6 +79,11 @@ Snapshot Diff:
 +     "warn",
     ],
 @@ --- --- @@
+    "no-unused-expressions": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
     "no-useless-computed-key": Array [
 -     "error",
 +     "warn",
@@ -511,6 +516,9 @@ Object {
     "error",
   ],
   "no-unsafe-negation": Array [
+    "error",
+  ],
+  "no-unused-expressions": Array [
     "error",
   ],
   "no-unused-labels": Array [
