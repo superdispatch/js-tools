@@ -203,7 +203,7 @@ module.exports = {
     'no-lonely-if': INCONSISTENCY,
 
     /**
-     * Disallow `if` statements as the only statement in `else` blocks.
+     * Disallow ternary operators when simpler alternatives exist.
      *
      * @see https://eslint.org/docs/rules/no-unneeded-ternary
      */
