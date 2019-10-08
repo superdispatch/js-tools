@@ -141,6 +141,13 @@ module.exports = {
     ],
 
     /**
+     * Disallow Unused Expressions.
+     *
+     * @see https://eslint.org/docs/rules/no-unused-expressions
+     */
+    'no-unused-expressions': INCONSISTENCY,
+
+    /**
      * Require or disallow Yoda Conditions.
      *
      * @see https://eslint.org/docs/rules/yoda
