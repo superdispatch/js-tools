@@ -36,6 +36,26 @@ function getConfigForFile(file, configFile) {
   return { ...config, parser: parser && path.relative(process.cwd(), parser) };
 }
 
+function mockDevEnv() {
+  const { CI, NODE_ENV } = process.env;
+
+  delete process.env.CI;
+  process.env.NODE_ENV = 'development';
+  jest.resetModules();
+
+  return () => {
+    if (CI) {
+      process.env.CI = CI;
+    }
+
+    if (NODE_ENV) {
+      process.env.NODE_ENV = NODE_ENV;
+    } else {
+      delete process.env.NODE_ENV;
+    }
+  };
+}
+
 function testInheritance(configName, baseConfigName) {
   describe('Inheritance', () => {
     const { rules, ...config } = getConfigForFile('foo/index.js', configName);
@@ -59,19 +79,14 @@ function testInheritance(configName, baseConfigName) {
     });
 
     it('dev rules', () => {
-      const { CI, NODE_ENV } = process.env;
-
-      delete process.env.CI;
-      process.env.NODE_ENV = 'development';
-      jest.resetModules();
+      const unmock = mockDevEnv();
 
       const { rules: devRules } = getConfigForFile('foo/index.js', configName);
       const { rules: baseDevRules } = !baseConfigName
         ? {}
         : getConfigForFile('foo/index.js', baseConfigName);
 
-      process.env.CI = CI;
-      process.env.NODE_ENV = NODE_ENV;
+      unmock();
 
       expect(
         snapshotDiff(excludeEqual(baseRules, rules), excludeEqual(baseDevRules, devRules), {
