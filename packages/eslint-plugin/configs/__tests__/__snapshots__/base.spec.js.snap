@@ -1,24 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Inheritance config 1`] = `
-Object {
-  "env": Object {},
-  "globals": Object {},
-  "noInlineConfig": undefined,
-  "parser": null,
-  "parserOptions": Object {
-    "ecmaVersion": 2018,
-  },
-  "plugins": Array [
-    "@superdispatch",
-    "import",
-  ],
-  "reportUnusedDisableDirectives": undefined,
-  "settings": Object {},
-}
-`;
-
-exports[`Inheritance dev rules 1`] = `
+exports[`changes in dev environment 1`] = `
 Snapshot Diff:
 - First value
 + Second value
@@ -200,7 +182,23 @@ Snapshot Diff:
       "never",
 `;
 
-exports[`Inheritance rules 1`] = `
+exports[`properly extends all dependencies 1`] = `
+Object {
+  "env": Object {},
+  "globals": Object {},
+  "parser": null,
+  "parserOptions": Object {
+    "ecmaVersion": 2018,
+  },
+  "plugins": Array [
+    "@superdispatch",
+    "import",
+  ],
+  "settings": Object {},
+}
+`;
+
+exports[`properly extends all dependencies 2`] = `
 Object {
   "array-bracket-newline": Array [
     "off",
