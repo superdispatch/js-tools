@@ -67,7 +67,10 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
      */
-    '@typescript-eslint/camelcase': [ERROR, { properties: 'never', ignoreDestructuring: true }],
+    '@typescript-eslint/camelcase': [
+      INCONSISTENCY,
+      { properties: 'never', ignoreDestructuring: true },
+    ],
 
     /**
      * Ignore object type definition (`interface` or `type`).
@@ -88,7 +91,10 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
      */
-    '@typescript-eslint/explicit-member-accessibility': [ERROR, { accessibility: 'no-public' }],
+    '@typescript-eslint/explicit-member-accessibility': [
+      INCONSISTENCY,
+      { accessibility: 'no-public' },
+    ],
 
     /**
      * Ignore interface name prefix.

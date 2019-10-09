@@ -26,7 +26,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/strict
      */
-    strict: ['error', 'global'],
+    strict: [ERROR, 'global'],
 
     //
     // eslint-plugin-import
