@@ -1,10 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Inheritance config 1`] = `
+exports[`changes in dev environment 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`properly extends all dependencies 1`] = `
 Snapshot Diff:
 - First value
 + Second value
 
+@@ --- --- @@
   Object {
 -   "env": Object {},
 +   "env": Object {
@@ -12,27 +18,13 @@ Snapshot Diff:
 +     "jest/globals": true,
 +   },
     "globals": Object {},
-    "noInlineConfig": undefined,
-    "parser": null,
-    "parserOptions": Object {
-      "ecmaVersion": 2018,
-    },
-    "plugins": Array [
-      "@superdispatch",
+@@ --- --- @@
       "import",
 +     "jest",
     ],
-    "reportUnusedDisableDirectives": undefined,
-    "settings": Object {},
-  }
 `;
 
-exports[`Inheritance dev rules 1`] = `
-Snapshot Diff:
-Compared values have no visual difference.
-`;
-
-exports[`Inheritance rules 1`] = `
+exports[`properly extends all dependencies 2`] = `
 Snapshot Diff:
 - First value
 + Second value

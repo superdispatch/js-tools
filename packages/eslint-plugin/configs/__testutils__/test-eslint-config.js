@@ -1,103 +1,82 @@
 'use strict';
 
 const path = require('path');
+const execa = require('execa');
 const { isDeepStrictEqual } = require('util');
-const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
 
-function excludeEqual(val1, val2) {
-  if (!val1 || !val2) {
-    return !val1 && !val2 ? null : val1 || val2;
-  }
-
+function omitEqualRules(a, b) {
   const result = {};
+  const allKeys = new Set([...Object.keys(a), ...Object.keys(b)]);
 
-  Object.keys(val1).forEach(key => {
-    if (!isDeepStrictEqual(val1[key], val2[key])) {
-      result[key] = val2[key];
+  allKeys.forEach(key => {
+    if (!isDeepStrictEqual(a[key], b[key])) {
+      result[key] = b[key];
     }
   });
 
   return result;
 }
 
-function createCLI(name) {
-  return new CLIEngine({
-    useEslintrc: false,
-    baseConfig: { extends: `plugin:@superdispatch/${name}` },
-  });
-}
+async function getConfig(name, dev) {
+  const env = { ...process.env };
+  const configPath = path.join(__dirname, '..', `${name}.js`);
 
-function getConfigForFile(file, configFile) {
-  const cli = createCLI(configFile);
+  if (dev) {
+    delete env.CI;
+    env.NODE_ENV = 'development';
+  }
 
-  const { parser, ...config } = cli.getConfigForFile(file);
+  const { stdout } = await execa(
+    'eslint',
+    ['--no-eslintrc', `--config=${configPath}`, '--print-config=config/foo.js'],
+    { env },
+  );
+
+  const { parser, ...config } = JSON.parse(stdout);
 
   return { ...config, parser: parser && path.relative(process.cwd(), parser) };
 }
 
-function mockDevEnv() {
-  const { CI, NODE_ENV } = process.env;
-
-  delete process.env.CI;
-  process.env.NODE_ENV = 'development';
-  jest.resetModules();
-
-  return () => {
-    if (CI) {
-      process.env.CI = CI;
-    }
-
-    if (NODE_ENV) {
-      process.env.NODE_ENV = NODE_ENV;
-    } else {
-      delete process.env.NODE_ENV;
-    }
-  };
+function diff(a, b) {
+  return snapshotDiff(a, b, { contextLines: 1, stablePatchmarks: true });
 }
 
 function testInheritance(configName, baseConfigName) {
-  describe('Inheritance', () => {
-    const { rules, ...config } = getConfigForFile('foo/index.js', configName);
-    const { rules: baseRules, ...baseConfig } = !baseConfigName
-      ? {}
-      : getConfigForFile('foo/index.js', baseConfigName);
+  it('properly extends all dependencies', async () => {
+    const { rules, ...meta } = await getConfig(configName);
 
-    it('config', () => {
-      expect(!baseConfigName ? config : snapshotDiff(baseConfig, config)).toMatchSnapshot();
-    });
+    if (!baseConfigName) {
+      expect(meta).toMatchSnapshot();
+      expect(rules).toMatchSnapshot();
+    } else {
+      const { rules: baseRules, ...baseMeta } = await getConfig(baseConfigName);
 
-    it('rules', () => {
-      expect(
-        !baseConfigName
-          ? rules
-          : snapshotDiff(baseRules, rules, {
-              contextLines: 1,
-              stablePatchmarks: true,
-            }),
-      ).toMatchSnapshot();
-    });
+      expect(diff(baseMeta, meta)).toMatchSnapshot();
+      expect(diff(baseRules, rules)).toMatchSnapshot();
+    }
+  });
 
-    it('dev rules', () => {
-      const unmock = mockDevEnv();
+  it('changes in dev environment', async () => {
+    const [{ rules }, { rules: devRules }] = await Promise.all([
+      getConfig(configName),
+      getConfig(configName, true),
+    ]);
 
-      const { rules: devRules } = getConfigForFile('foo/index.js', configName);
-      const { rules: baseDevRules } = !baseConfigName
-        ? {}
-        : getConfigForFile('foo/index.js', baseConfigName);
+    if (!baseConfigName) {
+      expect(diff(rules, devRules)).toMatchSnapshot();
+    } else {
+      const [{ rules: baseRules }, { rules: baseDevRules }] = await Promise.all([
+        getConfig(baseConfigName),
+        getConfig(baseConfigName, true),
+      ]);
 
-      unmock();
+      const rulesDiff = omitEqualRules(baseRules, rules);
+      const devRulesDiff = omitEqualRules(baseDevRules, devRules);
 
-      expect(
-        snapshotDiff(excludeEqual(baseRules, rules), excludeEqual(baseDevRules, devRules), {
-          contextLines: 1,
-          stablePatchmarks: true,
-        }),
-      ).toMatchSnapshot();
-    });
+      expect(diff(rulesDiff, devRulesDiff)).toMatchSnapshot();
+    }
   });
 }
 
-module.exports = {
-  testInheritance,
-};
+module.exports = { testInheritance };

@@ -1,28 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Inheritance config 1`] = `
+exports[`changes in dev environment 1`] = `
 Snapshot Diff:
 - First value
 + Second value
 
-  Object {
-    "env": Object {},
+@@ --- --- @@
+    "@typescript-eslint/array-type": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "@typescript-eslint/camelcase": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "@typescript-eslint/explicit-member-accessibility": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "@typescript-eslint/no-explicit-any": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "@typescript-eslint/no-non-null-assertion": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "@typescript-eslint/prefer-function-type": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "simple-import-sort/sort": Array [
+-     "error",
++     "warn",
+    ],
+`;
+
+exports[`properly extends all dependencies 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
     "globals": Object {},
-    "noInlineConfig": undefined,
 -   "parser": null,
 +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
     "parserOptions": Object {
       "ecmaVersion": 2018,
 +     "sourceType": "module",
     },
-    "plugins": Array [
-      "@superdispatch",
+@@ --- --- @@
       "import",
 +     "@typescript-eslint",
 +     "simple-import-sort",
-    ],
-    "reportUnusedDisableDirectives": undefined,
--   "settings": Object {},
++   ],
 +   "settings": Object {
 +     "import/extensions": Array [
 +       ".ts",
@@ -30,7 +67,8 @@ Snapshot Diff:
 +       ".d.ts",
 +       ".js",
 +       ".jsx",
-+     ],
+      ],
+-   "settings": Object {},
 +     "import/parsers": Object {
 +       "@typescript-eslint/parser": Array [
 +         ".ts",
@@ -53,12 +91,7 @@ Snapshot Diff:
   }
 `;
 
-exports[`Inheritance dev rules 1`] = `
-Snapshot Diff:
-Compared values have no visual difference.
-`;
-
-exports[`Inheritance rules 1`] = `
+exports[`properly extends all dependencies 2`] = `
 Snapshot Diff:
 - First value
 + Second value
