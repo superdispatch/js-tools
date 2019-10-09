@@ -130,7 +130,10 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "@typescript-eslint/no-explicit-any": Array [
-+     "warn",
++     "error",
++     Object {
++       "ignoreRestArgs": true,
++     },
 +   ],
 +   "@typescript-eslint/no-extra-parens": Array [
 +     "off",
@@ -241,11 +244,11 @@ Snapshot Diff:
 +     "off",
     ],
 @@ --- --- @@
-      "error",
-+   ],
+    ],
 +   "no-empty-function": Array [
 +     "off",
-    ],
++   ],
+    "no-empty-pattern": Array [
 @@ --- --- @@
     "no-new-symbol": Array [
 -     "error",
