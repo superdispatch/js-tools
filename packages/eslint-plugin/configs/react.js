@@ -37,7 +37,7 @@ module.exports = {
      *
      * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/no-danger-with-children.md
      */
-    'react/no-danger-with-children': ERROR,
+    'react/no-danger-with-children': INCONSISTENCY,
 
     /**
      * Disable props validation in a React component definition.
