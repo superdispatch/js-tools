@@ -29,6 +29,11 @@ Snapshot Diff:
 +     "warn",
       "as-needed",
 @@ --- --- @@
+    "camelcase": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
     "curly": Array [
 -     "error",
 +     "warn",
@@ -37,6 +42,11 @@ Snapshot Diff:
     "dot-notation": Array [
 -     "error",
 +     "warn",
+    ],
+@@ --- --- @@
+    "import/no-deprecated": Array [
+-     "warn",
++     "off",
     ],
 @@ --- --- @@
     "no-console": Array [
@@ -101,6 +111,10 @@ Snapshot Diff:
 -     "error",
 +     "warn",
     ],
+    "no-warning-comments": Array [
+-     "warn",
++     "off",
+      Object {
 @@ --- --- @@
     "object-shorthand": Array [
 -     "error",
@@ -176,7 +190,7 @@ Object {
     "off",
   ],
   "camelcase": Array [
-    "warn",
+    "error",
     Object {
       "ignoreDestructuring": true,
       "properties": "never",
