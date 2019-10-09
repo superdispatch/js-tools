@@ -1,6 +1,6 @@
 'use strict';
 
-const { OFF, ERROR, WARNING, INCONSISTENCY } = require('./internal/error-codes');
+const { OFF, DEPT, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 module.exports = {
   root: true,
@@ -133,7 +133,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/no-warning-comments
      */
     'no-warning-comments': [
-      WARNING,
+      DEPT,
       {
         location: 'anywhere',
         terms: ['todo', 'fixme', '@ts-ignore'],
@@ -188,7 +188,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/camelcase
      */
     camelcase: [
-      WARNING,
+      INCONSISTENCY,
       {
         properties: 'never',
         ignoreDestructuring: true,
@@ -320,7 +320,7 @@ module.exports = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
      */
-    'import/no-deprecated': WARNING,
+    'import/no-deprecated': DEPT,
 
     /**
      * Forbid the use of mutable exports with `var` or `let`.

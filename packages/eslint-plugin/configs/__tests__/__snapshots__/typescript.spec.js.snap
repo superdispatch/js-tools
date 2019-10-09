@@ -185,7 +185,7 @@ Snapshot Diff:
     "array-bracket-newline": Array [
 @@ --- --- @@
     "camelcase": Array [
--     "warn",
+-     "error",
 +     "off",
       Object {
 @@ --- --- @@
