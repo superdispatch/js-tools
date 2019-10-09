@@ -44,7 +44,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
-      - run:
+      - deploy:
           name: Publish to NPM
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ./.npmrc
