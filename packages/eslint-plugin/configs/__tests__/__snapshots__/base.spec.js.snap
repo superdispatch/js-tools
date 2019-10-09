@@ -44,9 +44,37 @@ Snapshot Diff:
 +     "warn",
     ],
 @@ --- --- @@
+    "func-names": Array [
+-     "error",
++     "warn",
+      "as-needed",
+@@ --- --- @@
+    "import/first": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "import/no-anonymous-default-export": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
     "import/no-deprecated": Array [
 -     "warn",
 +     "off",
+    ],
+    "import/no-duplicates": Array [
+-     "error",
++     "warn",
+    ],
+    "import/no-mutable-exports": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "no-alert": Array [
+-     "error",
++     "warn",
     ],
 @@ --- --- @@
     "no-console": Array [
@@ -63,6 +91,10 @@ Snapshot Diff:
 -     "error",
 +     "warn",
     ],
+    "no-empty": Array [
+-     "error",
++     "warn",
+      Object {
 @@ --- --- @@
     "no-floating-decimal": Array [
 -     "error",
@@ -75,6 +107,11 @@ Snapshot Diff:
     ],
 @@ --- --- @@
     "no-lonely-if": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "no-shadow": Array [
 -     "error",
 +     "warn",
     ],
@@ -287,7 +324,7 @@ Object {
     "warn",
   ],
   "import/no-duplicates": Array [
-    1,
+    "error",
   ],
   "import/no-mutable-exports": Array [
     "error",

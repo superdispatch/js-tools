@@ -51,7 +51,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-empty
      */
-    'no-empty': [ERROR, { allowEmptyCatch: true }],
+    'no-empty': [INCONSISTENCY, { allowEmptyCatch: true }],
 
     //
     // Best Practices
@@ -75,7 +75,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/func-names
      */
-    'func-names': [ERROR, 'as-needed'],
+    'func-names': [INCONSISTENCY, 'as-needed'],
 
     /**
      * Disallow division operators explicitly at the beginning of regular
@@ -97,7 +97,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-alert
      */
-    'no-alert': ERROR,
+    'no-alert': INCONSISTENCY,
 
     /**
      * Disallow else blocks after return statements in if statements.
@@ -163,7 +163,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-shadow
      */
-    'no-shadow': ERROR,
+    'no-shadow': INCONSISTENCY,
 
     /**
      * Disallow Initializing to `undefined`.
@@ -327,7 +327,7 @@ module.exports = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md
      */
-    'import/no-mutable-exports': ERROR,
+    'import/no-mutable-exports': INCONSISTENCY,
 
     //
     // Style guide
@@ -337,7 +337,14 @@ module.exports = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md
      */
-    'import/first': ERROR,
+    'import/first': INCONSISTENCY,
+
+    /**
+     * Report repeated import of the same module in multiple places
+     *
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
+     */
+    'import/no-duplicates': INCONSISTENCY,
 
     /**
      * Forbid anonymous values as default exports.
@@ -345,7 +352,7 @@ module.exports = {
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md
      */
     'import/no-anonymous-default-export': [
-      ERROR,
+      INCONSISTENCY,
       {
         allowArray: false,
         allowObject: false,
