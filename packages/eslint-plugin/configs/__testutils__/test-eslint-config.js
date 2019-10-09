@@ -23,7 +23,7 @@ async function getConfig(name, dev) {
   const configPath = path.join(__dirname, '..', `${name}.js`);
 
   if (dev) {
-    delete env.CI;
+    env.CI = 'false';
     env.NODE_ENV = 'development';
   }
 
