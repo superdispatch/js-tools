@@ -71,6 +71,10 @@ Snapshot Diff:
 -     "error",
 +     "warn",
     ],
+    "import/no-named-as-default": Array [
+-     "error",
++     "warn",
+    ],
 @@ --- --- @@
     "no-alert": Array [
 -     "error",
@@ -330,7 +334,7 @@ Object {
     "error",
   ],
   "import/no-named-as-default": Array [
-    1,
+    "error",
   ],
   "import/no-named-as-default-member": Array [
     1,

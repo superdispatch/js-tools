@@ -316,6 +316,13 @@ module.exports = {
     // Helpful warnings
 
     /**
+     * Report use of exported name as identifier of default export.
+     *
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md
+     */
+    'import/no-named-as-default': INCONSISTENCY,
+
+    /**
      * Report imported names marked with `@deprecated` documentation tag.
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
