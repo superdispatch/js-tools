@@ -111,6 +111,13 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': [INCONSISTENCY, { ignoreRestArgs: true }],
 
     /**
+     * Disallows non-null assertions using the `!` postfix operator
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
+     */
+    '@typescript-eslint/no-non-null-assertion': INCONSISTENCY,
+
+    /**
      * Disable unused variable checks.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md

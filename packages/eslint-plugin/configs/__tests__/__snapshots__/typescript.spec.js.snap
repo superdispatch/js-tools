@@ -148,7 +148,7 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "@typescript-eslint/no-non-null-assertion": Array [
-+     "warn",
++     "error",
 +   ],
 +   "@typescript-eslint/no-this-alias": Array [
 +     "error",
