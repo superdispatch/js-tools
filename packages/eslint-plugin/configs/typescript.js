@@ -104,6 +104,13 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': OFF,
 
     /**
+     * Disallow usage of the `any` type.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-explicit-any.md
+     */
+    '@typescript-eslint/no-explicit-any': [INCONSISTENCY, { ignoreRestArgs: true }],
+
+    /**
      * Disable unused variable checks.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
@@ -115,7 +122,6 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
      */
-
     '@typescript-eslint/no-use-before-define': [
       ERROR,
       { classes: true, functions: false, typedefs: false },
