@@ -118,7 +118,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-implicit-coercion
      */
-    'no-implicit-coercion': INCONSISTENCY,
+    'no-implicit-coercion': [INCONSISTENCY, { allow: ['!!'] }],
 
     /**
      * Disallow redundant return statements.
