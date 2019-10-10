@@ -28,168 +28,154 @@ Snapshot Diff:
 `;
 
 exports[`properly extends all dependencies 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-  Object {
--   "env": Object {},
-+   "env": Object {
-+     "browser": true,
-+   },
-    "globals": Object {},
-@@ --- --- @@
-    "parserOptions": Object {
-+     "ecmaFeatures": Object {
-+       "jsx": true,
-+     },
-      "ecmaVersion": 2018,
-@@ --- --- @@
-      "import",
-+     "react-hooks",
-+     "react",
-    ],
+Object {
+  "env": Object {
+    "browser": true,
+  },
+  "globals": Object {},
+  "parser": null,
+  "parserOptions": Object {
+    "ecmaFeatures": Object {
+      "jsx": true,
+    },
+  },
+  "plugins": Array [
+    "react-hooks",
+    "react",
+  ],
+  "settings": Object {},
+}
 `;
 
 exports[`properly extends all dependencies 2`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-  Object {
-+   "@superdispatch/jsx-no-spread-object-expression": Array [
-+     "error",
-+   ],
-    "array-bracket-newline": Array [
-@@ --- --- @@
-    "quotes": Array [
-+     0,
-+   ],
-+   "react-hooks/exhaustive-deps": Array [
-+     "error",
-+   ],
-+   "react-hooks/rules-of-hooks": Array [
-+     "error",
-+   ],
-+   "react/display-name": Array [
-+     2,
-+   ],
-+   "react/jsx-boolean-value": Array [
-+     "error",
-+     "always",
-+   ],
-+   "react/jsx-child-element-spacing": Array [
-+     "off",
-+   ],
-+   "react/jsx-closing-bracket-location": Array [
-+     "off",
-+   ],
-+   "react/jsx-closing-tag-location": Array [
-+     "off",
-+   ],
-+   "react/jsx-curly-newline": Array [
-+     "off",
-+   ],
-+   "react/jsx-curly-spacing": Array [
-+     "off",
-+   ],
-+   "react/jsx-equals-spacing": Array [
-+     "off",
-+   ],
-+   "react/jsx-first-prop-new-line": Array [
-+     "off",
-+   ],
-+   "react/jsx-fragments": Array [
-+     "error",
-+     "syntax",
-+   ],
-+   "react/jsx-indent": Array [
-+     "off",
-+   ],
-+   "react/jsx-indent-props": Array [
-+     "off",
-+   ],
-+   "react/jsx-key": Array [
-+     2,
-+   ],
-+   "react/jsx-max-props-per-line": Array [
-+     "off",
-+   ],
-+   "react/jsx-no-comment-textnodes": Array [
-+     2,
-+   ],
-+   "react/jsx-no-duplicate-props": Array [
-+     2,
-+   ],
-+   "react/jsx-no-target-blank": Array [
-+     2,
-+   ],
-+   "react/jsx-no-undef": Array [
-+     2,
-+   ],
-+   "react/jsx-one-expression-per-line": Array [
-+     "off",
-+   ],
-+   "react/jsx-props-no-multi-spaces": Array [
-+     "off",
-+   ],
-+   "react/jsx-space-before-closing": Array [
-+     "off",
-+   ],
-+   "react/jsx-tag-spacing": Array [
-+     "off",
-+   ],
-+   "react/jsx-uses-react": Array [
-+     2,
-+   ],
-+   "react/jsx-uses-vars": Array [
-+     2,
-+   ],
-+   "react/jsx-wrap-multilines": Array [
-+     "off",
-+   ],
-+   "react/no-children-prop": Array [
-+     2,
-+   ],
-+   "react/no-danger-with-children": Array [
-+     "error",
-+   ],
-+   "react/no-deprecated": Array [
-+     2,
-+   ],
-+   "react/no-direct-mutation-state": Array [
-+     2,
-+   ],
-+   "react/no-find-dom-node": Array [
-+     2,
-+   ],
-+   "react/no-is-mounted": Array [
-+     2,
-+   ],
-+   "react/no-render-return-value": Array [
-+     2,
-+   ],
-+   "react/no-string-refs": Array [
-+     2,
-+   ],
-+   "react/no-unescaped-entities": Array [
-+     2,
-+   ],
-+   "react/no-unknown-property": Array [
-+     2,
-+   ],
-+   "react/no-unsafe": Array [
-      0,
-+   ],
-+   "react/prop-types": Array [
-+     "off",
-+   ],
-+   "react/react-in-jsx-scope": Array [
-+     2,
-+   ],
-+   "react/require-render-return": Array [
-+     2,
-    ],
+Object {
+  "@superdispatch/jsx-no-spread-object-expression": Array [
+    "error",
+  ],
+  "react-hooks/exhaustive-deps": Array [
+    "error",
+  ],
+  "react-hooks/rules-of-hooks": Array [
+    "error",
+  ],
+  "react/display-name": Array [
+    2,
+  ],
+  "react/jsx-boolean-value": Array [
+    "error",
+    "always",
+  ],
+  "react/jsx-child-element-spacing": Array [
+    "off",
+  ],
+  "react/jsx-closing-bracket-location": Array [
+    "off",
+  ],
+  "react/jsx-closing-tag-location": Array [
+    "off",
+  ],
+  "react/jsx-curly-newline": Array [
+    "off",
+  ],
+  "react/jsx-curly-spacing": Array [
+    "off",
+  ],
+  "react/jsx-equals-spacing": Array [
+    "off",
+  ],
+  "react/jsx-first-prop-new-line": Array [
+    "off",
+  ],
+  "react/jsx-fragments": Array [
+    "error",
+    "syntax",
+  ],
+  "react/jsx-indent": Array [
+    "off",
+  ],
+  "react/jsx-indent-props": Array [
+    "off",
+  ],
+  "react/jsx-key": Array [
+    2,
+  ],
+  "react/jsx-max-props-per-line": Array [
+    "off",
+  ],
+  "react/jsx-no-comment-textnodes": Array [
+    2,
+  ],
+  "react/jsx-no-duplicate-props": Array [
+    2,
+  ],
+  "react/jsx-no-target-blank": Array [
+    2,
+  ],
+  "react/jsx-no-undef": Array [
+    2,
+  ],
+  "react/jsx-one-expression-per-line": Array [
+    "off",
+  ],
+  "react/jsx-props-no-multi-spaces": Array [
+    "off",
+  ],
+  "react/jsx-space-before-closing": Array [
+    "off",
+  ],
+  "react/jsx-tag-spacing": Array [
+    "off",
+  ],
+  "react/jsx-uses-react": Array [
+    2,
+  ],
+  "react/jsx-uses-vars": Array [
+    2,
+  ],
+  "react/jsx-wrap-multilines": Array [
+    "off",
+  ],
+  "react/no-children-prop": Array [
+    2,
+  ],
+  "react/no-danger-with-children": Array [
+    "error",
+  ],
+  "react/no-deprecated": Array [
+    2,
+  ],
+  "react/no-direct-mutation-state": Array [
+    2,
+  ],
+  "react/no-find-dom-node": Array [
+    2,
+  ],
+  "react/no-is-mounted": Array [
+    2,
+  ],
+  "react/no-render-return-value": Array [
+    2,
+  ],
+  "react/no-string-refs": Array [
+    2,
+  ],
+  "react/no-unescaped-entities": Array [
+    2,
+  ],
+  "react/no-unknown-property": Array [
+    2,
+  ],
+  "react/no-unsafe": Array [
+    0,
+  ],
+  "react/prop-types": Array [
+    "off",
+  ],
+  "react/react-in-jsx-scope": Array [
+    2,
+  ],
+  "react/require-render-return": Array [
+    2,
+  ],
+}
 `;
