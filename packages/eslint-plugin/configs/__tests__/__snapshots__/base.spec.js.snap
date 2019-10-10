@@ -90,7 +90,7 @@ Snapshot Diff:
     "no-implicit-coercion": Array [
 -     "error",
 +     "warn",
-    ],
+      Object {
 @@ --- --- @@
     "no-lonely-if": Array [
 -     "error",
@@ -474,6 +474,14 @@ Object {
   ],
   "no-implicit-coercion": Array [
     "error",
+    Object {
+      "allow": Array [
+        "!!",
+      ],
+      "boolean": true,
+      "number": true,
+      "string": true,
+    },
   ],
   "no-inner-declarations": Array [
     "error",
