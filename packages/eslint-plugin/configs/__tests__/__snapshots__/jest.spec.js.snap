@@ -6,82 +6,71 @@ Compared values have no visual difference.
 `;
 
 exports[`properly extends all dependencies 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-  Object {
--   "env": Object {},
-+   "env": Object {
-+     "jest": true,
-+     "jest/globals": true,
-+   },
-    "globals": Object {},
-@@ --- --- @@
-      "import",
-+     "jest",
-    ],
+Object {
+  "env": Object {
+    "jest": true,
+    "jest/globals": true,
+  },
+  "globals": Object {},
+  "parser": null,
+  "parserOptions": Object {},
+  "plugins": Array [
+    "jest",
+  ],
+  "settings": Object {},
+}
 `;
 
 exports[`properly extends all dependencies 2`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-    ],
-+   "import/no-extraneous-dependencies": Array [
-+     "error",
-+     Object {
-+       "devDependencies": true,
-+       "peerDependencies": true,
-+     },
-+   ],
-    "import/no-mutable-exports": Array [
-@@ --- --- @@
-      "off",
-+   ],
-+   "jest/no-alias-methods": Array [
-+     "error",
-+   ],
-+   "jest/no-disabled-tests": Array [
-+     "error",
-+   ],
-+   "jest/no-focused-tests": Array [
-+     "error",
-+   ],
-+   "jest/no-identical-title": Array [
-+     "error",
-+   ],
-+   "jest/no-jasmine-globals": Array [
-+     "error",
-+   ],
-+   "jest/no-jest-import": Array [
-+     "error",
-+   ],
-+   "jest/no-test-prefixes": Array [
-+     "error",
-+   ],
-+   "jest/prefer-to-be-null": Array [
-+     "error",
-+   ],
-+   "jest/prefer-to-be-undefined": Array [
-+     "error",
-+   ],
-+   "jest/prefer-to-contain": Array [
-+     "error",
-+   ],
-+   "jest/prefer-to-have-length": Array [
-+     "error",
-+   ],
-+   "jest/valid-describe": Array [
-+     "error",
-+   ],
-+   "jest/valid-expect": Array [
-+     "error",
-+   ],
-+   "jest/valid-expect-in-promise": Array [
-+     "error",
-    ],
+Object {
+  "import/no-extraneous-dependencies": Array [
+    "error",
+    Object {
+      "devDependencies": true,
+      "peerDependencies": true,
+    },
+  ],
+  "jest/no-alias-methods": Array [
+    "error",
+  ],
+  "jest/no-disabled-tests": Array [
+    "error",
+  ],
+  "jest/no-focused-tests": Array [
+    "error",
+  ],
+  "jest/no-identical-title": Array [
+    "error",
+  ],
+  "jest/no-jasmine-globals": Array [
+    "error",
+  ],
+  "jest/no-jest-import": Array [
+    "error",
+  ],
+  "jest/no-test-prefixes": Array [
+    "error",
+  ],
+  "jest/prefer-to-be-null": Array [
+    "error",
+  ],
+  "jest/prefer-to-be-undefined": Array [
+    "error",
+  ],
+  "jest/prefer-to-contain": Array [
+    "error",
+  ],
+  "jest/prefer-to-have-length": Array [
+    "error",
+  ],
+  "jest/valid-describe": Array [
+    "error",
+  ],
+  "jest/valid-expect": Array [
+    "error",
+  ],
+  "jest/valid-expect-in-promise": Array [
+    "error",
+  ],
+}
 `;

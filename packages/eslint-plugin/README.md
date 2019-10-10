@@ -19,13 +19,16 @@ module.exports = {
     react: { version: 'detect' },
   },
   overrides: [
-    { files: '*.js', extends: 'plugin:@superdispatch/node' },
     {
-      files: ['*.ts', '*.tsx'],
-      extends: ['plugin:@superdispatch/react', 'plugin:@superdispatch/typescript'],
+      files: '*.js',
+      extends: 'plugin:@superdispatch/node',
     },
     {
-      files: ['**/__tests__/**/*.ts', '**/__tests__/**/*.ts'],
+      files: '*.{ts,tsx}',
+      extends: ['plugin:@superdispatch/typescript', 'plugin:@superdispatch/react'],
+    },
+    {
+      files: ['**/__tests__/**/*.{ts,tsx}'],
       extends: 'plugin:@superdispatch/jest',
     },
   ],
