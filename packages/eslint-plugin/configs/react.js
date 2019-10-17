@@ -26,6 +26,13 @@ module.exports = {
     'react/jsx-boolean-value': [INCONSISTENCY, 'always'],
 
     /**
+     * Disallow unnecessary curly braces in JSX props and children.
+     *
+     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+     */
+    'react/jsx-curly-brace-presence': [INCONSISTENCY, { props: 'never', children: 'never' }],
+
+    /**
      * Disallow unnecessary fragments.
      *
      * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md

@@ -27,15 +27,23 @@ async function getConfig(name, dev) {
     env.NODE_ENV = 'development';
   }
 
-  const { stdout } = await execa(
-    'eslint',
-    ['--no-eslintrc', `--config=${configPath}`, '--print-config=config/foo.js'],
-    { env },
-  );
+  try {
+    const { stdout } = await execa(
+      'eslint',
+      ['--no-eslintrc', `--config=${configPath}`, '--print-config=config/foo.js'],
+      { env },
+    );
 
-  const { parser, ...config } = JSON.parse(stdout);
+    const { parser, ...config } = JSON.parse(stdout);
 
-  return { ...config, parser: parser && path.relative(process.cwd(), parser) };
+    return { ...config, parser: parser && path.relative(process.cwd(), parser) };
+  } catch (error) {
+    if (error.stderr) {
+      throw new Error(error.stderr);
+    }
+
+    throw error;
+  }
 }
 
 function diff(a, b) {
