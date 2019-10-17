@@ -223,6 +223,14 @@ module.exports = {
      */
     'prefer-object-spread': INCONSISTENCY,
 
+    /**
+     * Enforce the consistent use of single quotes and disallow usage of
+     * obsolete template literals.
+     *
+     * @see https://eslint.org/docs/rules/quotes
+     */
+    quotes: [INCONSISTENCY, 'single', { avoidEscape: true, allowTemplateLiterals: false }],
+
     //
     // ECMAScript 6
 
