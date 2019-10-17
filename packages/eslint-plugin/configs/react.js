@@ -26,6 +26,13 @@ module.exports = {
     'react/jsx-boolean-value': [INCONSISTENCY, 'always'],
 
     /**
+     * Disallow unnecessary fragments.
+     *
+     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+     */
+    'react/jsx-no-useless-fragment': INCONSISTENCY,
+
+    /**
      * Enforce shorthand or standard form for React fragments.
      *
      * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md

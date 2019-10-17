@@ -21,6 +21,11 @@ Snapshot Diff:
 +     "warn",
       "syntax",
 @@ --- --- @@
+    "react/jsx-no-useless-fragment": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
     "react/no-danger-with-children": Array [
 -     "error",
 +     "warn",
@@ -113,6 +118,9 @@ Object {
   ],
   "react/jsx-no-undef": Array [
     2,
+  ],
+  "react/jsx-no-useless-fragment": Array [
+    "error",
   ],
   "react/jsx-one-expression-per-line": Array [
     "off",
