@@ -180,6 +180,11 @@ Snapshot Diff:
 +     "warn",
     ],
 @@ --- --- @@
+    "quotes": Array [
+-     "error",
++     "warn",
+      "single",
+@@ --- --- @@
     "yoda": Array [
 -     "error",
 +     "warn",
@@ -706,7 +711,12 @@ Object {
     "off",
   ],
   "quotes": Array [
-    0,
+    "error",
+    "single",
+    Object {
+      "allowTemplateLiterals": false,
+      "avoidEscape": true,
+    },
   ],
   "require-atomic-updates": Array [
     "error",
