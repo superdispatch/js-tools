@@ -30,10 +30,19 @@ Object {
       "peerDependencies": true,
     },
   ],
+  "jest/expect-expect": Array [
+    "warn",
+  ],
   "jest/no-alias-methods": Array [
     "error",
   ],
+  "jest/no-commented-out-tests": Array [
+    "warn",
+  ],
   "jest/no-disabled-tests": Array [
+    "error",
+  ],
+  "jest/no-export": Array [
     "error",
   ],
   "jest/no-focused-tests": Array [
@@ -48,7 +57,19 @@ Object {
   "jest/no-jest-import": Array [
     "error",
   ],
+  "jest/no-mocks-import": Array [
+    "error",
+  ],
+  "jest/no-standalone-expect": Array [
+    "error",
+  ],
+  "jest/no-test-callback": Array [
+    "error",
+  ],
   "jest/no-test-prefixes": Array [
+    "error",
+  ],
+  "jest/no-try-expect": Array [
     "error",
   ],
   "jest/prefer-to-be-null": Array [
