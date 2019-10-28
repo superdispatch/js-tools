@@ -87,4 +87,5 @@ function testInheritance(configName, baseConfigName) {
   });
 }
 
+// eslint-disable-next-line jest/no-export
 module.exports = { testInheritance };
