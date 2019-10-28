@@ -77,7 +77,7 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
      */
-    '@typescript-eslint/consistent-type-definitions': OFF,
+    '@typescript-eslint/consistent-type-definitions': [ERROR, 'interface'],
 
     /**
      * Ignore explicit return types on functions and class methods.

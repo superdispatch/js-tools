@@ -130,7 +130,8 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "@typescript-eslint/consistent-type-definitions": Array [
-+     "off",
++     "error",
++     "interface",
 +   ],
 +   "@typescript-eslint/explicit-function-return-type": Array [
 +     "off",
