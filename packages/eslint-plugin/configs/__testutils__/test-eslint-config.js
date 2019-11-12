@@ -50,42 +50,37 @@ function diff(a, b) {
   return snapshotDiff(a, b, { contextLines: 1, stablePatchmarks: true });
 }
 
-function testInheritance(configName, baseConfigName) {
-  it('properly extends all dependencies', async () => {
-    const { rules, ...meta } = await getConfig(configName);
+async function getConfigValues(configName, baseConfigName) {
+  const { rules, ...meta } = await getConfig(configName);
 
-    if (!baseConfigName) {
-      expect(meta).toMatchSnapshot();
-      expect(rules).toMatchSnapshot();
-    } else {
-      const { rules: baseRules, ...baseMeta } = await getConfig(baseConfigName);
+  if (!baseConfigName) {
+    return [meta, rules];
+  }
 
-      expect(diff(baseMeta, meta)).toMatchSnapshot();
-      expect(diff(baseRules, rules)).toMatchSnapshot();
-    }
-  });
+  const { rules: baseRules, ...baseMeta } = await getConfig(baseConfigName);
 
-  it('changes in dev environment', async () => {
-    const [{ rules }, { rules: devRules }] = await Promise.all([
-      getConfig(configName),
-      getConfig(configName, true),
-    ]);
-
-    if (!baseConfigName) {
-      expect(diff(rules, devRules)).toMatchSnapshot();
-    } else {
-      const [{ rules: baseRules }, { rules: baseDevRules }] = await Promise.all([
-        getConfig(baseConfigName),
-        getConfig(baseConfigName, true),
-      ]);
-
-      const rulesDiff = omitEqualRules(baseRules, rules);
-      const devRulesDiff = omitEqualRules(baseDevRules, devRules);
-
-      expect(diff(rulesDiff, devRulesDiff)).toMatchSnapshot();
-    }
-  });
+  return [diff(baseMeta, meta), diff(baseRules, rules)];
 }
 
-// eslint-disable-next-line jest/no-export
-module.exports = { testInheritance };
+async function getDevConfigDiff(configName, baseConfigName) {
+  const [{ rules }, { rules: devRules }] = await Promise.all([
+    getConfig(configName),
+    getConfig(configName, true),
+  ]);
+
+  if (!baseConfigName) {
+    return diff(rules, devRules);
+  }
+
+  const [{ rules: baseRules }, { rules: baseDevRules }] = await Promise.all([
+    getConfig(baseConfigName),
+    getConfig(baseConfigName, true),
+  ]);
+
+  const rulesDiff = omitEqualRules(baseRules, rules);
+  const devRulesDiff = omitEqualRules(baseDevRules, devRules);
+
+  return diff(rulesDiff, devRulesDiff);
+}
+
+module.exports = { getConfigValues, getDevConfigDiff };
