@@ -149,6 +149,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-this-alias": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-unused-expressions": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-unused-vars": Array [
     +     "off",
     +   ],
@@ -240,11 +243,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        ],
+          "error",
+    +   ],
     +   "no-empty-function": Array [
     +     "off",
-    +   ],
-        "no-empty-pattern": Array [
+        ],
     @@ --- --- @@
         "no-new-symbol": Array [
     -     "error",
@@ -267,6 +270,11 @@ it('extends dependencies', async () => {
         ],
     @@ --- --- @@
         "no-unreachable": Array [
+    -     "error",
+    +     "off",
+        ],
+    @@ --- --- @@
+        "no-unused-expressions": Array [
     -     "error",
     +     "off",
         ],
@@ -323,6 +331,11 @@ it('changes in dev mode', async () => {
           Object {
     @@ --- --- @@
         "@typescript-eslint/no-non-null-assertion": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "@typescript-eslint/no-unused-expressions": Array [
     -     "error",
     +     "warn",
         ],

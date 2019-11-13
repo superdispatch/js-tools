@@ -118,6 +118,14 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': INCONSISTENCY,
 
     /**
+     * Disallow unused expressions.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
+     */
+    'no-unused-expressions': OFF,
+    '@typescript-eslint/no-unused-expressions': INCONSISTENCY,
+
+    /**
      * Disable unused variable checks.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
