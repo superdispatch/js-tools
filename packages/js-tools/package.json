@@ -20,7 +20,7 @@
   "dependencies": {
     "execa": "^3.2.0",
     "prettier-plugin-packagejson": "^2.0.1",
-    "yargs": "^14.0.0",
+    "yargs": "^15.0.2",
     "yarn-deduplicate": "^1.1.1"
   },
   "peerDependencies": {
