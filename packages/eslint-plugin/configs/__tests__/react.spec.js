@@ -11,6 +11,10 @@ it('extends dependencies', async () => {
         "browser": true,
       },
       "globals": Object {},
+      "ignorePatterns": Array [
+        "coverage/",
+        "node_modules/",
+      ],
       "parser": null,
       "parserOptions": Object {
         "ecmaFeatures": Object {

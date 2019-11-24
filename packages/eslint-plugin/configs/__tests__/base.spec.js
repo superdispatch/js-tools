@@ -9,6 +9,10 @@ it('extends dependencies', async () => {
     Object {
       "env": Object {},
       "globals": Object {},
+      "ignorePatterns": Array [
+        "coverage/",
+        "node_modules/",
+      ],
       "parser": null,
       "parserOptions": Object {
         "ecmaVersion": 2018,
@@ -54,6 +58,7 @@ it('extends dependencies', async () => {
         "error",
         Object {
           "ignoreDestructuring": true,
+          "ignoreImports": false,
           "properties": "never",
         },
       ],

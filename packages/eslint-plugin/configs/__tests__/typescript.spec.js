@@ -11,7 +11,7 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
-        "globals": Object {},
+        ],
     -   "parser": null,
     +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
         "parserOptions": Object {
@@ -82,6 +82,7 @@ it('extends dependencies', async () => {
     +     "error",
     +     Object {
     +       "ignoreDestructuring": true,
+    +       "ignoreImports": false,
     +       "properties": "never",
     +     },
     +   ],
