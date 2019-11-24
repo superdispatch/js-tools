@@ -68,7 +68,8 @@ it('extends dependencies', async () => {
     +     "setInterval": "readonly",
     +     "setTimeout": "readonly",
     +   },
-        "parser": null,
+        "ignorePatterns": Array [
+    @@ --- --- @@
         "parserOptions": Object {
     -     "ecmaVersion": 2018,
     +     "ecmaFeatures": Object {
