@@ -37,7 +37,8 @@ module.exports = argv =>
               default: false,
               description: 'Do not emit warnings',
             }),
-        ({ fix, quiet, files, tools }) => resolve(lint({ fix, quiet, files, tools })),
+        ({ fix, quiet, files, tools }) =>
+          resolve(lint({ fix, quiet, files, tools })),
       )
       .parse(),
   );

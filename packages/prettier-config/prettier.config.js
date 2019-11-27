@@ -1,7 +1,3 @@
 'use strict';
 
-module.exports = {
-  printWidth: 100,
-  singleQuote: true,
-  trailingComma: 'all',
-};
+module.exports = { singleQuote: true, trailingComma: 'all' };

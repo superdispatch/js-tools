@@ -60,7 +60,10 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/array-type.md
      */
-    '@typescript-eslint/array-type': [INCONSISTENCY, { default: 'array-simple' }],
+    '@typescript-eslint/array-type': [
+      INCONSISTENCY,
+      { default: 'array-simple' },
+    ],
 
     /**
      * Enforce camelCase naming convention.
@@ -108,7 +111,10 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-explicit-any.md
      */
-    '@typescript-eslint/no-explicit-any': [INCONSISTENCY, { ignoreRestArgs: true }],
+    '@typescript-eslint/no-explicit-any': [
+      INCONSISTENCY,
+      { ignoreRestArgs: true },
+    ],
 
     /**
      * Disallows non-null assertions using the `!` postfix operator
