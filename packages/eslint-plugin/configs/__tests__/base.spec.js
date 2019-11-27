@@ -449,7 +449,6 @@ it('extends dependencies', async () => {
           "terms": Array [
             "todo",
             "fixme",
-            "@ts-ignore",
           ],
         },
       ],
