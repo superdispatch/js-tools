@@ -25,7 +25,10 @@ module.exports = {
     },
     {
       files: '*.{ts,tsx}',
-      extends: ['plugin:@superdispatch/typescript', 'plugin:@superdispatch/react'],
+      extends: [
+        'plugin:@superdispatch/typescript',
+        'plugin:@superdispatch/react',
+      ],
     },
     {
       files: ['**/__tests__/**/*.{ts,tsx}'],

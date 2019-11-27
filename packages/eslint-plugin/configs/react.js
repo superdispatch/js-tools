@@ -30,7 +30,10 @@ module.exports = {
      *
      * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
      */
-    'react/jsx-curly-brace-presence': [INCONSISTENCY, { props: 'never', children: 'never' }],
+    'react/jsx-curly-brace-presence': [
+      INCONSISTENCY,
+      { props: 'never', children: 'never' },
+    ],
 
     /**
      * Disallow unnecessary fragments.

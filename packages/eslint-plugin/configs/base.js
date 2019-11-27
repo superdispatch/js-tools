@@ -229,7 +229,11 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/quotes
      */
-    quotes: [INCONSISTENCY, 'single', { avoidEscape: true, allowTemplateLiterals: false }],
+    quotes: [
+      INCONSISTENCY,
+      'single',
+      { avoidEscape: true, allowTemplateLiterals: false },
+    ],
 
     //
     // ECMAScript 6
@@ -239,7 +243,11 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/arrow-body-style
      */
-    'arrow-body-style': [INCONSISTENCY, 'as-needed', { requireReturnForObjectLiteral: false }],
+    'arrow-body-style': [
+      INCONSISTENCY,
+      'as-needed',
+      { requireReturnForObjectLiteral: false },
+    ],
 
     /**
      * Disallow unnecessary computed property keys on objects.

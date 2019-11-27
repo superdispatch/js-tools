@@ -1,6 +1,9 @@
 'use strict';
 
-const { getConfigValues, getDevConfigDiff } = require('../__testutils__/test-eslint-config');
+const {
+  getConfigValues,
+  getDevConfigDiff,
+} = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const [meta, rules] = await getConfigValues('typescript', 'base');

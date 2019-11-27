@@ -42,7 +42,10 @@ module.exports = {
               }
             }
 
-            return [fixer.insertTextBefore(node, updates.join(' ')), fixer.remove(node)];
+            return [
+              fixer.insertTextBefore(node, updates.join(' ')),
+              fixer.remove(node),
+            ];
           },
         });
       },

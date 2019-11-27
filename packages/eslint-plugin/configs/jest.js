@@ -12,7 +12,10 @@ module.exports = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-extraneous-dependencies.md
      */
-    'import/no-extraneous-dependencies': [ERROR, { devDependencies: true, peerDependencies: true }],
+    'import/no-extraneous-dependencies': [
+      ERROR,
+      { devDependencies: true, peerDependencies: true },
+    ],
 
     //
     // eslint-plugin-jest

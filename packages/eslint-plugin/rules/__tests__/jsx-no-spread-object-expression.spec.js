@@ -9,7 +9,9 @@ const parserOptions = {
   ecmaFeatures: { jsx: true },
 };
 
-const expectedError = { message: 'Do not use object expressions in JSX spread' };
+const expectedError = {
+  message: 'Do not use object expressions in JSX spread',
+};
 
 const ruleTester = new RuleTester({ parserOptions });
 

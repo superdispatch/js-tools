@@ -128,7 +128,8 @@ function execLinter(cmd, args) {
 module.exports = async ({ fix, files, quiet, tools }) => {
   const skipESLint = tools != null && !tools.includes('eslint');
   const skipPettier = tools != null && !tools.includes('prettier');
-  const skipYarnDeduplicate = tools != null && !tools.includes('yarn-deduplicate');
+  const skipYarnDeduplicate =
+    tools != null && !tools.includes('yarn-deduplicate');
 
   const eslintArgs = [];
   const eslintFiles = [];
@@ -185,6 +186,9 @@ module.exports = async ({ fix, files, quiet, tools }) => {
   }
 
   if (!skipYarnDeduplicate && yarnDeduplicateFiles.length > 0) {
-    await execLinter('yarn-deduplicate', [...yarnDeduplicateArgs, ...yarnDeduplicateFiles]);
+    await execLinter('yarn-deduplicate', [
+      ...yarnDeduplicateArgs,
+      ...yarnDeduplicateFiles,
+    ]);
   }
 };
