@@ -136,7 +136,7 @@ module.exports = {
       DEPT,
       {
         location: 'anywhere',
-        terms: ['todo', 'fixme', '@ts-ignore'],
+        terms: ['todo', 'fixme'],
       },
     ],
 
