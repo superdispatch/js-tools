@@ -319,6 +319,12 @@ module.exports = {
     'prefer-template': INCONSISTENCY,
 
     //
+    // @superdispatch/eslint-plugin
+    //
+
+    '@superdispatch/camelcase': INCONSISTENCY,
+
+    //
     // eslint-plugin-import
     //
 

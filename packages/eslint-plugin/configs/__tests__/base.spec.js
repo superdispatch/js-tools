@@ -29,6 +29,9 @@ it('extends dependencies', async () => {
   `);
   expect(rules).toMatchInlineSnapshot(`
     Object {
+      "@superdispatch/camelcase": Array [
+        "error",
+      ],
       "array-bracket-newline": Array [
         "off",
       ],
@@ -634,6 +637,11 @@ it('changes in dev mode', async () => {
     - First value
     + Second value
 
+    @@ --- --- @@
+        "@superdispatch/camelcase": Array [
+    -     "error",
+    +     "warn",
+        ],
     @@ --- --- @@
         "arrow-body-style": Array [
     -     "error",
