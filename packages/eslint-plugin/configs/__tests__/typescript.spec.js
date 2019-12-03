@@ -82,12 +82,7 @@ it('extends dependencies', async () => {
     +     "off",
     +   ],
     +   "@typescript-eslint/camelcase": Array [
-    +     "error",
-    +     Object {
-    +       "ignoreDestructuring": true,
-    +       "ignoreImports": false,
-    +       "properties": "never",
-    +     },
+    +     "off",
     +   ],
     +   "@typescript-eslint/class-name-casing": Array [
     +     "error",
@@ -193,11 +188,6 @@ it('extends dependencies', async () => {
     +   ],
         "array-bracket-newline": Array [
     @@ --- --- @@
-        "camelcase": Array [
-    -     "error",
-    +     "off",
-          Object {
-    @@ --- --- @@
         "getter-return": Array [
     -     "error",
     +     "off",
@@ -250,11 +240,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        ],
+          "error",
+    +   ],
     +   "no-empty-function": Array [
     +     "off",
-    +   ],
-        "no-empty-pattern": Array [
+        ],
     @@ --- --- @@
         "no-new-symbol": Array [
     -     "error",
@@ -295,11 +285,11 @@ it('extends dependencies', async () => {
     +     "off",
           Object {
     @@ --- --- @@
-          "off",
-    +   ],
+        ],
     +   "simple-import-sort/sort": Array [
     +     "error",
-        ],
+    +   ],
+        "space-after-function-name": Array [
     @@ --- --- @@
         "valid-typeof": Array [
     -     "error",
@@ -318,11 +308,6 @@ it('changes in dev mode', async () => {
 
     @@ --- --- @@
         "@typescript-eslint/array-type": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "@typescript-eslint/camelcase": Array [
     -     "error",
     +     "warn",
           Object {

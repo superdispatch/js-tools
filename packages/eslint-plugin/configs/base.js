@@ -183,17 +183,11 @@ module.exports = {
     // Stylistic Issues
 
     /**
-     * Require CamelCase.
+     * Ignore variable cases.
      *
      * @see https://eslint.org/docs/rules/camelcase
      */
-    camelcase: [
-      INCONSISTENCY,
-      {
-        properties: 'never',
-        ignoreDestructuring: true,
-      },
-    ],
+    camelcase: OFF,
 
     /**
      * Disallow `if` statements as the only statement in `else` blocks.
