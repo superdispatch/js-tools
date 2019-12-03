@@ -66,14 +66,11 @@ module.exports = {
     ],
 
     /**
-     * Enforce camelCase naming convention.
+     * Ignore variable cases.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
      */
-    '@typescript-eslint/camelcase': [
-      INCONSISTENCY,
-      { properties: 'never', ignoreDestructuring: true },
-    ],
+    '@typescript-eslint/camelcase': OFF,
 
     /**
      * Ignore object type definition (`interface` or `type`).
@@ -90,7 +87,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': OFF,
 
     /**
-     * Enforce camelCase naming convention.
+     * Require explicit accessibility modifiers on class properties and methods.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
      */

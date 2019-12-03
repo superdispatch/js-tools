@@ -58,12 +58,7 @@ it('extends dependencies', async () => {
         "off",
       ],
       "camelcase": Array [
-        "error",
-        Object {
-          "ignoreDestructuring": true,
-          "ignoreImports": false,
-          "properties": "never",
-        },
+        "off",
       ],
       "comma-dangle": Array [
         "off",
@@ -644,11 +639,6 @@ it('changes in dev mode', async () => {
     -     "error",
     +     "warn",
           "as-needed",
-    @@ --- --- @@
-        "camelcase": Array [
-    -     "error",
-    +     "warn",
-          Object {
     @@ --- --- @@
         "curly": Array [
     -     "error",
