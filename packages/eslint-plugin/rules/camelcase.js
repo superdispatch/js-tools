@@ -2,16 +2,13 @@
 
 const forbidden = [
   'ClassDeclaration',
-  'ClassProperty',
   'MethodDefinition',
   'FunctionDeclaration',
   'VariableDeclarator',
   'TSInterfaceDeclaration',
-  'TSPropertySignature',
   'TSMethodSignature',
   'TSTypeParameter',
   'TSTypeParameterDeclaration',
-  'TSAbstractClassProperty',
 ];
 
 module.exports = {
@@ -47,6 +44,41 @@ module.exports = {
           return true;
         }
 
+        return false;
+      }
+
+      if (
+        node.parent.type === 'ClassProperty' ||
+        node.parent.type === 'TSPropertySignature' ||
+        node.parent.type === 'TSAbstractClassProperty'
+      ) {
+        // Bail: class { static foo_bar }
+        if (node.parent.static) {
+          return false;
+        }
+
+        // Bail: class { b_c = () => {} }
+        if (
+          node.parent.value &&
+          node.parent.value.type === 'ArrowFunctionExpression'
+        ) {
+          return false;
+        }
+
+        const { typeAnnotation } = node.parent;
+
+        // Skip: type Foo { bar_baz }
+        if (typeAnnotation) {
+          // Bail: type Foo { bar_baz: () => void }
+          if (typeAnnotation.typeAnnotation.type === 'TSFunctionType') {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      if (node.parent.type === 'TSPropertySignature') {
         return false;
       }
 
