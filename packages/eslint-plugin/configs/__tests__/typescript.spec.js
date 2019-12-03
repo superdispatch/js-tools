@@ -62,7 +62,7 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
-      Object {
+        ],
     +   "@typescript-eslint/adjacent-overload-signatures": Array [
     +     "error",
     +   ],
