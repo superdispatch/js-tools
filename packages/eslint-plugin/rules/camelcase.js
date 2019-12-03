@@ -30,6 +30,14 @@ module.exports = {
           return true;
         }
 
+        // Skip: () => ({ foo: bar_baz })
+        if (
+          node.parent.parent &&
+          node.parent.parent.type === 'ObjectExpression'
+        ) {
+          return true;
+        }
+
         return false;
       }
 
