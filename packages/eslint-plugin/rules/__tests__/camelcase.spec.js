@@ -47,17 +47,26 @@ describe('TypeScript', () => {
   });
 
   ruleTester.run('camelcase', rule, {
-    valid: [{ code: 'const a = a?.b_c' }, { code: 'const a = a?.b_c?.d_e' }],
+    valid: [
+      { code: 'const a = a?.b_c' },
+      { code: 'const a = a?.b_c?.d_e' },
+      { code: 'class A { b_c }' },
+      { code: 'class A { b_c = 1 }' },
+      { code: 'abstract class A { abstract a_b; }' },
+      { code: 'interface A { b_c }' },
+      { code: 'interface A { b_c: number }' },
+      { code: 'type A = { b_c }' },
+      { code: 'type A = { b_c: number }' },
+    ],
     invalid: [
-      { errors: [error], code: 'class A { b_c }' },
-      { errors: [error], code: 'class A { b_c = 1 }' },
+      { errors: [error], code: 'class A { b_c: () => void }' },
+      { errors: [error], code: 'class A { b_c = () => {} }' },
       { errors: [error], code: 'class A { static b_c }' },
       { errors: [error], code: 'class A { static b_c = 1 }' },
       { errors: [error], code: 'abstract class a_b {}' },
-      { errors: [error], code: 'abstract class A { abstract a_b; }' },
       { errors: [error], code: 'interface a_b {}' },
-      { errors: [error], code: 'interface A { b_c }' },
       { errors: [error], code: 'interface A { b_c() }' },
+      { errors: [error], code: 'interface A { b_c: () => void }' },
       { errors: [error], code: 'type A<T_a> = {}' },
       { errors: [error], code: 'class A<T_a> {}' },
       { errors: [error], code: 'class A<T_a> {}' },
