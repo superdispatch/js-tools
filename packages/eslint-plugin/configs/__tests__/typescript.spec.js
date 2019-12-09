@@ -171,6 +171,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/prefer-namespace-keyword": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/prefer-optional-chain": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/quotes": Array [
     +     0,
     +   ],
@@ -216,11 +219,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        ],
+          "error",
+    +   ],
     +   "no-array-constructor": Array [
     +     "off",
-    +   ],
-        "no-arrow-condition": Array [
+        ],
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
@@ -333,6 +336,11 @@ it('changes in dev mode', async () => {
         ],
     @@ --- --- @@
         "@typescript-eslint/prefer-function-type": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "@typescript-eslint/prefer-optional-chain": Array [
     -     "error",
     +     "warn",
         ],
