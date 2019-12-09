@@ -152,6 +152,13 @@ module.exports = {
      */
     '@typescript-eslint/prefer-function-type': INCONSISTENCY,
 
+    /**
+     * Using concise optional chain expressions instead of chained logical ands.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
+     */
+    '@typescript-eslint/prefer-optional-chain': INCONSISTENCY,
+
     //
     // simple-import-sort
     //
