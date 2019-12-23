@@ -536,9 +536,6 @@ it('extends dependencies', async () => {
           "avoidEscape": true,
         },
       ],
-      "require-atomic-updates": Array [
-        "error",
-      ],
       "require-yield": Array [
         "error",
       ],

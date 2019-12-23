@@ -16,14 +16,14 @@
     "test": "jest --coverage"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
-    "execa": "^3.2.0",
+    "eslint": "^6.8.0",
+    "execa": "^4.0.0",
     "husky": "^3.0.1",
     "jest": "^24.8.0",
     "lerna": "^3.16.4",
     "lint-staged": "^9.5.0",
     "prettier": "^1.18.2",
     "snapshot-diff": "^0.6.1",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   }
 }
