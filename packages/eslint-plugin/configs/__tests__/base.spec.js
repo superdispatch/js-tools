@@ -498,7 +498,7 @@ it('extends dependencies', async () => {
         },
       ],
       "prefer-const": Array [
-        "error",
+        "off",
       ],
       "prefer-destructuring": Array [
         "error",
@@ -787,10 +787,6 @@ it('changes in dev mode', async () => {
     +     "warn",
           Object {
     @@ --- --- @@
-        "prefer-const": Array [
-    -     "error",
-    +     "warn",
-        ],
         "prefer-destructuring": Array [
     -     "error",
     +     "warn",

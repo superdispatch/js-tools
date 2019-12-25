@@ -133,6 +133,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-extra-parens": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/no-extra-semi": Array [
+    +     "off",
+    +   ],
     +   "@typescript-eslint/no-inferrable-types": Array [
     +     "error",
     +   ],
@@ -219,11 +222,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-          "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
+        "no-arrow-condition": Array [
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
@@ -243,11 +246,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-          "error",
-    +   ],
+        ],
     +   "no-empty-function": Array [
     +     "off",
-        ],
+    +   ],
+        "no-empty-pattern": Array [
     @@ --- --- @@
         "no-new-symbol": Array [
     -     "error",
@@ -288,11 +291,11 @@ it('extends dependencies', async () => {
     +     "off",
           Object {
     @@ --- --- @@
-        ],
+          "off",
+    +   ],
     +   "simple-import-sort/sort": Array [
     +     "error",
-    +   ],
-        "space-after-function-name": Array [
+        ],
     @@ --- --- @@
         "valid-typeof": Array [
     -     "error",
