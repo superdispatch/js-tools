@@ -287,7 +287,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/prefer-const
      */
-    'prefer-const': INCONSISTENCY,
+    'prefer-const': OFF,
 
     /**
      * Prefer destructuring from arrays and objects.
