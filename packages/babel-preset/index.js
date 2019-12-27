@@ -14,10 +14,10 @@ module.exports = (
   api,
   {
     targets = null,
-    jsx: transpileJSX = false,
-    typescript: transpileTypeScript = false,
+    jsx: transpileJSX = true,
+    typescript: transpileTypeScript = true,
     optimize: {
-      react: optimizeReact = false,
+      react: optimizeReact = true,
       runtime: optimizeRuntime = true,
       ...unknownOptimizations
     } = {},
