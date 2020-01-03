@@ -32,33 +32,32 @@ it('exposes default settings', () => {
         Array [
           "@babel/plugin-proposal-object-rest-spread",
           Object {
-            "loose": true,
+            "loose": false,
             "useBuiltIns": true,
           },
         ],
         Array [
           "@babel/plugin-proposal-optional-chaining",
           Object {
-            "loose": true,
+            "loose": false,
           },
         ],
         Array [
           "@babel/plugin-proposal-nullish-coalescing-operator",
           Object {
-            "loose": true,
+            "loose": false,
           },
         ],
         Array [
           "@babel/plugin-proposal-decorators",
           Object {
-            "decoratorsBeforeExport": true,
             "legacy": true,
           },
         ],
         Array [
           "@babel/plugin-proposal-class-properties",
           Object {
-            "loose": true,
+            "loose": false,
           },
         ],
         Array [
@@ -85,7 +84,7 @@ it('exposes default settings', () => {
               "transform-typeof-symbol",
             ],
             "ignoreBrowserslistConfig": false,
-            "loose": true,
+            "loose": false,
             "modules": false,
             "targets": undefined,
             "useBuiltIns": "entry",
@@ -137,7 +136,7 @@ it('exposes default settings', () => {
           Array [
             "@babel/plugin-proposal-object-rest-spread",
             Object {
-              "loose": true,
+              "loose": false,
     @@ --- --- @@
         ],
         "presets": Array [
@@ -149,7 +148,7 @@ it('exposes default settings', () => {
     -           "transform-typeof-symbol",
     -         ],
     -         "ignoreBrowserslistConfig": false,
-    -         "loose": true,
+    -         "loose": false,
     -         "modules": false,
     -         "targets": undefined,
     -         "useBuiltIns": "entry",
@@ -254,20 +253,19 @@ it('configures `options.typescript`', () => {
 
     @@ --- --- @@
             Object {
-              "loose": true,
+              "loose": false,
             },
           ],
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
-    -         "decoratorsBeforeExport": true,
     -         "legacy": true,
     -       },
     -     ],
     -     Array [
     -       "@babel/plugin-proposal-class-properties",
     -       Object {
-    -         "loose": true,
+    -         "loose": false,
     -       },
     -     ],
     -     Array [
@@ -299,20 +297,19 @@ it('configures `options.typescript`', () => {
 
     @@ --- --- @@
             Object {
-              "loose": true,
+              "loose": false,
             },
           ],
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
-    -         "decoratorsBeforeExport": true,
     -         "legacy": true,
     -       },
     -     ],
     -     Array [
     -       "@babel/plugin-proposal-class-properties",
     -       Object {
-    -         "loose": true,
+    -         "loose": false,
     -       },
     -     ],
     -     Array [
@@ -344,20 +341,19 @@ it('configures `options.typescript`', () => {
 
     @@ --- --- @@
             Object {
-              "loose": true,
+              "loose": false,
             },
           ],
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
-    -         "decoratorsBeforeExport": true,
     -         "legacy": true,
     -       },
     -     ],
     -     Array [
     -       "@babel/plugin-proposal-class-properties",
     -       Object {
-    -         "loose": true,
+    -         "loose": false,
     -       },
     -     ],
     -     Array [
@@ -391,7 +387,7 @@ it('configures `options.optimize.react`', () => {
 
     @@ --- --- @@
             Object {
-              "loose": true,
+              "loose": false,
             },
           ],
           Array [
@@ -420,7 +416,7 @@ it('configures `options.optimize.react`', () => {
 
     @@ --- --- @@
             Object {
-              "loose": true,
+              "loose": false,
             },
           ],
           Array [
@@ -449,7 +445,7 @@ it('configures `options.optimize.react`', () => {
 
     @@ --- --- @@
             Object {
-              "loose": true,
+              "loose": false,
             },
           ],
           Array [
