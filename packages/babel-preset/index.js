@@ -229,12 +229,6 @@ module.exports = (
            * Use the legacy (stage 1) decorators syntax and behavior.
            */
           legacy: true,
-
-          /**
-           * This option was added to help tc39 collect feedback from the
-           * community by allowing experimentation with both possible syntaxes.
-           */
-          decoratorsBeforeExport: true,
         },
       ],
       [
