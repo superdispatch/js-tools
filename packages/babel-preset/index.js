@@ -255,9 +255,9 @@ module.exports = (
       'babel-plugin-transform-react-remove-prop-types',
       {
         /**
-         * Remove import statements.
+         * Wrap `propTypes` with `NODE_ENV` check.
          */
-        removeImport: true,
+        mode: 'wrap',
       },
     ]);
   }

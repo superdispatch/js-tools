@@ -63,7 +63,7 @@ it('exposes default settings', () => {
         Array [
           "babel-plugin-transform-react-remove-prop-types",
           Object {
-            "removeImport": true,
+            "mode": "wrap",
           },
         ],
         Array [
@@ -271,7 +271,7 @@ it('configures `options.typescript`', () => {
     -     Array [
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "removeImport": true,
+              "mode": "wrap",
             },
           ],
     @@ --- --- @@
@@ -315,7 +315,7 @@ it('configures `options.typescript`', () => {
     -     Array [
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "removeImport": true,
+              "mode": "wrap",
             },
           ],
     @@ --- --- @@
@@ -359,7 +359,7 @@ it('configures `options.typescript`', () => {
     -     Array [
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "removeImport": true,
+              "mode": "wrap",
             },
           ],
     @@ --- --- @@
@@ -393,7 +393,7 @@ it('configures `options.optimize.react`', () => {
           Array [
     -       "babel-plugin-transform-react-remove-prop-types",
     -       Object {
-    -         "removeImport": true,
+    -         "mode": "wrap",
     -       },
     -     ],
     -     Array [
@@ -422,7 +422,7 @@ it('configures `options.optimize.react`', () => {
           Array [
     -       "babel-plugin-transform-react-remove-prop-types",
     -       Object {
-    -         "removeImport": true,
+    -         "mode": "wrap",
     -       },
     -     ],
     -     Array [
@@ -451,7 +451,7 @@ it('configures `options.optimize.react`', () => {
           Array [
     -       "babel-plugin-transform-react-remove-prop-types",
     -       Object {
-    -         "removeImport": true,
+    -         "mode": "wrap",
     -       },
     -     ],
     -     Array [
@@ -477,7 +477,7 @@ it('configures `options.optimize.runtime`', () => {
     @@ --- --- @@
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "removeImport": true,
+              "mode": "wrap",
             },
           ],
     -     Array [
@@ -508,7 +508,7 @@ it('configures `options.optimize.runtime`', () => {
     @@ --- --- @@
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "removeImport": true,
+              "mode": "wrap",
             },
           ],
     -     Array [
@@ -539,7 +539,7 @@ it('configures `options.optimize.runtime`', () => {
     @@ --- --- @@
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "removeImport": true,
+              "mode": "wrap",
             },
           ],
     -     Array [
