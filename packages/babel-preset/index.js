@@ -14,6 +14,7 @@ module.exports = (
   api,
   {
     targets = null,
+    loose = false,
     jsx: transpileJSX = true,
     typescript: transpileTypeScript = true,
     optimize: {
@@ -77,7 +78,7 @@ module.exports = (
            * allow them.
            * @see https://2ality.com/2015/12/babel6-loose-mode.html
            */
-          loose: true,
+          loose,
 
           /**
            * Disable transformation of ES6 module syntax to another module type.
@@ -147,7 +148,7 @@ module.exports = (
       /**
        * Use `Object.assign`.
        */
-      loose: true,
+      loose,
 
       /**
        * Use `Object.assign` directly instead of the Babel's extends helper.
@@ -167,7 +168,7 @@ module.exports = (
        * checks with `null` instead of strict equality checks against both
        * `null` and `undefined`.
        */
-      loose: true,
+      loose,
     },
   ]);
 
@@ -182,7 +183,7 @@ module.exports = (
        * checks with `null` instead of strict equality checks against both
        * `null` and `undefined`.
        */
-      loose: true,
+      loose,
     },
   ]);
 
@@ -246,7 +247,7 @@ module.exports = (
            * Class properties are compiled to use an assignment expression
            * instead of `Object.defineProperty`.
            */
-          loose: true,
+          loose,
         },
       ],
     );
