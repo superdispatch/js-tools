@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/babel-preset",
-  "version": "0.1.26",
+  "version": "0.1.32",
   "description": "Shared Babel preset",
   "keywords": [
     "babel"
