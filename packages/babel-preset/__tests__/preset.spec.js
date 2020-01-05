@@ -8,11 +8,17 @@ function diff(a, b) {
   return snapshotDiff(a, b, { stablePatchmarks: true });
 }
 
-const apis = {
-  test: { env: x => x === 'test' },
-  dev: { env: x => x === 'development' },
-  prod: { env: x => x === 'production' },
-};
+function getConfig(env, options) {
+  const { NODE_ENV } = process.env;
+
+  process.env.NODE_ENV = env;
+
+  const config = preset({}, options);
+
+  process.env.NODE_ENV = NODE_ENV;
+
+  return config;
+}
 
 const cwd = process.cwd();
 
@@ -22,7 +28,7 @@ expect.addSnapshotSerializer({
 });
 
 it('exposes default settings', () => {
-  const devPreset = preset(apis.dev);
+  const devPreset = getConfig('development');
 
   expect(devPreset).toMatchInlineSnapshot(`
     Object {
@@ -101,7 +107,7 @@ it('exposes default settings', () => {
     }
   `);
 
-  expect(diff(devPreset, preset(apis.prod))).toMatchInlineSnapshot(`
+  expect(diff(devPreset, getConfig('production'))).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -121,7 +127,7 @@ it('exposes default settings', () => {
         ],
   `);
 
-  expect(diff(devPreset, preset(apis.test))).toMatchInlineSnapshot(`
+  expect(diff(devPreset, getConfig('test'))).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -164,7 +170,10 @@ it('exposes default settings', () => {
 
 it('configures `options.jsx`', () => {
   expect(
-    diff(preset(apis.dev, { jsx: true }), preset(apis.dev, { jsx: false })),
+    diff(
+      getConfig('development', { jsx: true }),
+      getConfig('development', { jsx: false }),
+    ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -189,7 +198,10 @@ it('configures `options.jsx`', () => {
   `);
 
   expect(
-    diff(preset(apis.prod, { jsx: true }), preset(apis.prod, { jsx: false })),
+    diff(
+      getConfig('production', { jsx: true }),
+      getConfig('production', { jsx: false }),
+    ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -214,7 +226,7 @@ it('configures `options.jsx`', () => {
   `);
 
   expect(
-    diff(preset(apis.test, { jsx: true }), preset(apis.test, { jsx: false })),
+    diff(getConfig('test', { jsx: true }), getConfig('test', { jsx: false })),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -242,8 +254,8 @@ it('configures `options.jsx`', () => {
 it('configures `options.typescript`', () => {
   expect(
     diff(
-      preset(apis.dev, { typescript: true }),
-      preset(apis.dev, { typescript: false }),
+      getConfig('development', { typescript: true }),
+      getConfig('development', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -286,8 +298,8 @@ it('configures `options.typescript`', () => {
 
   expect(
     diff(
-      preset(apis.prod, { typescript: true }),
-      preset(apis.prod, { typescript: false }),
+      getConfig('production', { typescript: true }),
+      getConfig('production', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -330,8 +342,8 @@ it('configures `options.typescript`', () => {
 
   expect(
     diff(
-      preset(apis.test, { typescript: true }),
-      preset(apis.test, { typescript: false }),
+      getConfig('test', { typescript: true }),
+      getConfig('test', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -376,8 +388,8 @@ it('configures `options.typescript`', () => {
 it('configures `options.optimize.react`', () => {
   expect(
     diff(
-      preset(apis.dev, { optimize: { react: true } }),
-      preset(apis.dev, { optimize: { react: false } }),
+      getConfig('development', { optimize: { react: true } }),
+      getConfig('development', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -405,8 +417,8 @@ it('configures `options.optimize.react`', () => {
 
   expect(
     diff(
-      preset(apis.prod, { optimize: { react: true } }),
-      preset(apis.prod, { optimize: { react: false } }),
+      getConfig('production', { optimize: { react: true } }),
+      getConfig('production', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -434,8 +446,8 @@ it('configures `options.optimize.react`', () => {
 
   expect(
     diff(
-      preset(apis.test, { optimize: { react: true } }),
-      preset(apis.test, { optimize: { react: false } }),
+      getConfig('test', { optimize: { react: true } }),
+      getConfig('test', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -465,8 +477,8 @@ it('configures `options.optimize.react`', () => {
 it('configures `options.optimize.runtime`', () => {
   expect(
     diff(
-      preset(apis.dev, { optimize: { runtime: true } }),
-      preset(apis.dev, { optimize: { runtime: false } }),
+      getConfig('development', { optimize: { runtime: true } }),
+      getConfig('development', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -495,8 +507,8 @@ it('configures `options.optimize.runtime`', () => {
 
   expect(
     diff(
-      preset(apis.prod, { optimize: { runtime: true } }),
-      preset(apis.prod, { optimize: { runtime: false } }),
+      getConfig('production', { optimize: { runtime: true } }),
+      getConfig('production', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -525,8 +537,8 @@ it('configures `options.optimize.runtime`', () => {
 
   expect(
     diff(
-      preset(apis.test, { optimize: { runtime: true } }),
-      preset(apis.test, { optimize: { runtime: false } }),
+      getConfig('test', { optimize: { runtime: true } }),
+      getConfig('test', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
