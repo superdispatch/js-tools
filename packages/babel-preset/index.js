@@ -1,7 +1,5 @@
 'use strict';
 
-const path = require('path');
-
 function inlineKeys(keys) {
   return keys.map(key => JSON.stringify(key)).join(', ');
 }
@@ -281,14 +279,6 @@ module.exports = (
          */
         // eslint-disable-next-line node/no-unpublished-require
         version: require('@babel/runtime/package.json').version,
-
-        /**
-         * Use absolute path to `@babel/runtime`.
-         */
-        absoluteRuntime: path.dirname(
-          // eslint-disable-next-line node/no-unpublished-require
-          require.resolve('@babel/runtime/package.json'),
-        ),
       },
     ]);
   }

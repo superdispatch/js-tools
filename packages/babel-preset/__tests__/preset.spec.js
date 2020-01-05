@@ -69,7 +69,6 @@ it('exposes default settings', () => {
         Array [
           "@babel/plugin-transform-runtime",
           Object {
-            "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
             "helpers": true,
             "version": "7.7.7",
           },
@@ -399,9 +398,9 @@ it('configures `options.optimize.react`', () => {
     -     Array [
             "@babel/plugin-transform-runtime",
             Object {
-              "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
               "helpers": true,
               "version": "7.7.7",
+            },
   `);
 
   expect(
@@ -428,9 +427,9 @@ it('configures `options.optimize.react`', () => {
     -     Array [
             "@babel/plugin-transform-runtime",
             Object {
-              "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
               "helpers": true,
               "version": "7.7.7",
+            },
   `);
 
   expect(
@@ -457,9 +456,9 @@ it('configures `options.optimize.react`', () => {
     -     Array [
             "@babel/plugin-transform-runtime",
             Object {
-              "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
               "helpers": true,
               "version": "7.7.7",
+            },
   `);
 });
 
@@ -483,7 +482,6 @@ it('configures `options.optimize.runtime`', () => {
     -     Array [
     -       "@babel/plugin-transform-runtime",
     -       Object {
-    -         "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
     -         "helpers": true,
     -         "version": "7.7.7",
     -       },
@@ -514,7 +512,6 @@ it('configures `options.optimize.runtime`', () => {
     -     Array [
     -       "@babel/plugin-transform-runtime",
     -       Object {
-    -         "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
     -         "helpers": true,
     -         "version": "7.7.7",
     -       },
@@ -545,7 +542,6 @@ it('configures `options.optimize.runtime`', () => {
     -     Array [
     -       "@babel/plugin-transform-runtime",
     -       Object {
-    -         "absoluteRuntime": "<rootDir>/node_modules/@babel/runtime",
     -         "helpers": true,
     -         "version": "7.7.7",
     -       },
