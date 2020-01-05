@@ -76,7 +76,12 @@ module.exports = (
           /**
            * Describes the environments you support/target for your project.
            */
-          targets: targets || undefined,
+          targets:
+            targets === 'esmodules'
+              ? { esmodules: true }
+              : targets
+              ? { browsers: targets }
+              : undefined,
 
           /**
            * Enable "loose" transformations for any plugins in this preset that
