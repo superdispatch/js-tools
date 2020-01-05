@@ -11,7 +11,11 @@ function diff(a, b) {
 function getConfig(env, options) {
   const { NODE_ENV } = process.env;
 
-  process.env.NODE_ENV = env;
+  if (env) {
+    process.env.NODE_ENV = env;
+  } else {
+    delete process.env.NODE_ENV;
+  }
 
   const config = preset({}, options);
 
@@ -28,9 +32,9 @@ expect.addSnapshotSerializer({
 });
 
 it('exposes default settings', () => {
-  const devPreset = getConfig('development');
+  const defaultPreset = getConfig(undefined);
 
-  expect(devPreset).toMatchInlineSnapshot(`
+  expect(defaultPreset).toMatchInlineSnapshot(`
     Object {
       "plugins": Array [
         "@babel/plugin-syntax-dynamic-import",
@@ -98,7 +102,7 @@ it('exposes default settings', () => {
         Array [
           "@babel/preset-react",
           Object {
-            "development": true,
+            "development": false,
             "useBuiltIns": true,
           },
         ],
@@ -107,27 +111,7 @@ it('exposes default settings', () => {
     }
   `);
 
-  expect(diff(devPreset, getConfig('production'))).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
-
-    @@ --- --- @@
-            },
-          ],
-          Array [
-            "@babel/preset-react",
-            Object {
-    -         "development": true,
-    +         "development": false,
-              "useBuiltIns": true,
-            },
-          ],
-          "@babel/preset-typescript",
-        ],
-  `);
-
-  expect(diff(devPreset, getConfig('test'))).toMatchInlineSnapshot(`
+  expect(diff(defaultPreset, getConfig('test'))).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -165,6 +149,38 @@ it('exposes default settings', () => {
           Array [
             "@babel/preset-react",
             Object {
+    -         "development": false,
+    +         "development": true,
+              "useBuiltIns": true,
+            },
+          ],
+          "@babel/preset-typescript",
+        ],
+  `);
+
+  expect(diff(defaultPreset, getConfig('production'))).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    Compared values have no visual difference.
+  `);
+
+  expect(diff(defaultPreset, getConfig('development'))).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+          Array [
+            "@babel/preset-react",
+            Object {
+    -         "development": false,
+    +         "development": true,
+              "useBuiltIns": true,
+            },
+          ],
+          "@babel/preset-typescript",
+        ],
   `);
 });
 
