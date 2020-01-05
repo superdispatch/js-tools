@@ -23,13 +23,20 @@ module.exports = (
     ...unknownOptions
   } = {},
 ) => {
-  const isTest = api.env('test');
-  const isProduction = api.env('production');
-  const isDevelopment = api.env('development');
+  const { NODE_ENV = 'production' } = process.env;
+  const isTest = NODE_ENV === 'test';
+  const isProduction = NODE_ENV === 'production';
+  const isDevelopment = NODE_ENV === 'development';
 
   if (!isTest && !isProduction && !isDevelopment) {
     throw new Error(
-      'Unknown "env", expected one of: "test", "production", "development"',
+      `Unknown "env", expected one of: "test", "production", "development" but got "${NODE_ENV}".`,
+    );
+  }
+
+  if (!isTest && !isProduction && !isDevelopment) {
+    throw new Error(
+      'Unknown "env", expected one of: "test", "production", "development".',
     );
   }
 
