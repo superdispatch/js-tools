@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "execa": "^4.0.0",
-    "prettier-plugin-packagejson": "^2.0.6",
+    "prettier-plugin-packagejson": "^2.0.10",
     "yargs": "^15.1.0",
     "yarn-deduplicate": "^1.1.1"
   },
