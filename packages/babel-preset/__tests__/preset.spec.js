@@ -47,18 +47,6 @@ it('exposes default settings', () => {
           },
         ],
         Array [
-          "@babel/plugin-proposal-optional-chaining",
-          Object {
-            "loose": false,
-          },
-        ],
-        Array [
-          "@babel/plugin-proposal-nullish-coalescing-operator",
-          Object {
-            "loose": false,
-          },
-        ],
-        Array [
           "@babel/plugin-proposal-decorators",
           Object {
             "legacy": true,
@@ -80,7 +68,7 @@ it('exposes default settings', () => {
           "@babel/plugin-transform-runtime",
           Object {
             "helpers": true,
-            "version": "7.7.7",
+            "version": "7.8.3",
           },
         ],
       ],
@@ -279,8 +267,8 @@ it('configures `options.typescript`', () => {
     + Second value
 
     @@ --- --- @@
-            Object {
               "loose": false,
+              "useBuiltIns": true,
             },
           ],
           Array [
@@ -323,8 +311,8 @@ it('configures `options.typescript`', () => {
     + Second value
 
     @@ --- --- @@
-            Object {
               "loose": false,
+              "useBuiltIns": true,
             },
           ],
           Array [
@@ -367,8 +355,8 @@ it('configures `options.typescript`', () => {
     + Second value
 
     @@ --- --- @@
-            Object {
               "loose": false,
+              "useBuiltIns": true,
             },
           ],
           Array [
@@ -427,7 +415,7 @@ it('configures `options.optimize.react`', () => {
             "@babel/plugin-transform-runtime",
             Object {
               "helpers": true,
-              "version": "7.7.7",
+              "version": "7.8.3",
             },
   `);
 
@@ -456,7 +444,7 @@ it('configures `options.optimize.react`', () => {
             "@babel/plugin-transform-runtime",
             Object {
               "helpers": true,
-              "version": "7.7.7",
+              "version": "7.8.3",
             },
   `);
 
@@ -485,7 +473,7 @@ it('configures `options.optimize.react`', () => {
             "@babel/plugin-transform-runtime",
             Object {
               "helpers": true,
-              "version": "7.7.7",
+              "version": "7.8.3",
             },
   `);
 });
@@ -511,7 +499,7 @@ it('configures `options.optimize.runtime`', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.7.7",
+    -         "version": "7.8.3",
     -       },
     -     ],
         ],
@@ -541,7 +529,7 @@ it('configures `options.optimize.runtime`', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.7.7",
+    -         "version": "7.8.3",
     -       },
     -     ],
         ],
@@ -571,7 +559,7 @@ it('configures `options.optimize.runtime`', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.7.7",
+    -         "version": "7.8.3",
     -       },
     -     ],
         ],

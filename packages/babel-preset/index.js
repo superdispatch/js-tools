@@ -167,36 +167,6 @@ module.exports = (
     },
   ]);
 
-  plugins.push([
-    /**
-     * @see https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining
-     */
-    '@babel/plugin-proposal-optional-chaining',
-    {
-      /**
-       * Pretend `document.all` does not exist, and perform loose equality
-       * checks with `null` instead of strict equality checks against both
-       * `null` and `undefined`.
-       */
-      loose,
-    },
-  ]);
-
-  plugins.push([
-    /**
-     * @see https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator
-     */
-    '@babel/plugin-proposal-nullish-coalescing-operator',
-    {
-      /**
-       * Pretend `document.all` does not exist, and perform loose equality
-       * checks with `null` instead of strict equality checks against both
-       * `null` and `undefined`.
-       */
-      loose,
-    },
-  ]);
-
   if (transpileJSX) {
     presets.push([
       /**

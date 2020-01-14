@@ -33,6 +33,10 @@ it('extends dependencies', async () => {
     +       ".d.ts",
     +       ".js",
     +       ".jsx",
+    +     ],
+    +     "import/external-module-folders": Array [
+    +       "node_modules",
+    +       "node_modules/@types",
           ],
     -   "settings": Object {},
     +     "import/parsers": Object {
