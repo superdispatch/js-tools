@@ -9,7 +9,7 @@ const parserOptions = { ecmaVersion: 2020, sourceType: 'module' };
 const ruleTester = new RuleTester({ parserOptions });
 
 ruleTester.run('directory-name', rule, {
-  valid: [{ code: '', filename: 'foo-bar/baz.js' }],
+  valid: [{ code: '', filename: 'foo-bar/baz.js' }, { code: '', filename: 'baz.js' }],
   invalid: [
     {
       code: '',

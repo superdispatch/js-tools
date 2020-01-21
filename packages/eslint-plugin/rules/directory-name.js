@@ -4,11 +4,11 @@ const path = require('path');
 const _ = require('lodash');
 
 function isKebabCase(text) {
-  return !!text && /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(text);
+  return /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(text);
 }
 
 function isIgnored(text) {
-  return !!text && /(^__.*?__$|^@)/.test(text);
+  return /(^__.*?__$|^@)/.test(text);
 }
 
 module.exports = {
@@ -26,7 +26,7 @@ module.exports = {
 
     return {
       Program(node) {
-        if (!isIgnored(baseDir) && !isKebabCase(baseDir)) {
+        if (baseDir !== '.' && !isIgnored(baseDir) && !isKebabCase(baseDir)) {
           context.report({
             node,
             message:
