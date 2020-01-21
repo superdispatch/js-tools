@@ -26,7 +26,12 @@ module.exports = {
 
     return {
       Program(node) {
-        if (baseDir !== '.' && !isIgnored(baseDir) && !isKebabCase(baseDir)) {
+        if (
+          baseDir &&
+          baseDir !== '.' &&
+          !isIgnored(baseDir) &&
+          !isKebabCase(baseDir)
+        ) {
           context.report({
             node,
             message:
