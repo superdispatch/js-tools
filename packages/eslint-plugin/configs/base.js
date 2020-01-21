@@ -324,6 +324,8 @@ module.exports = {
 
     '@superdispatch/camelcase': INCONSISTENCY,
 
+    '@superdispatch/directory-name': INCONSISTENCY,
+
     //
     // eslint-plugin-import
     //
