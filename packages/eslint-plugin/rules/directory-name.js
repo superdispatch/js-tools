@@ -29,7 +29,8 @@ module.exports = {
         if (!isIgnored(baseDir) && !isKebabCase(baseDir)) {
           context.report({
             node,
-            message: `Directory name must be in kebab-case. Please rename {{ invalid }} to {{ valid }}`,
+            message:
+              'Directory name must be in kebab-case. Please rename {{ invalid }} to {{ valid }}',
             data: {
               invalid: relativeDir,
               valid: relativeDir
