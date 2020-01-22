@@ -32,6 +32,9 @@ it('extends dependencies', async () => {
       "@superdispatch/camelcase": Array [
         "error",
       ],
+      "@superdispatch/directory-name": Array [
+        "error",
+      ],
       "array-bracket-newline": Array [
         "off",
       ],
@@ -636,6 +639,10 @@ it('changes in dev mode', async () => {
 
     @@ --- --- @@
         "@superdispatch/camelcase": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "@superdispatch/directory-name": Array [
     -     "error",
     +     "warn",
         ],
