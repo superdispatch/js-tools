@@ -3,12 +3,19 @@
 const path = require('path');
 const _ = require('lodash');
 
-function isKebabCase(text) {
-  return /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(text);
-}
-
-function isIgnored(text) {
-  return /(^__.*?__$|^@)/.test(text);
+function isValidDirname(text) {
+  return new RegExp(
+    '^' +
+      // Can possibly start with `__` (e.g: `__tests__`).
+      '(__)?' +
+      // Should start with alphanumeric symbols.
+      '([a-z0-9]+)' +
+      // Can be separated with only on dash followed by alphanumeric symbols.
+      '(-[a-z0-9]+)*' +
+      // Can possibly end with `__` (e.g: `__tests__`).
+      '(__)?' +
+      '$',
+  ).test(text);
 }
 
 module.exports = {
@@ -18,31 +25,28 @@ module.exports = {
   },
 
   create(context) {
-    const relativeDir = _.trim(
+    const baseDir = _.trim(
       path.dirname(context.getFilename()).replace(context.getCwd(), ''),
       path.sep,
-    );
-    const baseDir = relativeDir.split(path.sep).pop();
+    )
+      .split(path.sep)
+      .pop();
 
     return {
       Program(node) {
         if (
           baseDir &&
+          // `path.dirname` gives `.` for root file
           baseDir !== '.' &&
-          !isIgnored(baseDir) &&
-          !isKebabCase(baseDir)
+          !isValidDirname(baseDir)
         ) {
           context.report({
             node,
             message:
-              'Directory name must be in kebab-case. Please rename {{ invalid }} to {{ valid }}',
+              'Directory name must be in kebab-case. Please rename "{{ invalid }}" to "{{ valid }}"',
             data: {
-              invalid: relativeDir,
-              valid: relativeDir
-                .split(path.sep)
-                .slice(0, -1)
-                .concat(_.kebabCase(baseDir))
-                .join(path.posix.sep),
+              invalid: baseDir,
+              valid: _.kebabCase(baseDir),
             },
           });
         }

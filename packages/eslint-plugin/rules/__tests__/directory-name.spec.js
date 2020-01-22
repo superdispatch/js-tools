@@ -10,22 +10,28 @@ const ruleTester = new RuleTester({ parserOptions });
 
 ruleTester.run('directory-name', rule, {
   valid: [
-    { code: '', filename: 'foo-bar/baz.js' },
+    // Test root file
+    {
+      code: '',
+      filename: path.join(__dirname, '../../../..', 'index.js'),
+    },
     { code: '', filename: 'baz.js' },
+    { code: '', filename: 'foo-bar/baz.js' },
+    { code: '', filename: '__tests__/baz.js' },
   ],
   invalid: [
     {
       code: '',
       filename: path.posix.join('my_project', 'src', 'File', 'index.js'),
       errors: [
-        'Directory name must be in kebab-case. Please rename my_project/src/File to my_project/src/file',
+        'Directory name must be in kebab-case. Please rename "File" to "file"',
       ],
     },
     {
       code: '',
       filename: 'fooBar/baz.js',
       errors: [
-        'Directory name must be in kebab-case. Please rename fooBar to foo-bar',
+        'Directory name must be in kebab-case. Please rename "fooBar" to "foo-bar"',
       ],
     },
   ],
