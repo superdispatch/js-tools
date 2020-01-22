@@ -10,7 +10,7 @@ function isValidDirname(text) {
       '(__)?' +
       // Should start with alphanumeric symbols.
       '([a-z0-9]+)' +
-      // Can be separated with only on dash followed by alphanumeric symbols.
+      // Can be separated with only dash followed by alphanumeric symbols.
       '(-[a-z0-9]+)*' +
       // Can possibly end with `__` (e.g: `__tests__`).
       '(__)?' +
