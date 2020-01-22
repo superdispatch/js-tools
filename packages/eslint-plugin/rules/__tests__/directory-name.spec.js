@@ -22,9 +22,9 @@ ruleTester.run('directory-name', rule, {
   invalid: [
     {
       code: '',
-      filename: path.posix.join('my_project', 'src', 'File', 'index.js'),
+      filename: '__testDir__/baz.js',
       errors: [
-        'Directory name must be in kebab-case. Please rename "File" to "file"',
+        'Directory name must be in kebab-case. Please rename "__testDir__" to "__test-dir__"',
       ],
     },
     {

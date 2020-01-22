@@ -46,7 +46,11 @@ module.exports = {
               'Directory name must be in kebab-case. Please rename "{{ invalid }}" to "{{ valid }}"',
             data: {
               invalid: baseDir,
-              valid: _.kebabCase(baseDir),
+              valid: baseDir.replace(
+                /^(__)?(.*?)(__)?$/,
+                (match, m1 = '', m2 = '', m3 = '') =>
+                  `${m1}${_.kebabCase(m2)}${m3}`,
+              ),
             },
           });
         }
