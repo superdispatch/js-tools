@@ -326,6 +326,10 @@ module.exports = {
 
     '@superdispatch/directory-name': INCONSISTENCY,
 
+    '@superdispatch/filename': INCONSISTENCY,
+
+    '@superdispatch/no-index-file': INCONSISTENCY,
+
     //
     // eslint-plugin-import
     //
