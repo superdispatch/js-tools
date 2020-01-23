@@ -3,7 +3,36 @@
 const path = require('path');
 const _ = require('lodash');
 
-const ASSETS_FILE_REGEXP = /(.*?)\.(png|jpg|css|sass|scss)$/;
+const ASSETS_FILE_REGEXP = /(.*?)\.(svg|png|jpg|css|sass|scss)$/;
+
+function fileToKebabCase(filename) {
+  return filename.replace(
+    ASSETS_FILE_REGEXP,
+    (match, name, ext) => `${_.kebabCase(name)}.${ext}`,
+  );
+}
+
+function process(file, node, context) {
+  const filename = path.basename(file);
+  const kebabCasedFilename = fileToKebabCase(filename);
+
+  if (
+    // Check for relative files. Lint only local files and ignore third party modules.
+    /\.\.?\//.test(file) &&
+    ASSETS_FILE_REGEXP.test(filename) &&
+    kebabCasedFilename !== filename
+  ) {
+    context.report({
+      node,
+      message:
+        'Asset files name must be in kebab-case. Please rename "{{ invalid }}" to "{{ valid }}"',
+      data: {
+        invalid: filename,
+        valid: kebabCasedFilename,
+      },
+    });
+  }
+}
 
 module.exports = {
   meta: {
@@ -12,27 +41,19 @@ module.exports = {
   },
 
   create(context) {
-    const filename = path.basename(context.getFilename());
-
     return {
-      Program(node) {
-        if (
-          ASSETS_FILE_REGEXP.test(filename) &&
-          _.kebabCase(filename) !== filename
-        ) {
-          context.report({
-            node,
-            message:
-              'Asset files name must be in kebab-case. Please rename "{{ invalid }}" to "{{ valid }}"',
-            data: {
-              invalid: filename,
-              valid: filename.replace(
-                ASSETS_FILE_REGEXP,
-                (match, name, ext) => `${_.kebabCase(name)}.${ext}`,
-              ),
-            },
-          });
+      CallExpression(node) {
+        if (node.callee.name === 'require' && node.arguments[0]) {
+          process(node.arguments[0].value, node, context);
+          return;
         }
+
+        if (node.callee.type === 'Import' && node.arguments[0]) {
+          process(node.arguments[0].value, node, context);
+        }
+      },
+      ImportDeclaration(node) {
+        process(node.source.value, node, context);
       },
     };
   },
