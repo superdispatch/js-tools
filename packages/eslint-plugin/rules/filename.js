@@ -5,17 +5,6 @@ const _ = require('lodash');
 
 const ASSETS_FILE_REGEXP = /(.*?)\.(png|jpg|css|sass|scss)$/;
 
-function isKebabCase(text) {
-  return new RegExp(
-    '^' +
-      // Should start with alphanumeric symbols.
-      '([a-z0-9]+)' +
-      // Can be separated with only dash followed by alphanumeric symbols.
-      '(-[a-z0-9]+)*' +
-      '$',
-  ).test(text);
-}
-
 module.exports = {
   meta: {
     scheme: [],
@@ -27,7 +16,10 @@ module.exports = {
 
     return {
       Program(node) {
-        if (ASSETS_FILE_REGEXP.test(filename) && !isKebabCase(filename)) {
+        if (
+          ASSETS_FILE_REGEXP.test(filename) &&
+          _.kebabCase(filename) !== filename
+        ) {
           context.report({
             node,
             message:
