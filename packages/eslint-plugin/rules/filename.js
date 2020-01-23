@@ -43,12 +43,10 @@ module.exports = {
   create(context) {
     return {
       CallExpression(node) {
-        if (node.callee.name === 'require' && node.arguments[0]) {
-          process(node.arguments[0].value, node, context);
-          return;
-        }
-
-        if (node.callee.type === 'Import' && node.arguments[0]) {
+        if (
+          (node.callee.name === 'require' || node.callee.type === 'Import') &&
+          typeof node.arguments[0] === 'string'
+        ) {
           process(node.arguments[0].value, node, context);
         }
       },

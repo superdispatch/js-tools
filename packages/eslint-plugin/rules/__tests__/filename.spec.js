@@ -21,6 +21,9 @@ ruleTester.run('filename', rule, {
     {
       code: 'import("./style.css");',
     },
+    {
+      code: 'var foo; require(foo);',
+    },
   ],
   invalid: ['png', 'jpg', 'css', 'sass', 'scss'].map(ext => ({
     code: `import asset from './assets/AssetFile.${ext}';`,
