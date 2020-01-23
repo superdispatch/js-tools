@@ -25,10 +25,24 @@ ruleTester.run('filename', rule, {
       code: 'var foo; require(foo);',
     },
   ],
-  invalid: ['png', 'jpg', 'css', 'sass', 'scss'].map(ext => ({
-    code: `import asset from './assets/AssetFile.${ext}';`,
-    errors: [
-      `Asset files name must be in kebab-case. Please rename "AssetFile.${ext}" to "asset-file.${ext}"`,
-    ],
-  })),
+  invalid: [
+    {
+      code: "import asset from './assets/AssetFile.svg';",
+      errors: [
+        'Asset files name must be in kebab-case. Please rename "AssetFile.svg" to "asset-file.svg"',
+      ],
+    },
+    {
+      code: "import asset from './assets/AssetFile.jpg';",
+      errors: [
+        'Asset files name must be in kebab-case. Please rename "AssetFile.jpg" to "asset-file.jpg"',
+      ],
+    },
+    {
+      code: "const asset = require('./assets/AssetFile.png');",
+      errors: [
+        'Asset files name must be in kebab-case. Please rename "AssetFile.png" to "asset-file.png"',
+      ],
+    },
+  ],
 });
