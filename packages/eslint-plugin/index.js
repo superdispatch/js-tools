@@ -2,8 +2,10 @@
 
 module.exports = {
   rules: {
-    'directory-name': require('./rules/directory-name'),
+    filename: require('./rules/filename'),
     camelcase: require('./rules/camelcase'),
+    'no-index-file': require('./rules/no-index-file'),
+    'directory-name': require('./rules/directory-name'),
     'jsx-no-spread-object-expression': require('./rules/jsx-no-spread-object-expression'),
   },
   configs: {

@@ -1,6 +1,6 @@
 'use strict';
 
-const { OFF, DEPT, ERROR, INCONSISTENCY } = require('./internal/error-codes');
+const { OFF, DEPT, ERROR, INCONSISTENCY, WARNING } = require('./internal/error-codes');
 
 module.exports = {
   root: true,
@@ -325,6 +325,10 @@ module.exports = {
     '@superdispatch/camelcase': INCONSISTENCY,
 
     '@superdispatch/directory-name': INCONSISTENCY,
+
+    '@superdispatch/filename': INCONSISTENCY,
+
+    '@superdispatch/no-index-file': WARNING,
 
     //
     // eslint-plugin-import
