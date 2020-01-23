@@ -21,7 +21,7 @@ module.exports = {
           context.report({
             node,
             message:
-              "Avoid usage of index file names for features each file should be described by it's name.",
+              "Avoid usage of index file names for features. Each file should be described by it's name.",
           });
         }
       },

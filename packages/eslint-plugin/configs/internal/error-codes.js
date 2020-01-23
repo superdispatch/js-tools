@@ -9,4 +9,4 @@ const WARNING = 'warn';
 const DEPT = isDevMode ? OFF : WARNING;
 const INCONSISTENCY = isDevMode ? WARNING : ERROR;
 
-module.exports = { OFF, DEPT, ERROR, WARNING, INCONSISTENCY };
+module.exports = { OFF, DEPT, ERROR, INCONSISTENCY };

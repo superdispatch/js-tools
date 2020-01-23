@@ -18,7 +18,7 @@ ruleTester.run('no-index-file', rule, {
     code: '',
     filename: `src/index.${ext}`,
     errors: [
-      "Avoid usage of index file names for features each file should be described by it's name.",
+      "Avoid usage of index file names for features. Each file should be described by it's name.",
     ],
   })),
 });

@@ -5,7 +5,6 @@ const {
   DEPT,
   ERROR,
   INCONSISTENCY,
-  WARNING,
 } = require('./internal/error-codes');
 
 module.exports = {
@@ -334,7 +333,7 @@ module.exports = {
 
     '@superdispatch/filename': INCONSISTENCY,
 
-    '@superdispatch/no-index-file': WARNING,
+    '@superdispatch/no-index-file': INCONSISTENCY,
 
     //
     // eslint-plugin-import
