@@ -1,6 +1,12 @@
 'use strict';
 
-const { OFF, DEPT, ERROR, INCONSISTENCY, WARNING } = require('./internal/error-codes');
+const {
+  OFF,
+  DEPT,
+  ERROR,
+  INCONSISTENCY,
+  WARNING,
+} = require('./internal/error-codes');
 
 module.exports = {
   root: true,
