@@ -39,7 +39,7 @@ it('extends dependencies', async () => {
         "error",
       ],
       "@superdispatch/no-index-file": Array [
-        "error",
+        "off",
       ],
       "array-bracket-newline": Array [
         "off",
@@ -653,10 +653,6 @@ it('changes in dev mode', async () => {
     +     "warn",
         ],
         "@superdispatch/filename": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "@superdispatch/no-index-file": Array [
     -     "error",
     +     "warn",
         ],

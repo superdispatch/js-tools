@@ -328,7 +328,7 @@ module.exports = {
 
     '@superdispatch/filename': INCONSISTENCY,
 
-    '@superdispatch/no-index-file': INCONSISTENCY,
+    '@superdispatch/no-index-file': OFF,
 
     //
     // eslint-plugin-import
