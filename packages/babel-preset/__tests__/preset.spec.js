@@ -5,7 +5,7 @@ const snapshotDiff = require('snapshot-diff');
 const preset = require('../index');
 
 function diff(a, b) {
-  return snapshotDiff(a, b, { stablePatchmarks: true });
+  return snapshotDiff(a, b, { contextLines: 2, stablePatchmarks: true });
 }
 
 function getConfig(env, options) {
@@ -37,15 +37,7 @@ it('exposes default settings', () => {
   expect(defaultPreset).toMatchInlineSnapshot(`
     Object {
       "plugins": Array [
-        "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-proposal-numeric-separator",
-        Array [
-          "@babel/plugin-proposal-object-rest-spread",
-          Object {
-            "loose": false,
-            "useBuiltIns": true,
-          },
-        ],
         Array [
           "@babel/plugin-proposal-decorators",
           Object {
@@ -68,7 +60,7 @@ it('exposes default settings', () => {
           "@babel/plugin-transform-runtime",
           Object {
             "helpers": true,
-            "version": "7.8.3",
+            "version": "7.8.4",
           },
         ],
       ],
@@ -105,19 +97,6 @@ it('exposes default settings', () => {
     + Second value
 
     @@ --- --- @@
-      Object {
-        "plugins": Array [
-    -     "@babel/plugin-syntax-dynamic-import",
-    +     "babel-plugin-dynamic-import-node",
-          "@babel/plugin-proposal-numeric-separator",
-          Array [
-            "@babel/plugin-proposal-object-rest-spread",
-            Object {
-              "loose": false,
-    @@ --- --- @@
-        ],
-        "presets": Array [
-          Array [
             "@babel/preset-env",
             Object {
     -         "corejs": 3,
@@ -134,16 +113,13 @@ it('exposes default settings', () => {
     +         },
             },
           ],
-          Array [
+    @@ --- --- @@
             "@babel/preset-react",
             Object {
     -         "development": false,
     +         "development": true,
               "useBuiltIns": true,
             },
-          ],
-          "@babel/preset-typescript",
-        ],
   `);
 
   expect(diff(defaultPreset, getConfig('production'))).toMatchInlineSnapshot(`
@@ -157,18 +133,12 @@ it('exposes default settings', () => {
     + Second value
 
     @@ --- --- @@
-            },
-          ],
-          Array [
             "@babel/preset-react",
             Object {
     -         "development": false,
     +         "development": true,
               "useBuiltIns": true,
             },
-          ],
-          "@babel/preset-typescript",
-        ],
   `);
 });
 
@@ -184,9 +154,6 @@ it('configures `options.jsx`', () => {
     + Second value
 
     @@ --- --- @@
-              "modules": false,
-              "targets": undefined,
-              "useBuiltIns": "entry",
             },
           ],
     -     Array [
@@ -198,7 +165,6 @@ it('configures `options.jsx`', () => {
     -     ],
           "@babel/preset-typescript",
         ],
-      }
   `);
 
   expect(
@@ -212,9 +178,6 @@ it('configures `options.jsx`', () => {
     + Second value
 
     @@ --- --- @@
-              "modules": false,
-              "targets": undefined,
-              "useBuiltIns": "entry",
             },
           ],
     -     Array [
@@ -226,7 +189,6 @@ it('configures `options.jsx`', () => {
     -     ],
           "@babel/preset-typescript",
         ],
-      }
   `);
 
   expect(
@@ -237,9 +199,6 @@ it('configures `options.jsx`', () => {
     + Second value
 
     @@ --- --- @@
-              "targets": Object {
-                "node": "current",
-              },
             },
           ],
     -     Array [
@@ -251,7 +210,6 @@ it('configures `options.jsx`', () => {
     -     ],
           "@babel/preset-typescript",
         ],
-      }
   `);
 });
 
@@ -267,10 +225,7 @@ it('configures `options.typescript`', () => {
     + Second value
 
     @@ --- --- @@
-              "loose": false,
-              "useBuiltIns": true,
-            },
-          ],
+          "@babel/plugin-proposal-numeric-separator",
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
@@ -286,13 +241,7 @@ it('configures `options.typescript`', () => {
     -     Array [
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "mode": "wrap",
-            },
-          ],
     @@ --- --- @@
-            Object {
-              "development": true,
-              "useBuiltIns": true,
             },
           ],
     -     "@babel/preset-typescript",
@@ -311,10 +260,7 @@ it('configures `options.typescript`', () => {
     + Second value
 
     @@ --- --- @@
-              "loose": false,
-              "useBuiltIns": true,
-            },
-          ],
+          "@babel/plugin-proposal-numeric-separator",
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
@@ -330,13 +276,7 @@ it('configures `options.typescript`', () => {
     -     Array [
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "mode": "wrap",
-            },
-          ],
     @@ --- --- @@
-            Object {
-              "development": false,
-              "useBuiltIns": true,
             },
           ],
     -     "@babel/preset-typescript",
@@ -355,10 +295,7 @@ it('configures `options.typescript`', () => {
     + Second value
 
     @@ --- --- @@
-              "loose": false,
-              "useBuiltIns": true,
-            },
-          ],
+          "@babel/plugin-proposal-numeric-separator",
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
@@ -374,13 +311,7 @@ it('configures `options.typescript`', () => {
     -     Array [
             "babel-plugin-transform-react-remove-prop-types",
             Object {
-              "mode": "wrap",
-            },
-          ],
     @@ --- --- @@
-            Object {
-              "development": true,
-              "useBuiltIns": true,
             },
           ],
     -     "@babel/preset-typescript",
@@ -401,9 +332,6 @@ it('configures `options.optimize.react`', () => {
     + Second value
 
     @@ --- --- @@
-            Object {
-              "loose": false,
-            },
           ],
           Array [
     -       "babel-plugin-transform-react-remove-prop-types",
@@ -414,9 +342,6 @@ it('configures `options.optimize.react`', () => {
     -     Array [
             "@babel/plugin-transform-runtime",
             Object {
-              "helpers": true,
-              "version": "7.8.3",
-            },
   `);
 
   expect(
@@ -430,9 +355,6 @@ it('configures `options.optimize.react`', () => {
     + Second value
 
     @@ --- --- @@
-            Object {
-              "loose": false,
-            },
           ],
           Array [
     -       "babel-plugin-transform-react-remove-prop-types",
@@ -443,9 +365,6 @@ it('configures `options.optimize.react`', () => {
     -     Array [
             "@babel/plugin-transform-runtime",
             Object {
-              "helpers": true,
-              "version": "7.8.3",
-            },
   `);
 
   expect(
@@ -459,9 +378,6 @@ it('configures `options.optimize.react`', () => {
     + Second value
 
     @@ --- --- @@
-            Object {
-              "loose": false,
-            },
           ],
           Array [
     -       "babel-plugin-transform-react-remove-prop-types",
@@ -472,9 +388,6 @@ it('configures `options.optimize.react`', () => {
     -     Array [
             "@babel/plugin-transform-runtime",
             Object {
-              "helpers": true,
-              "version": "7.8.3",
-            },
   `);
 });
 
@@ -490,23 +403,17 @@ it('configures `options.optimize.runtime`', () => {
     + Second value
 
     @@ --- --- @@
-            "babel-plugin-transform-react-remove-prop-types",
-            Object {
-              "mode": "wrap",
             },
           ],
     -     Array [
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.8.3",
+    -         "version": "7.8.4",
     -       },
     -     ],
         ],
         "presets": Array [
-          Array [
-            "@babel/preset-env",
-            Object {
   `);
 
   expect(
@@ -515,29 +422,23 @@ it('configures `options.optimize.runtime`', () => {
       getConfig('production', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
+Snapshot Diff:
+- First value
++ Second value
 
-    @@ --- --- @@
-            "babel-plugin-transform-react-remove-prop-types",
-            Object {
-              "mode": "wrap",
-            },
-          ],
-    -     Array [
-    -       "@babel/plugin-transform-runtime",
-    -       Object {
-    -         "helpers": true,
-    -         "version": "7.8.3",
-    -       },
-    -     ],
-        ],
-        "presets": Array [
-          Array [
-            "@babel/preset-env",
-            Object {
-  `);
+@@ --- --- @@
+        },
+      ],
+-     Array [
+-       "@babel/plugin-transform-runtime",
+-       Object {
+-         "helpers": true,
+-         "version": "7.8.4",
+-       },
+-     ],
+    ],
+    "presets": Array [
+`);
 
   expect(
     diff(
@@ -545,27 +446,21 @@ it('configures `options.optimize.runtime`', () => {
       getConfig('test', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
+Snapshot Diff:
+- First value
++ Second value
 
-    @@ --- --- @@
-            "babel-plugin-transform-react-remove-prop-types",
-            Object {
-              "mode": "wrap",
-            },
-          ],
-    -     Array [
-    -       "@babel/plugin-transform-runtime",
-    -       Object {
-    -         "helpers": true,
-    -         "version": "7.8.3",
-    -       },
-    -     ],
-        ],
-        "presets": Array [
-          Array [
-            "@babel/preset-env",
-            Object {
-  `);
+@@ --- --- @@
+        },
+      ],
+-     Array [
+-       "@babel/plugin-transform-runtime",
+-       Object {
+-         "helpers": true,
+-         "version": "7.8.4",
+-       },
+-     ],
+    ],
+    "presets": Array [
+`);
 });
