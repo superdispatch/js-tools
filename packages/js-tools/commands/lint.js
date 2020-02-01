@@ -142,8 +142,8 @@ module.exports = async ({ fix, files, quiet, tools }) => {
     eslintArgs.push('--fix');
     prettierArgs.push('--write');
   } else {
-    yarnDeduplicateArgs.push('--list');
     prettierArgs.push('--list-different');
+    yarnDeduplicateArgs.push('--list', '--fail');
   }
 
   if (quiet) {
