@@ -16,21 +16,21 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.17.0",
-    "@typescript-eslint/parser": "^2.17.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jest": "^23.6.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "eslint-plugin-simple-import-sort": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jest": "23.6.0",
+    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "eslint-plugin-simple-import-sort": "5.0.1",
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
-    "eslint": "^6.7.1",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.2"
+    "eslint": "^6.7.0",
+    "prettier": "^1.19.0",
+    "typescript": "^3.7.0"
   },
   "engines": {
     "node": ">=10.0.0"
