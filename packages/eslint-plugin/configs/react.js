@@ -63,6 +63,13 @@ module.exports = {
      */
     'react/prop-types': OFF,
 
+    /**
+     * Prevent extra closing tags for components without children.
+     *
+     * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/self-closing-comp.md
+     */
+    'react/self-closing-comp': INCONSISTENCY,
+
     //
     // eslint-plugin-react-hooks
     //
