@@ -171,6 +171,9 @@ it('extends dependencies', async () => {
       "react/require-render-return": Array [
         2,
       ],
+      "react/self-closing-comp": Array [
+        "error",
+      ],
     }
   `);
 });
@@ -179,39 +182,44 @@ it('changes in dev mode', async () => {
   const rules = await getDevConfigDiff('react');
 
   expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
+Snapshot Diff:
+- First value
++ Second value
 
-    @@ --- --- @@
-        "@superdispatch/jsx-no-spread-object-expression": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "react/jsx-boolean-value": Array [
-    -     "error",
-    +     "warn",
-          "always",
-    @@ --- --- @@
-        "react/jsx-curly-brace-presence": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "react/jsx-fragments": Array [
-    -     "error",
-    +     "warn",
-          "syntax",
-    @@ --- --- @@
-        "react/jsx-no-useless-fragment": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "react/no-danger-with-children": Array [
-    -     "error",
-    +     "warn",
-        ],
-  `);
+@@ --- --- @@
+    "@superdispatch/jsx-no-spread-object-expression": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "react/jsx-boolean-value": Array [
+-     "error",
++     "warn",
+      "always",
+@@ --- --- @@
+    "react/jsx-curly-brace-presence": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "react/jsx-fragments": Array [
+-     "error",
++     "warn",
+      "syntax",
+@@ --- --- @@
+    "react/jsx-no-useless-fragment": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "react/no-danger-with-children": Array [
+-     "error",
++     "warn",
+    ],
+@@ --- --- @@
+    "react/self-closing-comp": Array [
+-     "error",
++     "warn",
+    ],
+`);
 });
