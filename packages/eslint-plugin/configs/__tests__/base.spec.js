@@ -21,6 +21,7 @@ it('extends dependencies', async () => {
         "ecmaVersion": 2018,
       },
       "plugins": Array [
+        "array-func",
         "@superdispatch",
         "import",
       ],
@@ -60,9 +61,6 @@ it('extends dependencies', async () => {
         "error",
       ],
       "array-func/prefer-array-from": Array [
-        "error",
-      ],
-      "array-func/prefer-flat": Array [
         "error",
       ],
       "array-func/prefer-flat-map": Array [
@@ -904,221 +902,217 @@ it('changes in dev mode', async () => {
   const rules = await getDevConfigDiff('base');
 
   expect(rules).toMatchInlineSnapshot(`
-Snapshot Diff:
-- First value
-+ Second value
+    Snapshot Diff:
+    - First value
+    + Second value
 
-@@ --- --- @@
-    "@superdispatch/camelcase": Array [
--     "error",
-+     "warn",
-    ],
-    "@superdispatch/directory-name": Array [
--     "error",
-+     "warn",
-    ],
-    "@superdispatch/filename": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "array-func/avoid-reverse": Array [
--     "error",
-+     "warn",
-    ],
-    "array-func/from-map": Array [
--     "error",
-+     "warn",
-    ],
-    "array-func/no-unnecessary-this-arg": Array [
--     "error",
-+     "warn",
-    ],
-    "array-func/prefer-array-from": Array [
--     "error",
-+     "warn",
-    ],
-    "array-func/prefer-flat": Array [
--     "error",
-+     "warn",
-    ],
-    "array-func/prefer-flat-map": Array [
--     "error",
-+     "warn",
-    ],
-    "arrow-body-style": Array [
--     "error",
-+     "warn",
-      "as-needed",
-@@ --- --- @@
-    "curly": Array [
--     "error",
-+     "warn",
-      "all",
-@@ --- --- @@
-    "dot-notation": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "func-names": Array [
--     "error",
-+     "warn",
-      "as-needed",
-@@ --- --- @@
-    "import/first": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "import/no-anonymous-default-export": Array [
--     "error",
-+     "warn",
-      Object {
-@@ --- --- @@
-    "import/no-deprecated": Array [
--     "warn",
-+     "off",
-    ],
-    "import/no-duplicates": Array [
--     "error",
-+     "warn",
-    ],
-    "import/no-mutable-exports": Array [
--     "error",
-+     "warn",
-    ],
-    "import/no-named-as-default": Array [
--     "error",
-+     "warn",
-    ],
-    "import/no-named-as-default-member": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-alert": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-console": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-div-regex": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-else-return": Array [
--     "error",
-+     "warn",
-    ],
-    "no-empty": Array [
--     "error",
-+     "warn",
-      Object {
-@@ --- --- @@
-    "no-floating-decimal": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-implicit-coercion": Array [
--     "error",
-+     "warn",
-      Object {
-@@ --- --- @@
-    "no-lonely-if": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-shadow": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-undef-init": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-unneeded-ternary": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-unused-expressions": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-useless-computed-key": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "no-useless-rename": Array [
--     "error",
-+     "warn",
-    ],
-    "no-useless-return": Array [
--     "error",
-+     "warn",
-    ],
-    "no-var": Array [
--     "error",
-+     "warn",
-    ],
-    "no-warning-comments": Array [
--     "warn",
-+     "off",
-      Object {
-@@ --- --- @@
-    "object-shorthand": Array [
--     "error",
-+     "warn",
-      "always",
-@@ --- --- @@
-    "operator-assignment": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "prefer-arrow-callback": Array [
--     "error",
-+     "warn",
-      Object {
-@@ --- --- @@
-    "prefer-destructuring": Array [
--     "error",
-+     "warn",
-      Object {
-@@ --- --- @@
-    "prefer-numeric-literals": Array [
--     "error",
-+     "warn",
-    ],
-    "prefer-object-spread": Array [
--     "error",
-+     "warn",
-    ],
-    "prefer-template": Array [
--     "error",
-+     "warn",
-    ],
-@@ --- --- @@
-    "quotes": Array [
--     "error",
-+     "warn",
-      "single",
-@@ --- --- @@
-    "yoda": Array [
--     "error",
-+     "warn",
-      "never",
-`);
+    @@ --- --- @@
+        "@superdispatch/camelcase": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "@superdispatch/directory-name": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "@superdispatch/filename": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "array-func/avoid-reverse": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "array-func/from-map": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "array-func/no-unnecessary-this-arg": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "array-func/prefer-array-from": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "array-func/prefer-flat-map": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "arrow-body-style": Array [
+    -     "error",
+    +     "warn",
+          "as-needed",
+    @@ --- --- @@
+        "curly": Array [
+    -     "error",
+    +     "warn",
+          "all",
+    @@ --- --- @@
+        "dot-notation": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "func-names": Array [
+    -     "error",
+    +     "warn",
+          "as-needed",
+    @@ --- --- @@
+        "import/first": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "import/no-anonymous-default-export": Array [
+    -     "error",
+    +     "warn",
+          Object {
+    @@ --- --- @@
+        "import/no-deprecated": Array [
+    -     "warn",
+    +     "off",
+        ],
+        "import/no-duplicates": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "import/no-mutable-exports": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "import/no-named-as-default": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "import/no-named-as-default-member": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-alert": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-console": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-div-regex": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-else-return": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "no-empty": Array [
+    -     "error",
+    +     "warn",
+          Object {
+    @@ --- --- @@
+        "no-floating-decimal": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-implicit-coercion": Array [
+    -     "error",
+    +     "warn",
+          Object {
+    @@ --- --- @@
+        "no-lonely-if": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-shadow": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-undef-init": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-unneeded-ternary": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-unused-expressions": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-useless-computed-key": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "no-useless-rename": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "no-useless-return": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "no-var": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "no-warning-comments": Array [
+    -     "warn",
+    +     "off",
+          Object {
+    @@ --- --- @@
+        "object-shorthand": Array [
+    -     "error",
+    +     "warn",
+          "always",
+    @@ --- --- @@
+        "operator-assignment": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "prefer-arrow-callback": Array [
+    -     "error",
+    +     "warn",
+          Object {
+    @@ --- --- @@
+        "prefer-destructuring": Array [
+    -     "error",
+    +     "warn",
+          Object {
+    @@ --- --- @@
+        "prefer-numeric-literals": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "prefer-object-spread": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "prefer-template": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "quotes": Array [
+    -     "error",
+    +     "warn",
+          "single",
+    @@ --- --- @@
+        "yoda": Array [
+    -     "error",
+    +     "warn",
+          "never",
+  `);
 });
