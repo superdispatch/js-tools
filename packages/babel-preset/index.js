@@ -126,46 +126,12 @@ module.exports = (
         },
   ]);
 
-  if (isTest) {
-    plugins.push(
-      /**
-       * @see https://github.com/airbnb/babel-plugin-dynamic-import-node
-       */
-      'babel-plugin-dynamic-import-node',
-    );
-  } else {
-    plugins.push(
-      /**
-       * @see https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import
-       */
-      '@babel/plugin-syntax-dynamic-import',
-    );
-  }
-
   plugins.push(
     /**
      * @see https://babeljs.io/docs/en/babel-plugin-proposal-numeric-separator
      */
     '@babel/plugin-proposal-numeric-separator',
   );
-
-  plugins.push([
-    /**
-     * @see https://babeljs.io/docs/en/babel-plugin-proposal-numeric-separator
-     */
-    '@babel/plugin-proposal-object-rest-spread',
-    {
-      /**
-       * Use `Object.assign`.
-       */
-      loose,
-
-      /**
-       * Use `Object.assign` directly instead of the Babel's extends helper.
-       */
-      useBuiltIns: true,
-    },
-  ]);
 
   if (transpileJSX) {
     presets.push([

@@ -3,7 +3,6 @@
 .vscode
 
 # Dependencies
-yarn.lock
 node_modules/
 
 # Logs

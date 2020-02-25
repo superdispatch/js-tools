@@ -1,6 +1,18 @@
 'use strict';
 
+const confusingBrowserGlobals = require('confusing-browser-globals');
 const { OFF, DEPT, ERROR, INCONSISTENCY } = require('./internal/error-codes');
+
+const restrictedGlobals = new Map(
+  ['error', 'isNaN', 'isFinite', ...confusingBrowserGlobals].map(key => [
+    key,
+    key === 'event' || key === 'error'
+      ? 'Use local parameter instead.'
+      : key === 'isNaN' || key === 'isFinite'
+      ? `Use 'Number.${key}' instead.`
+      : `Use 'window.${key}' instead.`,
+  ]),
+);
 
 module.exports = {
   root: true,
@@ -56,6 +68,19 @@ module.exports = {
      * @see https://eslint.org/docs/rules/no-empty
      */
     'no-empty': [INCONSISTENCY, { allowEmptyCatch: true }],
+
+    /**
+     * Disallowing usage of specific global variables.
+     *
+     * @see https://eslint.org/docs/rules/no-restricted-globals
+     */
+    'no-restricted-globals': [
+      ERROR,
+      ...Array.from(restrictedGlobals, ([name, message]) => ({
+        name,
+        message,
+      })),
+    ],
 
     //
     // Best Practices

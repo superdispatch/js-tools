@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/babel-preset",
-  "version": "0.1.37",
+  "version": "0.1.41",
   "description": "Shared Babel preset",
   "keywords": [
     "babel"
@@ -12,21 +12,18 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-decorators": "^7.8.3",
-    "@babel/plugin-proposal-numeric-separator": "^7.7.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
-    "babel-plugin-dynamic-import-node": "^2.3.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24"
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-decorators": "7.8.3",
+    "@babel/plugin-proposal-numeric-separator": "7.8.3",
+    "@babel/plugin-transform-runtime": "7.8.3",
+    "@babel/preset-env": "7.8.4",
+    "@babel/preset-react": "7.8.3",
+    "@babel/preset-typescript": "7.8.3",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/runtime": "^7.8.3"
+    "@babel/cli": "7.8.4",
+    "@babel/runtime": "7.8.4"
   },
   "engines": {
     "node": ">=10.0.0"
