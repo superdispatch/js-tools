@@ -19,7 +19,7 @@ module.exports = {
 
   parserOptions: { ecmaVersion: 2018 },
 
-  plugins: ['import', '@superdispatch/eslint-plugin'],
+  plugins: ['import', '@superdispatch/eslint-plugin', 'array-func'],
 
   extends: [
     //
@@ -34,10 +34,6 @@ module.exports = {
     //
     // eslint-config-prettier
     'prettier',
-
-    //
-    // eslint-plugin-array-func
-    'plugin:array-func/all',
   ],
 
   rules: {
@@ -182,6 +178,50 @@ module.exports = {
      * @see https://eslint.org/docs/rules/yoda
      */
     yoda: [INCONSISTENCY, 'never', { exceptRange: true }],
+
+    /**
+     * Prefer using the mapFn callback of Array.from over an immediate .map() call on the Array.from result.
+     *
+     * @see https://github.com/freaktechnik/eslint-plugin-array-func#from-map
+     * */
+    'array-func/from-map': INCONSISTENCY,
+
+    /**
+     * Avoid the this parameter when providing arrow function as callback in array functions.
+     *
+     * @see https://github.com/freaktechnik/eslint-plugin-array-func#no-unnecessary-this-arg
+     * */
+    'array-func/no-unnecessary-this-arg': INCONSISTENCY,
+
+    /**
+     * Use Array.from instead of [...iterable] for performance benefits.
+     *
+     * https://github.com/freaktechnik/eslint-plugin-array-func#prefer-array-from
+     * */
+    'array-func/prefer-array-from': INCONSISTENCY,
+
+    /**
+     * Avoid reversing the array and running a method on it if there is an equivalent of the method operating on the array from the other end.
+     *
+     * @see https://github.com/freaktechnik/eslint-plugin-array-func#avoid-reverse
+     * */
+    'array-func/avoid-reverse': INCONSISTENCY,
+
+    /**
+     * Use .flatMap() to flatten an array and map the values instead of using .flat().map().
+     *
+     * @see https://github.com/freaktechnik/eslint-plugin-array-func#prefer-flat-map
+     * */
+    'array-func/prefer-flat-map': INCONSISTENCY,
+
+    /**
+     * Use .flat() to flatten an array of arrays. This rule currently recognizes two patterns and can replace them with a .flat() call:
+     *  - [].concat(...array)
+     *  - array.reduce((p, n) => p.concat(n), [])
+     *
+     *  @https://github.com/freaktechnik/eslint-plugin-array-func#prefer-flat
+     * */
+    'array-func/prefer-flat': INCONSISTENCY,
 
     //
     // Variables
