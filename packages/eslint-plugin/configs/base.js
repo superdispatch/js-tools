@@ -22,6 +22,10 @@ module.exports = {
     //
     // eslint-config-prettier
     'prettier',
+
+    //
+    // eslint-plugin-array-func
+    'plugin:array-func/all',
   ],
 
   rules: {

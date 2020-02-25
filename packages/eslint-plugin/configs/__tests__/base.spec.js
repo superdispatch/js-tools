@@ -21,6 +21,7 @@ it('extends dependencies', async () => {
         "ecmaVersion": 2018,
       },
       "plugins": Array [
+        "array-func",
         "@superdispatch",
         "import",
       ],
@@ -49,6 +50,24 @@ it('extends dependencies', async () => {
       ],
       "array-element-newline": Array [
         "off",
+      ],
+      "array-func/avoid-reverse": Array [
+        "error",
+      ],
+      "array-func/from-map": Array [
+        "error",
+      ],
+      "array-func/no-unnecessary-this-arg": Array [
+        "error",
+      ],
+      "array-func/prefer-array-from": Array [
+        "error",
+      ],
+      "array-func/prefer-flat": Array [
+        "error",
+      ],
+      "array-func/prefer-flat-map": Array [
+        "error",
       ],
       "arrow-body-style": Array [
         "error",
