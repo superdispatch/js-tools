@@ -19,7 +19,12 @@ module.exports = {
 
   parserOptions: { ecmaVersion: 2018 },
 
-  plugins: ['import', '@superdispatch/eslint-plugin', 'array-func', 'eslint-comments'],
+  plugins: [
+    'import',
+    '@superdispatch/eslint-plugin',
+    'array-func',
+    'eslint-comments',
+  ],
 
   extends: [
     //
