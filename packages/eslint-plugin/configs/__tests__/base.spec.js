@@ -21,6 +21,7 @@ it('extends dependencies', async () => {
         "ecmaVersion": 2018,
       },
       "plugins": Array [
+        "eslint-comments",
         "array-func",
         "@superdispatch",
         "import",
@@ -119,6 +120,24 @@ it('extends dependencies', async () => {
       "eqeqeq": Array [
         "error",
         "smart",
+      ],
+      "eslint-comments/disable-enable-pair": Array [
+        "error",
+      ],
+      "eslint-comments/no-aggregating-enable": Array [
+        "error",
+      ],
+      "eslint-comments/no-duplicate-disable": Array [
+        "error",
+      ],
+      "eslint-comments/no-unlimited-disable": Array [
+        "error",
+      ],
+      "eslint-comments/no-unused-disable": Array [
+        "error",
+      ],
+      "eslint-comments/no-unused-enable": Array [
+        "error",
       ],
       "for-direction": Array [
         "error",
@@ -951,6 +970,31 @@ it('changes in dev mode', async () => {
           "all",
     @@ --- --- @@
         "dot-notation": Array [
+    -     "error",
+    +     "warn",
+        ],
+    @@ --- --- @@
+        "eslint-comments/disable-enable-pair": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "eslint-comments/no-aggregating-enable": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "eslint-comments/no-duplicate-disable": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "eslint-comments/no-unlimited-disable": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "eslint-comments/no-unused-disable": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "eslint-comments/no-unused-enable": Array [
     -     "error",
     +     "warn",
         ],
