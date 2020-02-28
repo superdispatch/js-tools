@@ -219,6 +219,15 @@ module.exports = {
      * */
     'array-func/prefer-flat-map': INCONSISTENCY,
 
+    /**
+     * Use .flat() to flatten an array of arrays. This rule currently recognizes two patterns and can replace them with a .flat() call:
+     * - [].concat(...array)
+     * - array.reduce((p, n) => p.concat(n), [])
+     *
+     * @see https://github.com/freaktechnik/eslint-plugin-array-func#prefer-flat
+     * */
+    'array-func/prefer-flat': INCONSISTENCY,
+
     //
     // Variables
 
