@@ -21,6 +21,7 @@
     "confusing-browser-globals": "^1.0.9",
     "eslint-config-prettier": "6.10.0",
     "eslint-plugin-array-func": "^3.1.4",
+    "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jest": "23.6.0",
     "eslint-plugin-node": "11.0.0",
