@@ -21,7 +21,7 @@
     "execa": "^4.0.0",
     "prettier-plugin-packagejson": "^2.0.10",
     "yargs": "^15.1.0",
-    "yarn-deduplicate": "^1.1.1"
+    "yarn-deduplicate": "^2.0.0"
   },
   "peerDependencies": {
     "eslint": "^6.0.0",
