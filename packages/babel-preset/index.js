@@ -225,7 +225,6 @@ module.exports = (
         /**
          * Get `@babel/runtime` version from installed one.
          */
-        // eslint-disable-next-line node/no-unpublished-require
         version: require('@babel/runtime/package.json').version,
       },
     ]);
