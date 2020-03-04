@@ -18,17 +18,17 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
-    "confusing-browser-globals": "^1.0.9",
-    "eslint-config-prettier": "6.10.0",
-    "eslint-plugin-array-func": "^3.1.4",
-    "eslint-plugin-eslint-comments": "^3.1.2",
+    "confusing-browser-globals": "1.x",
+    "eslint-config-prettier": "6.x",
+    "eslint-plugin-array-func": "3.x",
+    "eslint-plugin-eslint-comments": "3.x",
     "eslint-plugin-import": "2.x",
-    "eslint-plugin-jest": "23.6.0",
-    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-jest": "23.x",
+    "eslint-plugin-node": "11.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
-    "eslint-plugin-simple-import-sort": "5.0.1",
-    "lodash": "^4.17.15"
+    "eslint-plugin-simple-import-sort": "5.x",
+    "lodash": "4.x"
   },
   "peerDependencies": {
     "eslint": "^6.7.0",
