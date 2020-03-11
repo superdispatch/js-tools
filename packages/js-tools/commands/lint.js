@@ -177,18 +177,18 @@ module.exports = async ({ fix, files, quiet, tools }) => {
     });
   }
 
+  if (!skipYarnDeduplicate && yarnDeduplicateFiles.length > 0) {
+    await execLinter('yarn-deduplicate', [
+      ...yarnDeduplicateArgs,
+      ...yarnDeduplicateFiles,
+    ]);
+  }
+
   if (!skipESLint && eslintFiles.length > 0) {
     await execLinter('eslint', [...eslintArgs, ...eslintFiles]);
   }
 
   if (!skipPettier && prettierFiles.length > 0) {
     await execLinter('prettier', [...prettierArgs, ...prettierFiles]);
-  }
-
-  if (!skipYarnDeduplicate && yarnDeduplicateFiles.length > 0) {
-    await execLinter('yarn-deduplicate', [
-      ...yarnDeduplicateArgs,
-      ...yarnDeduplicateFiles,
-    ]);
   }
 };
