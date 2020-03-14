@@ -8,9 +8,12 @@
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "files": [
-    "index.js"
+    "src/index.ts"
   ],
-  "main": "index.js",
+  "main": "pkg/dist-node/index.js",
+  "scripts": {
+    "build": "pika build"
+  },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/plugin-proposal-decorators": "7.8.3",
@@ -33,5 +36,18 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
   }
 }

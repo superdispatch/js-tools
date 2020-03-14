@@ -1,14 +1,12 @@
-'use strict';
+import snapshotDiff from 'snapshot-diff';
 
-const snapshotDiff = require('snapshot-diff');
+import preset, { PresetOptions } from '../index';
 
-const preset = require('../index');
-
-function diff(a, b) {
+function diff(a: any, b: any) {
   return snapshotDiff(a, b, { contextLines: 2, stablePatchmarks: true });
 }
 
-function getConfig(env, options) {
+function getConfig(env?: string, options?: PresetOptions) {
   const { NODE_ENV } = process.env;
 
   if (env) {
@@ -17,7 +15,7 @@ function getConfig(env, options) {
     delete process.env.NODE_ENV;
   }
 
-  const config = preset({}, options);
+  const config = preset({} as any, options);
 
   process.env.NODE_ENV = NODE_ENV;
 

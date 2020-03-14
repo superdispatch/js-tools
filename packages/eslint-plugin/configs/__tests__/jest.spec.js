@@ -18,6 +18,7 @@ it('extends dependencies', async () => {
       "ignorePatterns": Array [
         "coverage/",
         "node_modules/",
+        "packages/*/pkg",
       ],
       "parser": null,
       "parserOptions": Object {},

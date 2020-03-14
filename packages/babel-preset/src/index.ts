@@ -1,15 +1,26 @@
-'use strict';
+import { ConfigAPI, PluginItem, TransformOptions } from '@babel/core';
 
-function inlineKeys(keys) {
+function inlineKeys(keys: string[]) {
   return keys.map(key => JSON.stringify(key)).join(', ');
 }
 
-function createError(message) {
+function createError(message: string) {
   return new Error(`[@superdispatch/babel-preset] ${message}`);
 }
 
-module.exports = (
-  api,
+export interface PresetOptions {
+  targets?: string | null;
+  loose?: boolean;
+  jsx?: boolean;
+  typescript?: boolean;
+  optimize?: {
+    react?: boolean;
+    runtime?: boolean;
+  };
+}
+
+export default function preset(
+  _: ConfigAPI,
   {
     targets = null,
     loose = false,
@@ -21,8 +32,8 @@ module.exports = (
       ...unknownOptimizations
     } = {},
     ...unknownOptions
-  } = {},
-) => {
+  }: PresetOptions = {},
+): TransformOptions {
   const { NODE_ENV = 'production' } = process.env;
   const isTest = NODE_ENV === 'test';
   const isProduction = NODE_ENV === 'production';
@@ -62,8 +73,8 @@ module.exports = (
     );
   }
 
-  const presets = [];
-  const plugins = [];
+  const presets: PluginItem[] = [];
+  const plugins: PluginItem[] = [];
 
   presets.push([
     /**
@@ -231,4 +242,4 @@ module.exports = (
   }
 
   return { presets, plugins };
-};
+}
