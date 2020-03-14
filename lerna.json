@@ -9,6 +9,7 @@
     "publish": {
       "message": "%s",
       "ignoreChanges": [
+        "**/pkg/**",
         "**/__tests__/*.*",
         "**/__testutils__/*.*"
       ]

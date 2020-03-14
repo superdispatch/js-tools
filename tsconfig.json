@@ -1,0 +1,6 @@
+{
+  "extends": "@superdispatch/tsconfig",
+  "compilerOptions": {
+    "noEmit": false
+  }
+}

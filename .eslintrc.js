@@ -11,6 +11,13 @@ module.exports = {
       },
     },
     {
+      files: '**/packages/**/*.ts',
+      extends: 'plugin:@superdispatch/typescript',
+      rules: {
+        '@superdispatch/no-index-file': 'off',
+      },
+    },
+    {
       files: '**/{__tests__,__testutils__}/**/*.js',
       extends: 'plugin:@superdispatch/jest',
       rules: {

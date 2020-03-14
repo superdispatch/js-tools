@@ -1,8 +1,6 @@
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-const execa = require('execa');
+import execa from 'execa';
+import fs from 'fs';
+import path from 'path';
 
 const yarnLockFileName = 'yarn.lock';
 const eslintExtensions = [
@@ -119,13 +117,21 @@ const prettierExtensions = [
   '.yml.mysql',
 ];
 
-function execLinter(cmd, args) {
+function execLinter(cmd: string, args: string[]) {
+  // eslint-disable-next-line no-console
   console.log(`${cmd} ${args.join(' ')}`);
 
   return execa(cmd, args, { stdio: 'inherit', preferLocal: true });
 }
 
-module.exports = async ({ fix, files, quiet, tools }) => {
+interface LintOptions {
+  fix: boolean;
+  files: string[];
+  quiet: boolean;
+  tools?: string;
+}
+
+export async function lint({ fix, files, quiet, tools }: LintOptions) {
   const skipESLint = tools != null && !tools.includes('eslint');
   const skipPettier = tools != null && !tools.includes('prettier');
   const skipYarnDeduplicate =
@@ -191,4 +197,4 @@ module.exports = async ({ fix, files, quiet, tools }) => {
   if (!skipPettier && prettierFiles.length > 0) {
     await execLinter('prettier', [...prettierArgs, ...prettierFiles]);
   }
-};
+}

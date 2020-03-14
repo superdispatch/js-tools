@@ -1,10 +1,9 @@
-'use strict';
+import yargs from 'yargs';
 
-const yargs = require('yargs');
-const lint = require('./commands/lint');
+import { lint } from './commands/lint';
 
-module.exports = argv =>
-  new Promise(resolve =>
+export function run(argv: string[]) {
+  return new Promise(resolve =>
     yargs(argv.slice(2))
       .help()
       .strict()
@@ -42,3 +41,4 @@ module.exports = argv =>
       )
       .parse(),
   );
+}
