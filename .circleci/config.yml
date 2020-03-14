@@ -30,6 +30,9 @@ jobs:
       - checkout
       - install
       - run:
+          name: Build
+          command: yarn build
+      - run:
           name: Lint
           command: yarn lint --quiet
       - run:
@@ -37,9 +40,6 @@ jobs:
           command: |
             yarn test
             yarn codecov
-      - run:
-          name: Build
-          command: yarn build
       - persist_to_workspace:
           root: ./
           paths:
