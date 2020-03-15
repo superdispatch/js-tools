@@ -32,8 +32,9 @@ jobs:
       - run:
           name: Build
           command: yarn build
-      # Run install to link js-tools bin executable
-      - install
+      - run:
+          name: Link bin executables
+          command: yarn
       - run:
           name: Lint
           command: yarn lint --quiet
