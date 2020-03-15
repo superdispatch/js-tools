@@ -34,7 +34,7 @@ jobs:
           command: yarn build
       - run:
           name: Link bin executables
-          command: yarn
+          command: yarn install --force
       - run:
           name: Lint
           command: yarn lint --quiet
