@@ -40,6 +40,8 @@ async function getConfig(name, dev) {
 
     const { parser, ...config } = JSON.parse(stdout);
 
+    delete config.ignorePatterns;
+
     return {
       ...config,
       parser: parser && path.relative(process.cwd(), parser),

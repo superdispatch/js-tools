@@ -12,11 +12,6 @@ it('extends dependencies', async () => {
     Object {
       "env": Object {},
       "globals": Object {},
-      "ignorePatterns": Array [
-        "coverage/",
-        "node_modules/",
-        "packages/*/pkg",
-      ],
       "parser": null,
       "parserOptions": Object {
         "ecmaVersion": 2018,

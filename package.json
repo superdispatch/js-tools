@@ -13,7 +13,7 @@
     "prebump": "yarn lint && yarn tsc && yarn test && yarn build",
     "bump": "lerna version",
     "lint": "node scripts/lint.js",
-    "tdd": "jest --watch -u",
+    "tdd": "jest --watch",
     "test": "jest --coverage"
   },
   "devDependencies": {
