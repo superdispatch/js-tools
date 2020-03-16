@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-  presets: [['@superdispatch/babel-preset', { targets: 'esmodules' }]],
+  presets: ['@babel/preset-env', '@babel/preset-typescript'],
 };

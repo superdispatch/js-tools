@@ -7,7 +7,6 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "pkg/dist-node/index.js",
   "scripts": {
     "build": "pika build"
   },
