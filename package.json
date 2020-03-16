@@ -12,7 +12,7 @@
     "build": "lerna run build",
     "prebump": "yarn lint && yarn tsc && yarn test && yarn build",
     "bump": "lerna version",
-    "lint": "yarn workspace @superdispatch/js-tools node pkg/dist-node/index.bin.js lint",
+    "lint": "node scripts/lint.js",
     "tdd": "jest --watch -u",
     "test": "jest --coverage"
   },
