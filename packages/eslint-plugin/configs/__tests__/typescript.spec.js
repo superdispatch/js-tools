@@ -14,7 +14,7 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
-        ],
+        "globals": Object {},
     -   "parser": null,
     +   "parser": "node_modules/@typescript-eslint/parser/dist/parser.js",
         "parserOptions": Object {

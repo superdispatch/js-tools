@@ -15,10 +15,6 @@ it('extends dependencies', async () => {
         "jest/globals": true,
       },
       "globals": Object {},
-      "ignorePatterns": Array [
-        "coverage/",
-        "node_modules/",
-      ],
       "parser": null,
       "parserOptions": Object {},
       "plugins": Array [
