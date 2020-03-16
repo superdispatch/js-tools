@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = { '*': 'js-tools lint --fix' };
+module.exports = { '*': 'yarn lint --fix' };
