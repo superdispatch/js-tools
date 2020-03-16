@@ -6,16 +6,10 @@ module.exports = {
     {
       files: '**/packages/**/*.js',
       extends: 'plugin:@superdispatch/node-pkg',
-      rules: {
-        '@superdispatch/no-index-file': 'off',
-      },
     },
     {
       files: '**/packages/**/*.ts',
       extends: 'plugin:@superdispatch/typescript',
-      rules: {
-        '@superdispatch/no-index-file': 'off',
-      },
     },
     {
       files: '**/{__tests__,__testutils__}/**/*.{js,ts}',

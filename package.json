@@ -10,9 +10,9 @@
   },
   "scripts": {
     "build": "lerna run build",
-    "prebump": "yarn lint && yarn test && yarn build",
+    "prebump": "yarn lint && yarn tsc && yarn test && yarn build",
     "bump": "lerna version",
-    "lint": "yarn js-tools lint",
+    "lint": "yarn workspace @superdispatch/js-tools node pkg/dist-node/index.bin.js lint",
     "tdd": "jest --watch -u",
     "test": "jest --coverage"
   },
