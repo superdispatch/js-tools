@@ -8,7 +8,7 @@
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "scripts": {
-    "build": "pika build"
+    "build": "babel src -d dist --extensions .ts"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "7.8.3",
@@ -31,7 +31,8 @@
     "node": ">=10.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "publishConfig": "pkg"
   },
   "@pika/pack": {
     "pipeline": [

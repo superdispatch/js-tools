@@ -1,6 +1,8 @@
 {
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["**/pkg/**/*", "**/*.spec.*"],
   "extends": "@superdispatch/tsconfig",
   "compilerOptions": {
-    "noEmit": false
+    "target": "ES2016"
   }
 }

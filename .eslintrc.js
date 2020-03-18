@@ -8,7 +8,7 @@ module.exports = {
       extends: 'plugin:@superdispatch/node-pkg',
     },
     {
-      files: '**/packages/**/*.ts',
+      files: ['**/packages/**/*.ts', 'types/**/*.ts'],
       extends: 'plugin:@superdispatch/typescript',
     },
     {
@@ -20,6 +20,7 @@ module.exports = {
           { packageDir: __dirname },
         ],
         '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
       },
     },
   ],

@@ -9,8 +9,11 @@
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "main": "src/index.ts",
+  "bin": {
+    "js-tools": "./dist/bin.js"
+  },
   "scripts": {
-    "build": "pika build"
+    "build": "babel src -d dist --extensions .ts"
   },
   "dependencies": {
     "execa": "^4.0.0",

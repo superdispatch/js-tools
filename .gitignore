@@ -13,4 +13,4 @@ yarn-error.log*
 coverage
 
 # Dist
-packages/*/pkg/
+packages/*/dist/

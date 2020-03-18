@@ -8,13 +8,16 @@
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "files": [
-    "index.js",
-    "rules/**",
-    "configs/**",
+    "src/index.ts",
+    "src/rules/**",
+    "src/configs/**",
     "!**/__tests__/**",
     "!**/__testutils__/**"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist --extensions .ts"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
