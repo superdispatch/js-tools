@@ -31,24 +31,5 @@
   "publishConfig": {
     "access": "public",
     "publishConfig": "pkg"
-  },
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-standard-pkg"
-      ],
-      [
-        "@pika/plugin-build-node"
-      ],
-      [
-        "@pika/plugin-simple-bin",
-        {
-          "bin": "js-tools"
-        }
-      ],
-      [
-        "@pika/plugin-build-types"
-      ]
-    ]
   }
 }
