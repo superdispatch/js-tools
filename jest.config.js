@@ -19,5 +19,5 @@ module.exports = {
   transform: { '\\.ts$': require.resolve('babel-jest') },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
-  modulePathIgnorePatterns: ['.+/pkg/.+'],
+  modulePathIgnorePatterns: ['.+/dist/.+'],
 };
