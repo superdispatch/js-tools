@@ -240,6 +240,18 @@ module.exports = {
     'no-shadow': INCONSISTENCY,
 
     /**
+     * Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring.
+     *
+     * @see https://eslint.org/docs/rules/no-unused-vars
+     * */
+    'no-unused-vars': [
+      ERROR,
+      {
+        varsIgnorePattern: '^_',
+        argsIgnorePattern: '^_',
+      },
+    ],
+    /**
      * Disallow Initializing to `undefined`.
      *
      * @see https://eslint.org/docs/rules/no-undef-init

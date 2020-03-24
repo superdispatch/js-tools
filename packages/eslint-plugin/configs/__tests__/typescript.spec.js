@@ -292,7 +292,8 @@ Snapshot Diff:
     "no-unused-vars": Array [
 -     "error",
 +     "off",
-    ],
+      Object {
+@@ --- --- @@
     "no-use-before-define": Array [
 -     "error",
 +     "off",
