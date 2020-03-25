@@ -4,7 +4,7 @@ const confusingBrowserGlobals = require('confusing-browser-globals');
 const { OFF, DEPT, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 const restrictedGlobals = new Map(
-  ['error', 'isNaN', 'isFinite', ...confusingBrowserGlobals].map(key => [
+  ['error', 'isNaN', 'isFinite', ...confusingBrowserGlobals].map((key) => [
     key,
     key === 'event' || key === 'error'
       ? 'Use local parameter instead.'
