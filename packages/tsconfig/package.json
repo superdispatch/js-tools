@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/tsconfig",
-  "version": "0.1.48",
+  "version": "0.1.50",
   "description": "Shared config for TypeScript.",
   "keywords": [
     "typescript"
