@@ -14,7 +14,7 @@ ruleTester.run('no-index-file', rule, {
       filename: 'src/module-file.js',
     },
   ],
-  invalid: ['ts', 'tsx', 'js', 'jsx'].map(ext => ({
+  invalid: ['ts', 'tsx', 'js', 'jsx'].map((ext) => ({
     code: '',
     filename: `src/index.${ext}`,
     errors: [

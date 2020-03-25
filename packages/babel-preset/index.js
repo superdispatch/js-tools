@@ -1,7 +1,7 @@
 'use strict';
 
 function inlineKeys(keys) {
-  return keys.map(key => JSON.stringify(key)).join(', ');
+  return keys.map((key) => JSON.stringify(key)).join(', ');
 }
 
 function createError(message) {

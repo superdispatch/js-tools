@@ -12,7 +12,7 @@ function collectAllRules(config) {
   }
 
   if (config.overrides) {
-    config.overrides.forEach(override => {
+    config.overrides.forEach((override) => {
       if (override.rules) {
         Object.assign(rules, override.rules);
       }

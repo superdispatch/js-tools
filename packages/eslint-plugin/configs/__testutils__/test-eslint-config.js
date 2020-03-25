@@ -9,7 +9,7 @@ function omitEqualRules(a, b) {
   const result = {};
   const allKeys = new Set([...Object.keys(a), ...Object.keys(b)]);
 
-  allKeys.forEach(key => {
+  allKeys.forEach((key) => {
     if (!isDeepStrictEqual(a[key], b[key])) {
       result[key] = b[key];
     }
