@@ -7,10 +7,10 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
+  "main": "prettier.config.js",
   "files": [
     "prettier.config.js"
   ],
-  "main": "prettier.config.js",
   "engines": {
     "node": ">=10.0.0"
   },

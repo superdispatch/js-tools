@@ -8,15 +8,15 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
+  "main": "index.js",
+  "bin": {
+    "js-tools": "bin.js"
+  },
   "files": [
     "bin.js",
     "index.js",
     "commands/**"
   ],
-  "main": "index.js",
-  "bin": {
-    "js-tools": "bin.js"
-  },
   "dependencies": {
     "execa": "^4.0.0",
     "prettier-plugin-packagejson": "^2.0.10",
