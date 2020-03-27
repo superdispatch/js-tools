@@ -15,7 +15,7 @@ module.exports = {
   },
   create(context) {
     return {
-      'ExpressionStatement > ConditionalExpression': function(node) {
+      'ExpressionStatement > ConditionalExpression': function (node) {
         context.report({
           node,
           messageId: 'noInlineCondition',
@@ -33,7 +33,7 @@ module.exports = {
           },
         });
       },
-      'ExpressionStatement > LogicalExpression': function(node) {
+      'ExpressionStatement > LogicalExpression': function (node) {
         if (node.operator !== '||' && node.operator !== '&&') {
           return;
         }

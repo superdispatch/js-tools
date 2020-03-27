@@ -4,7 +4,7 @@
 
 const run = require('.');
 
-run(process.argv).catch(error => {
+run(process.argv).catch((error) => {
   if (error.exitCode) {
     process.exitCode = error.exitCode;
   } else {

@@ -3,8 +3,8 @@
 const yargs = require('yargs');
 const lint = require('./commands/lint');
 
-module.exports = argv =>
-  new Promise(resolve =>
+module.exports = (argv) =>
+  new Promise((resolve) =>
     yargs(argv.slice(2))
       .help()
       .strict()
@@ -14,7 +14,7 @@ module.exports = argv =>
       .command(
         'lint [files...]',
         'Run linters',
-        args =>
+        (args) =>
           args
             .example('$0', 'lint all files')
             .example('$0 --fix', 'lint and fix all files')

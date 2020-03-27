@@ -159,7 +159,7 @@ module.exports = async ({ fix, files, quiet, tools }) => {
       yarnDeduplicateFiles.push(yarnLockFileName);
     }
   } else {
-    files.forEach(file => {
+    files.forEach((file) => {
       const ext = path.extname(file);
       const basename = path.basename(file);
 

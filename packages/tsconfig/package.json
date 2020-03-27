@@ -7,10 +7,10 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
+  "main": "tsconfig.json",
   "files": [
     "tsconfig.json"
   ],
-  "main": "tsconfig.json",
   "engines": {
     "node": ">=10.0.0"
   },
