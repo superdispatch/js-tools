@@ -60,7 +60,7 @@ it('exposes default settings', () => {
           "@babel/plugin-transform-runtime",
           Object {
             "helpers": true,
-            "version": "7.8.4",
+            "version": "7.9.0",
           },
         ],
       ],
@@ -398,23 +398,23 @@ it('configures `options.optimize.runtime`', () => {
       getConfig('development', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
+Snapshot Diff:
+- First value
++ Second value
 
-    @@ --- --- @@
-            },
-          ],
-    -     Array [
-    -       "@babel/plugin-transform-runtime",
-    -       Object {
-    -         "helpers": true,
-    -         "version": "7.8.4",
-    -       },
-    -     ],
-        ],
-        "presets": Array [
-  `);
+@@ --- --- @@
+        },
+      ],
+-     Array [
+-       "@babel/plugin-transform-runtime",
+-       Object {
+-         "helpers": true,
+-         "version": "7.9.0",
+-       },
+-     ],
+    ],
+    "presets": Array [
+`);
 
   expect(
     diff(
@@ -433,7 +433,7 @@ Snapshot Diff:
 -       "@babel/plugin-transform-runtime",
 -       Object {
 -         "helpers": true,
--         "version": "7.8.4",
+-         "version": "7.9.0",
 -       },
 -     ],
     ],
@@ -457,7 +457,7 @@ Snapshot Diff:
 -       "@babel/plugin-transform-runtime",
 -       Object {
 -         "helpers": true,
--         "version": "7.8.4",
+-         "version": "7.9.0",
 -       },
 -     ],
     ],
