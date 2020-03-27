@@ -408,6 +408,8 @@ module.exports = {
     // @superdispatch/eslint-plugin
     //
 
+    '@superdispatch/no-inline-condition': INCONSISTENCY,
+
     '@superdispatch/camelcase': INCONSISTENCY,
 
     '@superdispatch/directory-name': INCONSISTENCY,

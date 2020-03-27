@@ -16,6 +16,9 @@
   ],
   "main": "index.js",
   "dependencies": {
+    "@babel/generator": "^7.9.4",
+    "@babel/parser": "^7.9.4",
+    "@babel/types": "^7.9.0",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "confusing-browser-globals": "1.x",
