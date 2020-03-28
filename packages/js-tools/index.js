@@ -3,6 +3,9 @@
 const yargs = require('yargs');
 const lint = require('./commands/lint');
 
+/**
+ * @param {string[]} argv
+ */
 module.exports = (argv) =>
   new Promise((resolve) =>
     yargs(argv.slice(2))

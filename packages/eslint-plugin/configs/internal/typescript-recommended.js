@@ -1,9 +1,18 @@
+/**
+ * @typedef {import("eslint").Linter.Config} Config
+ * @typedef {import("eslint").Linter.RuleEntry} RuleEntry
+ * */
+
 'use strict';
 
 const {
   configs: { base, recommended, 'eslint-recommended': eslintRecommended },
 } = require('@typescript-eslint/eslint-plugin');
 
+/**
+ * @param {Config} config
+ * @returns {Config["rules"]}
+ */
 function collectAllRules(config) {
   const rules = {};
 
@@ -22,6 +31,9 @@ function collectAllRules(config) {
   return rules;
 }
 
+/**
+ * @type {Config["rules"]}
+ */
 const recommendedRules = {
   ...collectAllRules(recommended),
   ...collectAllRules(eslintRecommended),

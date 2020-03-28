@@ -1,5 +1,14 @@
+/**
+ * @typedef {import("@typescript-eslint/typescript-estree").TSESTree.JSXSpreadAttribute} JSXSpreadAttribute
+ * @typedef {import("eslint").Rule.RuleModule} RuleModule
+ * @typedef {import("estree").Node} Node
+ * */
+
 'use strict';
 
+/**
+ * @type {RuleModule}
+ * */
 module.exports = {
   meta: {
     schema: [],
@@ -11,17 +20,25 @@ module.exports = {
     const sourceCode = context.getSourceCode();
 
     return {
-      JSXSpreadAttribute(node) {
+      /**
+       * @param {Node} estreeNode
+       * */
+      JSXSpreadAttribute(estreeNode) {
+        const node = /** @type {JSXSpreadAttribute} */ (
+          /** @type {unknown} */ (estreeNode)
+        );
         if (node.argument.type !== 'ObjectExpression') {
           return;
         }
 
         context.report({
-          node,
+          node: estreeNode,
           message: 'Do not use object expressions in JSX spread',
           fix(fixer) {
             const updates = [];
 
+            // TODO Remove @ts-ignore
+            // @ts-ignore
             for (const property of node.argument.properties) {
               if (property.type === 'Property' && !property.computed) {
                 const key =
@@ -43,8 +60,8 @@ module.exports = {
             }
 
             return [
-              fixer.insertTextBefore(node, updates.join(' ')),
-              fixer.remove(node),
+              fixer.insertTextBefore(estreeNode, updates.join(' ')),
+              fixer.remove(estreeNode),
             ];
           },
         });

@@ -1,3 +1,7 @@
+/**
+ * @typedef {import("eslint").Linter.Config} Config
+ * */
+
 'use strict';
 
 const confusingBrowserGlobals = require('confusing-browser-globals');
@@ -14,6 +18,9 @@ const restrictedGlobals = new Map(
   ]),
 );
 
+/**
+ * @type {Config}
+ * */
 module.exports = {
   root: true,
 

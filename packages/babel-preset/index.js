@@ -1,15 +1,34 @@
 'use strict';
 
+/**
+ * @param {string[]} keys
+ */
 function inlineKeys(keys) {
   return keys.map((key) => JSON.stringify(key)).join(', ');
 }
 
+/**
+ * @param {string} message
+ */
 function createError(message) {
   return new Error(`[@superdispatch/babel-preset] ${message}`);
 }
 
+/**
+ * @typedef {Object} PresetOptions
+ * @property {string | null} [targets]
+ * @property {boolean} [loose]
+ * @property {boolean} [jsx]
+ * @property {boolean} [typescript]
+ * @property {{react?: boolean, runtime?: boolean }} [optimize]
+ * */
+
+/**
+ * @param {import("@babel/core").ConfigAPI} _api
+ * @param {PresetOptions} [options]
+ */
 module.exports = (
-  api,
+  _api,
   {
     targets = null,
     loose = false,

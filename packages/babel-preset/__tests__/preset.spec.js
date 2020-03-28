@@ -4,10 +4,18 @@ const snapshotDiff = require('snapshot-diff');
 
 const preset = require('../index');
 
+/**
+ * @param {any} a
+ * @param {any} b
+ */
 function diff(a, b) {
   return snapshotDiff(a, b, { contextLines: 2, stablePatchmarks: true });
 }
 
+/**
+ * @param {string | undefined} env
+ * @param {import("../index").PresetOptions | undefined} [options]
+ */
 function getConfig(env, options) {
   const { NODE_ENV } = process.env;
 
@@ -17,6 +25,7 @@ function getConfig(env, options) {
     delete process.env.NODE_ENV;
   }
 
+  // @ts-ignore
   const config = preset({}, options);
 
   process.env.NODE_ENV = NODE_ENV;

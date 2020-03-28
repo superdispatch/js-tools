@@ -3,6 +3,7 @@
 module.exports = {
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
+    { files: '*.ts', extends: 'plugin:@superdispatch/typescript' },
     {
       files: '**/packages/**/*.js',
       extends: 'plugin:@superdispatch/node-pkg',
