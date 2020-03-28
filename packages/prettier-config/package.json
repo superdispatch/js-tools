@@ -11,6 +11,9 @@
   "files": [
     "src/prettier.config.js"
   ],
+  "scripts": {
+    "typecheck": "yarn tsc"
+  },
   "engines": {
     "node": ">=10.0.0"
   },

@@ -134,7 +134,7 @@ function execLinter(cmd, args) {
  * @property {boolean} fix
  * @property {string[]} files
  * @property {boolean} quiet
- * @property {string} [tools]
+ * @property {string | undefined} tools
  */
 
 /**

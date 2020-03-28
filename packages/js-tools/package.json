@@ -17,6 +17,9 @@
     "src/index.js",
     "src/commands/**"
   ],
+  "scripts": {
+    "typecheck": "yarn tsc"
+  },
   "dependencies": {
     "execa": "^4.0.0",
     "prettier-plugin-packagejson": "^2.0.10",
