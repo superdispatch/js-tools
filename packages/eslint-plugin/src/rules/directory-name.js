@@ -1,8 +1,15 @@
+/**
+ * @typedef {import("eslint").Rule.RuleModule} RuleModule
+ * */
+
 'use strict';
 
 const path = require('path');
 const _ = require('lodash');
 
+/**
+ * @param {string} text
+ */
 function isValidDirname(text) {
   return new RegExp(
     '^' +
@@ -18,6 +25,9 @@ function isValidDirname(text) {
   ).test(text);
 }
 
+/**
+ * @type {RuleModule}
+ * */
 module.exports = {
   meta: {
     schema: [],
@@ -26,6 +36,8 @@ module.exports = {
 
   create(context) {
     const baseDir = _.trim(
+      // TODO Remove @ts-ignore
+      // @ts-ignore
       path.dirname(context.getFilename()).replace(context.getCwd(), ''),
       path.sep,
     )
@@ -48,7 +60,7 @@ module.exports = {
               invalid: baseDir,
               valid: baseDir.replace(
                 /^(__)?(.*?)(__)?$/,
-                (match, m1 = '', m2 = '', m3 = '') =>
+                (_match, m1 = '', m2 = '', m3 = '') =>
                   `${m1}${_.kebabCase(m2)}${m3}`,
               ),
             },

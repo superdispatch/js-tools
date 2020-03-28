@@ -119,12 +119,28 @@ const prettierExtensions = [
   '.yml.mysql',
 ];
 
+/**
+ * @param {string} cmd
+ * @param {string[]} args
+ */
 function execLinter(cmd, args) {
   console.log(`${cmd} ${args.join(' ')}`);
 
   return execa(cmd, args, { stdio: 'inherit', preferLocal: true });
 }
 
+/**
+ * @typedef {Object} LintOptions
+ * @property {boolean} fix
+ * @property {string[]} files
+ * @property {boolean} quiet
+ * @property {string} [tools]
+ */
+
+/**
+ * @param {LintOptions} options
+ * @return {Promise<void>}
+ * */
 module.exports = async ({ fix, files, quiet, tools }) => {
   const skipESLint = tools != null && !tools.includes('eslint');
   const skipPettier = tools != null && !tools.includes('prettier');

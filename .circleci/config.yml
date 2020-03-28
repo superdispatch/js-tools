@@ -33,6 +33,9 @@ jobs:
           name: Lint
           command: yarn lint --quiet
       - run:
+          name: Typecheck
+          command: yarn typecheck
+      - run:
           name: Test
           command: |
             yarn test

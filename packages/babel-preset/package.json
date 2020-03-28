@@ -7,10 +7,13 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "index.js",
+  "main": "src/index.js",
   "files": [
-    "index.js"
+    "src/index.js"
   ],
+  "scripts": {
+    "typecheck": "yarn tsc"
+  },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/plugin-proposal-decorators": "7.8.3",

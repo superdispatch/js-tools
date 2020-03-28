@@ -1,7 +1,14 @@
+/**
+ * @typedef {import("eslint").Linter.Config} Config
+ * */
+
 'use strict';
 
 const { ERROR } = require('./internal/error-codes');
 
+/**
+ * @type {Config}
+ * */
 module.exports = {
   env: { jest: true },
   extends: ['plugin:jest/recommended', 'plugin:jest/style'],
