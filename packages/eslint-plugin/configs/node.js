@@ -1,7 +1,14 @@
+/**
+ * @typedef {import("eslint").Linter.Config} Config
+ * */
+
 'use strict';
 
 const { OFF, ERROR } = require('./internal/error-codes');
 
+/**
+ * @type {Config}
+ * */
 module.exports = {
   env: { node: true },
 

@@ -1,7 +1,13 @@
+/**
+ * @typedef {import("eslint").Linter.Config} Config
+ * */
 'use strict';
 
 const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
+/**
+ * @type {Config}
+ * */
 module.exports = {
   env: { browser: true },
   plugins: ['react', 'react-hooks'],
