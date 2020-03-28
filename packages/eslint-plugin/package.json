@@ -7,17 +7,14 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "index.js",
   "files": [
-    "src/index.js",
-    "src/rules/**",
-    "src/configs/**",
+    "index.js",
+    "rules/**",
+    "configs/**",
     "!**/__tests__/**",
     "!**/__testutils__/**"
   ],
-  "scripts": {
-    "typecheck": "yarn tsc"
-  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",

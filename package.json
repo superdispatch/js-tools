@@ -14,7 +14,7 @@
     "lint": "js-tools lint",
     "tdd": "jest --watch",
     "test": "jest --coverage",
-    "typecheck": "lerna run typecheck"
+    "typecheck": "yarn tsc"
   },
   "devDependencies": {
     "@types/eslint": "^6.1.8",

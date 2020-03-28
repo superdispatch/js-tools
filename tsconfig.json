@@ -1,7 +1,7 @@
 {
   "extends": "./packages/tsconfig/tsconfig",
+  "include": ["types", "packages"],
   "compilerOptions": {
-    "noEmit": true,
     "checkJs": true,
     "allowJs": true
   }

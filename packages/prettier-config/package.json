@@ -7,13 +7,10 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "src/prettier.config.js",
+  "main": "prettier.config.js",
   "files": [
-    "src/prettier.config.js"
+    "prettier.config.js"
   ],
-  "scripts": {
-    "typecheck": "yarn tsc"
-  },
   "engines": {
     "node": ">=10.0.0"
   },
