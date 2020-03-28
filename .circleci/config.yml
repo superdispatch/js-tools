@@ -34,7 +34,7 @@ jobs:
           command: yarn lint --quiet
       - run:
           name: Typecheck
-          command: yarn typecheck
+          command: yarn tsc
       - run:
           name: Test
           command: |

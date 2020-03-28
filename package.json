@@ -13,8 +13,7 @@
     "bump": "lerna version",
     "lint": "js-tools lint",
     "tdd": "jest --watch",
-    "test": "jest --coverage",
-    "typecheck": "yarn tsc"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@types/eslint": "^6.1.8",
