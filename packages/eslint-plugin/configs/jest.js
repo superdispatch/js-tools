@@ -4,14 +4,18 @@
 
 'use strict';
 
-const { ERROR } = require('./internal/error-codes');
+const { ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 /**
  * @type {Config}
  * */
 module.exports = {
   env: { jest: true },
-  extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+  extends: [
+    'plugin:jest/recommended',
+    'plugin:jest/style',
+    'plugin:testing-library/recommended',
+  ],
 
   rules: {
     /**
@@ -48,5 +52,15 @@ module.exports = {
      * @see https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-jasmine-globals.md
      */
     'jest/no-jasmine-globals': ERROR,
+
+    //
+    // eslint-plugin-testing-library
+    //
+    /**
+     * Prevents using `debug` function.
+     *
+     * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/no-debug.md
+     * */
+    'testing-library/no-debug': INCONSISTENCY,
   },
 };

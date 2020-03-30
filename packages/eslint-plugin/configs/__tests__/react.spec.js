@@ -21,6 +21,7 @@ it('extends dependencies', async () => {
         },
       },
       "plugins": Array [
+        "jsx-a11y",
         "react-hooks",
         "react",
       ],
@@ -31,6 +32,57 @@ it('extends dependencies', async () => {
     Object {
       "@superdispatch/jsx-no-spread-object-expression": Array [
         "error",
+      ],
+      "jsx-a11y/accessible-emoji": Array [
+        "warn",
+      ],
+      "jsx-a11y/alt-text": Array [
+        "warn",
+      ],
+      "jsx-a11y/anchor-has-content": Array [
+        "warn",
+      ],
+      "jsx-a11y/anchor-is-valid": Array [
+        "warn",
+        Object {
+          "aspects": Array [
+            "noHref",
+            "invalidHref",
+          ],
+        },
+      ],
+      "jsx-a11y/aria-props": Array [
+        "warn",
+      ],
+      "jsx-a11y/aria-proptypes": Array [
+        "warn",
+      ],
+      "jsx-a11y/aria-role": Array [
+        "warn",
+        Object {
+          "ignoreNonDOM": true,
+        },
+      ],
+      "jsx-a11y/aria-unsupported-elements": Array [
+        "warn",
+      ],
+      "jsx-a11y/heading-has-content": Array [
+        "warn",
+      ],
+      "jsx-a11y/img-redundant-alt": Array [
+        "warn",
+      ],
+      "jsx-a11y/no-access-key": Array [
+        "warn",
+      ],
+      "jsx-a11y/no-distracting-elements": Array [
+        "warn",
+      ],
+      "jsx-a11y/no-redundant-roles": Array [
+        "warn",
+      ],
+      "jsx-a11y/role-supports-aria-props": Array [
+        "warn",
       ],
       "react-hooks/exhaustive-deps": Array [
         "error",
