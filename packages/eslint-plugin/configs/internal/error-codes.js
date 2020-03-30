@@ -5,8 +5,8 @@ const isDevMode =
 
 const OFF = 'off';
 const ERROR = 'error';
-const WARNING = 'warn';
+const WARNING = 'warn'; // eslint-disable-line no-restricted-syntax
 const DEPT = isDevMode ? OFF : WARNING;
 const INCONSISTENCY = isDevMode ? WARNING : ERROR;
 
-module.exports = { OFF, DEPT, ERROR, WARNING, INCONSISTENCY };
+module.exports = { OFF, DEPT, ERROR, INCONSISTENCY };

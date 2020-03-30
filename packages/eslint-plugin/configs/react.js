@@ -3,12 +3,7 @@
  * */
 'use strict';
 
-const {
-  OFF,
-  ERROR,
-  WARNING,
-  INCONSISTENCY,
-} = require('./internal/error-codes');
+const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 /**
  * @type {Config}
@@ -97,102 +92,83 @@ module.exports = {
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
      * */
-    'jsx-a11y/accessible-emoji': WARNING,
-
-    /**
-     * Enforce that all elements that require alternative text have meaningful information to relay back to the end user.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md
-     * */
-    'jsx-a11y/alt-text': WARNING,
-
-    /**
-     * Enforce that anchors have content and that the content is accessible to screen readers.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
-     * */
-    'jsx-a11y/anchor-has-content': WARNING,
-
-    /**
-     * Enforces proper use of anchor tag.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md
-     * */
-    'jsx-a11y/anchor-is-valid': [
-      WARNING,
-      {
-        aspects: ['noHref', 'invalidHref'],
-      },
-    ],
+    'jsx-a11y/accessible-emoji': INCONSISTENCY,
 
     /**
      * This will fail if it finds an aria-* property that is not listed in WAI-ARIA States and Properties spec.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
      * */
-    'jsx-a11y/aria-props': WARNING,
+    'jsx-a11y/aria-props': INCONSISTENCY,
 
     /**
      * ARIA state and property values must be valid.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
      * */
-    'jsx-a11y/aria-proptypes': WARNING,
+    'jsx-a11y/aria-proptypes': INCONSISTENCY,
 
     /**
      * Elements with ARIA roles must use a valid, non-abstract ARIA role.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
      * */
-    'jsx-a11y/aria-role': [WARNING, { ignoreNonDOM: true }],
-
-    /**
-     * This rule enforces that these DOM elements do not contain the role and/or aria-* props.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
-     * */
-    'jsx-a11y/aria-unsupported-elements': WARNING,
-
-    /**
-     * Enforce that heading elements (h1, h2, etc.) have content and that the content is accessible to screen readers.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
-     * */
-    'jsx-a11y/heading-has-content': WARNING,
-
-    /**
-     * Enforce img alt attribute does not contain the word image, picture, or photo.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md
-     * */
-    'jsx-a11y/img-redundant-alt': WARNING,
+    'jsx-a11y/aria-role': [INCONSISTENCY, { ignoreNonDOM: true }],
 
     /**
      * Enforce no accessKey prop on element.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
      * */
-    'jsx-a11y/no-access-key': WARNING,
-
-    /**
-     * Enforces that no distracting elements are used.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-distracting-elements.md
-     * */
-    'jsx-a11y/no-distracting-elements': WARNING,
+    'jsx-a11y/no-access-key': INCONSISTENCY,
 
     /**
      * Setting an ARIA role that matches its default/implicit role is redundant since it is already set by the browser.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
      * */
-    'jsx-a11y/no-redundant-roles': WARNING,
+    'jsx-a11y/no-redundant-roles': INCONSISTENCY,
 
     /**
      * Enforce that elements with explicit or implicit roles defined contain only aria-* properties supported by that role.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
      * */
-    'jsx-a11y/role-supports-aria-props': WARNING,
+    'jsx-a11y/role-supports-aria-props': INCONSISTENCY,
+
+    /**
+     * Enforce elements with aria-activedescendant are tabbable.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
+     * */
+    'jsx-a11y/aria-activedescendant-has-tabindex': INCONSISTENCY,
+
+    /**
+     * Enforce autoFocus prop is not used.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-autofocus.md
+     * */
+    'jsx-a11y/no-autofocus': INCONSISTENCY,
+
+    /**
+     * Enforce that elements with ARIA roles must have all required attributes for that role.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
+     * */
+    'jsx-a11y/role-has-required-aria-props': INCONSISTENCY,
+
+    /**
+     * Enforce scope prop is only used on elements.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
+     * */
+    'jsx-a11y/scope': INCONSISTENCY,
+
+    /**
+     * Enforce tabIndex value is not greater than zero.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
+     * */
+    'jsx-a11y/tabindex-no-positive': INCONSISTENCY,
   },
 };

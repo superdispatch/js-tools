@@ -4,7 +4,7 @@
 
 'use strict';
 
-const { ERROR, INCONSISTENCY } = require('./internal/error-codes');
+const { ERROR } = require('./internal/error-codes');
 
 /**
  * @type {Config}
@@ -15,6 +15,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:jest/style',
     'plugin:testing-library/recommended',
+    'plugin:testing-library/react',
   ],
 
   rules: {
@@ -56,11 +57,26 @@ module.exports = {
     //
     // eslint-plugin-testing-library
     //
+
     /**
-     * Prevents using `debug` function.
+     * Disallow empty callbacks for waitFor and waitForElementToBeRemoved.
      *
-     * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/no-debug.md
+     * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/no-wait-for-empty-callback.md
      * */
-    'testing-library/no-debug': INCONSISTENCY,
+    'testing-library/no-wait-for-empty-callback': ERROR,
+
+    /**
+     * Enforce specific queries when checking element is present or not.
+     *
+     * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/prefer-presence-queries.md
+     * */
+    'testing-library/prefer-presence-queries': ERROR,
+
+    /**
+     * Suggest using screen while using queries.
+     *
+     * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/prefer-presence-queries.md
+     * */
+    'testing-library/prefer-screen-queries': ERROR,
   },
 };
