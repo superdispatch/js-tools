@@ -34,55 +34,43 @@ it('extends dependencies', async () => {
         "error",
       ],
       "jsx-a11y/accessible-emoji": Array [
-        "warn",
+        "error",
       ],
-      "jsx-a11y/alt-text": Array [
-        "warn",
-      ],
-      "jsx-a11y/anchor-has-content": Array [
-        "warn",
-      ],
-      "jsx-a11y/anchor-is-valid": Array [
-        "warn",
-        Object {
-          "aspects": Array [
-            "noHref",
-            "invalidHref",
-          ],
-        },
+      "jsx-a11y/aria-activedescendant-has-tabindex": Array [
+        "error",
       ],
       "jsx-a11y/aria-props": Array [
-        "warn",
+        "error",
       ],
       "jsx-a11y/aria-proptypes": Array [
-        "warn",
+        "error",
       ],
       "jsx-a11y/aria-role": Array [
-        "warn",
+        "error",
         Object {
           "ignoreNonDOM": true,
         },
       ],
-      "jsx-a11y/aria-unsupported-elements": Array [
-        "warn",
-      ],
-      "jsx-a11y/heading-has-content": Array [
-        "warn",
-      ],
-      "jsx-a11y/img-redundant-alt": Array [
-        "warn",
-      ],
       "jsx-a11y/no-access-key": Array [
-        "warn",
+        "error",
       ],
-      "jsx-a11y/no-distracting-elements": Array [
-        "warn",
+      "jsx-a11y/no-autofocus": Array [
+        "error",
       ],
       "jsx-a11y/no-redundant-roles": Array [
-        "warn",
+        "error",
+      ],
+      "jsx-a11y/role-has-required-aria-props": Array [
+        "error",
       ],
       "jsx-a11y/role-supports-aria-props": Array [
-        "warn",
+        "error",
+      ],
+      "jsx-a11y/scope": Array [
+        "error",
+      ],
+      "jsx-a11y/tabindex-no-positive": Array [
+        "error",
       ],
       "react-hooks/exhaustive-deps": Array [
         "error",
@@ -236,6 +224,55 @@ Snapshot Diff:
 
 @@ --- --- @@
     "@superdispatch/jsx-no-spread-object-expression": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/accessible-emoji": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-activedescendant-has-tabindex": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-props": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-proptypes": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-role": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "jsx-a11y/no-access-key": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/no-autofocus": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/no-redundant-roles": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/role-has-required-aria-props": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/role-supports-aria-props": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/scope": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/tabindex-no-positive": Array [
 -     "error",
 +     "warn",
     ],

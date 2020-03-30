@@ -106,6 +106,19 @@ it('extends dependencies', async () => {
         "error",
       ],
       "testing-library/no-debug": Array [
+        "warn",
+      ],
+      "testing-library/no-dom-import": Array [
+        "error",
+        "react",
+      ],
+      "testing-library/no-wait-for-empty-callback": Array [
+        "error",
+      ],
+      "testing-library/prefer-presence-queries": Array [
+        "error",
+      ],
+      "testing-library/prefer-screen-queries": Array [
         "error",
       ],
     }
@@ -117,13 +130,6 @@ it('not changes in dev mode', async () => {
 
   expect(rules).toMatchInlineSnapshot(`
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-    "testing-library/no-debug": Array [
--     "error",
-+     "warn",
-    ],
+Compared values have no visual difference.
 `);
 });
