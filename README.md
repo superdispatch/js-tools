@@ -1,6 +1,6 @@
 # JS Tools
 
-[![CircleCI](https://circleci.com/gh/superdispatch/js-tools.svg?style=svg)](https://circleci.com/gh/superdispatch/js-tools)
+[![Build](https://github.com/superdispatch/js-tools/workflows/Build/badge.svg?branch=master)](https://github.com/superdispatch/js-tools/actions)
 
 - [@superdispatch/babel-preset](https://github.com/superdispatch/js-tools/tree/master/packages/babel-preset) - shared Babel preset
 - [@superdispatch/eslint-plugin](https://github.com/superdispatch/js-tools/tree/master/packages/eslint-plugin) - shared ESLint config
