@@ -10,7 +10,7 @@ const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
  * */
 module.exports = {
   env: { browser: true },
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'jsx-a11y'],
   extends: ['plugin:react/recommended', 'prettier/react'],
 
   rules: {
@@ -82,5 +82,93 @@ module.exports = {
 
     'react-hooks/rules-of-hooks': ERROR,
     'react-hooks/exhaustive-deps': ERROR,
+
+    //
+    // eslint-plugin-jsx-a11y
+    //
+
+    /**
+     * Enforces to use accessibility attributes with emoji.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
+     * */
+    'jsx-a11y/accessible-emoji': INCONSISTENCY,
+
+    /**
+     * This will fail if it finds an aria-* property that is not listed in WAI-ARIA States and Properties spec.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
+     * */
+    'jsx-a11y/aria-props': INCONSISTENCY,
+
+    /**
+     * ARIA state and property values must be valid.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
+     * */
+    'jsx-a11y/aria-proptypes': INCONSISTENCY,
+
+    /**
+     * Elements with ARIA roles must use a valid, non-abstract ARIA role.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
+     * */
+    'jsx-a11y/aria-role': [INCONSISTENCY, { ignoreNonDOM: true }],
+
+    /**
+     * Enforce no accessKey prop on element.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
+     * */
+    'jsx-a11y/no-access-key': INCONSISTENCY,
+
+    /**
+     * Setting an ARIA role that matches its default/implicit role is redundant since it is already set by the browser.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
+     * */
+    'jsx-a11y/no-redundant-roles': INCONSISTENCY,
+
+    /**
+     * Enforce that elements with explicit or implicit roles defined contain only aria-* properties supported by that role.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
+     * */
+    'jsx-a11y/role-supports-aria-props': INCONSISTENCY,
+
+    /**
+     * Enforce elements with aria-activedescendant are tabbable.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
+     * */
+    'jsx-a11y/aria-activedescendant-has-tabindex': INCONSISTENCY,
+
+    /**
+     * Enforce autoFocus prop is not used.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-autofocus.md
+     * */
+    'jsx-a11y/no-autofocus': INCONSISTENCY,
+
+    /**
+     * Enforce that elements with ARIA roles must have all required attributes for that role.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
+     * */
+    'jsx-a11y/role-has-required-aria-props': INCONSISTENCY,
+
+    /**
+     * Enforce scope prop is only used on elements.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
+     * */
+    'jsx-a11y/scope': INCONSISTENCY,
+
+    /**
+     * Enforce tabIndex value is not greater than zero.
+     *
+     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
+     * */
+    'jsx-a11y/tabindex-no-positive': INCONSISTENCY,
   },
 };

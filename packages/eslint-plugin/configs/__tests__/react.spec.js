@@ -21,6 +21,7 @@ it('extends dependencies', async () => {
         },
       },
       "plugins": Array [
+        "jsx-a11y",
         "react-hooks",
         "react",
       ],
@@ -30,6 +31,45 @@ it('extends dependencies', async () => {
   expect(rules).toMatchInlineSnapshot(`
     Object {
       "@superdispatch/jsx-no-spread-object-expression": Array [
+        "error",
+      ],
+      "jsx-a11y/accessible-emoji": Array [
+        "error",
+      ],
+      "jsx-a11y/aria-activedescendant-has-tabindex": Array [
+        "error",
+      ],
+      "jsx-a11y/aria-props": Array [
+        "error",
+      ],
+      "jsx-a11y/aria-proptypes": Array [
+        "error",
+      ],
+      "jsx-a11y/aria-role": Array [
+        "error",
+        Object {
+          "ignoreNonDOM": true,
+        },
+      ],
+      "jsx-a11y/no-access-key": Array [
+        "error",
+      ],
+      "jsx-a11y/no-autofocus": Array [
+        "error",
+      ],
+      "jsx-a11y/no-redundant-roles": Array [
+        "error",
+      ],
+      "jsx-a11y/role-has-required-aria-props": Array [
+        "error",
+      ],
+      "jsx-a11y/role-supports-aria-props": Array [
+        "error",
+      ],
+      "jsx-a11y/scope": Array [
+        "error",
+      ],
+      "jsx-a11y/tabindex-no-positive": Array [
         "error",
       ],
       "react-hooks/exhaustive-deps": Array [
@@ -184,6 +224,55 @@ Snapshot Diff:
 
 @@ --- --- @@
     "@superdispatch/jsx-no-spread-object-expression": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/accessible-emoji": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-activedescendant-has-tabindex": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-props": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-proptypes": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/aria-role": Array [
+-     "error",
++     "warn",
+      Object {
+@@ --- --- @@
+    "jsx-a11y/no-access-key": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/no-autofocus": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/no-redundant-roles": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/role-has-required-aria-props": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/role-supports-aria-props": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/scope": Array [
+-     "error",
++     "warn",
+    ],
+    "jsx-a11y/tabindex-no-positive": Array [
 -     "error",
 +     "warn",
     ],
