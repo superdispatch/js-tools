@@ -1,6 +1,21 @@
 'use strict';
 
 module.exports = {
+  rules: {
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'no-import-warning',
+            importNames: ['WARNING'],
+            message:
+              "We shouldn't use warnings in the base config, we should override errors to warnings in app configs. It's better to use INCONSISTENCY.",
+          },
+        ],
+      },
+    ],
+  },
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
     { files: '*.ts', extends: 'plugin:@superdispatch/typescript' },

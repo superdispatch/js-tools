@@ -19,6 +19,7 @@ it('extends dependencies', async () => {
       "parserOptions": Object {},
       "plugins": Array [
         "jest",
+        "testing-library",
       ],
       "settings": Object {},
     }
@@ -95,6 +96,31 @@ it('extends dependencies', async () => {
       "jest/valid-expect-in-promise": Array [
         "error",
       ],
+      "testing-library/await-async-query": Array [
+        "error",
+      ],
+      "testing-library/await-async-utils": Array [
+        "error",
+      ],
+      "testing-library/no-await-sync-query": Array [
+        "error",
+      ],
+      "testing-library/no-debug": Array [
+        "warn",
+      ],
+      "testing-library/no-dom-import": Array [
+        "error",
+        "react",
+      ],
+      "testing-library/no-wait-for-empty-callback": Array [
+        "error",
+      ],
+      "testing-library/prefer-presence-queries": Array [
+        "error",
+      ],
+      "testing-library/prefer-screen-queries": Array [
+        "error",
+      ],
     }
   `);
 });
@@ -103,7 +129,7 @@ it('not changes in dev mode', async () => {
   const rules = await getDevConfigDiff('jest');
 
   expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    Compared values have no visual difference.
-  `);
+Snapshot Diff:
+Compared values have no visual difference.
+`);
 });
