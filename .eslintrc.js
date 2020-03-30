@@ -15,14 +15,6 @@ module.exports = {
         ],
       },
     ],
-    'no-restricted-syntax': [
-      'error',
-      {
-        selector: 'Literal[value=warn]',
-        message:
-          "We shouldn't use warnings in the base config, we should override errors to warnings in app configs. It's better to use INCONSISTENCY.",
-      },
-    ],
   },
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
