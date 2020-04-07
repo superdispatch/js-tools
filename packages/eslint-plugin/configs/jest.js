@@ -78,5 +78,12 @@ module.exports = {
      * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/prefer-presence-queries.md
      * */
     'testing-library/prefer-screen-queries': ERROR,
+
+    /**
+     * Use waitFor instead of deprecated wait methods.
+     *
+     * @see https://github.com/testing-library/eslint-plugin-testing-library/blob/master/docs/rules/prefer-wait-for.md
+     * */
+    'testing-library/prefer-wait-for': ERROR,
   },
 };
