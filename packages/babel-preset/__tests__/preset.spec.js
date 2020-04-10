@@ -37,7 +37,8 @@ const cwd = process.cwd();
 
 expect.addSnapshotSerializer({
   test: (value) => typeof value === 'string' && value.includes(cwd),
-  print: (value, serialize) => serialize(value.replace(cwd, '<rootDir>')),
+  print: (value, serialize) =>
+    serialize(String(value).replace(cwd, '<rootDir>')),
 });
 
 it('exposes default settings', () => {
