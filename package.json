@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "prebump": "yarn lint && yarn test",
+    "prebump": "yarn tsc && yarn lint && yarn test",
     "bump": "lerna version",
     "lint": "js-tools lint",
     "tdd": "jest --watch",
