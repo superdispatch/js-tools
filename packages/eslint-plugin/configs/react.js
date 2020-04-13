@@ -144,13 +144,6 @@ module.exports = {
     'jsx-a11y/aria-activedescendant-has-tabindex': INCONSISTENCY,
 
     /**
-     * Enforce autoFocus prop is not used.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-autofocus.md
-     * */
-    'jsx-a11y/no-autofocus': INCONSISTENCY,
-
-    /**
      * Enforce that elements with ARIA roles must have all required attributes for that role.
      *
      * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
