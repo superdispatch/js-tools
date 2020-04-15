@@ -258,7 +258,7 @@ module.exports = (
     plugins.push('babel-plugin-annotate-pure-calls');
   }
 
-  if (optimizeDevExpressions) {
+  if (isProduction && optimizeDevExpressions) {
     /**
      * @see https://github.com/4Catalyzer/babel-plugin-dev-expression
      */
