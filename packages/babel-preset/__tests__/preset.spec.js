@@ -515,3 +515,59 @@ it('configures `options.optimize.pureCalls`', () => {
         "presets": Array [
   `);
 });
+
+it('configures `options.optimize.devExpressions`', () => {
+  expect(
+    diff(
+      getConfig('development'),
+      getConfig('development', { optimize: { devExpressions: true } }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+    +     "babel-plugin-dev-expression",
+        ],
+        "presets": Array [
+  `);
+
+  expect(
+    diff(
+      getConfig('production'),
+      getConfig('production', { optimize: { devExpressions: true } }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+    +     "babel-plugin-dev-expression",
+        ],
+        "presets": Array [
+  `);
+
+  expect(
+    diff(
+      getConfig('test'),
+      getConfig('test', { optimize: { devExpressions: true } }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+    +     "babel-plugin-dev-expression",
+        ],
+        "presets": Array [
+  `);
+});

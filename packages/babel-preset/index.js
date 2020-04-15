@@ -20,7 +20,7 @@ function createError(message) {
  * @property {boolean} [loose]
  * @property {boolean} [jsx]
  * @property {boolean} [typescript]
- * @property {{ react?: boolean, runtime?: boolean, pureCalls?: boolean }} [optimize]
+ * @property {{ react?: boolean, runtime?: boolean, pureCalls?: boolean, devExpressions?: boolean }} [optimize]
  * */
 
 /**
@@ -38,6 +38,7 @@ module.exports = (
       react: optimizeReact = true,
       runtime: optimizeRuntime = true,
       pureCalls: optimizePureCalls = false,
+      devExpressions: optimizeDevExpressions = false,
       ...unknownOptimizations
     } = {},
     ...unknownOptions
@@ -255,6 +256,13 @@ module.exports = (
      * @see https://github.com/Andarist/babel-plugin-annotate-pure-calls
      */
     plugins.push('babel-plugin-annotate-pure-calls');
+  }
+
+  if (optimizeDevExpressions) {
+    /**
+     * @see https://github.com/4Catalyzer/babel-plugin-dev-expression
+     */
+    plugins.push('babel-plugin-dev-expression');
   }
 
   return { presets, plugins };
