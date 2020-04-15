@@ -20,7 +20,7 @@ function createError(message) {
  * @property {boolean} [loose]
  * @property {boolean} [jsx]
  * @property {boolean} [typescript]
- * @property {{react?: boolean, runtime?: boolean }} [optimize]
+ * @property {{ react?: boolean, runtime?: boolean, pureCalls?: boolean }} [optimize]
  * */
 
 /**
@@ -37,6 +37,7 @@ module.exports = (
     optimize: {
       react: optimizeReact = true,
       runtime: optimizeRuntime = true,
+      pureCalls: optimizePureCalls = false,
       ...unknownOptimizations
     } = {},
     ...unknownOptions
@@ -247,6 +248,13 @@ module.exports = (
         version: require('@babel/runtime/package.json').version,
       },
     ]);
+  }
+
+  if (optimizePureCalls) {
+    /**
+     * @see https://github.com/Andarist/babel-plugin-annotate-pure-calls
+     */
+    plugins.push('babel-plugin-annotate-pure-calls');
   }
 
   return { presets, plugins };

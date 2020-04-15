@@ -154,10 +154,7 @@ it('exposes default settings', () => {
 
 it('configures `options.jsx`', () => {
   expect(
-    diff(
-      getConfig('development', { jsx: true }),
-      getConfig('development', { jsx: false }),
-    ),
+    diff(getConfig('development'), getConfig('development', { jsx: false })),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -177,12 +174,8 @@ it('configures `options.jsx`', () => {
         ],
   `);
 
-  expect(
-    diff(
-      getConfig('production', { jsx: true }),
-      getConfig('production', { jsx: false }),
-    ),
-  ).toMatchInlineSnapshot(`
+  expect(diff(getConfig('production'), getConfig('production', { jsx: false })))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -201,9 +194,8 @@ it('configures `options.jsx`', () => {
         ],
   `);
 
-  expect(
-    diff(getConfig('test', { jsx: true }), getConfig('test', { jsx: false })),
-  ).toMatchInlineSnapshot(`
+  expect(diff(getConfig('test'), getConfig('test', { jsx: false })))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -226,7 +218,7 @@ it('configures `options.jsx`', () => {
 it('configures `options.typescript`', () => {
   expect(
     diff(
-      getConfig('development', { typescript: true }),
+      getConfig('development'),
       getConfig('development', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
@@ -261,7 +253,7 @@ it('configures `options.typescript`', () => {
 
   expect(
     diff(
-      getConfig('production', { typescript: true }),
+      getConfig('production'),
       getConfig('production', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
@@ -294,12 +286,8 @@ it('configures `options.typescript`', () => {
       }
   `);
 
-  expect(
-    diff(
-      getConfig('test', { typescript: true }),
-      getConfig('test', { typescript: false }),
-    ),
-  ).toMatchInlineSnapshot(`
+  expect(diff(getConfig('test'), getConfig('test', { typescript: false })))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -333,7 +321,7 @@ it('configures `options.typescript`', () => {
 it('configures `options.optimize.react`', () => {
   expect(
     diff(
-      getConfig('development', { optimize: { react: true } }),
+      getConfig('development'),
       getConfig('development', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
@@ -356,7 +344,7 @@ it('configures `options.optimize.react`', () => {
 
   expect(
     diff(
-      getConfig('production', { optimize: { react: true } }),
+      getConfig('production'),
       getConfig('production', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
@@ -378,10 +366,7 @@ it('configures `options.optimize.react`', () => {
   `);
 
   expect(
-    diff(
-      getConfig('test', { optimize: { react: true } }),
-      getConfig('test', { optimize: { react: false } }),
-    ),
+    diff(getConfig('test'), getConfig('test', { optimize: { react: false } })),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -404,73 +389,129 @@ it('configures `options.optimize.react`', () => {
 it('configures `options.optimize.runtime`', () => {
   expect(
     diff(
-      getConfig('development', { optimize: { runtime: true } }),
+      getConfig('development'),
       getConfig('development', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
-Snapshot Diff:
-- First value
-+ Second value
+    Snapshot Diff:
+    - First value
+    + Second value
 
-@@ --- --- @@
-        },
-      ],
--     Array [
--       "@babel/plugin-transform-runtime",
--       Object {
--         "helpers": true,
--         "version": "7.9.0",
--       },
--     ],
-    ],
-    "presets": Array [
-`);
+    @@ --- --- @@
+            },
+          ],
+    -     Array [
+    -       "@babel/plugin-transform-runtime",
+    -       Object {
+    -         "helpers": true,
+    -         "version": "7.9.0",
+    -       },
+    -     ],
+        ],
+        "presets": Array [
+  `);
 
   expect(
     diff(
-      getConfig('production', { optimize: { runtime: true } }),
+      getConfig('production'),
       getConfig('production', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
-Snapshot Diff:
-- First value
-+ Second value
+    Snapshot Diff:
+    - First value
+    + Second value
 
-@@ --- --- @@
-        },
-      ],
--     Array [
--       "@babel/plugin-transform-runtime",
--       Object {
--         "helpers": true,
--         "version": "7.9.0",
--       },
--     ],
-    ],
-    "presets": Array [
-`);
+    @@ --- --- @@
+            },
+          ],
+    -     Array [
+    -       "@babel/plugin-transform-runtime",
+    -       Object {
+    -         "helpers": true,
+    -         "version": "7.9.0",
+    -       },
+    -     ],
+        ],
+        "presets": Array [
+  `);
 
   expect(
     diff(
-      getConfig('test', { optimize: { runtime: true } }),
+      getConfig('test'),
       getConfig('test', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
-Snapshot Diff:
-- First value
-+ Second value
+    Snapshot Diff:
+    - First value
+    + Second value
 
-@@ --- --- @@
-        },
-      ],
--     Array [
--       "@babel/plugin-transform-runtime",
--       Object {
--         "helpers": true,
--         "version": "7.9.0",
--       },
--     ],
-    ],
-    "presets": Array [
-`);
+    @@ --- --- @@
+            },
+          ],
+    -     Array [
+    -       "@babel/plugin-transform-runtime",
+    -       Object {
+    -         "helpers": true,
+    -         "version": "7.9.0",
+    -       },
+    -     ],
+        ],
+        "presets": Array [
+  `);
+});
+
+it('configures `options.optimize.pureCalls`', () => {
+  expect(
+    diff(
+      getConfig('development'),
+      getConfig('development', { optimize: { pureCalls: true } }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+    +     "babel-plugin-annotate-pure-calls",
+        ],
+        "presets": Array [
+  `);
+
+  expect(
+    diff(
+      getConfig('production'),
+      getConfig('production', { optimize: { pureCalls: true } }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+    +     "babel-plugin-annotate-pure-calls",
+        ],
+        "presets": Array [
+  `);
+
+  expect(
+    diff(
+      getConfig('test'),
+      getConfig('test', { optimize: { pureCalls: true } }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            },
+          ],
+    +     "babel-plugin-annotate-pure-calls",
+        ],
+        "presets": Array [
+  `);
 });
