@@ -414,48 +414,6 @@ module.exports = {
      */
     'import/no-mutable-exports': INCONSISTENCY,
 
-    /**
-     * Require a eslint-enable comment for every eslint-disable comment
-     *
-     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/disable-enable-pair.html#eslint-comments-disable-enable-pair
-     * */
-    'eslint-comments/disable-enable-pair': INCONSISTENCY,
-
-    /**
-     * Disallow a eslint-enable comment for multiple eslint-disable comments
-     *
-     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-aggregating-enable.html#eslint-comments-no-aggregating-enable
-     * */
-    'eslint-comments/no-aggregating-enable': INCONSISTENCY,
-
-    /**
-     * Disallow duplicate eslint-disable comments
-     *
-     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-duplicate-disable.html#eslint-comments-no-duplicate-disable
-     * */
-    'eslint-comments/no-duplicate-disable': INCONSISTENCY,
-
-    /**
-     * Disallow eslint-disable comments without rule names
-     *
-     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unlimited-disable.html#eslint-comments-no-unlimited-disable
-     * */
-    'eslint-comments/no-unlimited-disable': INCONSISTENCY,
-
-    /**
-     * Disallow unused eslint-disable comments
-     *
-     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html#eslint-comments-no-unused-disable
-     * */
-    'eslint-comments/no-unused-disable': INCONSISTENCY,
-
-    /**
-     * Disallow unused eslint-enable comments
-     *
-     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html#eslint-comments-no-unused-enable
-     * */
-    'eslint-comments/no-unused-enable': INCONSISTENCY,
-
     //
     // Style guide
 
@@ -538,5 +496,58 @@ module.exports = {
      * @see https://github.com/freaktechnik/eslint-plugin-array-func#prefer-flat
      * */
     'array-func/prefer-flat': INCONSISTENCY,
+
+    //
+    // eslint-plugin-eslint-comments
+    //
+
+    /**
+     * Require a eslint-enable comment for every eslint-disable comment
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/disable-enable-pair.html
+     * */
+    'eslint-comments/disable-enable-pair': INCONSISTENCY,
+
+    /**
+     * Disallow a eslint-enable comment for multiple eslint-disable comments
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-aggregating-enable.html
+     * */
+    'eslint-comments/no-aggregating-enable': INCONSISTENCY,
+
+    /**
+     * Disallow duplicate eslint-disable comments
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-duplicate-disable.html
+     * */
+    'eslint-comments/no-duplicate-disable': INCONSISTENCY,
+
+    /**
+     * Disallow eslint-disable comments without rule names
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unlimited-disable.html
+     * */
+    'eslint-comments/no-unlimited-disable': INCONSISTENCY,
+
+    /**
+     * Disallow unused eslint-disable comments
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html
+     * */
+    'eslint-comments/no-unused-disable': INCONSISTENCY,
+
+    /**
+     * Disallow unused eslint-enable comments
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html
+     * */
+    'eslint-comments/no-unused-enable': INCONSISTENCY,
+
+    /**
+     * Abuse of directive-comments may cause to overlook bugs or upset of coding style. This rule disallows a use of directive-comments.
+     *
+     * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-use.html
+     */
+    'eslint-comments/no-use': INCONSISTENCY,
   },
 };
