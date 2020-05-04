@@ -524,15 +524,7 @@ it('configures `options.optimize.devExpressions`', () => {
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
-    - First value
-    + Second value
-
-    @@ --- --- @@
-            },
-          ],
-    +     "babel-plugin-dev-expression",
-        ],
-        "presets": Array [
+    Compared values have no visual difference.
   `);
 
   expect(
@@ -560,14 +552,6 @@ it('configures `options.optimize.devExpressions`', () => {
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
-    - First value
-    + Second value
-
-    @@ --- --- @@
-            },
-          ],
-    +     "babel-plugin-dev-expression",
-        ],
-        "presets": Array [
+    Compared values have no visual difference.
   `);
 });
