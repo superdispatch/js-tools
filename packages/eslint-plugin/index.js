@@ -6,6 +6,7 @@ module.exports = {
     camelcase: require('./rules/camelcase'),
     'no-index-file': require('./rules/no-index-file'),
     'directory-name': require('./rules/directory-name'),
+    'no-custom-color': require('./rules/no-custom-color'),
     'jsx-no-spread-object-expression': require('./rules/jsx-no-spread-object-expression'),
   },
   configs: {

@@ -33,6 +33,9 @@ it('extends dependencies', async () => {
       "@superdispatch/jsx-no-spread-object-expression": Array [
         "error",
       ],
+      "@superdispatch/no-custom-color": Array [
+        "error",
+      ],
       "jsx-a11y/accessible-emoji": Array [
         "error",
       ],
@@ -221,6 +224,10 @@ it('changes in dev mode', async () => {
 
     @@ --- --- @@
         "@superdispatch/jsx-no-spread-object-expression": Array [
+    -     "error",
+    +     "warn",
+        ],
+        "@superdispatch/no-custom-color": Array [
     -     "error",
     +     "warn",
         ],

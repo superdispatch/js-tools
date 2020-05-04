@@ -33,6 +33,7 @@
     "lodash": "4.x"
   },
   "peerDependencies": {
+    "@superdispatch/ui": "*",
     "eslint": "^6.7.0",
     "prettier": "^1.19.0",
     "typescript": "^3.7.0"

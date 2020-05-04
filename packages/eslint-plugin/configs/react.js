@@ -18,6 +18,7 @@ module.exports = {
     // @superdispatch/eslint-plugin
     //
 
+    '@superdispatch/no-custom-color': INCONSISTENCY,
     '@superdispatch/jsx-no-spread-object-expression': INCONSISTENCY,
 
     //
