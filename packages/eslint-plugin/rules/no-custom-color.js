@@ -1,3 +1,4 @@
+/* eslint eslint-comments/no-use: off */
 /**
  * @typedef {import("estree").Node} ESTreeNode
  * @typedef {import("eslint").Rule.RuleModule} RuleModule
