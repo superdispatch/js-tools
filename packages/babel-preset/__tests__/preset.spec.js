@@ -70,7 +70,7 @@ it('exposes default settings', () => {
           "@babel/plugin-transform-runtime",
           Object {
             "helpers": true,
-            "version": "7.9.0",
+            "version": "7.9.6",
           },
         ],
       ],
@@ -134,7 +134,7 @@ it('exposes default settings', () => {
 
   expect(diff(defaultPreset, getConfig('production'))).toMatchInlineSnapshot(`
     Snapshot Diff:
-    Compared values have no visual difference.
+    [2mCompared values have no visual difference.[22m
   `);
 
   expect(diff(defaultPreset, getConfig('development'))).toMatchInlineSnapshot(`
@@ -404,7 +404,7 @@ it('configures `options.optimize.runtime`', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.9.0",
+    -         "version": "7.9.6",
     -       },
     -     ],
         ],
@@ -428,7 +428,7 @@ it('configures `options.optimize.runtime`', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.9.0",
+    -         "version": "7.9.6",
     -       },
     -     ],
         ],
@@ -452,7 +452,7 @@ it('configures `options.optimize.runtime`', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.9.0",
+    -         "version": "7.9.6",
     -       },
     -     ],
         ],
@@ -524,7 +524,7 @@ it('configures `options.optimize.devExpressions`', () => {
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
-    Compared values have no visual difference.
+    [2mCompared values have no visual difference.[22m
   `);
 
   expect(
@@ -552,6 +552,6 @@ it('configures `options.optimize.devExpressions`', () => {
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
-    Compared values have no visual difference.
+    [2mCompared values have no visual difference.[22m
   `);
 });

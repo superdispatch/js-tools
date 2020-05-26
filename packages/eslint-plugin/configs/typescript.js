@@ -1,33 +1,26 @@
+'use strict';
+
 /**
  * @typedef {import("eslint").Linter.Config} Config
  * */
-'use strict';
 
 const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  plugins: ['simple-import-sort'],
-  extends: [
-    require.resolve('./base.js'),
-    'plugin:import/typescript',
-    require.resolve('./internal/typescript-recommended.js'),
-    'prettier/@typescript-eslint',
-  ],
-
-  rules: {
-    //
-    // eslint-plugin-import
-    //
+const pluginRules = {
+  import: {
+    /**
+     * Disable in favour of TypeScript checks.
+     *
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/default.md
+     */
+    'import/default': OFF,
 
     /**
      * Disable in favour of TypeScript checks.
      *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-unresolved.md
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/export.md
      */
-    'import/no-unresolved': OFF,
+    'import/export': OFF,
 
     /**
      * Disable in favour of TypeScript checks.
@@ -39,13 +32,6 @@ module.exports = {
     /**
      * Disable in favour of TypeScript checks.
      *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/default.md
-     */
-    'import/default': OFF,
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/namespace.md
      */
     'import/namespace': OFF,
@@ -53,10 +39,19 @@ module.exports = {
     /**
      * Disable in favour of TypeScript checks.
      *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/export.md
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-unresolved.md
      */
-    'import/export': OFF,
-
+    'import/no-unresolved': OFF,
+  },
+  simpleImportSort: {
+    /**
+     * Easy auto-fixable import sorting.
+     *
+     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
+     */
+    'simple-import-sort/sort': INCONSISTENCY,
+  },
+  typescript: {
     //
     // @typescript-eslint/eslint-plugin
     //
@@ -103,6 +98,13 @@ module.exports = {
     ],
 
     /**
+     * Require explicit return and argument types on exported functions' and classes' public class methods.
+     *
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md
+     */
+    '@typescript-eslint/explicit-module-boundary-types': INCONSISTENCY,
+
+    /**
      * Ignore interface name prefix.
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/interface-name-prefix.md
@@ -131,7 +133,6 @@ module.exports = {
      *
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
      */
-    'no-unused-expressions': OFF,
     '@typescript-eslint/no-unused-expressions': INCONSISTENCY,
 
     /**
@@ -164,21 +165,27 @@ module.exports = {
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
      */
     '@typescript-eslint/prefer-optional-chain': INCONSISTENCY,
+  },
+};
 
-    //
-    // simple-import-sort
-    //
+/**
+ * @type {Config}
+ * */
+module.exports = {
+  extends: [
+    require.resolve('./base.js'),
+    'plugin:import/typescript',
+    require.resolve('./internal/typescript-recommended.js'),
+    'prettier/@typescript-eslint',
+  ],
 
-    //
-    // Style guide
+  plugins: ['simple-import-sort'],
 
-    /**
-     * Easy auto-fixable import sorting.
-     *
-     * P.S It only works for ES imports.
-     *
-     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
-     */
-    'simple-import-sort/sort': INCONSISTENCY,
+  rules: {
+    'no-unused-expressions': OFF,
+
+    ...pluginRules.import,
+    ...pluginRules.simpleImportSort,
+    ...pluginRules.typescript,
   },
 };

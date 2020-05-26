@@ -25,20 +25,20 @@
   },
   "prettier": "./packages/prettier-config",
   "devDependencies": {
-    "@types/eslint": "^6.1.8",
+    "@types/eslint": "^6.8.1",
     "@types/execa": "^2.0.0",
-    "@types/jest": "^25.1.4",
-    "@types/lodash": "^4.14.149",
-    "@types/prettier": "^2.0.0",
-    "@typescript-eslint/typescript-estree": "^2.25.0",
-    "eslint": "^6.8.0",
-    "execa": "^4.0.0",
+    "@types/jest": "^25.2.3",
+    "@types/lodash": "^4.14.152",
+    "@types/prettier": "^2.0.1",
+    "@typescript-eslint/typescript-estree": "^3.0.1",
+    "eslint": "^7.1.0",
+    "execa": "^4.0.2",
     "husky": "^4.2.3",
-    "jest": "^25.1.0",
-    "lerna": "^3.20.2",
-    "lint-staged": "^10.0.8",
-    "prettier": "^2.0.2",
-    "snapshot-diff": "^0.7.0",
-    "typescript": "^3.8.3"
+    "jest": "^26.0.1",
+    "lerna": "^3.22.0",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5",
+    "snapshot-diff": "^0.8.0",
+    "typescript": "^3.9.3"
   }
 }

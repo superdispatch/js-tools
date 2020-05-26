@@ -76,7 +76,11 @@ async function getConfig(name, dev) {
  * @param {any} b
  */
 function diff(a, b) {
-  return snapshotDiff(a, b, { contextLines: 1, stablePatchmarks: true });
+  return snapshotDiff(a, b, {
+    colors: false,
+    contextLines: 1,
+    stablePatchmarks: true,
+  });
 }
 
 /**
