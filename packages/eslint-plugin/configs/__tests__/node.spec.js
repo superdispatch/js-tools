@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-  getConfigValues,
-  getDevConfigDiff,
-} = require('../__testutils__/test-eslint-config');
+const { getConfigValues } = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const [meta, rules] = await getConfigValues('node', 'base');
@@ -199,14 +196,5 @@ it('extends dependencies', async () => {
     +     "error",
     +     "global",
         ],
-  `);
-});
-
-it('not changes in dev mode', async () => {
-  const rules = await getDevConfigDiff('node', 'base');
-
-  expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    [2mCompared values have no visual difference.[22m
   `);
 });

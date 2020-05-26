@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-  getConfigValues,
-  getDevConfigDiff,
-} = require('../__testutils__/test-eslint-config');
+const { getConfigValues } = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const [meta, rules] = await getConfigValues('typescript', 'base');
@@ -341,62 +338,6 @@ it('extends dependencies', async () => {
         "valid-typeof": Array [
     -     "error",
     +     "off",
-        ],
-  `);
-});
-
-it('changes in dev mode', async () => {
-  const rules = await getDevConfigDiff('typescript', 'base');
-
-  expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
-
-    @@ --- --- @@
-        "@typescript-eslint/array-type": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "@typescript-eslint/explicit-member-accessibility": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "@typescript-eslint/explicit-module-boundary-types": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "@typescript-eslint/no-explicit-any": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "@typescript-eslint/no-non-null-assertion": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "@typescript-eslint/no-unused-expressions": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "@typescript-eslint/prefer-function-type": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "@typescript-eslint/prefer-optional-chain": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "simple-import-sort/sort": Array [
-    -     "error",
-    +     "warn",
         ],
   `);
 });

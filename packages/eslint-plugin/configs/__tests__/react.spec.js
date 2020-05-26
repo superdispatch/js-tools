@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-  getConfigValues,
-  getDevConfigDiff,
-} = require('../__testutils__/test-eslint-config');
+const { getConfigValues } = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const [meta, rules] = await getConfigValues('react');
@@ -208,96 +205,5 @@ it('extends dependencies', async () => {
         "error",
       ],
     }
-  `);
-});
-
-it('changes in dev mode', async () => {
-  const rules = await getDevConfigDiff('react');
-
-  expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
-
-    @@ --- --- @@
-        "@superdispatch/jsx-no-spread-object-expression": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/accessible-emoji": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/aria-activedescendant-has-tabindex": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/aria-props": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/aria-proptypes": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/aria-role": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "jsx-a11y/no-access-key": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/no-redundant-roles": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/role-has-required-aria-props": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/role-supports-aria-props": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/scope": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "jsx-a11y/tabindex-no-positive": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "react/jsx-boolean-value": Array [
-    -     "error",
-    +     "warn",
-          "always",
-    @@ --- --- @@
-        "react/jsx-curly-brace-presence": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "react/jsx-fragments": Array [
-    -     "error",
-    +     "warn",
-          "syntax",
-    @@ --- --- @@
-        "react/jsx-no-useless-fragment": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "react/no-danger-with-children": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "react/self-closing-comp": Array [
-    -     "error",
-    +     "warn",
-        ],
   `);
 });

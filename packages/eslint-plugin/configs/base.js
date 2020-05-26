@@ -5,7 +5,6 @@
 'use strict';
 
 const confusingBrowserGlobals = require('confusing-browser-globals');
-const { OFF, DEPT, ERROR, INCONSISTENCY } = require('./internal/error-codes');
 
 const restrictedGlobals = new Map(
   ['error', 'isNaN', 'isFinite', ...confusingBrowserGlobals].map((key) => [
@@ -25,28 +24,28 @@ const pluginRules = {
      *
      * @see https://github.com/freaktechnik/eslint-plugin-array-func#avoid-reverse
      * */
-    'array-func/avoid-reverse': INCONSISTENCY,
+    'array-func/avoid-reverse': 'error',
 
     /**
      * Prefer using the mapFn callback of Array.from over an immediate .map() call on the Array.from result.
      *
      * @see https://github.com/freaktechnik/eslint-plugin-array-func#from-map
      * */
-    'array-func/from-map': INCONSISTENCY,
+    'array-func/from-map': 'error',
 
     /**
      * Avoid the this parameter when providing arrow function as callback in array functions.
      *
      * @see https://github.com/freaktechnik/eslint-plugin-array-func#no-unnecessary-this-arg
      * */
-    'array-func/no-unnecessary-this-arg': INCONSISTENCY,
+    'array-func/no-unnecessary-this-arg': 'error',
 
     /**
      * Use Array.from instead of [...iterable] for performance benefits.
      *
      * https://github.com/freaktechnik/eslint-plugin-array-func#prefer-array-from
      * */
-    'array-func/prefer-array-from': INCONSISTENCY,
+    'array-func/prefer-array-from': 'error',
 
     /**
      * Use .flat() to flatten an array of arrays. This rule currently recognizes two patterns and can replace them with a .flat() call:
@@ -55,14 +54,14 @@ const pluginRules = {
      *
      * @see https://github.com/freaktechnik/eslint-plugin-array-func#prefer-flat
      * */
-    'array-func/prefer-flat': INCONSISTENCY,
+    'array-func/prefer-flat': 'error',
 
     /**
      * Use .flatMap() to flatten an array and map the values instead of using .flat().map().
      *
      * @see https://github.com/freaktechnik/eslint-plugin-array-func#prefer-flat-map
      * */
-    'array-func/prefer-flat-map': INCONSISTENCY,
+    'array-func/prefer-flat-map': 'error',
   },
 
   comments: {
@@ -71,49 +70,49 @@ const pluginRules = {
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/disable-enable-pair.html
      * */
-    'eslint-comments/disable-enable-pair': INCONSISTENCY,
+    'eslint-comments/disable-enable-pair': 'error',
 
     /**
      * Disallow a eslint-enable comment for multiple eslint-disable comments
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-aggregating-enable.html
      * */
-    'eslint-comments/no-aggregating-enable': INCONSISTENCY,
+    'eslint-comments/no-aggregating-enable': 'error',
 
     /**
      * Disallow duplicate eslint-disable comments
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-duplicate-disable.html
      * */
-    'eslint-comments/no-duplicate-disable': INCONSISTENCY,
+    'eslint-comments/no-duplicate-disable': 'error',
 
     /**
      * Disallow eslint-disable comments without rule names
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unlimited-disable.html
      * */
-    'eslint-comments/no-unlimited-disable': INCONSISTENCY,
+    'eslint-comments/no-unlimited-disable': 'error',
 
     /**
      * Disallow unused eslint-disable comments
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-disable.html
      * */
-    'eslint-comments/no-unused-disable': INCONSISTENCY,
+    'eslint-comments/no-unused-disable': 'error',
 
     /**
      * Disallow unused eslint-enable comments
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html
      * */
-    'eslint-comments/no-unused-enable': INCONSISTENCY,
+    'eslint-comments/no-unused-enable': 'error',
 
     /**
      * Abuse of directive-comments may cause to overlook bugs or upset of coding style. This rule disallows a use of directive-comments.
      *
      * @see https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-use.html
      */
-    'eslint-comments/no-use': INCONSISTENCY,
+    'eslint-comments/no-use': 'error',
   },
 
   import: {
@@ -122,7 +121,7 @@ const pluginRules = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md
      */
-    'import/first': INCONSISTENCY,
+    'import/first': 'error',
 
     /**
      * Forbid anonymous values as default exports.
@@ -130,7 +129,7 @@ const pluginRules = {
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md
      */
     'import/no-anonymous-default-export': [
-      INCONSISTENCY,
+      'error',
       {
         allowAnonymousClass: false,
         allowAnonymousFunction: false,
@@ -147,41 +146,41 @@ const pluginRules = {
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
      */
-    'import/no-deprecated': DEPT,
+    'import/no-deprecated': 'warn',
 
     /**
      * Report repeated import of the same module in multiple places
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
      */
-    'import/no-duplicates': INCONSISTENCY,
+    'import/no-duplicates': 'error',
 
     /**
      * Forbid the use of mutable exports with `var` or `let`.
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md
      */
-    'import/no-mutable-exports': INCONSISTENCY,
+    'import/no-mutable-exports': 'error',
 
     /**
      * Report use of exported name as identifier of default export.
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md
      */
-    'import/no-named-as-default': INCONSISTENCY,
+    'import/no-named-as-default': 'error',
 
     /**
      * Report use of exported name as identifier of default export.
      *
      * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/import/no-named-as-default-member.md
      */
-    'import/no-named-as-default-member': INCONSISTENCY,
+    'import/no-named-as-default-member': 'error',
   },
   superdispatch: {
-    '@superdispatch/camelcase': INCONSISTENCY,
-    '@superdispatch/directory-name': INCONSISTENCY,
-    '@superdispatch/filename': INCONSISTENCY,
-    '@superdispatch/no-index-file': OFF,
+    '@superdispatch/camelcase': 'error',
+    '@superdispatch/directory-name': 'error',
+    '@superdispatch/filename': 'error',
+    '@superdispatch/no-index-file': 'off',
   },
 };
 
@@ -214,7 +213,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/arrow-body-style
      */
     'arrow-body-style': [
-      INCONSISTENCY,
+      'error',
       'as-needed',
       { requireReturnForObjectLiteral: false },
     ],
@@ -224,56 +223,56 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/camelcase
      */
-    camelcase: OFF,
+    camelcase: 'off',
 
     /**
      * Enforce consistent brace style for all control statements.
      *
      * @see https://eslint.org/docs/rules/curly
      */
-    curly: [INCONSISTENCY, 'all'],
+    curly: ['error', 'all'],
 
     /**
      * Enforce dot notation whenever possible.
      *
      * @see https://eslint.org/docs/rules/dot-notation
      */
-    'dot-notation': INCONSISTENCY,
+    'dot-notation': 'error',
 
     /**
      * Require the use of `===` and `!==`.
      *
      * @see https://eslint.org/docs/rules/eqeqeq
      */
-    eqeqeq: [ERROR, 'smart'],
+    eqeqeq: ['error', 'smart'],
 
     /**
      * Require named `function` expressions.
      *
      * @see https://eslint.org/docs/rules/func-names
      */
-    'func-names': [INCONSISTENCY, 'as-needed'],
+    'func-names': ['error', 'as-needed'],
 
     /**
      * Disallow the use of `alert`, `confirm`, and `prompt`.
      *
      * @see https://eslint.org/docs/rules/no-alert
      */
-    'no-alert': INCONSISTENCY,
+    'no-alert': 'error',
 
     /**
      * Allow assignment operators in conditional expressions.
      *
      * @see https://eslint.org/docs/rules/no-cond-assign
      */
-    'no-cond-assign': OFF,
+    'no-cond-assign': 'off',
 
     /**
      * Disallow the use of `console`.
      *
      * @see https://eslint.org/docs/rules/no-console
      */
-    'no-console': INCONSISTENCY,
+    'no-console': 'error',
 
     /**
      * Disallow division operators explicitly at the beginning of regular
@@ -281,42 +280,42 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-div-regex
      */
-    'no-div-regex': INCONSISTENCY,
+    'no-div-regex': 'error',
 
     /**
      * Disallow else blocks after return statements in if statements.
      *
      * @see https://eslint.org/docs/rules/no-else-return
      */
-    'no-else-return': INCONSISTENCY,
+    'no-else-return': 'error',
 
     /**
      * Disallow empty block statements except `catch`.
      *
      * @see https://eslint.org/docs/rules/no-empty
      */
-    'no-empty': [INCONSISTENCY, { allowEmptyCatch: true }],
+    'no-empty': ['error', { allowEmptyCatch: true }],
 
     /**
      * Disallow leading or trailing decimal points in numeric literals.
      *
      * @see https://eslint.org/docs/rules/no-floating-decimal
      */
-    'no-floating-decimal': INCONSISTENCY,
+    'no-floating-decimal': 'error',
 
     /**
      * Disallow the type conversion with shorter notations.
      *
      * @see https://eslint.org/docs/rules/no-implicit-coercion
      */
-    'no-implicit-coercion': [INCONSISTENCY, { allow: ['!!'] }],
+    'no-implicit-coercion': ['error', { allow: ['!!'] }],
 
     /**
      * Disallow `if` statements as the only statement in `else` blocks.
      *
      * @see https://eslint.org/docs/rules/no-lonely-if
      */
-    'no-lonely-if': INCONSISTENCY,
+    'no-lonely-if': 'error',
 
     /**
      * Disallowing usage of specific global variables.
@@ -324,7 +323,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/no-restricted-globals
      */
     'no-restricted-globals': [
-      ERROR,
+      'error',
       ...Array.from(restrictedGlobals, ([name, message]) => ({
         message,
         name,
@@ -337,27 +336,27 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-shadow
      */
-    'no-shadow': INCONSISTENCY,
+    'no-shadow': 'error',
 
     /**
      * Disallow Initializing to `undefined`.
      *
      * @see https://eslint.org/docs/rules/no-undef-init
      */
-    'no-undef-init': INCONSISTENCY,
+    'no-undef-init': 'error',
 
     /**
      * Disallow ternary operators when simpler alternatives exist.
      *
      * @see https://eslint.org/docs/rules/no-unneeded-ternary
      */
-    'no-unneeded-ternary': INCONSISTENCY,
+    'no-unneeded-ternary': 'error',
     /**
      * Disallow Unused Expressions.
      *
      * @see https://eslint.org/docs/rules/no-unused-expressions
      */
-    'no-unused-expressions': INCONSISTENCY,
+    'no-unused-expressions': 'error',
 
     /**
      * Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring.
@@ -365,7 +364,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/no-unused-vars
      * */
     'no-unused-vars': [
-      ERROR,
+      'error',
       { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
 
@@ -374,14 +373,14 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-use-before-define
      */
-    'no-use-before-define': [ERROR, { functions: false }],
+    'no-use-before-define': ['error', { functions: false }],
 
     /**
      * Disallow unnecessary computed property keys on objects.
      *
      * @see https://eslint.org/docs/rules/no-useless-computed-key
      */
-    'no-useless-computed-key': INCONSISTENCY,
+    'no-useless-computed-key': 'error',
 
     /**
      * Disallow renaming import, export, and destructured assignments to the
@@ -389,21 +388,21 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/no-useless-rename
      */
-    'no-useless-rename': INCONSISTENCY,
+    'no-useless-rename': 'error',
 
     /**
      * Disallow redundant return statements.
      *
      * @see https://eslint.org/docs/rules/no-useless-return
      */
-    'no-useless-return': INCONSISTENCY,
+    'no-useless-return': 'error',
 
     /**
      * Require `let` or `const` instead of `var`.
      *
      * @see https://eslint.org/docs/rules/no-var
      */
-    'no-var': INCONSISTENCY,
+    'no-var': 'error',
 
     /**
      * Disallow specified warning terms in comments.
@@ -411,7 +410,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/no-warning-comments
      */
     'no-warning-comments': [
-      DEPT,
+      'warn',
       { location: 'anywhere', terms: ['todo', 'fixme'] },
     ],
 
@@ -420,14 +419,14 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/object-shorthand
      */
-    'object-shorthand': [INCONSISTENCY, 'always', { avoidQuotes: true }],
+    'object-shorthand': ['error', 'always', { avoidQuotes: true }],
 
     /**
      * Require or disallow assignment operator shorthand where possible.
      *
      * @see https://eslint.org/docs/rules/operator-assignment
      */
-    'operator-assignment': INCONSISTENCY,
+    'operator-assignment': 'error',
 
     /**
      * Require using arrow functions for callbacks.
@@ -435,7 +434,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/prefer-arrow-callback
      */
     'prefer-arrow-callback': [
-      INCONSISTENCY,
+      'error',
       { allowNamedFunctions: false, allowUnboundThis: true },
     ],
 
@@ -444,7 +443,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/prefer-const
      */
-    'prefer-const': OFF,
+    'prefer-const': 'off',
 
     /**
      * Prefer destructuring from arrays and objects.
@@ -452,7 +451,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/prefer-destructuring
      */
     'prefer-destructuring': [
-      INCONSISTENCY,
+      'error',
       {
         AssignmentExpression: { array: false, object: false },
         VariableDeclarator: { array: true, object: true },
@@ -466,21 +465,21 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/prefer-numeric-literals
      */
-    'prefer-numeric-literals': INCONSISTENCY,
+    'prefer-numeric-literals': 'error',
 
     /**
      * Require or disallow assignment operator shorthand where possible.
      *
      * @see https://eslint.org/docs/rules/prefer-object-spread
      */
-    'prefer-object-spread': INCONSISTENCY,
+    'prefer-object-spread': 'error',
 
     /**
      * Require template literals instead of string concatenation.
      *
      * @see https://eslint.org/docs/rules/prefer-template
      */
-    'prefer-template': INCONSISTENCY,
+    'prefer-template': 'error',
 
     /**
      * Enforce the consistent use of single quotes and disallow usage of
@@ -489,7 +488,7 @@ module.exports = {
      * @see https://eslint.org/docs/rules/quotes
      */
     quotes: [
-      INCONSISTENCY,
+      'error',
       'single',
       { allowTemplateLiterals: false, avoidEscape: true },
     ],
@@ -499,7 +498,7 @@ module.exports = {
      *
      * @see https://eslint.org/docs/rules/yoda
      */
-    yoda: [INCONSISTENCY, 'never', { exceptRange: true }],
+    yoda: ['error', 'never', { exceptRange: true }],
 
     ...pluginRules.arrayFunc,
     ...pluginRules.comments,
