@@ -9,4 +9,8 @@ module.exports = {
     '<rootDir>/packages/eslint-plugin',
     '<rootDir>/packages/prettier-config',
   ],
+  watchPlugins: [
+    require.resolve('jest-watch-typeahead/filename'),
+    require.resolve('jest-watch-typeahead/testname'),
+  ],
 };
