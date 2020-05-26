@@ -1,9 +1,10 @@
 'use strict';
 
 const { getConfigValues } = require('../__testutils__/test-eslint-config');
+const config = require('../base');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('base');
+  const [meta, rules] = await getConfigValues(config);
 
   expect(meta).toMatchInlineSnapshot(`
     Object {

@@ -1,47 +1,35 @@
 /**
+ * @typedef {import("eslint").Linter.Config} Config
  * @typedef {import("eslint").Linter.RulesRecord} RulesRecord
  * @typedef {import("eslint").Linter.RuleEntry} RuleEntry
  * */
 'use strict';
 
-const path = require('path');
-const execa = require('execa');
+const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
 
 /**
- * @param {string} name
+ * @param {Config} baseConfig
  */
-async function getConfig(name) {
-  const configPath = path.join(__dirname, '..', `${name}.js`);
+async function getFullConfig(baseConfig) {
+  const cli = new CLIEngine({ baseConfig, useEslintrc: false });
 
-  try {
-    const { stdout } = await execa('eslint', [
-      '--no-eslintrc',
-      `--config=${configPath}`,
-      '--print-config=config/foo.js',
-    ]);
+  const { parser, ...config } = cli.getConfigForFile('config/foo.js');
 
-    const { parser, ...config } = JSON.parse(stdout);
+  delete config.ignorePatterns;
+  delete config.noInlineConfig;
+  delete config.reportUnusedDisableDirectives;
 
-    delete config.ignorePatterns;
-
-    return {
-      ...config,
-      parser: parser && path.relative(process.cwd(), parser),
-    };
-  } catch (error) {
-    if (error.stderr) {
-      throw new Error(error.stderr);
-    }
-
-    throw error;
-  }
+  return {
+    ...config,
+    parser: parser && parser.slice(parser.indexOf('node_modules')),
+  };
 }
 
 /**
  *
- * @param {any} a
- * @param {any} b
+ * @param {unknown} a
+ * @param {unknown} b
  */
 function diff(a, b) {
   return snapshotDiff(a, b, {
@@ -52,17 +40,17 @@ function diff(a, b) {
 }
 
 /**
- * @param {string} configName
- * @param {string} [baseConfigName]
+ * @param {Config} config
+ * @param {Config} [baseConfig]
  */
-async function getConfigValues(configName, baseConfigName) {
-  const { rules, ...meta } = await getConfig(configName);
+async function getConfigValues(config, baseConfig) {
+  const { rules, ...meta } = await getFullConfig(config);
 
-  if (!baseConfigName) {
+  if (!baseConfig) {
     return [meta, rules];
   }
 
-  const { rules: baseRules, ...baseMeta } = await getConfig(baseConfigName);
+  const { rules: baseRules, ...baseMeta } = await getFullConfig(baseConfig);
 
   return [diff(baseMeta, meta), diff(baseRules, rules)];
 }

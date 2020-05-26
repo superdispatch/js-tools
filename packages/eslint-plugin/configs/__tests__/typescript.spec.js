@@ -1,9 +1,11 @@
 'use strict';
 
 const { getConfigValues } = require('../__testutils__/test-eslint-config');
+const config = require('../typescript');
+const baseConfig = require('../base');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('typescript', 'base');
+  const [meta, rules] = await getConfigValues(config, baseConfig);
 
   expect(meta).toMatchInlineSnapshot(`
     Snapshot Diff:
