@@ -2,10 +2,11 @@
 
 const { resolveConfig } = require('prettier');
 
-it('exposes config', () =>
-  expect(resolveConfig(__filename)).resolves.toMatchInlineSnapshot(`
+it('exposes config', async () => {
+  expect(await resolveConfig(__filename)).toMatchInlineSnapshot(`
     Object {
       "singleQuote": true,
       "trailingComma": "all",
     }
-  `));
+  `);
+});
