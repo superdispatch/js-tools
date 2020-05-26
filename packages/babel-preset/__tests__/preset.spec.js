@@ -134,7 +134,7 @@ it('exposes default settings', () => {
 
   expect(diff(defaultPreset, getConfig('production'))).toMatchInlineSnapshot(`
     Snapshot Diff:
-    [2mCompared values have no visual difference.[22m
+    Compared values have no visual difference.
   `);
 
   expect(diff(defaultPreset, getConfig('development'))).toMatchInlineSnapshot(`
@@ -524,7 +524,7 @@ it('configures `options.optimize.devExpressions`', () => {
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
-    [2mCompared values have no visual difference.[22m
+    Compared values have no visual difference.
   `);
 
   expect(
@@ -552,6 +552,6 @@ it('configures `options.optimize.devExpressions`', () => {
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
-    [2mCompared values have no visual difference.[22m
+    Compared values have no visual difference.
   `);
 });
