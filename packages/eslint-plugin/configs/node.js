@@ -6,39 +6,8 @@
 
 const { OFF, ERROR } = require('./internal/error-codes');
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  env: { node: true },
-
-  plugins: ['node'],
-
-  extends: [require.resolve('./base'), 'plugin:node/recommended-script'],
-
-  rules: {
-    //
-    // eslint
-    //
-
-    /**
-     * Disallow the use of `console`.
-     *
-     * @see https://eslint.org/docs/rules/no-console
-     */
-    'no-console': OFF,
-
-    /**
-     * Require strict mode directives.
-     *
-     * @see https://eslint.org/docs/rules/strict
-     */
-    strict: [ERROR, 'global'],
-
-    //
-    // eslint-plugin-import
-    //
-
+const pluginRules = {
+  import: {
     /**
      * Forbid the use of extraneous packages.
      *
@@ -48,14 +17,18 @@ module.exports = {
       ERROR,
       {
         devDependencies: true,
-        peerDependencies: false,
         optionalDependencies: false,
+        peerDependencies: false,
       },
     ],
-
-    //
-    // eslint-plugin-node
-    //
+  },
+  node: {
+    /**
+     * Enforce either `module.exports` or `exports`.
+     *
+     * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/exports-style.md
+     */
+    'node/exports-style': ERROR,
 
     /**
      * Disable in favour of `import/no-extraneous-dependencies`.
@@ -70,16 +43,6 @@ module.exports = {
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-require.md
      */
     'node/no-unpublished-require': OFF,
-
-    //
-    // Stylistic Issues
-
-    /**
-     * Enforce either `module.exports` or `exports`.
-     *
-     * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/exports-style.md
-     */
-    'node/exports-style': ERROR,
 
     /**
      * Enforce global `Buffer` instead of `require("buffer").Buffer`.
@@ -117,18 +80,18 @@ module.exports = {
     'node/prefer-global/text-encoder': ERROR,
 
     /**
-     * Enforce global `URLSearchParams` instead of `require("url").URLSearchParams`.
-     *
-     * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/url-search-params.md
-     */
-    'node/prefer-global/url-search-params': ERROR,
-
-    /**
      * Enforce global `URL` instead of `require("url").URL`.
      *
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/url.md
      */
     'node/prefer-global/url': ERROR,
+
+    /**
+     * Enforce global `URLSearchParams` instead of `require("url").URLSearchParams`.
+     *
+     * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/url-search-params.md
+     */
+    'node/prefer-global/url-search-params': ERROR,
 
     /**
      * Enforce `require("dns").promises`.
@@ -143,5 +106,35 @@ module.exports = {
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-promises/fs.md
      */
     'node/prefer-promises/fs': ERROR,
+  },
+};
+
+/**
+ * @type {Config}
+ * */
+module.exports = {
+  env: { node: true },
+
+  extends: [require.resolve('./base'), 'plugin:node/recommended-script'],
+
+  plugins: ['node'],
+
+  rules: {
+    /**
+     * Disallow the use of `console`.
+     *
+     * @see https://eslint.org/docs/rules/no-console
+     */
+    'no-console': OFF,
+
+    /**
+     * Require strict mode directives.
+     *
+     * @see https://eslint.org/docs/rules/strict
+     */
+    strict: [ERROR, 'global'],
+
+    ...pluginRules.import,
+    ...pluginRules.node,
   },
 };

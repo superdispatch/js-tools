@@ -15,9 +15,9 @@
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/plugin-proposal-decorators": "7.8.3",
     "@babel/plugin-proposal-numeric-separator": "7.8.3",
-    "@babel/plugin-transform-runtime": "7.9.0",
-    "@babel/preset-env": "7.9.0",
-    "@babel/preset-react": "7.9.0",
+    "@babel/plugin-transform-runtime": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "@babel/preset-react": "7.9.4",
     "@babel/preset-typescript": "7.9.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-dev-expression": "^0.2.2",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
-    "@babel/runtime": "7.9.0"
+    "@babel/runtime": "7.9.6"
   },
   "peerDependencies": {
     "@babel/runtime": "7.x"

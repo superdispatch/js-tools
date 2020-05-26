@@ -301,6 +301,9 @@ it('extends dependencies', async () => {
       "no-dupe-class-members": Array [
         "error",
       ],
+      "no-dupe-else-if": Array [
+        "error",
+      ],
       "no-dupe-keys": Array [
         "error",
       ],
@@ -356,6 +359,9 @@ it('extends dependencies', async () => {
           "number": true,
           "string": true,
         },
+      ],
+      "no-import-assign": Array [
+        "error",
       ],
       "no-inner-declarations": Array [
         "error",
@@ -653,6 +659,9 @@ it('extends dependencies', async () => {
         },
       ],
       "no-self-assign": Array [
+        "error",
+      ],
+      "no-setter-return": Array [
         "error",
       ],
       "no-shadow": Array [

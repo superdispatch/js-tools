@@ -18,8 +18,8 @@
     "commands/**"
   ],
   "dependencies": {
-    "execa": "^4.0.0",
-    "prettier-plugin-packagejson": "^2.0.10",
+    "execa": "^4.0.2",
+    "prettier-plugin-packagejson": "^2.2.3",
     "yargs": "^15.1.0",
     "yarn-deduplicate": "^2.0.0"
   },

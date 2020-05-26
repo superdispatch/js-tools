@@ -207,6 +207,6 @@ it('not changes in dev mode', async () => {
 
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:
-    Compared values have no visual difference.
+    [2mCompared values have no visual difference.[22m
   `);
 });

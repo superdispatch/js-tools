@@ -107,6 +107,7 @@ module.exports = {
         return true;
       }
 
+      // @ts-expect-error
       if (node.parent && node.parent.type === 'TSPropertySignature') {
         return false;
       }
