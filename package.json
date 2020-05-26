@@ -32,7 +32,6 @@
     "@types/prettier": "^2.0.1",
     "@typescript-eslint/typescript-estree": "^3.0.1",
     "eslint": "^7.1.0",
-    "execa": "^4.0.2",
     "husky": "^4.2.3",
     "jest": "^26.0.1",
     "lerna": "^3.22.0",
