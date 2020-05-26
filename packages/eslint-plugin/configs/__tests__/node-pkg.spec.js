@@ -9,7 +9,7 @@ it('extends dependencies', async () => {
 
   expect(meta).toMatchInlineSnapshot(`
     Snapshot Diff:
-    [2mCompared values have no visual difference.[22m
+    Compared values have no visual difference.
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:
