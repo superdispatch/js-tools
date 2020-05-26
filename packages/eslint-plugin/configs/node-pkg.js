@@ -4,8 +4,6 @@
 
 'use strict';
 
-const { ERROR } = require('./internal/error-codes');
-
 /**
  * @type {Config}
  * */
@@ -18,6 +16,6 @@ module.exports = {
      *
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-require.md
      */
-    'node/no-unpublished-require': ERROR,
+    'node/no-unpublished-require': 'error',
   },
 };

@@ -6,52 +6,20 @@
 
 const path = require('path');
 const execa = require('execa');
-const { isDeepStrictEqual } = require('util');
 const snapshotDiff = require('snapshot-diff');
 
 /**
- * @param {Partial<RulesRecord>} a
- * @param {Partial<RulesRecord>} b
- */
-function omitEqualRules(a, b) {
-  /**
-   * @type {RulesRecord}
-   * */
-  const result = {};
-  const allKeys = new Set([...Object.keys(a), ...Object.keys(b)]);
-
-  allKeys.forEach((key) => {
-    if (!isDeepStrictEqual(a[key], b[key])) {
-      result[key] = /** @type {RuleEntry} */ (b[key]);
-    }
-  });
-
-  return result;
-}
-
-/**
  * @param {string} name
- * @param {boolean} [dev]
  */
-async function getConfig(name, dev) {
-  const env = { ...process.env };
+async function getConfig(name) {
   const configPath = path.join(__dirname, '..', `${name}.js`);
 
-  if (dev) {
-    env.CI = 'false';
-    env.NODE_ENV = 'development';
-  }
-
   try {
-    const { stdout } = await execa(
-      'eslint',
-      [
-        '--no-eslintrc',
-        `--config=${configPath}`,
-        '--print-config=config/foo.js',
-      ],
-      { env },
-    );
+    const { stdout } = await execa('eslint', [
+      '--no-eslintrc',
+      `--config=${configPath}`,
+      '--print-config=config/foo.js',
+    ]);
 
     const { parser, ...config } = JSON.parse(stdout);
 
@@ -99,29 +67,4 @@ async function getConfigValues(configName, baseConfigName) {
   return [diff(baseMeta, meta), diff(baseRules, rules)];
 }
 
-/**
- * @param {string} configName
- * @param {string} [baseConfigName]
- */
-async function getDevConfigDiff(configName, baseConfigName) {
-  const [{ rules }, { rules: devRules }] = await Promise.all([
-    getConfig(configName),
-    getConfig(configName, true),
-  ]);
-
-  if (!baseConfigName) {
-    return diff(rules, devRules);
-  }
-
-  const [{ rules: baseRules }, { rules: baseDevRules }] = await Promise.all([
-    getConfig(baseConfigName),
-    getConfig(baseConfigName, true),
-  ]);
-
-  const rulesDiff = omitEqualRules(baseRules, rules);
-  const devRulesDiff = omitEqualRules(baseDevRules, devRules);
-
-  return diff(rulesDiff, devRulesDiff);
-}
-
-module.exports = { getConfigValues, getDevConfigDiff };
+module.exports = { getConfigValues };
