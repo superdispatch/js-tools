@@ -327,11 +327,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        ],
+          "error",
+    +   ],
     +   "no-array-constructor": Array [
     +     "off",
-    +   ],
-        "no-arrow-condition": Array [
+        ],
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
@@ -408,6 +408,15 @@ it('extends dependencies', async () => {
         ],
         "no-unused-expressions": Array [
     -     "error",
+    +     "off",
+        ],
+    @@ --- --- @@
+        "no-unused-vars": Array [
+    -     "error",
+    -     Object {
+    -       "argsIgnorePattern": "^_",
+    -       "varsIgnorePattern": "^_",
+    -     },
     +     "off",
         ],
     @@ --- --- @@
