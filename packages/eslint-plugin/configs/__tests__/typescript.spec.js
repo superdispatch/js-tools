@@ -1,11 +1,22 @@
 'use strict';
 
-const { getConfigValues } = require('../__testutils__/test-eslint-config');
+const path = require('path');
+const {
+  getConfigValues,
+  getConfigsDiff,
+} = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('typescript', 'base');
+  const rootDir = path.join(__dirname, '..', '..');
 
-  expect(meta).toMatchInlineSnapshot(`
+  const [meta, rules] = getConfigsDiff(
+    await getConfigValues('base'),
+    await getConfigValues('typescript', 'foo/bar.ts', {
+      tsconfigRootDir: path.join(rootDir, 'tsconfig.json'),
+    }),
+  );
+
+  expect(meta.replace(rootDir, '.')).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -17,6 +28,7 @@ it('extends dependencies', async () => {
         "parserOptions": Object {
           "ecmaVersion": 2020,
     +     "sourceType": "module",
+    +     "tsconfigRootDir": "./tsconfig.json",
         },
     @@ --- --- @@
           "import",
@@ -24,8 +36,8 @@ it('extends dependencies', async () => {
     +     "simple-import-sort",
           "eslint-comments",
     @@ --- --- @@
-          "array-func",
-    +   ],
+        ],
+    -   "settings": Object {},
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
@@ -37,8 +49,7 @@ it('extends dependencies', async () => {
     +     "import/external-module-folders": Array [
     +       "node_modules",
     +       "node_modules/@types",
-          ],
-    -   "settings": Object {},
+    +     ],
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
@@ -75,6 +86,9 @@ it('extends dependencies', async () => {
     +     Object {
     +       "default": "array-simple",
     +     },
+    +   ],
+    +   "@typescript-eslint/await-thenable": Array [
+    +     "error",
     +   ],
     +   "@typescript-eslint/ban-ts-comment": Array [
     +     "error",
@@ -146,10 +160,25 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-extra-semi": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/no-floating-promises": Array [
+    +     "error",
+    +     Object {
+    +       "ignoreVoid": true,
+    +     },
+    +   ],
+    +   "@typescript-eslint/no-for-in-array": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-implied-eval": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-inferrable-types": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-misused-new": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-misused-promises": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-namespace": Array [
@@ -162,6 +191,33 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-this-alias": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-throw-literal": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unnecessary-boolean-literal-compare": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unnecessary-qualifier": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unnecessary-type-arguments": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unnecessary-type-assertion": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-assignment": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-call": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-member-access": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-return": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unused-expressions": Array [
@@ -193,8 +249,33 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/prefer-optional-chain": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/prefer-reduce-type-parameter": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/prefer-regexp-exec": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/quotes": Array [
     +     0,
+    +   ],
+    +   "@typescript-eslint/require-array-sort-compare": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/require-await": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/restrict-plus-operands": Array [
+    +     "error",
+    +     Object {
+    +       "checkCompoundAssignments": true,
+    +     },
+    +   ],
+    +   "@typescript-eslint/restrict-template-expressions": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/return-await": Array [
+    +     "error",
+    +     "in-try-catch",
     +   ],
     +   "@typescript-eslint/semi": Array [
     +     "off",
@@ -207,6 +288,9 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/type-annotation-spacing": Array [
     +     "off",
+    +   ],
+    +   "@typescript-eslint/unbound-method": Array [
+    +     "error",
     +   ],
         "array-bracket-newline": Array [
     @@ --- --- @@
@@ -243,11 +327,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-          "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
+        "no-arrow-condition": Array [
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
@@ -327,14 +411,20 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        ],
+        "prefer-object-spread": Array [
+    +     "error",
+    +   ],
     +   "prefer-rest-params": Array [
     +     "error",
     +   ],
     +   "prefer-spread": Array [
-    +     "error",
+          "error",
+    @@ --- --- @@
+          },
     +   ],
-        "prefer-template": Array [
+    +   "require-await": Array [
+    +     "off",
+        ],
     @@ --- --- @@
         ],
     +   "simple-import-sort/sort": Array [

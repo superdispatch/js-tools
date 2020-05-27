@@ -23,119 +23,51 @@ function setupImportPlugin(config) {
 /** @param {Config} config */
 function setupTypeScriptPlugin(config) {
   addExtends(config, 'plugin:@typescript-eslint/recommended');
+  addExtends(
+    config,
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  );
+
+  config.rules = { ...config.rules, 'no-unused-expressions': 'off' };
 
   config.rules = {
     ...config.rules,
-
-    'no-unused-expressions': 'off',
-  };
-
-  config.rules = {
-    ...config.rules,
-
-    /**
-     * Requires using either `T[]` or `Array<T>` for arrays.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/array-type.md
-     */
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
-
-    /**
-     * Ignore variable cases.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
-     */
     '@typescript-eslint/camelcase': 'off',
-
-    /**
-     * Ignore object type definition (`interface` or `type`).
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
-     */
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-
-    /**
-     * Ignore explicit return types on functions and class methods.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md
-     */
     '@typescript-eslint/explicit-function-return-type': 'off',
-
-    /**
-     * Require explicit accessibility modifiers on class properties and methods.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
-     */
     '@typescript-eslint/explicit-member-accessibility': [
       'error',
       { accessibility: 'no-public' },
     ],
-
-    /**
-     * Require explicit return and argument types on exported functions' and classes' public class methods.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md
-     */
     '@typescript-eslint/explicit-module-boundary-types': 'error',
-
-    /**
-     * Ignore interface name prefix.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/interface-name-prefix.md
-     */
     '@typescript-eslint/interface-name-prefix': 'off',
-
-    /**
-     * Disallow usage of the `any` type.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-explicit-any.md
-     */
     '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
-
-    /**
-     * Disallows non-null assertions using the `!` postfix operator
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
-     */
+    '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
+    '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
-
-    /**
-     * Disallow unused expressions.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
-     */
+    '@typescript-eslint/no-throw-literal': 'error',
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+    '@typescript-eslint/no-unnecessary-qualifier': 'error',
+    '@typescript-eslint/no-unnecessary-type-arguments': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 'error',
+    '@typescript-eslint/no-unsafe-call': 'error',
+    '@typescript-eslint/no-unsafe-member-access': 'error',
     '@typescript-eslint/no-unused-expressions': 'error',
-
-    /**
-     * Disable unused variable checks.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
-     */
     '@typescript-eslint/no-unused-vars': 'off',
-
-    /**
-     * Disallow the use of variables before they are defined.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-     */
     '@typescript-eslint/no-use-before-define': [
       'error',
       { classes: true, functions: false, typedefs: false },
     ],
-
-    /**
-     * Use function types instead of interfaces with call signatures.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-function-type.md
-     */
     '@typescript-eslint/prefer-function-type': 'error',
-
-    /**
-     * Using concise optional chain expressions instead of chained logical ands.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
-     */
     '@typescript-eslint/prefer-optional-chain': 'error',
+    '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+    '@typescript-eslint/require-array-sort-compare': 'error',
+    '@typescript-eslint/restrict-plus-operands': [
+      'error',
+      { checkCompoundAssignments: true },
+    ],
+    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
   };
 }
 
@@ -143,16 +75,7 @@ function setupTypeScriptPlugin(config) {
 function setupSimpleImportSortPlugin(config) {
   addPlugin(config, 'simple-import-sort');
 
-  config.rules = {
-    ...config.rules,
-
-    /**
-     * Easy auto-fixable import sorting.
-     *
-     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
-     */
-    'simple-import-sort/sort': 'error',
-  };
+  config.rules = { ...config.rules, 'simple-import-sort/sort': 'error' };
 }
 
 /** @param {Config} config */
