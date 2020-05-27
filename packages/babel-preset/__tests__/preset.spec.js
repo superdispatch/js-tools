@@ -1,6 +1,7 @@
 'use strict';
 
 const snapshotDiff = require('snapshot-diff');
+const stripANSI = require('strip-ansi');
 
 const preset = require('../index');
 
@@ -9,7 +10,9 @@ const preset = require('../index');
  * @param {any} b
  */
 function diff(a, b) {
-  return snapshotDiff(a, b, { contextLines: 2, stablePatchmarks: true });
+  return stripANSI(
+    snapshotDiff(a, b, { contextLines: 2, stablePatchmarks: true }),
+  );
 }
 
 /**

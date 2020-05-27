@@ -4,23 +4,16 @@
 
 'use strict';
 
-const pluginRules = {
-  import: {
-    /**
-     * Forbid the use of extraneous packages.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-extraneous-dependencies.md
-     */
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: true,
-        optionalDependencies: false,
-        peerDependencies: false,
-      },
-    ],
-  },
-  node: {
+const { getBaseConfig, addPlugin, addExtends } = require('./base');
+
+/** @param {Config} config */
+function setupNodePlugin(config) {
+  addPlugin(config, 'node');
+  addExtends(config, 'plugin:node/recommended-script');
+
+  config.rules = {
+    ...config.rules,
+
     /**
      * Enforce either `module.exports` or `exports`.
      *
@@ -104,22 +97,40 @@ const pluginRules = {
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-promises/fs.md
      */
     'node/prefer-promises/fs': 'error',
-  },
-};
+  };
+}
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  env: { node: true },
+/** @param {Config} config */
+function setupImportPlugin(config) {
+  config.rules = {
+    ...config.rules,
 
-  extends: [require.resolve('./base'), 'plugin:node/recommended-script'],
-
-  plugins: ['node'],
-
-  rules: {
     /**
-     * Disallow the use of `console`.
+     * Allow to use dev dependencies.
+     *
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-extraneous-dependencies.md
+     */
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
+  };
+}
+
+/** @returns {Config} */
+function getNodeConfig() {
+  const config = getBaseConfig();
+
+  config.env = { ...config.env, node: true };
+
+  config.rules = {
+    ...config.rules,
+    /**
+     * Allow to use `console`.
      *
      * @see https://eslint.org/docs/rules/no-console
      */
@@ -131,8 +142,12 @@ module.exports = {
      * @see https://eslint.org/docs/rules/strict
      */
     strict: ['error', 'global'],
+  };
 
-    ...pluginRules.import,
-    ...pluginRules.node,
-  },
-};
+  setupNodePlugin(config);
+  setupImportPlugin(config);
+
+  return config;
+}
+
+module.exports = { getNodeConfig };
