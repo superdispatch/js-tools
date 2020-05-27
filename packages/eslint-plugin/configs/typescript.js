@@ -28,7 +28,11 @@ function setupTypeScriptPlugin(config) {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   );
 
-  config.rules = { ...config.rules, 'no-unused-expressions': 'off' };
+  config.rules = {
+    ...config.rules,
+    'no-unused-expressions': 'off',
+    'no-unused-vars': 'off',
+  };
 
   config.rules = {
     ...config.rules,
