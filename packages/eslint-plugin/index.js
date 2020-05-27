@@ -20,7 +20,6 @@ const plugin = {
   rules: {
     filename: require('./rules/filename'),
     camelcase: require('./rules/camelcase'),
-    'no-index-file': require('./rules/no-index-file'),
     'directory-name': require('./rules/directory-name'),
     'jsx-no-spread-object-expression': require('./rules/jsx-no-spread-object-expression'),
   },
