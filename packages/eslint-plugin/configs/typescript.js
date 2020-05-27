@@ -4,55 +4,34 @@
  * @typedef {import("eslint").Linter.Config} Config
  * */
 
-const pluginRules = {
-  import: {
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/default.md
-     */
+const { getBaseConfig, addPlugin, addExtends } = require('./base');
+
+/** @param {Config} config */
+function setupImportPlugin(config) {
+  addExtends(config, 'plugin:import/typescript');
+
+  config.rules = {
+    ...config.rules,
     'import/default': 'off',
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/export.md
-     */
     'import/export': 'off',
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/named.md
-     */
     'import/named': 'off',
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/namespace.md
-     */
     'import/namespace': 'off',
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-unresolved.md
-     */
     'import/no-unresolved': 'off',
-  },
-  simpleImportSort: {
-    /**
-     * Easy auto-fixable import sorting.
-     *
-     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
-     */
-    'simple-import-sort/sort': 'error',
-  },
-  typescript: {
-    //
-    // @typescript-eslint/eslint-plugin
-    //
+  };
+}
+
+/** @param {Config} config */
+function setupTypeScriptPlugin(config) {
+  addExtends(config, 'plugin:@typescript-eslint/recommended');
+
+  config.rules = {
+    ...config.rules,
+
+    'no-unused-expressions': 'off',
+  };
+
+  config.rules = {
+    ...config.rules,
 
     /**
      * Requires using either `T[]` or `Array<T>` for arrays.
@@ -157,27 +136,42 @@ const pluginRules = {
      * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
      */
     '@typescript-eslint/prefer-optional-chain': 'error',
-  },
-};
+  };
+}
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  extends: [
-    require.resolve('./base.js'),
-    'plugin:import/typescript',
-    require.resolve('./internal/typescript-recommended.js'),
-    'prettier/@typescript-eslint',
-  ],
+/** @param {Config} config */
+function setupSimpleImportSortPlugin(config) {
+  addPlugin(config, 'simple-import-sort');
 
-  plugins: ['simple-import-sort'],
+  config.rules = {
+    ...config.rules,
 
-  rules: {
-    'no-unused-expressions': 'off',
+    /**
+     * Easy auto-fixable import sorting.
+     *
+     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
+     */
+    'simple-import-sort/sort': 'error',
+  };
+}
 
-    ...pluginRules.import,
-    ...pluginRules.simpleImportSort,
-    ...pluginRules.typescript,
-  },
-};
+/** @param {Config} config */
+function setupPrettierConfig(config) {
+  addExtends(config, 'prettier/@typescript-eslint');
+}
+
+/** @returns {Config}  */
+function getTypeScriptConfig() {
+  const config = getBaseConfig();
+
+  setupImportPlugin(config);
+  setupTypeScriptPlugin(config);
+  setupSimpleImportSortPlugin(config);
+
+  // Should be last.
+  setupPrettierConfig(config);
+
+  return config;
+}
+
+module.exports = { getTypeScriptConfig };

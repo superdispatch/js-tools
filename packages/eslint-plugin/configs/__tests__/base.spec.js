@@ -1,10 +1,9 @@
 'use strict';
 
 const { getConfigValues } = require('../__testutils__/test-eslint-config');
-const config = require('../base');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues(config);
+  const [meta, rules] = await getConfigValues('base');
 
   expect(meta).toMatchInlineSnapshot(`
     Object {
@@ -12,13 +11,13 @@ it('extends dependencies', async () => {
       "globals": Object {},
       "parser": null,
       "parserOptions": Object {
-        "ecmaVersion": 2018,
+        "ecmaVersion": 2020,
       },
       "plugins": Array [
-        "eslint-comments",
-        "array-func",
-        "@superdispatch",
         "import",
+        "eslint-comments",
+        "@superdispatch",
+        "array-func",
       ],
       "settings": Object {},
     }

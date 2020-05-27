@@ -39,6 +39,7 @@
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "snapshot-diff": "^0.8.0",
+    "strip-ansi": "^6.0.0",
     "typescript": "^3.9.3"
   }
 }

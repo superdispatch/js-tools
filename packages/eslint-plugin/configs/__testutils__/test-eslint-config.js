@@ -7,14 +7,20 @@
 
 const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
+const stripANSI = require('strip-ansi');
+
+const plugin = require('../../index');
 
 /**
- * @param {Config} baseConfig
+ * @param {string} name
  */
-async function getFullConfig(baseConfig) {
-  const cli = new CLIEngine({ baseConfig, useEslintrc: false });
+async function getFullConfig(name) {
+  const cli = new CLIEngine({
+    useEslintrc: false,
+    baseConfig: plugin.configs[/** @type {never} */ (name)],
+  });
 
-  const { parser, ...config } = cli.getConfigForFile('config/foo.js');
+  const { parser, ...config } = cli.getConfigForFile('config/foo.ts');
 
   delete config.ignorePatterns;
   delete config.noInlineConfig;
@@ -32,25 +38,27 @@ async function getFullConfig(baseConfig) {
  * @param {unknown} b
  */
 function diff(a, b) {
-  return snapshotDiff(a, b, {
-    colors: false,
-    contextLines: 1,
-    stablePatchmarks: true,
-  });
+  return stripANSI(
+    snapshotDiff(a, b, {
+      colors: false,
+      contextLines: 1,
+      stablePatchmarks: true,
+    }),
+  );
 }
 
 /**
- * @param {Config} config
- * @param {Config} [baseConfig]
+ * @param {string} name
+ * @param {string} [baseName]
  */
-async function getConfigValues(config, baseConfig) {
-  const { rules, ...meta } = await getFullConfig(config);
+async function getConfigValues(name, baseName) {
+  const { rules, ...meta } = await getFullConfig(name);
 
-  if (!baseConfig) {
+  if (!baseName) {
     return [meta, rules];
   }
 
-  const { rules: baseRules, ...baseMeta } = await getFullConfig(baseConfig);
+  const { rules: baseRules, ...baseMeta } = await getFullConfig(baseName);
 
   return [diff(baseMeta, meta), diff(baseRules, rules)];
 }

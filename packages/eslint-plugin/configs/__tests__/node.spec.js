@@ -1,11 +1,9 @@
 'use strict';
 
 const { getConfigValues } = require('../__testutils__/test-eslint-config');
-const config = require('../node');
-const baseConfig = require('../base');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues(config, baseConfig);
+  const [meta, rules] = await getConfigValues('node', 'base');
 
   expect(meta).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -72,17 +70,16 @@ it('extends dependencies', async () => {
     +   },
         "parser": null,
         "parserOptions": Object {
-    -     "ecmaVersion": 2018,
     +     "ecmaFeatures": Object {
     +       "globalReturn": true,
     +     },
-    +     "ecmaVersion": 2019,
+          "ecmaVersion": 2020,
     +     "sourceType": "script",
         },
     @@ --- --- @@
           "import",
     +     "node",
-        ],
+          "eslint-comments",
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:

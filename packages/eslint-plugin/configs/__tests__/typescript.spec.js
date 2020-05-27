@@ -1,11 +1,9 @@
 'use strict';
 
 const { getConfigValues } = require('../__testutils__/test-eslint-config');
-const config = require('../typescript');
-const baseConfig = require('../base');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues(config, baseConfig);
+  const [meta, rules] = await getConfigValues('typescript', 'base');
 
   expect(meta).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -17,13 +15,16 @@ it('extends dependencies', async () => {
     -   "parser": null,
     +   "parser": "node_modules/@typescript-eslint/parser/dist/index.js",
         "parserOptions": Object {
-          "ecmaVersion": 2018,
+          "ecmaVersion": 2020,
     +     "sourceType": "module",
         },
     @@ --- --- @@
           "import",
     +     "@typescript-eslint",
     +     "simple-import-sort",
+          "eslint-comments",
+    @@ --- --- @@
+          "array-func",
     +   ],
     +   "settings": Object {
     +     "import/extensions": Array [
@@ -326,10 +327,14 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        "no-unused-vars": Array [
-    -     "error",
-    +     "off",
-          Object {
+        ],
+    +   "prefer-rest-params": Array [
+    +     "error",
+    +   ],
+    +   "prefer-spread": Array [
+    +     "error",
+    +   ],
+        "prefer-template": Array [
     @@ --- --- @@
         ],
     +   "simple-import-sort/sort": Array [
