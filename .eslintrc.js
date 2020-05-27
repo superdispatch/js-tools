@@ -18,7 +18,11 @@ module.exports = {
   },
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
-    { files: '*.ts', extends: 'plugin:@superdispatch/typescript' },
+    {
+      files: '*.ts',
+      extends: 'plugin:@superdispatch/typescript',
+      parserOptions: { project: './tsconfig.json' },
+    },
 
     {
       files: '**/packages/**/*.js',
