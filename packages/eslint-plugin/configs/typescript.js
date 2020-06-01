@@ -44,7 +44,7 @@ function setupTypeScriptPlugin(config) {
       'error',
       { accessibility: 'no-public' },
     ],
-    '@typescript-eslint/explicit-module-boundary-types': 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
