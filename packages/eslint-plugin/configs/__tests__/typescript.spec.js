@@ -119,7 +119,7 @@ it('extends dependencies', async () => {
     +     },
     +   ],
     +   "@typescript-eslint/explicit-module-boundary-types": Array [
-    +     "error",
+    +     "off",
     +   ],
     +   "@typescript-eslint/func-call-spacing": Array [
     +     "off",
