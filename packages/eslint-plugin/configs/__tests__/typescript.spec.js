@@ -199,6 +199,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-unnecessary-boolean-literal-compare": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-unnecessary-condition": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-unnecessary-qualifier": Array [
     +     "error",
     +   ],
@@ -327,11 +330,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-          "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
+        "no-arrow-condition": Array [
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
@@ -424,22 +427,24 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "prefer-rest-params": Array [
+          "error",
+        ],
+    +   "prefer-spread": Array [
     +     "error",
     +   ],
-    +   "prefer-spread": Array [
-          "error",
+        "prefer-template": Array [
     @@ --- --- @@
-          },
-    +   ],
+        ],
     +   "require-await": Array [
     +     "off",
-        ],
+    +   ],
+        "require-yield": Array [
     @@ --- --- @@
-        ],
+          "off",
+    +   ],
     +   "simple-import-sort/sort": Array [
     +     "error",
-    +   ],
-        "space-after-function-name": Array [
+        ],
     @@ --- --- @@
         "valid-typeof": Array [
     -     "error",
