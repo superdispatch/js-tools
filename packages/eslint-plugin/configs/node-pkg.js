@@ -4,20 +4,24 @@
 
 'use strict';
 
-const { ERROR } = require('./internal/error-codes');
+const { getNodeConfig } = require('./node');
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  extends: [require.resolve('./node')],
+/** @returns {Config} */
+function getNodePackageConfig() {
+  const config = getNodeConfig();
 
-  rules: {
+  config.rules = {
+    ...config.rules,
+
     /**
      * Disallow `require()` expressions which import private modules.
      *
      * @see https://github.com/mysticatea/eslint-plugin-node/blob/HEAD/docs/rules/no-unpublished-require.md
      */
-    'node/no-unpublished-require': ERROR,
-  },
-};
+    'node/no-unpublished-require': 'error',
+  };
+
+  return config;
+}
+
+module.exports = { getNodePackageConfig };

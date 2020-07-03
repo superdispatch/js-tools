@@ -1,123 +1,80 @@
 /**
+ * @typedef {import("eslint").Linter.Config} Config
  * @typedef {import("eslint").Linter.RulesRecord} RulesRecord
  * @typedef {import("eslint").Linter.RuleEntry} RuleEntry
+ * @typedef {import("eslint").Linter.ParserOptions} ParserOptions
  * */
 'use strict';
 
-const path = require('path');
-const execa = require('execa');
-const { isDeepStrictEqual } = require('util');
+const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
+const stripANSI = require('strip-ansi');
 
-/**
- * @param {Partial<RulesRecord>} a
- * @param {Partial<RulesRecord>} b
- */
-function omitEqualRules(a, b) {
-  /**
-   * @type {RulesRecord}
-   * */
-  const result = {};
-  const allKeys = new Set([...Object.keys(a), ...Object.keys(b)]);
-
-  allKeys.forEach((key) => {
-    if (!isDeepStrictEqual(a[key], b[key])) {
-      result[key] = /** @type {RuleEntry} */ (b[key]);
-    }
-  });
-
-  return result;
-}
+const plugin = require('../../index');
 
 /**
  * @param {string} name
- * @param {boolean} [dev]
+ * @param {string} [fileName]
+ * @param {ParserOptions} [parserOptions]
+ * @returns {Promise<Config>}
  */
-async function getConfig(name, dev) {
-  const env = { ...process.env };
-  const configPath = path.join(__dirname, '..', `${name}.js`);
+async function getFullConfig(name, fileName = 'config/foo.js', parserOptions) {
+  const cli = new CLIEngine({
+    parserOptions,
+    useEslintrc: false,
+    baseConfig: plugin.configs[/** @type {never} */ (name)],
+  });
 
-  if (dev) {
-    env.CI = 'false';
-    env.NODE_ENV = 'development';
-  }
+  const { parser, ...config } = cli.getConfigForFile(fileName);
 
-  try {
-    const { stdout } = await execa(
-      'eslint',
-      [
-        '--no-eslintrc',
-        `--config=${configPath}`,
-        '--print-config=config/foo.js',
-      ],
-      { env },
-    );
+  delete config.ignorePatterns;
+  delete config.noInlineConfig;
+  delete config.reportUnusedDisableDirectives;
 
-    const { parser, ...config } = JSON.parse(stdout);
-
-    delete config.ignorePatterns;
-
-    return {
-      ...config,
-      parser: parser && path.relative(process.cwd(), parser),
-    };
-  } catch (error) {
-    if (error.stderr) {
-      throw new Error(error.stderr);
-    }
-
-    throw error;
-  }
+  return {
+    ...config,
+    parser: parser && parser.slice(parser.indexOf('node_modules')),
+  };
 }
 
 /**
  *
- * @param {any} a
- * @param {any} b
+ * @param {unknown} a
+ * @param {unknown} b
  */
 function diff(a, b) {
-  return snapshotDiff(a, b, { contextLines: 1, stablePatchmarks: true });
+  return stripANSI(
+    snapshotDiff(a, b, {
+      colors: false,
+      contextLines: 1,
+      stablePatchmarks: true,
+    }),
+  );
 }
 
 /**
- * @param {string} configName
- * @param {string} [baseConfigName]
+ * @param {string} name
+ * @param {string} [fileName]
+ * @param {ParserOptions} [parserOptions]
+ * @returns {Promise<[object, object]>}
  */
-async function getConfigValues(configName, baseConfigName) {
-  const { rules, ...meta } = await getConfig(configName);
+async function getConfigValues(name, fileName, parserOptions) {
+  const { rules = {}, ...meta } = await getFullConfig(
+    name,
+    fileName,
+    parserOptions,
+  );
 
-  if (!baseConfigName) {
-    return [meta, rules];
-  }
+  return [meta, rules];
+}
 
-  const { rules: baseRules, ...baseMeta } = await getConfig(baseConfigName);
-
+/**
+ * @param {[object, object]} baseConfig
+ * @param {[object, object]} config
+ * @returns {[string, string]}
+ */
+function getConfigsDiff([baseMeta, baseRules], [meta, rules]) {
   return [diff(baseMeta, meta), diff(baseRules, rules)];
 }
 
-/**
- * @param {string} configName
- * @param {string} [baseConfigName]
- */
-async function getDevConfigDiff(configName, baseConfigName) {
-  const [{ rules }, { rules: devRules }] = await Promise.all([
-    getConfig(configName),
-    getConfig(configName, true),
-  ]);
-
-  if (!baseConfigName) {
-    return diff(rules, devRules);
-  }
-
-  const [{ rules: baseRules }, { rules: baseDevRules }] = await Promise.all([
-    getConfig(baseConfigName),
-    getConfig(baseConfigName, true),
-  ]);
-
-  const rulesDiff = omitEqualRules(baseRules, rules);
-  const devRulesDiff = omitEqualRules(baseDevRules, devRules);
-
-  return diff(rulesDiff, devRulesDiff);
-}
-
-module.exports = { getConfigValues, getDevConfigDiff };
+module.exports = { getConfigsDiff, getConfigValues };

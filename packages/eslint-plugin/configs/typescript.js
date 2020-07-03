@@ -1,184 +1,105 @@
+'use strict';
+
 /**
  * @typedef {import("eslint").Linter.Config} Config
  * */
-'use strict';
 
-const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
+const { getBaseConfig, addPlugin, addExtends } = require('./base');
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  plugins: ['simple-import-sort'],
-  extends: [
-    require.resolve('./base.js'),
-    'plugin:import/typescript',
-    require.resolve('./internal/typescript-recommended.js'),
-    'prettier/@typescript-eslint',
-  ],
+/** @param {Config} config */
+function setupImportPlugin(config) {
+  addExtends(config, 'plugin:import/typescript');
 
-  rules: {
-    //
-    // eslint-plugin-import
-    //
+  config.rules = {
+    ...config.rules,
+    'import/default': 'off',
+    'import/export': 'off',
+    'import/named': 'off',
+    'import/namespace': 'off',
+    'import/no-unresolved': 'off',
+  };
+}
 
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-unresolved.md
-     */
-    'import/no-unresolved': OFF,
+/** @param {Config} config */
+function setupTypeScriptPlugin(config) {
+  addExtends(config, 'plugin:@typescript-eslint/recommended');
+  addExtends(
+    config,
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  );
 
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/named.md
-     */
-    'import/named': OFF,
+  config.rules = {
+    ...config.rules,
+    'no-unused-expressions': 'off',
+    'no-unused-vars': 'off',
+  };
 
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/default.md
-     */
-    'import/default': OFF,
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/namespace.md
-     */
-    'import/namespace': OFF,
-
-    /**
-     * Disable in favour of TypeScript checks.
-     *
-     * @see https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/export.md
-     */
-    'import/export': OFF,
-
-    //
-    // @typescript-eslint/eslint-plugin
-    //
-
-    /**
-     * Requires using either `T[]` or `Array<T>` for arrays.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/array-type.md
-     */
-    '@typescript-eslint/array-type': [
-      INCONSISTENCY,
-      { default: 'array-simple' },
-    ],
-
-    /**
-     * Ignore variable cases.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
-     */
-    '@typescript-eslint/camelcase': OFF,
-
-    /**
-     * Ignore object type definition (`interface` or `type`).
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
-     */
-    '@typescript-eslint/consistent-type-definitions': [ERROR, 'interface'],
-
-    /**
-     * Ignore explicit return types on functions and class methods.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md
-     */
-    '@typescript-eslint/explicit-function-return-type': OFF,
-
-    /**
-     * Require explicit accessibility modifiers on class properties and methods.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
-     */
+  config.rules = {
+    ...config.rules,
+    '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': [
-      INCONSISTENCY,
+      'error',
       { accessibility: 'no-public' },
     ],
-
-    /**
-     * Ignore interface name prefix.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/interface-name-prefix.md
-     */
-    '@typescript-eslint/interface-name-prefix': OFF,
-
-    /**
-     * Disallow usage of the `any` type.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-explicit-any.md
-     */
-    '@typescript-eslint/no-explicit-any': [
-      INCONSISTENCY,
-      { ignoreRestArgs: true },
-    ],
-
-    /**
-     * Disallows non-null assertions using the `!` postfix operator
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
-     */
-    '@typescript-eslint/no-non-null-assertion': INCONSISTENCY,
-
-    /**
-     * Disallow unused expressions.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
-     */
-    'no-unused-expressions': OFF,
-    '@typescript-eslint/no-unused-expressions': INCONSISTENCY,
-
-    /**
-     * Disable unused variable checks.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
-     */
-    '@typescript-eslint/no-unused-vars': OFF,
-
-    /**
-     * Disallow the use of variables before they are defined.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-     */
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
+    '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
+    '@typescript-eslint/no-implied-eval': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/no-throw-literal': 'error',
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+    '@typescript-eslint/no-unnecessary-condition': 'error',
+    '@typescript-eslint/no-unnecessary-qualifier': 'error',
+    '@typescript-eslint/no-unnecessary-type-arguments': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 'error',
+    '@typescript-eslint/no-unsafe-call': 'error',
+    '@typescript-eslint/no-unsafe-member-access': 'error',
+    '@typescript-eslint/no-unused-expressions': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-use-before-define': [
-      ERROR,
+      'error',
       { classes: true, functions: false, typedefs: false },
     ],
+    '@typescript-eslint/prefer-function-type': 'error',
+    '@typescript-eslint/prefer-optional-chain': 'error',
+    '@typescript-eslint/prefer-reduce-type-parameter': 'error',
+    '@typescript-eslint/require-array-sort-compare': 'error',
+    '@typescript-eslint/restrict-plus-operands': [
+      'error',
+      { checkCompoundAssignments: true },
+    ],
+    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+  };
+}
 
-    /**
-     * Use function types instead of interfaces with call signatures.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-function-type.md
-     */
-    '@typescript-eslint/prefer-function-type': INCONSISTENCY,
+/** @param {Config} config */
+function setupSimpleImportSortPlugin(config) {
+  addPlugin(config, 'simple-import-sort');
 
-    /**
-     * Using concise optional chain expressions instead of chained logical ands.
-     *
-     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
-     */
-    '@typescript-eslint/prefer-optional-chain': INCONSISTENCY,
+  config.rules = { ...config.rules, 'simple-import-sort/sort': 'error' };
+}
 
-    //
-    // simple-import-sort
-    //
+/** @param {Config} config */
+function setupPrettierConfig(config) {
+  addExtends(config, 'prettier/@typescript-eslint');
+}
 
-    //
-    // Style guide
+/** @returns {Config}  */
+function getTypeScriptConfig() {
+  const config = getBaseConfig();
 
-    /**
-     * Easy auto-fixable import sorting.
-     *
-     * P.S It only works for ES imports.
-     *
-     * @see https://github.com/lydell/eslint-plugin-simple-import-sort
-     */
-    'simple-import-sort/sort': INCONSISTENCY,
-  },
-};
+  setupImportPlugin(config);
+  setupTypeScriptPlugin(config);
+  setupSimpleImportSortPlugin(config);
+
+  // Should be last.
+  setupPrettierConfig(config);
+
+  return config;
+}
+
+module.exports = { getTypeScriptConfig };

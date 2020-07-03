@@ -18,14 +18,22 @@ module.exports = {
   },
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
-    { files: '*.ts', extends: 'plugin:@superdispatch/typescript' },
+    {
+      files: '*.ts',
+      extends: 'plugin:@superdispatch/typescript',
+      parserOptions: { project: './tsconfig.json' },
+    },
+
     {
       files: '**/packages/**/*.js',
       extends: 'plugin:@superdispatch/node-pkg',
-      rules: {
-        '@superdispatch/no-index-file': 'off',
-      },
     },
+
+    {
+      files: '**/packages/eslint-plugin/configs/*.js',
+      rules: { 'sort-keys': ['error', 'asc', { natural: true }] },
+    },
+
     {
       files: '**/{__tests__,__testutils__}/**/*.js',
       extends: 'plugin:@superdispatch/jest',

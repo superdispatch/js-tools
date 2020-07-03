@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/js-tools",
-  "version": "0.1.51",
+  "version": "0.1.60",
   "description": "CLI tools for JavaScript",
   "keywords": [
     "eslint",
@@ -18,13 +18,13 @@
     "commands/**"
   ],
   "dependencies": {
-    "execa": "^4.0.0",
-    "prettier-plugin-packagejson": "^2.0.10",
+    "execa": "^4.0.2",
+    "prettier-plugin-packagejson": "^2.2.5",
     "yargs": "^15.1.0",
     "yarn-deduplicate": "^2.0.0"
   },
   "peerDependencies": {
-    "eslint": "6.x",
+    "eslint": "6.x - 7.x",
     "prettier": "1.x - 2.x"
   },
   "engines": {

@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-  getConfigValues,
-  getDevConfigDiff,
-} = require('../__testutils__/test-eslint-config');
+const { getConfigValues } = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const [meta, rules] = await getConfigValues('base');
@@ -14,13 +11,13 @@ it('extends dependencies', async () => {
       "globals": Object {},
       "parser": null,
       "parserOptions": Object {
-        "ecmaVersion": 2018,
+        "ecmaVersion": 2020,
       },
       "plugins": Array [
-        "eslint-comments",
-        "array-func",
-        "@superdispatch",
         "import",
+        "eslint-comments",
+        "@superdispatch",
+        "array-func",
       ],
       "settings": Object {},
     }
@@ -301,6 +298,9 @@ it('extends dependencies', async () => {
       "no-dupe-class-members": Array [
         "error",
       ],
+      "no-dupe-else-if": Array [
+        "error",
+      ],
       "no-dupe-keys": Array [
         "error",
       ],
@@ -356,6 +356,9 @@ it('extends dependencies', async () => {
           "number": true,
           "string": true,
         },
+      ],
+      "no-import-assign": Array [
+        "error",
       ],
       "no-inner-declarations": Array [
         "error",
@@ -655,6 +658,9 @@ it('extends dependencies', async () => {
       "no-self-assign": Array [
         "error",
       ],
+      "no-setter-return": Array [
+        "error",
+      ],
       "no-shadow": Array [
         "error",
       ],
@@ -920,257 +926,5 @@ it('extends dependencies', async () => {
         },
       ],
     }
-  `);
-});
-
-it('changes in dev mode', async () => {
-  const rules = await getDevConfigDiff('base');
-
-  expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    - First value
-    + Second value
-
-    @@ --- --- @@
-        "@superdispatch/camelcase": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "@superdispatch/directory-name": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "@superdispatch/filename": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "array-func/avoid-reverse": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "array-func/from-map": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "array-func/no-unnecessary-this-arg": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "array-func/prefer-array-from": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "array-func/prefer-flat": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "array-func/prefer-flat-map": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "arrow-body-style": Array [
-    -     "error",
-    +     "warn",
-          "as-needed",
-    @@ --- --- @@
-        "curly": Array [
-    -     "error",
-    +     "warn",
-          "all",
-    @@ --- --- @@
-        "dot-notation": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "eslint-comments/disable-enable-pair": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "eslint-comments/no-aggregating-enable": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "eslint-comments/no-duplicate-disable": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "eslint-comments/no-unlimited-disable": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "eslint-comments/no-unused-disable": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "eslint-comments/no-unused-enable": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "eslint-comments/no-use": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "func-names": Array [
-    -     "error",
-    +     "warn",
-          "as-needed",
-    @@ --- --- @@
-        "import/first": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "import/no-anonymous-default-export": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "import/no-deprecated": Array [
-    -     "warn",
-    +     "off",
-        ],
-        "import/no-duplicates": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "import/no-mutable-exports": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "import/no-named-as-default": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "import/no-named-as-default-member": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-alert": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-console": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-div-regex": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-else-return": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "no-empty": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "no-floating-decimal": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-implicit-coercion": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "no-lonely-if": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-shadow": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-undef-init": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-unneeded-ternary": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-unused-expressions": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-useless-computed-key": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "no-useless-rename": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "no-useless-return": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "no-var": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "no-warning-comments": Array [
-    -     "warn",
-    +     "off",
-          Object {
-    @@ --- --- @@
-        "object-shorthand": Array [
-    -     "error",
-    +     "warn",
-          "always",
-    @@ --- --- @@
-        "operator-assignment": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "prefer-arrow-callback": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "prefer-destructuring": Array [
-    -     "error",
-    +     "warn",
-          Object {
-    @@ --- --- @@
-        "prefer-numeric-literals": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "prefer-object-spread": Array [
-    -     "error",
-    +     "warn",
-        ],
-        "prefer-template": Array [
-    -     "error",
-    +     "warn",
-        ],
-    @@ --- --- @@
-        "quotes": Array [
-    -     "error",
-    +     "warn",
-          "single",
-    @@ --- --- @@
-        "yoda": Array [
-    -     "error",
-    +     "warn",
-          "never",
   `);
 });

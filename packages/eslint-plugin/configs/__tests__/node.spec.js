@@ -1,12 +1,15 @@
 'use strict';
 
 const {
+  getConfigsDiff,
   getConfigValues,
-  getDevConfigDiff,
 } = require('../__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('node', 'base');
+  const [meta, rules] = getConfigsDiff(
+    await getConfigValues('base'),
+    await getConfigValues('node'),
+  );
 
   expect(meta).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -73,17 +76,16 @@ it('extends dependencies', async () => {
     +   },
         "parser": null,
         "parserOptions": Object {
-    -     "ecmaVersion": 2018,
     +     "ecmaFeatures": Object {
     +       "globalReturn": true,
     +     },
-    +     "ecmaVersion": 2019,
+          "ecmaVersion": 2020,
     +     "sourceType": "script",
         },
     @@ --- --- @@
           "import",
     +     "node",
-        ],
+          "eslint-comments",
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -199,14 +201,5 @@ it('extends dependencies', async () => {
     +     "error",
     +     "global",
         ],
-  `);
-});
-
-it('not changes in dev mode', async () => {
-  const rules = await getDevConfigDiff('node', 'base');
-
-  expect(rules).toMatchInlineSnapshot(`
-    Snapshot Diff:
-    Compared values have no visual difference.
   `);
 });

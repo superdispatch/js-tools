@@ -1,168 +1,169 @@
+'use strict';
+
 /**
  * @typedef {import("eslint").Linter.Config} Config
  * */
-'use strict';
 
-const { OFF, ERROR, INCONSISTENCY } = require('./internal/error-codes');
+/** returns {Config} **/
+function getReactConfig() {
+  return {
+    env: { browser: true },
+    extends: ['plugin:react/recommended', 'prettier/react'],
+    plugins: ['react', 'react-hooks', 'jsx-a11y'],
 
-/**
- * @type {Config}
- * */
-module.exports = {
-  env: { browser: true },
-  plugins: ['react', 'react-hooks', 'jsx-a11y'],
-  extends: ['plugin:react/recommended', 'prettier/react'],
+    rules: {
+      //
+      // @superdispatch/eslint-plugin
+      //
 
-  rules: {
-    //
-    // @superdispatch/eslint-plugin
-    //
+      '@superdispatch/jsx-no-spread-object-expression': 'error',
+      '@superdispatch/no-custom-color': 'error',
 
-    '@superdispatch/no-custom-color': INCONSISTENCY,
-    '@superdispatch/jsx-no-spread-object-expression': INCONSISTENCY,
+      //
+      // eslint-plugin-jsx-a11y
+      //
 
-    //
-    // eslint-plugin-react
-    //
+      /**
+       * Enforces to use accessibility attributes with emoji.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
+       * */
+      'jsx-a11y/accessible-emoji': 'error',
 
-    /**
-     * Enforce boolean attributes notation in JSX.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
-     */
-    'react/jsx-boolean-value': [INCONSISTENCY, 'always'],
+      /**
+       * Enforce elements with aria-activedescendant are tabbable.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
+       * */
+      'jsx-a11y/aria-activedescendant-has-tabindex': 'error',
 
-    /**
-     * Disallow unnecessary curly braces in JSX props and children.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
-     */
-    'react/jsx-curly-brace-presence': [
-      INCONSISTENCY,
-      { props: 'never', children: 'never' },
-    ],
+      /**
+       * This will fail if it finds an aria-* property that is not listed in WAI-ARIA States and Properties spec.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
+       * */
+      'jsx-a11y/aria-props': 'error',
 
-    /**
-     * Disallow unnecessary fragments.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
-     */
-    'react/jsx-no-useless-fragment': INCONSISTENCY,
+      /**
+       * ARIA state and property values must be valid.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
+       * */
+      'jsx-a11y/aria-proptypes': 'error',
 
-    /**
-     * Enforce shorthand or standard form for React fragments.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
-     */
-    'react/jsx-fragments': [INCONSISTENCY, 'syntax'],
+      /**
+       * Elements with ARIA roles must use a valid, non-abstract ARIA role.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
+       * */
+      'jsx-a11y/aria-role': ['error', { ignoreNonDOM: true }],
 
-    /**
-     * Prevent problem with children and props.dangerouslySetInnerHTML.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/no-danger-with-children.md
-     */
-    'react/no-danger-with-children': INCONSISTENCY,
+      /**
+       * Enforce no accessKey prop on element.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
+       * */
+      'jsx-a11y/no-access-key': 'error',
 
-    /**
-     * Disable props validation in a React component definition.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/prop-types.md
-     */
-    'react/prop-types': OFF,
+      /**
+       * Setting an ARIA role that matches its default/implicit role is redundant since it is already set by the browser.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
+       * */
+      'jsx-a11y/no-redundant-roles': 'error',
 
-    /**
-     * Prevent extra closing tags for components without children.
-     *
-     * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/self-closing-comp.md
-     */
-    'react/self-closing-comp': INCONSISTENCY,
+      /**
+       * Enforce that elements with ARIA roles must have all required attributes for that role.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
+       * */
+      'jsx-a11y/role-has-required-aria-props': 'error',
 
-    //
-    // eslint-plugin-react-hooks
-    //
+      /**
+       * Enforce that elements with explicit or implicit roles defined contain only aria-* properties supported by that role.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
+       * */
+      'jsx-a11y/role-supports-aria-props': 'error',
 
-    'react-hooks/rules-of-hooks': ERROR,
-    'react-hooks/exhaustive-deps': ERROR,
+      /**
+       * Enforce scope prop is only used on elements.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
+       * */
+      'jsx-a11y/scope': 'error',
 
-    //
-    // eslint-plugin-jsx-a11y
-    //
+      /**
+       * Enforce tabIndex value is not greater than zero.
+       *
+       * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
+       * */
+      'jsx-a11y/tabindex-no-positive': 'error',
 
-    /**
-     * Enforces to use accessibility attributes with emoji.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
-     * */
-    'jsx-a11y/accessible-emoji': INCONSISTENCY,
+      //
+      // eslint-plugin-react
+      //
 
-    /**
-     * This will fail if it finds an aria-* property that is not listed in WAI-ARIA States and Properties spec.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
-     * */
-    'jsx-a11y/aria-props': INCONSISTENCY,
+      /**
+       * Enforce boolean attributes notation in JSX.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
+       */
+      'react/jsx-boolean-value': ['error', 'always'],
 
-    /**
-     * ARIA state and property values must be valid.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
-     * */
-    'jsx-a11y/aria-proptypes': INCONSISTENCY,
+      /**
+       * Disallow unnecessary curly braces in JSX props and children.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+       */
+      'react/jsx-curly-brace-presence': [
+        'error',
+        { children: 'never', props: 'never' },
+      ],
 
-    /**
-     * Elements with ARIA roles must use a valid, non-abstract ARIA role.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
-     * */
-    'jsx-a11y/aria-role': [INCONSISTENCY, { ignoreNonDOM: true }],
+      /**
+       * Enforce shorthand or standard form for React fragments.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
+       */
+      'react/jsx-fragments': ['error', 'syntax'],
 
-    /**
-     * Enforce no accessKey prop on element.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
-     * */
-    'jsx-a11y/no-access-key': INCONSISTENCY,
+      /**
+       * Disallow unnecessary fragments.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+       */
+      'react/jsx-no-useless-fragment': 'error',
 
-    /**
-     * Setting an ARIA role that matches its default/implicit role is redundant since it is already set by the browser.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
-     * */
-    'jsx-a11y/no-redundant-roles': INCONSISTENCY,
+      /**
+       * Prevent problem with children and props.dangerouslySetInnerHTML.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/no-danger-with-children.md
+       */
+      'react/no-danger-with-children': 'error',
 
-    /**
-     * Enforce that elements with explicit or implicit roles defined contain only aria-* properties supported by that role.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
-     * */
-    'jsx-a11y/role-supports-aria-props': INCONSISTENCY,
+      /**
+       * Disable props validation in a React component definition.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/prop-types.md
+       */
+      'react/prop-types': 'off',
 
-    /**
-     * Enforce elements with aria-activedescendant are tabbable.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
-     * */
-    'jsx-a11y/aria-activedescendant-has-tabindex': INCONSISTENCY,
+      /**
+       * Prevent extra closing tags for components without children.
+       *
+       * @see https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/self-closing-comp.md
+       */
+      'react/self-closing-comp': 'error',
 
-    /**
-     * Enforce that elements with ARIA roles must have all required attributes for that role.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
-     * */
-    'jsx-a11y/role-has-required-aria-props': INCONSISTENCY,
+      //
+      // eslint-plugin-react-hooks
+      //
 
-    /**
-     * Enforce scope prop is only used on elements.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
-     * */
-    'jsx-a11y/scope': INCONSISTENCY,
+      'react-hooks/exhaustive-deps': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+    },
+  };
+}
 
-    /**
-     * Enforce tabIndex value is not greater than zero.
-     *
-     * @see https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
-     * */
-    'jsx-a11y/tabindex-no-positive': INCONSISTENCY,
-  },
-};
+module.exports = { getReactConfig };
