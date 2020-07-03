@@ -18,33 +18,18 @@
 module.exports = {
   meta: {
     type: 'suggestion',
-    scheme: [
-      {
-        type: 'object',
-        properties: {
-          colors: {
-            type: 'object',
-            additionalProperties: {
-              type: 'object',
-              properties: {
-                type: 'object',
-                properties: {
-                  source: { type: 'string' },
-                  specifier: { type: 'string' },
-                },
-              },
-            },
-          },
-        },
-      },
-    ],
+    scheme: [],
   },
 
   create(context) {
-    const [option] = /** @type {Option[]} */ context.options;
+    const colors = context.settings.customColors;
+
+    if (!colors) {
+      throw new Error('Please add "customColors" config to ESLint settings.');
+    }
 
     const COLORS_MAP = new Map(
-      Object.entries(option.colors).map(([color, value]) => [
+      Object.entries(colors).map(([color, value]) => [
         color.toLowerCase(),
         value,
       ]),
@@ -64,15 +49,15 @@ module.exports = {
      */
     function findUsages(text) {
       let match;
-      const colors = new Set();
+      const set = new Set();
 
       while ((match = COLOR_REGEX.exec(text))) {
         const [color] = match;
 
-        colors.add(color.toLowerCase());
+        set.add(color.toLowerCase());
       }
 
-      return Array.from(colors, (color) => COLORS_MAP.get(color));
+      return Array.from(set, (color) => COLORS_MAP.get(color));
     }
 
     /**
