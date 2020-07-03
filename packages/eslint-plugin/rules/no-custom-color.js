@@ -22,11 +22,7 @@ module.exports = {
   },
 
   create(context) {
-    const colors = context.settings.customColors;
-
-    if (!colors) {
-      throw new Error('Please add "customColors" config to ESLint settings.');
-    }
+    const colors = context.settings.customColors || {};
 
     // Do not apply rule if there is no colors
     if (Object.keys(colors).length === 0) {
