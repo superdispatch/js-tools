@@ -17,7 +17,6 @@
  * */
 module.exports = {
   meta: {
-    fixable: 'code',
     type: 'suggestion',
     scheme: [
       {
