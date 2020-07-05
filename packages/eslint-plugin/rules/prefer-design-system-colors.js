@@ -22,7 +22,7 @@ module.exports = {
   },
 
   create(context) {
-    const colors = context.settings.customColors || {};
+    const colors = context.settings.designSystemColors || {};
 
     // Do not apply rule if there is no colors
     if (Object.keys(colors).length === 0) {

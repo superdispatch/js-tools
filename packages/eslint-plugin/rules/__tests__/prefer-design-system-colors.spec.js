@@ -1,7 +1,7 @@
 'use strict';
 
 const { RuleTester } = require('eslint');
-const rule = require('../no-custom-color');
+const rule = require('../prefer-design-system-colors');
 
 const ruleTester = new RuleTester({
   parserOptions: {
@@ -10,7 +10,7 @@ const ruleTester = new RuleTester({
     ecmaFeatures: { jsx: true },
   },
   settings: {
-    customColors: {
+    designSystemColors: {
       '#6A707C': {
         source: '@superdispatch/ui',
         specifier: 'Color.Grey200',
@@ -23,7 +23,7 @@ const ruleTester = new RuleTester({
   },
 });
 
-ruleTester.run('no-custom-color', rule, {
+ruleTester.run('prefer-design-system-colors', rule, {
   valid: [
     { code: 'const color =  "#e4e7ea";' },
     { code: 'export const icon = <svg fill="#e4e7ea"></svg>;' },
