@@ -21,6 +21,7 @@ const plugin = {
     filename: require('./rules/filename'),
     camelcase: require('./rules/camelcase'),
     'directory-name': require('./rules/directory-name'),
+    'prefer-design-system-colors': require('./rules/prefer-design-system-colors'),
     'jsx-no-spread-object-expression': require('./rules/jsx-no-spread-object-expression'),
   },
 

@@ -30,6 +30,9 @@ it('extends dependencies', async () => {
       "@superdispatch/jsx-no-spread-object-expression": Array [
         "error",
       ],
+      "@superdispatch/prefer-design-system-colors": Array [
+        "error",
+      ],
       "jsx-a11y/accessible-emoji": Array [
         "error",
       ],
