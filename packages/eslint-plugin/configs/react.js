@@ -17,6 +17,7 @@ function getReactConfig() {
       //
 
       '@superdispatch/jsx-no-spread-object-expression': 'error',
+      '@superdispatch/prefer-design-system-colors': 'error',
 
       //
       // eslint-plugin-jsx-a11y
