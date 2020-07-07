@@ -112,6 +112,9 @@ it('extends dependencies', async () => {
       "testing-library/no-wait-for-empty-callback": Array [
         "error",
       ],
+      "testing-library/prefer-find-by": Array [
+        "error",
+      ],
       "testing-library/prefer-presence-queries": Array [
         "error",
       ],
