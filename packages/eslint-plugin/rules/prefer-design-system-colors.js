@@ -92,8 +92,11 @@ module.exports = {
        * @param {TemplateLiteral} node
        * */
       TemplateLiteral(node) {
-        const [start, end] = node.range;
-        process(node, context.getSourceCode().text.slice(start, end));
+        const text = node.quasis.reduce(
+          (acc, { value }) => acc + value.raw,
+          '',
+        );
+        process(node, text);
       },
     };
   },

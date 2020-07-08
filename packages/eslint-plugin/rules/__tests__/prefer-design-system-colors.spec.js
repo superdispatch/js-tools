@@ -146,5 +146,19 @@ ruleTester.run('prefer-design-system-colors', rule, {
         },
       ],
     },
+
+    {
+      code:
+        'const Wrapper = styled.div`\n' +
+        'display: flex;\n' +
+        '${() => `color: #6A707C;`}`',
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 3,
+          column: 9,
+        },
+      ],
+    },
   ],
 });
