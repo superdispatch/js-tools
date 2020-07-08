@@ -81,9 +81,7 @@ module.exports = {
       /**
        * @param {Literal} node
        * */
-      'VariableDeclarator > Literal, Property > Literal, JSXAttribute > Literal, JSXExpressionContainer > Literal': function (
-        node,
-      ) {
+      Literal(node) {
         if (typeof node.value === 'string') {
           process(node, node.value);
         }
