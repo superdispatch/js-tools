@@ -43,50 +43,108 @@ ruleTester.run('prefer-design-system-colors', rule, {
   invalid: [
     {
       code: 'const color =  "#6A707C";',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 16,
+        },
+      ],
     },
     {
       code: 'const color =  `#6A707C`;',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 16,
+        },
+      ],
     },
     {
-      code: 'const color =  "#6A707C";const color2 =  "#5B6371";',
+      code: 'const color =  "#6A707C";const color2 = "#5B6371";',
       errors: [
-        'Use Color.Grey200 from "@superdispatch/ui"',
-        'Use Color.Grey300 from "@superdispatch/ui"',
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 16,
+        },
+        {
+          message: 'Use Color.Grey300 from "@superdispatch/ui"',
+          line: 1,
+          column: 41,
+        },
       ],
     },
     {
       code: 'export const icon = <svg fill="#6A707C"></svg>;',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 31,
+        },
+      ],
     },
     {
       code: 'export const icon = <svg fill={"#6A707C"}></svg>;',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 32,
+        },
+      ],
     },
     {
       code:
         'export const Placeholder = <p style={{backgroundColor: "#6A707C"}}>Hi</p>;',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 56,
+        },
+      ],
     },
 
     {
       code: 'export const Placeholder = styled.p`background-color: #6A707C;`;',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 36,
+        },
+      ],
     },
     {
       code:
         'export const Placeholder = <p css="background-color: #6A707C;color: #5B6371;">Hi</p>;',
       errors: [
-        'Use Color.Grey200 from "@superdispatch/ui"',
-        'Use Color.Grey300 from "@superdispatch/ui"',
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 35,
+        },
+        {
+          message: 'Use Color.Grey300 from "@superdispatch/ui"',
+          line: 1,
+          column: 35,
+        },
       ],
     },
     {
       code:
-        "import { Color } from '@superdispatch/ui';" +
+        "import { Color } from '@superdispatch/ui';\n" +
         'export const Placeholder = <p css={`background-color: #6A707C;color: ${Color.Grey200};`}>Hi</p>;',
-      errors: ['Use Color.Grey200 from "@superdispatch/ui"'],
+      errors: [
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 2,
+          column: 36,
+        },
+      ],
     },
   ],
 });
