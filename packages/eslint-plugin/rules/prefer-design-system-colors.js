@@ -92,7 +92,8 @@ module.exports = {
        * @param {TemplateLiteral} node
        * */
       TemplateLiteral(node) {
-        process(node, context.getSourceCode().text);
+        const [start, end] = node.range;
+        process(node, context.getSourceCode().text.slice(start, end));
       },
     };
   },
