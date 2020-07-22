@@ -31,13 +31,13 @@ it('extends dependencies', async () => {
         },
       ],
       "jest/expect-expect": Array [
-        "warn",
+        "error",
       ],
       "jest/no-alias-methods": Array [
         "error",
       ],
       "jest/no-commented-out-tests": Array [
-        "warn",
+        "error",
       ],
       "jest/no-disabled-tests": Array [
         "error",
@@ -103,7 +103,7 @@ it('extends dependencies', async () => {
         "error",
       ],
       "testing-library/no-debug": Array [
-        "warn",
+        "error",
       ],
       "testing-library/no-dom-import": Array [
         "error",
