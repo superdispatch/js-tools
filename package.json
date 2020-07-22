@@ -26,7 +26,6 @@
   "prettier": "./packages/prettier-config",
   "devDependencies": {
     "@types/eslint": "^7.2.0",
-    "@types/execa": "^2.0.0",
     "@types/jest": "^26.0.4",
     "@types/lodash": "^4.14.157",
     "@types/prettier": "^2.0.2",
