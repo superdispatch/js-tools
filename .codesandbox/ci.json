@@ -1,0 +1,18 @@
+{
+  "installCommand": false,
+  "buildCommand": false,
+  "packages": [
+    "packages/babel-preset",
+    "packages/eslint-plugin",
+    "packages/js-tools",
+    "packages/prettier-config",
+    "packages/tsconfig"
+  ],
+  "publishDirectory": {
+    "@superdispatch/babel-preset": "packages/babel-preset",
+    "@superdispatch/eslint-plugin": "packages/eslint-plugin",
+    "@superdispatch/js-tools": "packages/js-tools",
+    "@superdispatch/prettier-config": "packages/prettier-config",
+    "@superdispatch/tsconfig": "packages/tsconfig"
+  }
+}
