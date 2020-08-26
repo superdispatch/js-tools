@@ -171,6 +171,9 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-implicit-any-catch": Array [
     +     "error",
+    +     Object {
+    +       "allowExplicitAny": true,
+    +     },
     +   ],
     +   "@typescript-eslint/no-implied-eval": Array [
     +     "error",
@@ -333,11 +336,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-        ],
+          "error",
+    +   ],
     +   "no-array-constructor": Array [
     +     "off",
-    +   ],
-        "no-arrow-condition": Array [
+        ],
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
