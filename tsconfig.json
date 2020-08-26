@@ -3,6 +3,7 @@
   "include": ["types", "packages"],
   "compilerOptions": {
     "checkJs": true,
-    "allowJs": true
+    "allowJs": true,
+    "incremental": true
   }
 }
