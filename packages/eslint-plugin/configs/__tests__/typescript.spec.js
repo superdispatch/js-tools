@@ -169,6 +169,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-for-in-array": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-implicit-any-catch": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-implied-eval": Array [
     +     "error",
     +   ],

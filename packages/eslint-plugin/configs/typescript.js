@@ -48,10 +48,7 @@ function setupTypeScriptPlugin(config) {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
-    '@typescript-eslint/no-implicit-any-catch': [
-      'error',
-      { allowExplicitAny: true },
-    ],
+    '@typescript-eslint/no-implicit-any-catch': ['error'],
     '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
