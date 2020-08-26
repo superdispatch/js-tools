@@ -5,6 +5,7 @@
     //
 
     "noEmit": true,
+    "incremental": true,
     "jsx": "preserve",
     "module": "esnext",
     "target": "es2020",
