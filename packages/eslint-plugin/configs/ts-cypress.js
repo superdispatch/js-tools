@@ -4,20 +4,18 @@
 
 'use strict';
 
+const { addExtends } = require('./base');
 const { getTSJestConfig } = require('./ts-jest');
 
 /** @returns {Config} */
 function getTSCypressConfig() {
   const config = getTSJestConfig();
 
+  addExtends(config, 'plugin:cypress/recommended');
+
   config.env = {
     'cypress/globals': true,
   };
-
-  config.extends = [
-    ...(Array.isArray(config.extends) ? config.extends : []),
-    'plugin:cypress/recommended',
-  ];
 
   config.rules = {
     ...config.rules,
