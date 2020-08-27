@@ -7,6 +7,8 @@
 
 const { getBaseConfig } = require('./configs/base');
 const { getJestConfig } = require('./configs/jest');
+const { getTSJestConfig } = require('./configs/ts-jest');
+const { getTSCypressConfig } = require('./configs/ts-cypress');
 const { getNodeConfig } = require('./configs/node');
 const { getNodePackageConfig } = require('./configs/node-pkg');
 const { getReactConfig } = require('./configs/react');
@@ -28,6 +30,8 @@ const plugin = {
   configs: {
     base: getBaseConfig(),
     jest: getJestConfig(),
+    'ts-jest': getTSJestConfig(),
+    'ts-cypress': getTSCypressConfig(),
     node: getNodeConfig(),
     'node-pkg': getNodePackageConfig(),
     react: getReactConfig(),
