@@ -11,6 +11,3 @@ yarn-error.log*
 
 # Coverage directory used by tools like istanbul
 coverage
-
-# TS build info
-tsconfig.tsbuildinfo
