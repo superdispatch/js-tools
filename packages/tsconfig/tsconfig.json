@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/.tsbuildinfo",
+
     //
     // Disable transpile.
     //
