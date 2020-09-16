@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "./node_modules/.cache/.tsbuildinfo",
-
     //
     // Disable transpile.
     //
@@ -32,6 +29,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
+
+    //
+    // Increase build speed
+    //
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/.tsbuildinfo",
 
     //
     // Experimental Options
