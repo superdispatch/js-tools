@@ -6,9 +6,9 @@
 
     "noEmit": true,
     "jsx": "preserve",
-    "module": "esnext",
-    "target": "es2020",
-    "lib": ["dom", "es2020", "dom.iterable"],
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
 
     //
     // Type checks
