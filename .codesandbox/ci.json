@@ -1,5 +1,5 @@
 {
-  "installCommand": "yarn install",
+  "installCommand": false,
   "buildCommand": false,
   "packages": [
     "packages/babel-preset",
