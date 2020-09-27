@@ -68,11 +68,13 @@ export default class DeployPreview extends Command {
       },
     );
 
-    const { stdout } = await execa(
-      'yarn',
-      ['--silent', 'netlify', 'deploy', `--dir=${dir}`, `--alias=${alias}`],
-      { stdio: 'inherit' },
-    );
+    const { stdout } = await execa('yarn', [
+      '--silent',
+      'netlify',
+      'deploy',
+      `--dir=${dir}`,
+      `--alias=${alias}`,
+    ]);
     const previewURL = getPreviewURL(stdout);
 
     for (const comment of comments) {
