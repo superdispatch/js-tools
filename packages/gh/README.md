@@ -9,6 +9,7 @@ Node scripts for GitHub actions
 
 <!-- toc -->
 
+- [gh](#gh)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->

@@ -4,6 +4,7 @@
     "declaration": true,
     "importHelpers": true,
     "module": "commonjs",
+    "noEmit": false,
     "outDir": "lib",
     "rootDir": "src",
     "strict": true,
