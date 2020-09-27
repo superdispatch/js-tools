@@ -70,13 +70,7 @@ export default class DeployPreview extends Command {
 
     const { stdout } = await execa(
       'yarn',
-      [
-        '--silent',
-        'netlify',
-        'deploy',
-        `--dir=${dir}`,
-        `--alias=preview-${alias}`,
-      ],
+      ['--silent', 'netlify', 'deploy', `--dir=${dir}`, `--alias=${alias}`],
       { stdio: 'inherit' },
     );
     const previewURL = getPreviewURL(stdout);
