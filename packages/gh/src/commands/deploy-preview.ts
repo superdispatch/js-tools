@@ -18,13 +18,18 @@ export default class DeployPreview extends Command {
   static flags = {
     help: flags.help({ char: 'h' }),
     dir: flags.string({ char: 'd', description: 'build dir', required: true }),
+    alias: flags.string({
+      char: 'a',
+      description: 'deploy alias',
+      required: true,
+    }),
   };
 
   static args = [];
 
   async run() {
     const {
-      flags: { dir },
+      flags: { dir, alias },
     } = this.parse(DeployPreview);
 
     const {
@@ -70,7 +75,7 @@ export default class DeployPreview extends Command {
         'netlify',
         'deploy',
         `--dir=${dir}`,
-        `--alias=preview-${issueNumber}`,
+        `--alias=preview-${alias}`,
       ],
       { stdio: 'inherit' },
     );
