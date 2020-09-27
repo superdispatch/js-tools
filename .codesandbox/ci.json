@@ -1,5 +1,4 @@
 {
-  "installCommand": "install",
   "buildCommand": false,
   "packages": [
     "packages/babel-preset",
