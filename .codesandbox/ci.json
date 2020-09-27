@@ -1,5 +1,5 @@
 {
-  "buildCommand": false,
+  "buildCommand": "build",
   "packages": [
     "packages/babel-preset",
     "packages/eslint-plugin",
