@@ -40,7 +40,7 @@ export default class DeployPreview extends Command {
     } = process.env;
 
     if (!GITHUB_SHA) {
-      throw new Error('Please provide `GITHUB_TOKEN`.');
+      throw new Error('Please provide `GITHUB_SHA`.');
     }
 
     if (!GITHUB_TOKEN) {
