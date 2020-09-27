@@ -2,24 +2,29 @@ import { Command, flags } from '@oclif/command';
 import { request } from '@octokit/request';
 import execa from 'execa';
 
+function getPreviewURL(text: string): string {
+  const match = /Website Draft URL: (.+)/.exec(text);
+
+  if (!match) {
+    throw new Error('Cannot find preview url from logs');
+  }
+
+  return match[1];
+}
+
 export default class DeployPreview extends Command {
   static description = 'deploy preview';
 
   static flags = {
     help: flags.help({ char: 'h' }),
     dir: flags.string({ char: 'd', description: 'build dir', required: true }),
-    domain: flags.string({
-      char: 's',
-      description: 'domain',
-      required: true,
-    }),
   };
 
   static args = [];
 
   async run() {
     const {
-      flags: { dir, domain },
+      flags: { dir },
     } = this.parse(DeployPreview);
 
     const {
@@ -47,10 +52,6 @@ export default class DeployPreview extends Command {
 
     const [owner, repo] = GITHUB_REPOSITORY.split('/');
     const issueNumber = parseInt(GITHUB_PULL_REQUEST_NUMBER);
-    const previewDomain = domain.replace(
-      'https://',
-      `https://preview-${issueNumber}--`,
-    );
 
     const { data: comments } = await request(
       'GET /repos/:owner/:repo/issues/:issue_number/comments',
@@ -62,11 +63,24 @@ export default class DeployPreview extends Command {
       },
     );
 
+    const { stdout } = await execa(
+      'yarn',
+      [
+        '--silent',
+        'netlify',
+        'deploy',
+        `--dir=${dir}`,
+        `--alias=preview-${issueNumber}`,
+      ],
+      { stdio: 'inherit' },
+    );
+    const previewURL = getPreviewURL(stdout);
+
     for (const comment of comments) {
       if (
         comment.user.login === 'github-actions[bot]' &&
         comment.body.startsWith('Preview is ready!') &&
-        comment.body.includes(previewDomain)
+        comment.body.includes(previewURL)
       ) {
         this.log('Found comment %d, removing…', comment.id);
 
@@ -82,18 +96,6 @@ export default class DeployPreview extends Command {
       }
     }
 
-    await execa(
-      'yarn',
-      [
-        '--silent',
-        'netlify',
-        'deploy',
-        `--dir=${dir}`,
-        `--alias=preview-${issueNumber}`,
-      ],
-      { stdio: 'inherit' },
-    );
-
     await request('POST /repos/:owner/:repo/issues/:issue_number/comments', {
       repo,
       owner,
@@ -102,7 +104,7 @@ export default class DeployPreview extends Command {
       body: [
         'Preview is ready!',
         `Built with commit ${GITHUB_SHA}`,
-        previewDomain,
+        previewURL,
       ].join('\n'),
     });
   }
