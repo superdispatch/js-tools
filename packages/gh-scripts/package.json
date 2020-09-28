@@ -1,5 +1,5 @@
 {
-  "name": "@superdispatch/gh",
+  "name": "@superdispatch/gh-scripts",
   "version": "0.0.0",
   "description": "Node scripts for GitHub actions",
   "keywords": [

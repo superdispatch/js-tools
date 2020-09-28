@@ -6,7 +6,7 @@
     "packages/js-tools",
     "packages/prettier-config",
     "packages/tsconfig",
-    "packages/gh"
+    "packages/gh-scripts"
   ],
   "publishDirectory": {
     "@superdispatch/babel-preset": "packages/babel-preset",
@@ -14,6 +14,6 @@
     "@superdispatch/js-tools": "packages/js-tools",
     "@superdispatch/prettier-config": "packages/prettier-config",
     "@superdispatch/tsconfig": "packages/tsconfig",
-    "@superdispatch/gh": "packages/gh"
+    "@superdispatch/gh": "packages/gh-scripts"
   }
 }

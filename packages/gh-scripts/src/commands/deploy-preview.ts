@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command';
 import { request } from '@octokit/request';
-import execa from 'execa';
+import execa, { sync } from 'execa';
 
 function getPreviewURL(text: string): string {
   const match = /Website Draft URL: (.+)/.exec(text);
@@ -68,13 +68,18 @@ export default class DeployPreview extends Command {
       },
     );
 
-    const { stdout } = await execa('yarn', [
+    const deployProcess = execa('yarn', [
       '--silent',
       'netlify',
       'deploy',
       `--dir=${dir}`,
       `--alias=${alias}`,
     ]);
+
+    deployProcess.stdout.pipe(process.stdout);
+    deployProcess.stderr.pipe(process.stderr);
+
+    const { stdout } = await deployProcess;
     const previewURL = getPreviewURL(stdout);
 
     for (const comment of comments) {
