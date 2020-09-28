@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command';
 import { request } from '@octokit/request';
-import execa, { sync } from 'execa';
+import execa from 'execa';
 
 function getPreviewURL(text: string): string {
   const match = /Website Draft URL: (.+)/.exec(text);
