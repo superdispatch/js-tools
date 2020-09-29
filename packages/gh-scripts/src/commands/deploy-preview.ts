@@ -13,14 +13,18 @@ function getPreviewURL(text: string): string {
 }
 
 export default class DeployPreview extends Command {
-  static description = 'deploy preview';
+  static description = 'Deploy preview';
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    dir: flags.string({ char: 'd', description: 'build dir', required: true }),
+    dir: flags.string({
+      char: 'd',
+      description: 'Deploy build dir',
+      required: true,
+    }),
     alias: flags.string({
       char: 'a',
-      description: 'deploy alias',
+      description: 'Deploy alias',
       required: true,
     }),
   };
