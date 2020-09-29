@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command';
-import { request } from '@octokit/request';
+import { request as octokit } from '@octokit/request';
 import execa from 'execa';
 
 function getPreviewURL(text: string): string {
@@ -16,16 +16,39 @@ export default class DeployPreview extends Command {
   static description = 'Deploy preview';
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: flags.help(),
+
     dir: flags.string({
-      char: 'd',
+      required: true,
       description: 'Deploy build dir',
-      required: true,
     }),
+
     alias: flags.string({
-      char: 'a',
-      description: 'Deploy alias',
       required: true,
+      description: 'Deploy alias',
+    }),
+
+    pr: flags.integer({
+      required: true,
+      description: 'Pull Request Number',
+    }),
+
+    token: flags.string({
+      required: true,
+      env: 'GITHUB_TOKEN',
+      description: 'GitHub token',
+    }),
+
+    commit: flags.string({
+      required: true,
+      env: 'GITHUB_SHA',
+      description: 'Commit SHA',
+    }),
+
+    repository: flags.string({
+      required: true,
+      env: 'GITHUB_REPOSITORY',
+      description: 'GitHub Repository',
     }),
   };
 
@@ -33,42 +56,20 @@ export default class DeployPreview extends Command {
 
   async run() {
     const {
-      flags: { dir, alias },
+      flags: { dir, pr, alias, token, commit, repository },
     } = this.parse(DeployPreview);
 
-    const {
-      GITHUB_SHA,
-      GITHUB_TOKEN,
-      GITHUB_REPOSITORY,
-      GITHUB_PULL_REQUEST_NUMBER,
-    } = process.env;
+    const [owner, repo] = repository.split('/');
+    const request = octokit.defaults({
+      headers: { authorization: `Token ${token}` },
+    });
 
-    if (!GITHUB_SHA) {
-      throw new Error('Please provide `GITHUB_SHA`.');
-    }
-
-    if (!GITHUB_TOKEN) {
-      throw new Error('Please provide `GITHUB_TOKEN`.');
-    }
-
-    if (!GITHUB_REPOSITORY) {
-      throw new Error('Please provide `GITHUB_REPOSITORY`.');
-    }
-
-    if (!GITHUB_PULL_REQUEST_NUMBER) {
-      throw new Error('Please provide `GITHUB_PULL_REQUEST_NUMBER`.');
-    }
-
-    const [owner, repo] = GITHUB_REPOSITORY.split('/');
-    const issueNumber = parseInt(GITHUB_PULL_REQUEST_NUMBER);
-
-    const { data: comments } = await request(
+    const { data: allComments } = await request(
       'GET /repos/:owner/:repo/issues/:issue_number/comments',
       {
         repo,
         owner,
-        issue_number: issueNumber,
-        headers: { authorization: `Token ${GITHUB_TOKEN}` },
+        issue_number: pr,
       },
     );
 
@@ -85,37 +86,46 @@ export default class DeployPreview extends Command {
 
     const { stdout } = await deployProcess;
     const previewURL = getPreviewURL(stdout);
+    const message = [
+      'Preview is ready!',
+      `Built with commit ${commit}`,
+      previewURL,
+    ].join('\n');
 
-    for (const comment of comments) {
-      if (
+    const previousComments = allComments.filter(
+      (comment) =>
         comment.user.login === 'github-actions[bot]' &&
         comment.body.startsWith('Preview is ready!') &&
-        comment.body.includes(previewURL)
-      ) {
-        this.log('Found comment %d, removing…', comment.id);
+        comment.body.includes(previewURL),
+    );
 
-        await request(
-          'DELETE /repos/:owner/:repo/issues/comments/:comment_id',
-          {
-            repo,
-            owner,
-            comment_id: comment.id,
-            headers: { authorization: `Token ${GITHUB_TOKEN}` },
-          },
-        );
-      }
+    const firstComment = previousComments.shift();
+
+    // Update exist comment or add new.
+    if (firstComment) {
+      await request('PATCH /repos/:owner/:repo/comments/:comment_id', {
+        repo,
+        owner,
+        body: message,
+        issue_number: pr,
+        comment_id: firstComment.id,
+      });
+    } else {
+      await request('POST /repos/:owner/:repo/issues/:issue_number/comments', {
+        repo,
+        owner,
+        body: message,
+        issue_number: pr,
+      });
     }
 
-    await request('POST /repos/:owner/:repo/issues/:issue_number/comments', {
-      repo,
-      owner,
-      issue_number: issueNumber,
-      headers: { authorization: `Token ${GITHUB_TOKEN}` },
-      body: [
-        'Preview is ready!',
-        `Built with commit ${GITHUB_SHA}`,
-        previewURL,
-      ].join('\n'),
-    });
+    // Remove old comments
+    for (const comment of previousComments) {
+      await request('DELETE /repos/:owner/:repo/issues/comments/:comment_id', {
+        repo,
+        owner,
+        comment_id: comment.id,
+      });
+    }
   }
 }

@@ -1,4 +1,5 @@
 {
+  "include": ["src/**/*"],
   "extends": "../../tsconfig",
   "compilerOptions": {
     "declaration": true,
@@ -9,6 +10,5 @@
     "rootDir": "src",
     "strict": true,
     "target": "es2017"
-  },
-  "include": ["src/**/*"]
+  }
 }
