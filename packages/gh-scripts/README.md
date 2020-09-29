@@ -1,15 +1,15 @@
-# gh
+# gh-scripts
 
 Node scripts for GitHub actions
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/gh.svg)](https://npmjs.org/package/@superdispatch/gh)
-[![Downloads/week](https://img.shields.io/npm/dw/gh.svg)](https://npmjs.org/package/@superdispatch/gh)
-[![License](https://img.shields.io/npm/l/gh.svg)](https://github.com/superdispatch/superdispatch/js-tools/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@superdispatch/gh-scripts.svg)](https://npmjs.org/package/@superdispatch/gh-scripts)
+[![Downloads/week](https://img.shields.io/npm/dw/@superdispatch/gh-scripts.svg)](https://npmjs.org/package/@superdispatch/gh-scripts)
+[![License](https://img.shields.io/npm/l/@superdispatch/gh-scripts.svg)](https://github.com/superdispatch/superdispatch/js-tools/blob/master/packages/gh-scripts/package.json)
 
 <!-- toc -->
 
-- [gh](#gh)
+- [gh-scripts](#gh-scripts)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
@@ -19,14 +19,14 @@ Node scripts for GitHub actions
 <!-- usage -->
 
 ```sh-session
-$ npm install -g @superdispatch/gh
-$ gh COMMAND
+$ npm install -g @superdispatch/gh-scripts
+$ gh-scripts COMMAND
 running command...
-$ gh (-v|--version|version)
-@superdispatch/gh/0.0.0 darwin-x64 node-v12.16.3
-$ gh --help [COMMAND]
+$ gh-scripts (-v|--version|version)
+@superdispatch/gh-scripts/0.0.0 darwin-x64 node-v12.16.3
+$ gh-scripts --help [COMMAND]
 USAGE
-  $ gh COMMAND
+  $ gh-scripts COMMAND
 ...
 ```
 
@@ -36,32 +36,30 @@ USAGE
 
 <!-- commands -->
 
-- [`gh deploy-preview`](#gh-deploy-preview)
-- [`gh help [COMMAND]`](#gh-help-command)
+- [`gh-scripts deploy-preview`](#gh-scripts-deploy-preview)
+- [`gh-scripts help [COMMAND]`](#gh-scripts-help-command)
 
-## `gh deploy-preview`
+## `gh-scripts deploy-preview`
 
 deploy preview
 
 ```
 USAGE
-  $ gh deploy-preview
+  $ gh-scripts deploy-preview
 
 OPTIONS
-  -d, --dir=dir        (required) build dir
-  -h, --help           show CLI help
-  -s, --domain=domain  (required) domain
+  -a, --alias=alias  (required) deploy alias
+  -d, --dir=dir      (required) build dir
+  -h, --help         show CLI help
 ```
 
-_See code: [src/commands/deploy-preview.ts](https://github.com/superdispatch/js-tools/blob/v0.0.0/src/commands/deploy-preview.ts)_
+## `gh-scripts help [COMMAND]`
 
-## `gh help [COMMAND]`
-
-display help for gh
+display help for gh-scripts
 
 ```
 USAGE
-  $ gh help [COMMAND]
+  $ gh-scripts help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for

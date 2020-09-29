@@ -13,7 +13,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {
-    "gh": "./bin/run"
+    "gh-scripts": "./bin/run"
   },
   "files": [
     "/bin",
@@ -46,7 +46,7 @@
   },
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "gh",
+    "bin": "gh-scripts",
     "plugins": [
       "@oclif/plugin-help"
     ]
