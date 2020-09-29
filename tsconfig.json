@@ -1,6 +1,7 @@
 {
   "extends": "./packages/tsconfig/tsconfig",
   "include": ["types", "packages"],
+  "exclude": ["**/lib"],
   "compilerOptions": {
     "checkJs": true,
     "allowJs": true
