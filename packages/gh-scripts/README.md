@@ -23,7 +23,7 @@ $ npm install -g @superdispatch/gh-scripts
 $ gh-scripts COMMAND
 running command...
 $ gh-scripts (-v|--version|version)
-@superdispatch/gh-scripts/0.2.1 darwin-x64 node-v12.16.3
+@superdispatch/gh-scripts/0.2.2 darwin-x64 node-v12.16.3
 $ gh-scripts --help [COMMAND]
 USAGE
   $ gh-scripts COMMAND
@@ -53,7 +53,7 @@ OPTIONS
   -h, --help         show CLI help
 ```
 
-_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.1/lib/commands/deploy-preview.js)_
+_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.2/lib/commands/deploy-preview.js)_
 
 ## `gh-scripts help [COMMAND]`
 
