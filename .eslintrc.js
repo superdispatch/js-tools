@@ -19,7 +19,7 @@ module.exports = {
   overrides: [
     { files: '*.js', extends: 'plugin:@superdispatch/node' },
     {
-      files: '*.ts',
+      files: '**/packages/**/*.ts',
       extends: 'plugin:@superdispatch/typescript',
       parserOptions: { project: './tsconfig.json' },
     },
@@ -43,6 +43,11 @@ module.exports = {
           { packageDir: __dirname },
         ],
       },
+    },
+    {
+      files: '**/e2e/**/*.ts',
+      extends: 'plugin:@superdispatch/typescript',
+      parserOptions: { project: './e2e/**/tsconfig.json' },
     },
   ],
 };

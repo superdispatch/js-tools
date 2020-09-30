@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "deploy": "yarn gh-scripts deploy-preview --dir=./build --alias=e2e",
+    "start": "yarn deploy"
+  },
+  "dependencies": {
+    "@superdispatch/gh-scripts": "../../packages/gh-scripts"
+  }
+}

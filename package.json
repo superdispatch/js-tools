@@ -12,6 +12,7 @@
     "build": "lerna run build --no-private",
     "prebump": "yarn tsc && yarn lint && yarn test && yarn build",
     "bump": "lerna version",
+    "e2e": "node e2e/index.js",
     "lint": "js-tools lint",
     "tdd": "jest --watch",
     "test": "jest --coverage"
@@ -33,6 +34,7 @@
     "@types/prettier": "^2.0.2",
     "@typescript-eslint/typescript-estree": "^3.6.0",
     "eslint": "^7.4.0",
+    "execa": "^4.0.3",
     "husky": "^4.2.3",
     "jest": "^26.1.0",
     "jest-watch-typeahead": "^0.6.0",
