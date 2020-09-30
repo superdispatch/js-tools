@@ -28,4 +28,10 @@ jobs:
       - run: yarn test
       - run: yarn build
       - run: yarn e2e
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ steps.vars.outputs.site_id }}
+          GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.number }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
       - uses: codecov/codecov-action@v1
