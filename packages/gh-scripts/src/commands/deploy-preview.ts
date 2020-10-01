@@ -1,9 +1,30 @@
+import { exec } from '@actions/exec';
+import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
-import { request as octokit } from '@octokit/request';
-import * as execa from 'execa';
 
-function getPreviewURL(text: string): string {
-  const match = /Website Draft URL: (.+)/.exec(text);
+async function deployPreview(
+  directory: string,
+  alias: string,
+): Promise<string> {
+  let stdout = '';
+
+  const exitCode = await exec(
+    'yarn',
+    ['--silent', 'netlify', 'deploy', '--dir', directory, '--alias', alias],
+    {
+      listeners: {
+        stdout: (data) => {
+          stdout += data.toString();
+        },
+      },
+    },
+  );
+
+  if (exitCode !== 0) {
+    throw new Error('Failed to deploy a preview.');
+  }
+
+  const match = /Website Draft URL: (.+)/.exec(stdout);
 
   if (!match) {
     throw new Error('Cannot find preview url from logs');
@@ -20,17 +41,11 @@ export default class DeployPreview extends Command {
 
     dir: flags.string({
       required: true,
-      description: 'Deploy build dir',
+      description: 'Specify a folder to deploy',
     }),
 
     alias: flags.string({
-      required: true,
-      description: 'Deploy alias',
-    }),
-
-    pr: flags.integer({
-      required: true,
-      description: 'Pull Request Number',
+      description: 'Specifies the alias for deployment',
     }),
 
     token: flags.string({
@@ -38,57 +53,36 @@ export default class DeployPreview extends Command {
       env: 'GITHUB_TOKEN',
       description: 'GitHub token',
     }),
-
-    commit: flags.string({
-      required: true,
-      env: 'GITHUB_SHA',
-      description: 'Commit SHA',
-    }),
-
-    repository: flags.string({
-      required: true,
-      env: 'GITHUB_REPOSITORY',
-      description: 'GitHub Repository',
-    }),
   };
 
   static args = [];
 
   async run() {
+    const pullRequestNumber = context.payload.pull_request?.number;
+
+    if (!pullRequestNumber) {
+      throw new Error('Failed to resolve pull request number.');
+    }
+
     const {
-      flags: { dir, pr, alias, token, commit, repository },
+      flags: { dir, token, alias = `preview-${pullRequestNumber}` },
     } = this.parse(DeployPreview);
 
-    const [owner, repo] = repository.split('/');
-    const request = octokit.defaults({
-      headers: { authorization: `Token ${token}` },
-    });
+    const octokit = getOctokit(token);
+    const previewURL = await deployPreview(dir, alias);
 
-    const deployProcess = execa.command(
-      `yarn --silent netlify deploy --dir=${dir} --alias=${alias}`,
-    );
-
-    deployProcess.stdout.pipe(process.stdout);
-    deployProcess.stderr.pipe(process.stderr);
-
-    const { stdout } = await deployProcess;
-    const previewURL = getPreviewURL(stdout);
-    const message = [
+    const deployMessage = [
       'Preview is ready!',
-      `Built with commit ${commit}`,
+      `Built with commit ${context.sha}`,
       previewURL,
     ].join('\n');
 
-    this.log('Looking through PR (#%s) comments…', pr);
+    this.log('Looking through pull request comments…');
 
-    const { data: allComments } = await request(
-      'GET /repos/:owner/:repo/issues/:issue_number/comments',
-      {
-        repo,
-        owner,
-        issue_number: pr,
-      },
-    );
+    const { data: allComments } = await octokit.issues.listComments({
+      ...context.repo,
+      issue_number: pullRequestNumber,
+    });
 
     this.log('Found %s comments', allComments.length);
 
@@ -108,22 +102,23 @@ export default class DeployPreview extends Command {
 
     // Update exist comment or add new.
     if (firstComment) {
-      this.log('Updating deploy message %s…', firstComment.id);
+      this.log(
+        'Updating previous deploy message with id "%s" …',
+        firstComment.id,
+      );
 
-      await request('PATCH /repos/:owner/:repo/comments/:comment_id', {
-        repo,
-        owner,
-        body: message,
+      await octokit.issues.updateComment({
+        ...context.repo,
+        body: deployMessage,
         comment_id: firstComment.id,
       });
     } else {
       this.log('Sending deploy message…');
 
-      await request('POST /repos/:owner/:repo/issues/:issue_number/comments', {
-        repo,
-        owner,
-        body: message,
-        issue_number: pr,
+      await octokit.issues.createComment({
+        ...context.repo,
+        body: deployMessage,
+        issue_number: pullRequestNumber,
       });
     }
 
@@ -131,11 +126,7 @@ export default class DeployPreview extends Command {
     for (const { id } of previousComments) {
       this.log('Removing obsolete comment %s…', id);
 
-      await request('DELETE /repos/:owner/:repo/issues/comments/:comment_id', {
-        repo,
-        owner,
-        comment_id: id,
-      });
+      await octokit.issues.deleteComment({ ...context.repo, comment_id: id });
     }
   }
 }
