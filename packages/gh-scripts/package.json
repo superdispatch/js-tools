@@ -28,13 +28,12 @@
     "version": "oclif-dev readme && git add README.md"
   },
   "dependencies": {
-    "@actions/exec": "^1.0.4",
     "@actions/github": "^4.0.0",
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.0",
-    "netlify-cli": "^2.64.1",
-    "tslib": "^1"
+    "netlify": "^4.6.0",
+    "tslib": "^1.13.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",

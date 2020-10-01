@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["types", "src/**/*"],
   "extends": "../../tsconfig",
   "compilerOptions": {
     "noEmit": false,
