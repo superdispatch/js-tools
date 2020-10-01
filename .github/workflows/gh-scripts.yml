@@ -28,7 +28,8 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn workspace @superdispatch/gh-scripts build
       - run: yarn gh-scripts deploy-preview --help
-      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview --alias preview-${{ github.event.number }} --pr ${{ github.event.number }}
+      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview
+      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview --alias custom-alias-${{ github.event.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
