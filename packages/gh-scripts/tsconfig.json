@@ -9,6 +9,6 @@
     "outDir": "lib",
     "rootDir": "src",
     "strict": true,
-    "target": "es2017"
+    "target": "ES2019"
   }
 }
