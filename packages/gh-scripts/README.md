@@ -23,7 +23,7 @@ $ npm install -g @superdispatch/gh-scripts
 $ gh-scripts COMMAND
 running command...
 $ gh-scripts (-v|--version|version)
-@superdispatch/gh-scripts/0.2.3 darwin-x64 node-v12.16.3
+@superdispatch/gh-scripts/0.2.4 darwin-x64 node-v12.18.3
 $ gh-scripts --help [COMMAND]
 USAGE
   $ gh-scripts COMMAND
@@ -48,12 +48,15 @@ USAGE
   $ gh-scripts deploy-preview
 
 OPTIONS
-  -a, --alias=alias  (required) Deploy alias
-  -d, --dir=dir      (required) Deploy build dir
-  -h, --help         show CLI help
+  --alias=alias                Specifies the alias for deployment
+  --dir=dir                    (required) Specify a folder to deploy
+  --help                       show CLI help
+  --netlifySite=netlifySite    (required) Netlify site ID to deploy to
+  --netlifyToken=netlifyToken  (required) Netlify access token
+  --token=token                (required) GitHub access token
 ```
 
-_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.3/lib/commands/deploy-preview.js)_
+_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.4/lib/commands/deploy-preview.js)_
 
 ## `gh-scripts help [COMMAND]`
 
