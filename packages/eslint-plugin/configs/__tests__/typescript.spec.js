@@ -102,6 +102,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/camelcase": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/comma-dangle": Array [
+    +     "off",
+    +   ],
     +   "@typescript-eslint/comma-spacing": Array [
     +     "off",
     +   ],

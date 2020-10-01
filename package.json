@@ -11,7 +11,8 @@
   "scripts": {
     "build": "lerna run build --no-private",
     "lint": "js-tools lint",
-    "release": "yarn install --frozen-lockfile && yarn tsc && yarn lint && yarn test && yarn build && yarn lerna publish",
+    "prerelease": "yarn install --frozen-lockfile && yarn tsc && yarn lint && yarn test && yarn build",
+    "release": "yarn lerna publish",
     "tdd": "jest --watch",
     "test": "jest --coverage"
   },
