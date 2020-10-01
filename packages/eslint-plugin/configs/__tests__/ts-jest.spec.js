@@ -51,7 +51,16 @@ it('extends dependencies', async () => {
       "jest/no-commented-out-tests": Array [
         "error",
       ],
+      "jest/no-conditional-expect": Array [
+        "error",
+      ],
+      "jest/no-deprecated-functions": Array [
+        "error",
+      ],
       "jest/no-disabled-tests": Array [
+        "error",
+      ],
+      "jest/no-done-callback": Array [
         "error",
       ],
       "jest/no-export": Array [
@@ -61,6 +70,9 @@ it('extends dependencies', async () => {
         "error",
       ],
       "jest/no-identical-title": Array [
+        "error",
+      ],
+      "jest/no-interpolation-in-snapshots": Array [
         "error",
       ],
       "jest/no-jasmine-globals": Array [
@@ -73,9 +85,6 @@ it('extends dependencies', async () => {
         "error",
       ],
       "jest/no-standalone-expect": Array [
-        "error",
-      ],
-      "jest/no-test-callback": Array [
         "error",
       ],
       "jest/no-test-prefixes": Array [
@@ -103,6 +112,9 @@ it('extends dependencies', async () => {
         "error",
       ],
       "jest/valid-expect-in-promise": Array [
+        "error",
+      ],
+      "jest/valid-title": Array [
         "error",
       ],
       "testing-library/await-async-query": Array [
