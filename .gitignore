@@ -14,4 +14,3 @@ coverage
 
 # Builds
 lib/
-*.tsbuildinfo

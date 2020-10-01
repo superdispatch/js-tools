@@ -7,6 +7,7 @@
     "allowJs": true,
     "target": "ES2019",
     "module": "commonjs",
-    "declaration": true
+    "declaration": true,
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
   }
 }
