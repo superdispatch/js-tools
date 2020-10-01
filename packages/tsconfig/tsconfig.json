@@ -34,7 +34,6 @@
     // Increase build speed
     //
     "incremental": true,
-    "tsBuildInfoFile": "./node_modules/.cache/.tsbuildinfo",
 
     //
     // Experimental Options

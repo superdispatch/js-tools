@@ -28,18 +28,18 @@
     "version": "oclif-dev readme && git add README.md"
   },
   "dependencies": {
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
-    "@oclif/plugin-help": "^3",
-    "@octokit/request": "^5.4.9",
-    "execa": "^4.0.3",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.0",
     "netlify-cli": "^2.64.1",
     "tslib": "^1"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1",
-    "globby": "^10",
-    "ts-node": "^8"
+    "@oclif/dev-cli": "^1.22.2",
+    "globby": "^10.0.2",
+    "ts-node": "^8.10.2"
   },
   "engines": {
     "node": ">=10.0.0"

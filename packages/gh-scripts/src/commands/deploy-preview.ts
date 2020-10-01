@@ -1,9 +1,30 @@
+import { exec } from '@actions/exec';
+import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
-import { request } from '@octokit/request';
-import execa from 'execa';
 
-function getPreviewURL(text: string): string {
-  const match = /Website Draft URL: (.+)/.exec(text);
+async function deployPreview(
+  directory: string,
+  alias: string,
+): Promise<string> {
+  let stdout = '';
+
+  const exitCode = await exec(
+    'yarn',
+    ['--silent', 'netlify', 'deploy', '--dir', directory, '--alias', alias],
+    {
+      listeners: {
+        stdout: (data) => {
+          stdout += data.toString();
+        },
+      },
+    },
+  );
+
+  if (exitCode !== 0) {
+    throw new Error('Failed to deploy a preview.');
+  }
+
+  const match = /Website Draft URL: (.+)/.exec(stdout);
 
   if (!match) {
     throw new Error('Cannot find preview url from logs');
@@ -16,106 +37,96 @@ export default class DeployPreview extends Command {
   static description = 'Deploy preview';
 
   static flags = {
-    help: flags.help({ char: 'h' }),
+    help: flags.help(),
+
     dir: flags.string({
-      char: 'd',
-      description: 'Deploy build dir',
       required: true,
+      description: 'Specify a folder to deploy',
     }),
+
     alias: flags.string({
-      char: 'a',
-      description: 'Deploy alias',
+      description: 'Specifies the alias for deployment',
+    }),
+
+    token: flags.string({
       required: true,
+      env: 'GITHUB_TOKEN',
+      description: 'GitHub token',
     }),
   };
 
   static args = [];
 
   async run() {
+    const pullRequestNumber = context.payload.pull_request?.number;
+
+    if (!pullRequestNumber) {
+      throw new Error('Failed to resolve pull request number.');
+    }
+
     const {
-      flags: { dir, alias },
+      flags: { dir, token, alias = `preview-${pullRequestNumber}` },
     } = this.parse(DeployPreview);
 
-    const {
-      GITHUB_SHA,
-      GITHUB_TOKEN,
-      GITHUB_REPOSITORY,
-      GITHUB_PULL_REQUEST_NUMBER,
-    } = process.env;
+    const octokit = getOctokit(token);
+    const previewURL = await deployPreview(dir, alias);
 
-    if (!GITHUB_SHA) {
-      throw new Error('Please provide `GITHUB_SHA`.');
-    }
+    const deployMessage = [
+      'Preview is ready!',
+      `Built with commit ${context.sha}`,
+      previewURL,
+    ].join('\n');
 
-    if (!GITHUB_TOKEN) {
-      throw new Error('Please provide `GITHUB_TOKEN`.');
-    }
+    this.log('Looking through pull request comments…');
 
-    if (!GITHUB_REPOSITORY) {
-      throw new Error('Please provide `GITHUB_REPOSITORY`.');
-    }
+    const { data: allComments } = await octokit.issues.listComments({
+      ...context.repo,
+      issue_number: pullRequestNumber,
+    });
 
-    if (!GITHUB_PULL_REQUEST_NUMBER) {
-      throw new Error('Please provide `GITHUB_PULL_REQUEST_NUMBER`.');
-    }
+    this.log('Found %s comments', allComments.length);
 
-    const [owner, repo] = GITHUB_REPOSITORY.split('/');
-    const issueNumber = parseInt(GITHUB_PULL_REQUEST_NUMBER);
-
-    const { data: comments } = await request(
-      'GET /repos/:owner/:repo/issues/:issue_number/comments',
-      {
-        repo,
-        owner,
-        issue_number: issueNumber,
-        headers: { authorization: `Token ${GITHUB_TOKEN}` },
-      },
-    );
-
-    const deployProcess = execa('yarn', [
-      '--silent',
-      'netlify',
-      'deploy',
-      `--dir=${dir}`,
-      `--alias=${alias}`,
-    ]);
-
-    deployProcess.stdout.pipe(process.stdout);
-    deployProcess.stderr.pipe(process.stderr);
-
-    const { stdout } = await deployProcess;
-    const previewURL = getPreviewURL(stdout);
-
-    for (const comment of comments) {
-      if (
+    const previousComments = allComments.filter(
+      (comment) =>
         comment.user.login === 'github-actions[bot]' &&
         comment.body.startsWith('Preview is ready!') &&
-        comment.body.includes(previewURL)
-      ) {
-        this.log('Found comment %d, removing…', comment.id);
+        comment.body.includes(previewURL),
+    );
 
-        await request(
-          'DELETE /repos/:owner/:repo/issues/comments/:comment_id',
-          {
-            repo,
-            owner,
-            comment_id: comment.id,
-            headers: { authorization: `Token ${GITHUB_TOKEN}` },
-          },
-        );
-      }
+    this.log(
+      'Filtered %s comments from current workflow',
+      previousComments.length,
+    );
+
+    const firstComment = previousComments.shift();
+
+    // Update exist comment or add new.
+    if (firstComment) {
+      this.log(
+        'Updating previous deploy message with id "%s" …',
+        firstComment.id,
+      );
+
+      await octokit.issues.updateComment({
+        ...context.repo,
+        body: deployMessage,
+        comment_id: firstComment.id,
+      });
+    } else {
+      this.log('Sending deploy message…');
+
+      await octokit.issues.createComment({
+        ...context.repo,
+        body: deployMessage,
+        issue_number: pullRequestNumber,
+      });
     }
 
-    await request('POST /repos/:owner/:repo/issues/:issue_number/comments', {
-      repo,
-      owner,
-      issue_number: issueNumber,
-      headers: { authorization: `Token ${GITHUB_TOKEN}` },
-      body: [
-        'Preview is ready!',
-        `Built with commit ${GITHUB_SHA}`,
-        previewURL,
-      ].join('\n'),
-    });
+    // Remove old comments
+    for (const { id } of previousComments) {
+      this.log('Removing obsolete comment %s…', id);
+
+      await octokit.issues.deleteComment({ ...context.repo, comment_id: id });
+    }
   }
 }
