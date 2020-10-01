@@ -1,36 +1,32 @@
-import { exec } from '@actions/exec';
 import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
+import NetlifyAPI, { DeployStatus } from 'netlify';
 
-async function deployPreview(
-  directory: string,
-  alias: string,
-): Promise<string> {
-  let stdout = '';
+interface DeployConfig {
+  alias: string;
+  token: string;
+  siteID: string;
+  buildDirectory: string;
+  onStatusChange: (status: DeployStatus) => void;
+}
 
-  const exitCode = await exec(
-    'yarn',
-    ['--silent', 'netlify', 'deploy', '--dir', directory, '--alias', alias],
-    {
-      listeners: {
-        stdout: (data) => {
-          stdout += data.toString();
-        },
-      },
-    },
-  );
+async function deploy({
+  alias,
+  token,
+  siteID,
+  buildDirectory,
+  onStatusChange,
+}: DeployConfig): Promise<string> {
+  const netlify = new NetlifyAPI(token);
 
-  if (exitCode !== 0) {
-    throw new Error('Failed to deploy a preview.');
-  }
+  const {
+    deploy: { deploy_url, deploy_ssl_url },
+  } = await netlify.deploy(siteID, buildDirectory, {
+    branch: alias,
+    statusCb: onStatusChange,
+  });
 
-  const match = /Website Draft URL: (.+)/.exec(stdout);
-
-  if (!match) {
-    throw new Error('Cannot find preview url from logs');
-  }
-
-  return match[1];
+  return deploy_ssl_url || deploy_url;
 }
 
 export default class DeployPreview extends Command {
@@ -51,7 +47,19 @@ export default class DeployPreview extends Command {
     token: flags.string({
       required: true,
       env: 'GITHUB_TOKEN',
-      description: 'GitHub token',
+      description: 'GitHub access token',
+    }),
+
+    netlifySite: flags.string({
+      required: true,
+      env: 'NETLIFY_SITE_ID',
+      description: 'Netlify site ID to deploy to',
+    }),
+
+    netlifyToken: flags.string({
+      required: true,
+      env: 'NETLIFY_AUTH_TOKEN',
+      description: 'Netlify access token',
     }),
   };
 
@@ -65,11 +73,26 @@ export default class DeployPreview extends Command {
     }
 
     const {
-      flags: { dir, token, alias = `preview-${pullRequestNumber}` },
+      flags: {
+        dir,
+        token,
+        netlifySite,
+        netlifyToken,
+        alias = `preview-${pullRequestNumber}`,
+      },
     } = this.parse(DeployPreview);
 
     const octokit = getOctokit(token);
-    const previewURL = await deployPreview(dir, alias);
+
+    const previewURL = await deploy({
+      alias,
+      token: netlifyToken,
+      siteID: netlifySite,
+      buildDirectory: dir,
+      onStatusChange: ({ msg, phase }) => {
+        this.log('%s %s', phase === 'start' ? '…' : '✔', msg);
+      },
+    });
 
     const deployMessage = [
       'Preview is ready!',
