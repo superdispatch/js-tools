@@ -20,8 +20,8 @@
   "dependencies": {
     "execa": "^4.0.2",
     "prettier-plugin-packagejson": "^2.2.5",
-    "yargs": "^15.4.0",
-    "yarn-deduplicate": "^2.0.0"
+    "yargs": "^16.0.3",
+    "yarn-deduplicate": "^3.0.0"
   },
   "peerDependencies": {
     "eslint": "6.x - 7.x",
