@@ -2,13 +2,8 @@
   "include": ["src/**/*"],
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "declaration": true,
-    "importHelpers": true,
-    "module": "commonjs",
     "noEmit": false,
     "outDir": "lib",
-    "rootDir": "src",
-    "strict": true,
-    "target": "ES2019"
+    "rootDir": "src"
   }
 }

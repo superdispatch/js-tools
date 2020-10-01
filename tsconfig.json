@@ -4,6 +4,10 @@
   "exclude": ["**/lib"],
   "compilerOptions": {
     "checkJs": true,
-    "allowJs": true
+    "allowJs": true,
+    "target": "ES2019",
+    "module": "commonjs",
+    "declaration": true,
+    "importHelpers": true
   }
 }
