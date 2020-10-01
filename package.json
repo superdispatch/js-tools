@@ -10,8 +10,6 @@
   },
   "scripts": {
     "build": "lerna run build --no-private",
-    "prebump": "yarn tsc && yarn lint && yarn test && yarn build",
-    "bump": "lerna version",
     "lint": "js-tools lint",
     "tdd": "jest --watch",
     "test": "jest --coverage"
