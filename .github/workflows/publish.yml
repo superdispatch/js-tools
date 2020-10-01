@@ -1,9 +1,11 @@
 name: Publish
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      bump:
+        required: true
+        description: 'Increment version(s) by explicit version _or_ semver keyword'
 
 jobs:
   main:
@@ -21,10 +23,11 @@ jobs:
           key: yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             yarn-
+
       - run: yarn install --frozen-lockfile
       - run: yarn tsc
       - run: yarn lint
       - run: yarn test
       - run: yarn build
       - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ./.npmrc
-      - run: yarn lerna publish from-package --yes
+      - run: yarn lerna publish ${{ github.event.inputs.bump }} --yes
