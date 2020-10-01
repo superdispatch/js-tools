@@ -1,13 +1,13 @@
 import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
-import NetlifyAPI, { DeployStatus } from 'netlify';
+import NetlifyAPI = require('netlify');
 
 interface DeployConfig {
   alias: string;
   token: string;
   siteID: string;
   buildDirectory: string;
-  onStatusChange: (status: DeployStatus) => void;
+  onStatusChange: (status: NetlifyAPI.DeployStatus) => void;
 }
 
 async function deploy({
