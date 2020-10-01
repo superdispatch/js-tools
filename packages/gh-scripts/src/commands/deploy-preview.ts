@@ -64,15 +64,6 @@ export default class DeployPreview extends Command {
       headers: { authorization: `Token ${token}` },
     });
 
-    const { data: allComments } = await request(
-      'GET /repos/:owner/:repo/issues/:issue_number/comments',
-      {
-        repo,
-        owner,
-        issue_number: pr,
-      },
-    );
-
     const deployProcess = execa.command(
       `yarn --silent netlify deploy --dir=${dir} --alias=${alias}`,
     );
@@ -88,6 +79,19 @@ export default class DeployPreview extends Command {
       previewURL,
     ].join('\n');
 
+    this.log('Looking through PR (#%s) comments…', pr);
+
+    const { data: allComments } = await request(
+      'GET /repos/:owner/:repo/issues/:issue_number/comments',
+      {
+        repo,
+        owner,
+        issue_number: pr,
+      },
+    );
+
+    this.log('Found %s comments', allComments.length);
+
     const previousComments = allComments.filter(
       (comment) =>
         comment.user.login === 'github-actions[bot]' &&
@@ -95,10 +99,17 @@ export default class DeployPreview extends Command {
         comment.body.includes(previewURL),
     );
 
+    this.log(
+      'Filtered %s comments from current workflow',
+      previousComments.length,
+    );
+
     const firstComment = previousComments.shift();
 
     // Update exist comment or add new.
     if (firstComment) {
+      this.log('Updating deploy message %s…', firstComment.id);
+
       await request('PATCH /repos/:owner/:repo/comments/:comment_id', {
         repo,
         owner,
@@ -107,6 +118,8 @@ export default class DeployPreview extends Command {
         comment_id: firstComment.id,
       });
     } else {
+      this.log('Sending deploy message…');
+
       await request('POST /repos/:owner/:repo/issues/:issue_number/comments', {
         repo,
         owner,
@@ -116,11 +129,13 @@ export default class DeployPreview extends Command {
     }
 
     // Remove old comments
-    for (const comment of previousComments) {
+    for (const { id } of previousComments) {
+      this.log('Removing obsolete comment %s…', id);
+
       await request('DELETE /repos/:owner/:repo/issues/comments/:comment_id', {
         repo,
         owner,
-        comment_id: comment.id,
+        comment_id: id,
       });
     }
   }
