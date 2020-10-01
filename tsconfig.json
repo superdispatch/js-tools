@@ -4,6 +4,11 @@
   "exclude": ["**/lib"],
   "compilerOptions": {
     "checkJs": true,
-    "allowJs": true
+    "allowJs": true,
+    "target": "ES2019",
+    "lib": ["ES2019"],
+    "module": "commonjs",
+    "declaration": true,
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
   }
 }
