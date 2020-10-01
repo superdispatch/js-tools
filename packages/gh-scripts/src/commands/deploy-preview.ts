@@ -114,7 +114,6 @@ export default class DeployPreview extends Command {
         repo,
         owner,
         body: message,
-        issue_number: pr,
         comment_id: firstComment.id,
       });
     } else {
