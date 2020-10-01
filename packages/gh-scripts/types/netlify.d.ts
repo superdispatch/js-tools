@@ -32,7 +32,7 @@ declare module 'netlify' {
     uploadList: string[];
   }
 
-  export default class NetlifyAPI {
+  class NetlifyAPI {
     constructor(accessToken?: string, options?: NetlifyAPIOptions);
 
     get accessToken(): string;
@@ -46,4 +46,6 @@ declare module 'netlify' {
       options?: DeployOptions,
     ): Promise<DeployResult>;
   }
+
+  export = NetlifyAPI;
 }
