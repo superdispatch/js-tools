@@ -63,17 +63,14 @@ jobs:
         with:
           name: foo-1
           path: package.json
-
       - uses: actions/upload-artifact@v2
         with:
           name: foo-2
           path: package.json
-
       - uses: actions/upload-artifact@v2
         with:
           name: baz-foo
           path: package.json
-
       - uses: actions/upload-artifact@v2
         with:
           name: baz-bar
