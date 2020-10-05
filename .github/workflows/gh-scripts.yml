@@ -39,3 +39,53 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+  prune-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn workspace @superdispatch/gh-scripts build
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: foo-1
+          path: package.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: foo-2
+          path: package.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: baz-foo
+          path: package.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: baz-bar
+          path: package.json
+
+      - run: yarn gh-scripts prune-artifacts --help
+
+      - run: yarn gh-scripts prune-artifacts --pattern "^foo"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts prune-artifacts --pattern "bar$"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts prune-artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
