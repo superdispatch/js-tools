@@ -14,7 +14,7 @@ export default class PruneArtifacts extends Command {
     }),
 
     pattern: flags.string({
-      required: true,
+      default: '.*',
       description: 'RegExp pattern string to match an artifact name',
     }),
   };
