@@ -86,6 +86,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: yarn gh-scripts prune-artifacts --pattern "*"
+      - run: yarn gh-scripts prune-artifacts --pattern ".*"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
