@@ -54,6 +54,8 @@ export default class PruneArtifacts extends Command {
             'DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id',
             { ...context.repo, artifact_id: id },
           );
+        } else {
+          this.log('Skipping "%s"…', name);
         }
       }
     }
