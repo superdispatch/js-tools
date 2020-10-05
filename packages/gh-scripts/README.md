@@ -23,7 +23,7 @@ $ npm install -g @superdispatch/gh-scripts
 $ gh-scripts COMMAND
 running command...
 $ gh-scripts (-v|--version|version)
-@superdispatch/gh-scripts/0.2.4 darwin-x64 node-v12.18.3
+@superdispatch/gh-scripts/0.2.5 darwin-x64 node-v12.18.3
 $ gh-scripts --help [COMMAND]
 USAGE
   $ gh-scripts COMMAND
@@ -38,6 +38,7 @@ USAGE
 
 - [`gh-scripts deploy-preview`](#gh-scripts-deploy-preview)
 - [`gh-scripts help [COMMAND]`](#gh-scripts-help-command)
+- [`gh-scripts prune-artifacts`](#gh-scripts-prune-artifacts)
 
 ## `gh-scripts deploy-preview`
 
@@ -56,7 +57,7 @@ OPTIONS
   --token=token                (required) GitHub access token
 ```
 
-_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.4/lib/commands/deploy-preview.js)_
+_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.5/lib/commands/deploy-preview.js)_
 
 ## `gh-scripts help [COMMAND]`
 
@@ -74,5 +75,21 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+
+## `gh-scripts prune-artifacts`
+
+Prune artifacts
+
+```
+USAGE
+  $ gh-scripts prune-artifacts
+
+OPTIONS
+  --help             show CLI help
+  --pattern=pattern  [default: .*] RegExp pattern string to match an artifact name
+  --token=token      (required) GitHub access token
+```
+
+_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.5/lib/commands/prune-artifacts.js)_
 
 <!-- commandsstop -->
