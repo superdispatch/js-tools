@@ -77,6 +77,15 @@ jobs:
           path: package.json
 
       - run: yarn gh-scripts prune-artifacts --help
-      - run: yarn gh-scripts prune-artifacts --pattern "(^foo|bar$)"
+
+      - run: yarn gh-scripts prune-artifacts --pattern "^foo"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts prune-artifacts --pattern "bar$"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts prune-artifacts --pattern "*"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
