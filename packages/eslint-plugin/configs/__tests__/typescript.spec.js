@@ -199,6 +199,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-non-null-assertion": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-shadow": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-this-alias": Array [
     +     "error",
     +   ],
@@ -395,6 +398,10 @@ it('extends dependencies', async () => {
         ],
     @@ --- --- @@
         "no-setter-return": Array [
+    -     "error",
+    +     "off",
+        ],
+        "no-shadow": Array [
     -     "error",
     +     "off",
         ],
