@@ -33,6 +33,7 @@ function setupTypeScriptPlugin(config) {
     'no-undef-init': 'off',
     'no-unused-expressions': 'off',
     'no-unused-vars': 'off',
+    'no-use-before-define': 'off',
   };
 
   config.rules = {
