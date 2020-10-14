@@ -70,6 +70,14 @@ jobs:
         with:
           name: test-4-${{ github.event.number }}
           path: package.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-5
+          path: package.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-6
+          path: package.json
 
   prune-artifacts:
     needs: upload-artifacts
@@ -98,5 +106,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn gh-scripts prune-artifacts --pattern "-${{ github.event.number }}$"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn gh-scripts prune-artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
