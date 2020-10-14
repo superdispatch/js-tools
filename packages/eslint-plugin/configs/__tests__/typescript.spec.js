@@ -435,17 +435,22 @@ it('extends dependencies', async () => {
     -     },
     +     "off",
         ],
+        "no-use-before-define": Array [
+    -     "error",
+    -     Object {
+    -       "functions": false,
+    -     },
+    +     "off",
+        ],
     @@ --- --- @@
         "prefer-object-spread": Array [
     +     "error",
     +   ],
     +   "prefer-rest-params": Array [
-          "error",
-        ],
-    +   "prefer-spread": Array [
     +     "error",
     +   ],
-        "prefer-template": Array [
+    +   "prefer-spread": Array [
+          "error",
     @@ --- --- @@
         ],
     +   "require-await": Array [
