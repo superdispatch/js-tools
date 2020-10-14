@@ -13,6 +13,7 @@
 'use strict';
 
 const cache = new WeakMap();
+const HEX_COLOR_PATTERN = /(#\b([a-f0-9]{3}|[a-f0-9]{6})\b)/gim;
 
 /**
  * @param {Record<string, ColorOption>} colors
@@ -60,7 +61,6 @@ module.exports = {
      */
     function findColors(text) {
       const colors = new Map();
-      const HEX_COLOR_PATTERN = /(#\b([a-f0-9]{3}|[a-f0-9]{6})\b)/gim;
 
       for (const [, match] of text.matchAll(HEX_COLOR_PATTERN)) {
         const color = match.toLowerCase();
