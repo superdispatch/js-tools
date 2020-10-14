@@ -123,7 +123,10 @@ export default class DeployPreview extends Command {
     ].join('\n');
 
     if (previousCommentID != null) {
-      this.log('Updating previous deploy message with ID "%s"…');
+      this.log(
+        'Updating previous deploy message with ID "%s"…',
+        previousCommentID,
+      );
 
       await octokit.request(
         'PATCH /repos/:owner/:repo/issues/comments/:comment_id',
