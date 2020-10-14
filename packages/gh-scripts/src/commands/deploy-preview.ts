@@ -4,6 +4,7 @@ import { CLIError } from '@oclif/errors';
 import NetlifyAPI = require('netlify');
 
 const DEPLOY_MESSAGE_TITLE = 'Preview is ready!';
+const GITHUB_ACTIONS_BOT_LOGIN = 'github-actions[bot]';
 
 export default class DeployPreview extends Command {
   static description = 'Deploy preview';
@@ -97,7 +98,7 @@ export default class DeployPreview extends Command {
         user: { login },
       } of comments) {
         if (
-          login === 'github-actions[bot]' &&
+          login === GITHUB_ACTIONS_BOT_LOGIN &&
           body.startsWith(DEPLOY_MESSAGE_TITLE) &&
           body.includes(previewURL)
         ) {
@@ -123,7 +124,10 @@ export default class DeployPreview extends Command {
     ].join('\n');
 
     if (previousCommentID != null) {
-      this.log('Updating previous deploy message with ID "%s"…');
+      this.log(
+        'Updating previous deploy message with ID "%s"…',
+        previousCommentID,
+      );
 
       await octokit.request(
         'PATCH /repos/:owner/:repo/issues/comments/:comment_id',
