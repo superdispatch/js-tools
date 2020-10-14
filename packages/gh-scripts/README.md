@@ -23,7 +23,7 @@ $ npm install -g @superdispatch/gh-scripts
 $ gh-scripts COMMAND
 running command...
 $ gh-scripts (-v|--version|version)
-@superdispatch/gh-scripts/0.2.5 darwin-x64 node-v12.18.3
+@superdispatch/gh-scripts/0.2.6 darwin-x64 node-v12.18.3
 $ gh-scripts --help [COMMAND]
 USAGE
   $ gh-scripts COMMAND
@@ -57,7 +57,7 @@ OPTIONS
   --token=token                (required) GitHub access token
 ```
 
-_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.5/lib/commands/deploy-preview.js)_
+_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/deploy-preview.js)_
 
 ## `gh-scripts help [COMMAND]`
 
@@ -90,6 +90,6 @@ OPTIONS
   --token=token      (required) GitHub access token
 ```
 
-_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.5/lib/commands/prune-artifacts.js)_
+_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/prune-artifacts.js)_
 
 <!-- commandsstop -->
