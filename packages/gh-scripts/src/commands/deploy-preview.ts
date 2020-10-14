@@ -1,33 +1,9 @@
 import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
+import { CLIError } from '@oclif/errors';
 import NetlifyAPI = require('netlify');
 
-interface DeployConfig {
-  alias: string;
-  token: string;
-  siteID: string;
-  buildDirectory: string;
-  onStatusChange: (status: NetlifyAPI.DeployStatus) => void;
-}
-
-async function deploy({
-  alias,
-  token,
-  siteID,
-  buildDirectory,
-  onStatusChange,
-}: DeployConfig): Promise<string> {
-  const netlify = new NetlifyAPI(token);
-
-  const {
-    deploy: { deploy_url, deploy_ssl_url },
-  } = await netlify.deploy(siteID, buildDirectory, {
-    branch: alias,
-    statusCb: onStatusChange,
-  });
-
-  return deploy_ssl_url || deploy_url;
-}
+const DEPLOY_MESSAGE_TITLE = 'Preview is ready!';
 
 export default class DeployPreview extends Command {
   static description = 'Deploy preview';
@@ -69,7 +45,7 @@ export default class DeployPreview extends Command {
     const pullRequestNumber = context.payload.pull_request?.number;
 
     if (!pullRequestNumber) {
-      throw new Error('Failed to resolve pull request number.');
+      throw new CLIError('Failed to resolve pull request number.');
     }
 
     const {
@@ -82,74 +58,92 @@ export default class DeployPreview extends Command {
       },
     } = this.parse(DeployPreview);
 
-    const octokit = getOctokit(token);
+    //
+    // Step 1: Deploy to Netlify
+    //
 
-    const previewURL = await deploy({
-      alias,
-      token: netlifyToken,
-      siteID: netlifySite,
-      buildDirectory: dir,
-      onStatusChange: ({ msg, phase }) => {
-        this.log('%s %s', phase === 'start' ? '…' : '✔', msg);
+    const netlify = new NetlifyAPI(netlifyToken);
+
+    const {
+      deploy: { deploy_url, deploy_ssl_url },
+    } = await netlify.deploy(netlifySite, dir, {
+      branch: alias,
+      statusCb: ({ msg, phase }) => {
+        this.log('%s %s', phase === 'start' ? '-' : '✔', msg);
       },
     });
 
+    //
+    // Step 2: Check previous deploy message
+    //
+
+    const octokit = getOctokit(token);
+    const previewURL = deploy_ssl_url || deploy_url;
+    let previousCommentID: number | undefined = undefined;
+
+    this.log('Looking for the previous deploy message…');
+
+    for await (const { data: comments } of octokit.paginate.iterator(
+      'GET /repos/:owner/:repo/issues/:issue_number/comments',
+      {
+        ...context.repo,
+        per_page: 100,
+        issue_number: pullRequestNumber,
+      },
+    )) {
+      for (const {
+        id,
+        body,
+        user: { login },
+      } of comments) {
+        if (
+          login === 'github-actions[bot]' &&
+          body.startsWith(DEPLOY_MESSAGE_TITLE) &&
+          body.includes(previewURL)
+        ) {
+          if (previousCommentID == null) {
+            this.log('Found previous deploy message with ID "%s"', id);
+
+            previousCommentID = id;
+
+            break;
+          }
+        }
+      }
+    }
+
+    //
+    // Step 2: Create or update a deploy message
+    //
+
     const deployMessage = [
-      'Preview is ready!',
+      DEPLOY_MESSAGE_TITLE,
       `Built with commit ${context.sha}`,
       previewURL,
     ].join('\n');
 
-    this.log('Looking through pull request comments…');
+    if (previousCommentID != null) {
+      this.log('Updating previous deploy message with ID "%s"…');
 
-    const { data: allComments } = await octokit.issues.listComments({
-      ...context.repo,
-      issue_number: pullRequestNumber,
-    });
-
-    this.log('Found %s comments', allComments.length);
-
-    const previousComments = allComments.filter(
-      (comment) =>
-        comment.user.login === 'github-actions[bot]' &&
-        comment.body.startsWith('Preview is ready!') &&
-        comment.body.includes(previewURL),
-    );
-
-    this.log(
-      'Filtered %s comments from current workflow',
-      previousComments.length,
-    );
-
-    const firstComment = previousComments.shift();
-
-    // Update exist comment or add new.
-    if (firstComment) {
-      this.log(
-        'Updating previous deploy message with id "%s" …',
-        firstComment.id,
+      await octokit.request(
+        'PATCH /repos/:owner/:repo/issues/comments/:comment_id',
+        {
+          ...context.repo,
+          body: deployMessage,
+          comment_id: previousCommentID,
+        },
       );
-
-      await octokit.issues.updateComment({
-        ...context.repo,
-        body: deployMessage,
-        comment_id: firstComment.id,
-      });
     } else {
-      this.log('Sending deploy message…');
+      this.log('Sending new deploy message…');
 
-      await octokit.issues.createComment({
-        ...context.repo,
-        body: deployMessage,
-        issue_number: pullRequestNumber,
-      });
-    }
-
-    // Remove old comments
-    for (const { id } of previousComments) {
-      this.log('Removing obsolete comment %s…', id);
-
-      await octokit.issues.deleteComment({ ...context.repo, comment_id: id });
+      await octokit.request(
+        'POST /repos/:owner/:repo/issues/:issue_number/comments',
+        {
+          ...context.repo,
+          body: deployMessage,
+          issue_number: pullRequestNumber,
+        },
+      );
     }
   }
 }
