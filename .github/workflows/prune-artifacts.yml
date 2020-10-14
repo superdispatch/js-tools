@@ -1,0 +1,14 @@
+name: Prune artifacts
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+  prune-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: npx @superdispatch/gh-scripts prune-artifacts --pattern "^e2e-"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
