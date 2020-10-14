@@ -11,13 +11,13 @@ const ruleTester = new RuleTester({
   },
   settings: {
     designSystemColors: {
-      '#6A707C': {
+      '#fff': {
+        source: '@superdispatch/ui',
+        specifier: 'Color.White',
+      },
+      '#6a707c': {
         source: '@superdispatch/ui',
         specifier: 'Color.Grey200',
-      },
-      '#5B6371': {
-        source: '@superdispatch/ui',
-        specifier: 'Color.Grey300',
       },
     },
   },
@@ -25,138 +25,212 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('prefer-design-system-colors', rule, {
   valid: [
-    { code: 'const color =  "#e4e7ea";' },
-    { code: 'export const icon = <svg fill="#e4e7ea"></svg>;' },
-
-    {
-      code:
-        'export const Placeholder = <p style={{backgroundColor: "#e4e7ea"}}>Hi</p>;',
-    },
-    {
-      code: 'export const Placeholder = styled.p`background-color: #e4e7ea;`;',
-    },
-    {
-      code:
-        'export const Placeholder = <p css="background-color: #e4e7ea;">Hi</p>;',
-    },
+    { code: 'const color = "#FFF8E7"' },
+    { code: 'const Icon = () => <svg fill="#FFF8E7"/>' },
+    { code: 'const Icon = () => <svg fill={`#FFF8E7`}/>' },
+    { code: 'const Icon = ({ fill = "#FFF8E7" }) => <svg fill={fill}/>' },
+    { code: 'const Icon = () => <svg style={{color: "#FFF8E7"}}/>' },
+    { code: 'const Icon = () => <svg style={{color: `#FFF8E7`}}/>' },
+    { code: 'const Icon = styled.svg`color: #FFF8E7;`' },
+    { code: 'const Icon = () => <svg css="color: #FFF8E7"/>' },
+    { code: 'const Icon = () => <svg css={`color: #FFF8E7`}/>' },
   ],
   invalid: [
     {
-      code: 'const color =  "#6A707C";',
+      code: 'const color = "#FFF"',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 1,
-          column: 16,
+          column: 15,
         },
       ],
     },
     {
-      code: 'const color =  `#6A707C`;',
+      code: 'const a = "#FFF", b = "#fff", c = "#6A707C", d = "#6a707c"',
       errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 11,
+        },
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 23,
+        },
         {
           message: 'Use Color.Grey200 from "@superdispatch/ui"',
           line: 1,
-          column: 16,
+          column: 35,
+        },
+        {
+          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 50,
         },
       ],
     },
+
     {
-      code: 'const color =  "#6A707C";const color2 = "#5B6371";',
+      code: 'const Icon = () => <svg fill="#FFF"/>',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 1,
-          column: 16,
-        },
-        {
-          message: 'Use Color.Grey300 from "@superdispatch/ui"',
-          line: 1,
-          column: 41,
+          column: 30,
         },
       ],
     },
+
     {
-      code: 'export const icon = <svg fill="#6A707C"></svg>;',
+      code: 'const Icon = () => <svg fill={`#FFF`}/>',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 1,
           column: 31,
         },
       ],
     },
+
     {
-      code: 'export const icon = <svg fill={"#6A707C"}></svg>;',
+      code: 'const Icon = ({ fill = "#FFF" }) => <svg fill={fill}/>',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 1,
-          column: 32,
-        },
-      ],
-    },
-    {
-      code:
-        'export const Placeholder = <p style={{backgroundColor: "#6A707C"}}>Hi</p>;',
-      errors: [
-        {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
-          line: 1,
-          column: 56,
+          column: 24,
         },
       ],
     },
 
     {
-      code: 'export const Placeholder = styled.p`background-color: #6A707C;`;',
+      code: 'const Icon = ({ fill = `#FFF` }) => <svg fill={fill}/>',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 1,
-          column: 36,
+          column: 24,
         },
       ],
     },
+
     {
-      code:
-        'export const Placeholder = <p css="background-color: #6A707C;color: #5B6371;">Hi</p>;',
+      code: 'const Icon = () => <svg style={{color: "#FFF"}}/>',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 1,
-          column: 35,
-        },
-        {
-          message: 'Use Color.Grey300 from "@superdispatch/ui"',
-          line: 1,
-          column: 35,
+          column: 40,
         },
       ],
     },
+
     {
-      code:
-        "import { Color } from '@superdispatch/ui';\n" +
-        'export const Placeholder = <p css={`background-color: #6A707C;color: ${Color.Grey200};`}>Hi</p>;',
+      code: 'const Icon = () => <svg style={{color: `#FFF`}}/>',
       errors: [
         {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 40,
+        },
+      ],
+    },
+
+    {
+      code: 'const Icon = styled.svg`color: #FFF;`',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 24,
+        },
+      ],
+    },
+
+    {
+      code: 'const Icon = styled.svg`color: #FFF; background-color: #6a707c`',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 24,
+        },
+        {
           message: 'Use Color.Grey200 from "@superdispatch/ui"',
+          line: 1,
+          column: 24,
+        },
+      ],
+    },
+
+    {
+      code:
+        'import { Color } from "@superdispatch/ui";\n' +
+        'const Icon = styled.svg`color: #FFF; background-color: ${Color.Grey200}`',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
           line: 2,
-          column: 36,
+          column: 24,
+        },
+      ],
+    },
+
+    {
+      code: 'const Icon = styled.svg`display: flex; ${() => "color: #FFF"}`',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 48,
         },
       ],
     },
 
     {
       code:
-        'const Wrapper = styled.div`\n' +
-        'display: flex;\n' +
-        '${() => "color: #6A707C;"}`',
+        'const Icon = styled.svg`display: flex; ${() => `color: ${"#FFF"}`}`',
       errors: [
         {
-          message: 'Use Color.Grey200 from "@superdispatch/ui"',
-          line: 3,
-          column: 9,
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 58,
+        },
+      ],
+    },
+
+    {
+      code:
+        'const Icon = styled.svg`display: flex; ${() => `color: ${`#FFF`}`}`',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 58,
+        },
+      ],
+    },
+
+    {
+      code: 'const Icon = () => <svg css="color: #FFF"/>',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 29,
+        },
+      ],
+    },
+
+    {
+      code: 'const Icon = () => <svg css={`color: #FFF`}/>',
+      errors: [
+        {
+          message: 'Use Color.White from "@superdispatch/ui"',
+          line: 1,
+          column: 30,
         },
       ],
     },

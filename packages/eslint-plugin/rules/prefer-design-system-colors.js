@@ -12,6 +12,32 @@
 
 'use strict';
 
+const cache = new WeakMap();
+const HEX_COLOR_PATTERN = /(#\b([a-f0-9]{3}|[a-f0-9]{6})\b)/gim;
+
+/**
+ * @param {Record<string, ColorOption>} colors
+ * @returns {Map<string, string>}
+ */
+function getColorsMap(colors) {
+  if (!colors) {
+    return new Map();
+  }
+
+  let colorsMap = cache.get(colors);
+
+  if (!colorsMap) {
+    colorsMap = new Map();
+    cache.set(colors, colorsMap);
+
+    for (const [color, value] of Object.entries(colors)) {
+      colorsMap.set(color.toLowerCase(), value);
+    }
+  }
+
+  return colorsMap;
+}
+
 /**
  * @type {RuleModule}
  * */
@@ -22,59 +48,45 @@ module.exports = {
   },
 
   create(context) {
-    const colors = context.settings.designSystemColors || {};
+    const colorsMap = getColorsMap(context.settings.designSystemColors);
 
     // Do not apply rule if there is no colors
-    if (Object.keys(colors).length === 0) {
+    if (!colorsMap.size) {
       return {};
     }
 
-    const COLORS_MAP = new Map(
-      Object.entries(colors).map(([color, value]) => [
-        color.toLowerCase(),
-        value,
-      ]),
-    );
-
-    const COLOR_REGEX = new RegExp(
-      Array.from(COLORS_MAP, ([color]) =>
-        color.replace(/\(/, '\\(').replace(/\)/, '\\)'),
-      ).join('|'),
-      'ig',
-    );
-
     /**
-     *
      * @param text {string}
-     * @returns {ColorOption[]}
+     * @returns {Map<string, ColorOption>}
      */
-    function findUsages(text) {
-      let match;
-      const set = new Set();
+    function findColors(text) {
+      const colors = new Map();
 
-      while ((match = COLOR_REGEX.exec(text))) {
-        const [color] = match;
+      for (const [, match] of text.matchAll(HEX_COLOR_PATTERN)) {
+        const color = match.toLowerCase();
+        const value = colorsMap.get(color);
 
-        set.add(color.toLowerCase());
+        if (value) {
+          colors.set(color, value);
+        }
       }
 
-      return Array.from(set, (color) => COLORS_MAP.get(color));
+      return colors;
     }
 
     /**
-     *
      * @param node {any}
      * @param text {string}
      */
     function process(node, text) {
-      const usages = findUsages(text);
+      const usages = findColors(text);
 
-      usages.forEach(({ specifier, source }) => {
+      for (const { source, specifier } of usages.values()) {
         context.report({
           node,
           message: `Use ${specifier} from "${source}"`,
         });
-      });
+      }
     }
 
     return {
@@ -86,6 +98,7 @@ module.exports = {
           process(node, node.value);
         }
       },
+
       /**
        * @param {TemplateLiteral} node
        * */
@@ -94,6 +107,7 @@ module.exports = {
           (acc, { value }) => acc + value.raw,
           '',
         );
+
         process(node, text);
       },
     };
