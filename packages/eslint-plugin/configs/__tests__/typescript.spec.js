@@ -408,6 +408,10 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
+        "no-undef-init": Array [
+    -     "error",
+    +     "off",
+        ],
     @@ --- --- @@
         "no-unreachable": Array [
     -     "error",
