@@ -30,6 +30,7 @@ function setupTypeScriptPlugin(config) {
 
   config.rules = {
     ...config.rules,
+    'no-shadow': 'off',
     'no-undef-init': 'off',
     'no-unused-expressions': 'off',
     'no-unused-vars': 'off',
@@ -56,6 +57,7 @@ function setupTypeScriptPlugin(config) {
     ],
     '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/no-unnecessary-condition': 'error',
