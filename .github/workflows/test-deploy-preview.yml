@@ -1,4 +1,4 @@
-name: Test prune-artifacts
+name: Test deploy-preview
 
 on:
   pull_request:
