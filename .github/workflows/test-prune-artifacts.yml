@@ -9,7 +9,6 @@ on:
 jobs:
   prune-artifacts:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test prune-artifacts') }}
-    needs: upload-artifacts
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
