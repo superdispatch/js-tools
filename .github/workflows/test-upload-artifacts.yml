@@ -1,4 +1,4 @@
-name: Prepare prune-artifacts test
+name: Test upload-artifacts
 
 on:
   pull_request:
