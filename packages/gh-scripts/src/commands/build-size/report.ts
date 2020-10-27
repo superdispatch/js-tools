@@ -1,6 +1,7 @@
 import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
 import { CLIError } from '@oclif/errors';
+import { ux } from 'cli-ux';
 import { readFileSync } from 'fs';
 import { resolve as resolvePath } from 'path';
 import { measureFileSizesBeforeBuild } from 'react-dev-utils/FileSizeReporter';
@@ -92,7 +93,7 @@ export default class BuildSizeSnapshot extends Command {
       readFileSync(snapshotFile, 'utf-8'),
     ) as Record<string, number>;
 
-    this.log('Snapshot sizes:\n%O', snapshotSizes);
+    ux.styledObject(snapshotSizes);
 
     const sourceDir = resolvePath(cwd, dir);
 
@@ -100,7 +101,7 @@ export default class BuildSizeSnapshot extends Command {
 
     const { sizes } = await measureFileSizesBeforeBuild(sourceDir);
 
-    this.log('File sizes:\n%O', sizes);
+    ux.styledObject(sizes);
 
     const allFiles = Object.keys({ ...sizes, ...snapshotSizes }).sort((a, b) =>
       a.localeCompare(b),
