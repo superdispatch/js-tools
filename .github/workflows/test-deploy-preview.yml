@@ -7,7 +7,7 @@ on:
       - '**'
 
 jobs:
-  deploy-preview:
+  main:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test deploy-preview') }}
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +20,7 @@ jobs:
           node-version: 12.x
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: yarn-${{ hashFiles('**/yarn.lock') }}

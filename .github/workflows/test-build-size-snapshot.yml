@@ -1,14 +1,15 @@
-name: PR
+name: Test build-size snapshot
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
     branches:
       - '**'
 
 jobs:
-  checks:
+  main:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size snapshot') }}
     runs-on: ubuntu-latest
-
     steps:
       - uses: styfle/cancel-workflow-action@0.4.0
         with:
@@ -26,7 +27,13 @@ jobs:
           restore-keys: |
             yarn-
       - run: yarn install --frozen-lockfile
-      - run: yarn tsc
-      - run: yarn lint
-      - run: yarn test
-      - uses: codecov/codecov-action@v1
+      - run: yarn workspace @superdispatch/gh-scripts build
+
+      - run: yarn gh-scripts build-size --help
+      - run: yarn gh-scripts build-size:snapshot --help
+
+      - uses: actions/cache@v2
+        with:
+          path: packages/gh-scripts/lib/size.json
+          key: build-size-${{ github.event.pull_request.base.sha }}
+      - run: yarn gh-scripts build-size:snapshot --dir packages/gh-scripts/lib --out packages/gh-scripts/lib/size.json

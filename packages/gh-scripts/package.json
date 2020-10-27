@@ -13,19 +13,18 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {
-    "gh-scripts": "./bin/run"
+    "gh-scripts": "bin"
   },
   "files": [
-    "/bin",
     "/lib",
-    "/npm-shrinkwrap.json",
+    "/bin",
     "/oclif.manifest.json"
   ],
   "scripts": {
     "build": "rm -rf lib && tsc -b",
-    "prepack": "oclif-dev manifest",
+    "prepack": "yarn oclif-dev manifest",
     "postpack": "rm -f oclif.manifest.json",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "yarn oclif-dev readme && git add README.md"
   },
   "dependencies": {
     "@actions/github": "^4.0.0",
@@ -33,13 +32,11 @@
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.0",
     "netlify": "^4.6.0",
+    "pretty-bytes": "^5.4.1",
+    "react-dev-utils": "^11.0.0",
     "tslib": "^2.0.1"
   },
-  "devDependencies": {
-    "@oclif/dev-cli": "^1.22.2",
-    "globby": "^11.0.1",
-    "ts-node": "^9.0.0"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">=10.0.0"
   },
