@@ -38,7 +38,7 @@ OPTIONS
   --token=token        (required) GitHub access token
 ```
 
-_See code: [lib/commands/build-size/report.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/build-size/report.js)_
+_See code: [lib/commands/build-size/report.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/build-size/report.js)_
 
 ## `gh-scripts build-size:snapshot`
 
@@ -54,7 +54,7 @@ OPTIONS
   --out=out  (required) Specify a path for the snapshot file
 ```
 
-_See code: [lib/commands/build-size/snapshot.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/build-size/snapshot.js)_
+_See code: [lib/commands/build-size/snapshot.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/build-size/snapshot.js)_
 
 ## `gh-scripts deploy-preview`
 
@@ -73,7 +73,7 @@ OPTIONS
   --token=token                (required) GitHub access token
 ```
 
-_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/deploy-preview.js)_
+_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/deploy-preview.js)_
 
 ## `gh-scripts help [COMMAND]`
 
@@ -106,6 +106,6 @@ OPTIONS
   --token=token      (required) GitHub access token
 ```
 
-_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/prune-artifacts.js)_
+_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/prune-artifacts.js)_
 
 <!-- commandsstop -->

@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/gh-scripts",
-  "version": "0.2.6",
+  "version": "0.2.9",
   "description": "Node scripts for GitHub actions",
   "keywords": [
     "oclif"
