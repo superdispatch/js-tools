@@ -1,13 +1,14 @@
 import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
 import { CLIError } from '@oclif/errors';
+import { ux } from 'cli-ux';
 import { readFileSync } from 'fs';
 import { resolve as resolvePath } from 'path';
 import { measureFileSizesBeforeBuild } from 'react-dev-utils/FileSizeReporter';
 
 import { sendReport } from '../../utils/sendReport';
 
-import prettyBytes = require('pretty-bytes');
+import filesize = require('filesize');
 
 const SIZE_REPORT_TITLE = 'Build Size Report';
 
@@ -19,12 +20,16 @@ function formatRow(
   currentSize: number,
   previousSize: number,
 ): [size: string, delta: string, diff: string] {
-  const formattedSize = prettyBytes(currentSize);
+  const formattedSize = filesize(currentSize);
 
-  const delta = currentSize - previousSize;
-  const formattedDelta = prettyBytes(delta, {
-    signed: true,
-  });
+  let delta = currentSize - previousSize;
+
+  // Reduce noise from the insignificant changes.
+  if (Math.abs(delta) < 512) {
+    delta = 0;
+  }
+
+  let formattedDelta = filesize(delta);
 
   const diff = delta / currentSize;
   let formattedDiff = diff.toLocaleString('en-us', {
@@ -33,6 +38,7 @@ function formatRow(
 
   if (diff > 0) {
     formattedDiff = `+${formattedDiff} 🔺`;
+    formattedDelta = `+${formattedDelta}`;
   } else if (diff < 0) {
     formattedDiff = `${formattedDiff} 🔽`;
   }
@@ -87,7 +93,7 @@ export default class BuildSizeSnapshot extends Command {
       readFileSync(snapshotFile, 'utf-8'),
     ) as Record<string, number>;
 
-    this.log('Snapshot sizes:\n%O', snapshotSizes);
+    ux.styledObject(snapshotSizes);
 
     const sourceDir = resolvePath(cwd, dir);
 
@@ -95,7 +101,7 @@ export default class BuildSizeSnapshot extends Command {
 
     const { sizes } = await measureFileSizesBeforeBuild(sourceDir);
 
-    this.log('File sizes:\n%O', sizes);
+    ux.styledObject(sizes);
 
     const allFiles = Object.keys({ ...sizes, ...snapshotSizes }).sort((a, b) =>
       a.localeCompare(b),
