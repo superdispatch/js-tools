@@ -7,7 +7,7 @@ on:
       - '**'
 
 jobs:
-  upload-artifacts:
+  main:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test upload-artifacts') }}
     runs-on: ubuntu-latest
     steps:

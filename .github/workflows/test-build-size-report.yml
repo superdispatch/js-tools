@@ -1,4 +1,4 @@
-name: Test prune-artifacts
+name: Test build-size report
 
 on:
   pull_request:
@@ -8,9 +8,12 @@ on:
 
 jobs:
   main:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test prune-artifacts') }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size report') }}
     runs-on: ubuntu-latest
     steps:
+      - uses: styfle/cancel-workflow-action@0.4.0
+        with:
+          access_token: ${{ github.token }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
@@ -26,12 +29,13 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn workspace @superdispatch/gh-scripts build
 
-      - run: yarn gh-scripts prune-artifacts --help
+      - run: yarn gh-scripts build-size --help
+      - run: yarn gh-scripts build-size:report --help
 
-      - run: yarn gh-scripts prune-artifacts --pattern "^test-1-${{ github.event.number }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: yarn gh-scripts prune-artifacts --pattern "^test-"
+      - uses: actions/cache@v2
+        with:
+          path: packages/gh-scripts/lib/size.json
+          key: build-size-${{ github.event.pull_request.base.sha }}
+      - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

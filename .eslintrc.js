@@ -16,6 +16,15 @@ module.exports = {
     {
       files: '**/packages/**/*.js',
       extends: 'plugin:@superdispatch/node-pkg',
+      rules: {
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            peerDependencies: true,
+            optionalDependencies: true,
+          },
+        ],
+      },
     },
 
     {

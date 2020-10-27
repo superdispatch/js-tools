@@ -23,7 +23,7 @@ $ npm install -g @superdispatch/gh-scripts
 $ gh-scripts COMMAND
 running command...
 $ gh-scripts (-v|--version|version)
-@superdispatch/gh-scripts/0.2.6 darwin-x64 node-v12.18.3
+@superdispatch/gh-scripts/0.2.6 darwin-x64 node-v12.19.0
 $ gh-scripts --help [COMMAND]
 USAGE
   $ gh-scripts COMMAND
@@ -36,9 +36,44 @@ USAGE
 
 <!-- commands -->
 
+- [`gh-scripts build-size:report`](#gh-scripts-build-sizereport)
+- [`gh-scripts build-size:snapshot`](#gh-scripts-build-sizesnapshot)
 - [`gh-scripts deploy-preview`](#gh-scripts-deploy-preview)
 - [`gh-scripts help [COMMAND]`](#gh-scripts-help-command)
 - [`gh-scripts prune-artifacts`](#gh-scripts-prune-artifacts)
+
+## `gh-scripts build-size:report`
+
+Saves build size snapshot
+
+```
+USAGE
+  $ gh-scripts build-size:report
+
+OPTIONS
+  --dir=dir            (required) Specify a build folder
+  --help               show CLI help
+  --snapshot=snapshot  (required) Specify a path to the snapshot file
+  --token=token        (required) GitHub access token
+```
+
+_See code: [lib/commands/build-size/report.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/build-size/report.js)_
+
+## `gh-scripts build-size:snapshot`
+
+Saves build size snapshot
+
+```
+USAGE
+  $ gh-scripts build-size:snapshot
+
+OPTIONS
+  --dir=dir  (required) Specify a build folder
+  --help     show CLI help
+  --out=out  (required) Specify a path for the snapshot file
+```
+
+_See code: [lib/commands/build-size/snapshot.js](https://github.com/superdispatch/js-tools/blob/v0.2.6/lib/commands/build-size/snapshot.js)_
 
 ## `gh-scripts deploy-preview`
 
