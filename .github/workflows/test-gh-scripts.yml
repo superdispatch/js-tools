@@ -94,10 +94,6 @@ jobs:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v3
-        with:
-          script: console.log(process.env)
-
       - uses: actions/checkout@v2
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -127,6 +123,10 @@ jobs:
           path: packages/gh-scripts/lib/size.json
           key: build-size-${{ github.event.pull_request.base.sha }}
       - run: yarn gh-scripts build-size:snapshot --dir packages/gh-scripts/lib --out packages/gh-scripts/lib/size.json
+
+      - uses: actions/github-script@v3
+        with:
+          script: require('@superdispatch/gh-scripts').run(['build-size:snapshot', '--dir', 'packages/gh-scripts/lib', '--out', 'packages/gh-scripts/lib/size.json'])
 
   build-size-report:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size') }}
