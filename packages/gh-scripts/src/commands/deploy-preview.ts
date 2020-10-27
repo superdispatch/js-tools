@@ -1,10 +1,11 @@
 import { context, getOctokit } from '@actions/github';
 import { Command, flags } from '@oclif/command';
 import { CLIError } from '@oclif/errors';
+
+import { sendReport } from '../utils/sendReport';
 import NetlifyAPI = require('netlify');
 
-const DEPLOY_MESSAGE_TITLE = 'Preview is ready!';
-const GITHUB_ACTIONS_BOT_LOGIN = 'github-actions[bot]';
+const DEPLOY_MESSAGE_TITLE = '### Preview is ready!';
 
 export default class DeployPreview extends Command {
   static description = 'Deploy preview';
@@ -75,79 +76,27 @@ export default class DeployPreview extends Command {
     });
 
     //
-    // Step 2: Check previous deploy message
+    // Step 2: Report
     //
 
     const octokit = getOctokit(token);
     const previewURL = deploy_ssl_url || deploy_url;
-    let previousCommentID: number | undefined = undefined;
 
-    this.log('Looking for the previous deploy message…');
-
-    for await (const { data: comments } of octokit.paginate.iterator(
-      'GET /repos/:owner/:repo/issues/:issue_number/comments',
-      {
-        ...context.repo,
-        per_page: 100,
-        issue_number: pullRequestNumber,
-      },
-    )) {
-      for (const {
-        id,
-        body,
-        user: { login },
-      } of comments) {
-        if (
-          login === GITHUB_ACTIONS_BOT_LOGIN &&
-          body.startsWith(DEPLOY_MESSAGE_TITLE) &&
-          body.includes(previewURL)
-        ) {
-          if (previousCommentID == null) {
-            this.log('Found previous deploy message with ID "%s"', id);
-
-            previousCommentID = id;
-
-            break;
-          }
-        }
-      }
-    }
-
-    //
-    // Step 2: Create or update a deploy message
-    //
-
-    const deployMessage = [
+    const content = [
       DEPLOY_MESSAGE_TITLE,
       `Built with commit ${context.sha}`,
       previewURL,
     ].join('\n');
 
-    if (previousCommentID != null) {
-      this.log(
-        'Updating previous deploy message with ID "%s"…',
-        previousCommentID,
-      );
-
-      await octokit.request(
-        'PATCH /repos/:owner/:repo/issues/comments/:comment_id',
-        {
-          ...context.repo,
-          body: deployMessage,
-          comment_id: previousCommentID,
-        },
-      );
-    } else {
-      this.log('Sending new deploy message…');
-
-      await octokit.request(
-        'POST /repos/:owner/:repo/issues/:issue_number/comments',
-        {
-          ...context.repo,
-          body: deployMessage,
-          issue_number: pullRequestNumber,
-        },
-      );
-    }
+    await sendReport({
+      octokit,
+      content,
+      pullRequestNumber,
+      log: (message) => {
+        this.log(message);
+      },
+      matcher: (body) =>
+        body.startsWith(DEPLOY_MESSAGE_TITLE) && body.includes(previewURL),
+    });
   }
 }
