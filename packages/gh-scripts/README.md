@@ -32,13 +32,14 @@ USAGE
   $ gh-scripts build-size:report
 
 OPTIONS
-  --dir=dir            (required) Specify a build folder
+  --dir=dir            (required) Build folder
   --help               show CLI help
-  --snapshot=snapshot  (required) Specify a path to the snapshot file
+  --label=label        Build label
+  --snapshot=snapshot  (required) Path to the snapshot file
   --token=token        (required) GitHub access token
 ```
 
-_See code: [lib/commands/build-size/report.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/build-size/report.js)_
+_See code: [lib/commands/build-size/report.js](https://github.com/superdispatch/js-tools/blob/v0.2.10/lib/commands/build-size/report.js)_
 
 ## `gh-scripts build-size:snapshot`
 
@@ -54,7 +55,7 @@ OPTIONS
   --out=out  (required) Specify a path for the snapshot file
 ```
 
-_See code: [lib/commands/build-size/snapshot.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/build-size/snapshot.js)_
+_See code: [lib/commands/build-size/snapshot.js](https://github.com/superdispatch/js-tools/blob/v0.2.10/lib/commands/build-size/snapshot.js)_
 
 ## `gh-scripts deploy-preview`
 
@@ -65,15 +66,16 @@ USAGE
   $ gh-scripts deploy-preview
 
 OPTIONS
-  --alias=alias                Specifies the alias for deployment
-  --dir=dir                    (required) Specify a folder to deploy
+  --alias=alias                Alias for deployment
+  --dir=dir                    (required) Folder to deploy
   --help                       show CLI help
+  --label=label                Deployment label
   --netlifySite=netlifySite    (required) Netlify site ID to deploy to
   --netlifyToken=netlifyToken  (required) Netlify access token
   --token=token                (required) GitHub access token
 ```
 
-_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/deploy-preview.js)_
+_See code: [lib/commands/deploy-preview.js](https://github.com/superdispatch/js-tools/blob/v0.2.10/lib/commands/deploy-preview.js)_
 
 ## `gh-scripts help [COMMAND]`
 
@@ -106,6 +108,6 @@ OPTIONS
   --token=token      (required) GitHub access token
 ```
 
-_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.9/lib/commands/prune-artifacts.js)_
+_See code: [lib/commands/prune-artifacts.js](https://github.com/superdispatch/js-tools/blob/v0.2.10/lib/commands/prune-artifacts.js)_
 
 <!-- commandsstop -->
