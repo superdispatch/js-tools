@@ -15,9 +15,6 @@ jobs:
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v2
@@ -30,22 +27,20 @@ jobs:
       - run: yarn workspace @superdispatch/gh-scripts build
 
       - run: yarn gh-scripts deploy-preview --help
+
       - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
       - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview --alias custom-alias-${{ github.event.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview --alias custom-alias-${{ github.event.number }}
+
+      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview --label custom-label --alias custom-alias-${{ github.event.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

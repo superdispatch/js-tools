@@ -9,7 +9,7 @@ import { sendReport } from '../../utils/sendReport';
 
 import prettyBytes = require('pretty-bytes');
 
-const SIZE_REPORT_TITLE = '### Build Size Report';
+const SIZE_REPORT_TITLE = 'Build Size Report';
 
 function toFinite(value: unknown): number {
   return typeof value == 'number' && Number.isFinite(value) ? value : 0;
@@ -45,14 +45,21 @@ export default class BuildSizeSnapshot extends Command {
 
   static flags = {
     help: flags.help(),
+
     dir: flags.string({
       required: true,
-      description: 'Specify a build folder',
+      description: 'Build folder',
     }),
+
     snapshot: flags.string({
       required: true,
-      description: 'Specify a path to the snapshot file',
+      description: 'Path to the snapshot file',
     }),
+
+    label: flags.string({
+      description: 'Build label',
+    }),
+
     token: flags.string({
       required: true,
       env: 'GITHUB_TOKEN',
@@ -68,7 +75,7 @@ export default class BuildSizeSnapshot extends Command {
     }
 
     const {
-      flags: { dir, token, snapshot },
+      flags: { dir, token, label, snapshot },
     } = this.parse(BuildSizeSnapshot);
 
     const cwd = process.cwd();
@@ -118,19 +125,18 @@ export default class BuildSizeSnapshot extends Command {
 
     reports.push(`| | ${totalSize} | ${totalDelta} (${totalDiff}) |`);
 
-    const table = reports.join('\n');
-
     const octokit = getOctokit(token);
-    const content = [SIZE_REPORT_TITLE, table].join('\n');
+    const content = reports.join('\n');
 
     await sendReport({
-      octokit,
+      label,
       content,
+      octokit,
       pullRequestNumber,
+      title: SIZE_REPORT_TITLE,
       log: (message) => {
         this.log(message);
       },
-      matcher: (body) => body.startsWith(SIZE_REPORT_TITLE),
     });
   }
 }

@@ -15,9 +15,6 @@ jobs:
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v2
@@ -37,5 +34,9 @@ jobs:
           path: packages/gh-scripts/lib/size.json
           key: build-size-${{ github.event.pull_request.base.sha }}
       - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json --label custom-label
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
