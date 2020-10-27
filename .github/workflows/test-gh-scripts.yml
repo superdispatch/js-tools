@@ -11,9 +11,6 @@ jobs:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test deploy-preview') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: styfle/cancel-workflow-action@0.4.0
-        with:
-          access_token: ${{ github.token }}
       - uses: actions/checkout@v2
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -97,9 +94,6 @@ jobs:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: styfle/cancel-workflow-action@0.4.0
-        with:
-          access_token: ${{ github.token }}
       - uses: actions/checkout@v2
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -127,9 +121,6 @@ jobs:
       - build-size-snapshot
     runs-on: ubuntu-latest
     steps:
-      - uses: styfle/cancel-workflow-action@0.4.0
-        with:
-          access_token: ${{ github.token }}
       - uses: actions/checkout@v2
       - id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
