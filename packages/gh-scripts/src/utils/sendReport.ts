@@ -3,21 +3,24 @@ import { context, getOctokit } from '@actions/github';
 const GITHUB_ACTIONS_BOT_LOGIN = 'github-actions[bot]';
 
 interface UpsertCommentOptions {
+  label?: string;
+  title: string;
   content: string;
   octokit: ReturnType<typeof getOctokit>;
   pullRequestNumber: number;
-  matcher: (body: string) => boolean;
   log?: (message: string) => void;
 }
 
 export async function sendReport({
   log,
+  label,
+  title,
   content,
-  matcher,
   octokit,
   pullRequestNumber,
 }: UpsertCommentOptions): Promise<void> {
   let previousCommentID: number | undefined = undefined;
+  const reportTitle = `### ${!label ? title : `${title} (${label})`}\n`;
 
   log?.('Looking for the previous report…');
 
@@ -34,7 +37,7 @@ export async function sendReport({
       body,
       user: { login },
     } of comments) {
-      if (login === GITHUB_ACTIONS_BOT_LOGIN && matcher(body)) {
+      if (login === GITHUB_ACTIONS_BOT_LOGIN && body.startsWith(reportTitle)) {
         if (previousCommentID == null) {
           log?.(`Found previous report with ID "${id}"`);
 
@@ -46,27 +49,21 @@ export async function sendReport({
     }
   }
 
+  const body = reportTitle + content;
+
   if (previousCommentID != null) {
     log?.(`Updating previous report with ID "${previousCommentID}"…`);
 
     await octokit.request(
       'PATCH /repos/:owner/:repo/issues/comments/:comment_id',
-      {
-        ...context.repo,
-        body: content,
-        comment_id: previousCommentID,
-      },
+      { ...context.repo, body, comment_id: previousCommentID },
     );
   } else {
     log?.('Sending new report…');
 
     await octokit.request(
       'POST /repos/:owner/:repo/issues/:issue_number/comments',
-      {
-        ...context.repo,
-        body: content,
-        issue_number: pullRequestNumber,
-      },
+      { ...context.repo, body, issue_number: pullRequestNumber },
     );
   }
 }

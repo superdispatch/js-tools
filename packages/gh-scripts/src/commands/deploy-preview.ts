@@ -5,7 +5,7 @@ import { CLIError } from '@oclif/errors';
 import { sendReport } from '../utils/sendReport';
 import NetlifyAPI = require('netlify');
 
-const DEPLOY_MESSAGE_TITLE = '### Preview is ready!';
+const DEPLOY_MESSAGE_TITLE = 'Preview is ready!';
 
 export default class DeployPreview extends Command {
   static description = 'Deploy preview';
@@ -15,11 +15,15 @@ export default class DeployPreview extends Command {
 
     dir: flags.string({
       required: true,
-      description: 'Specify a folder to deploy',
+      description: 'Folder to deploy',
     }),
 
     alias: flags.string({
-      description: 'Specifies the alias for deployment',
+      description: 'Alias for deployment',
+    }),
+
+    label: flags.string({
+      description: 'Deployment label',
     }),
 
     token: flags.string({
@@ -41,8 +45,6 @@ export default class DeployPreview extends Command {
     }),
   };
 
-  static args = [];
-
   async run() {
     const pullRequestNumber = context.payload.pull_request?.number;
 
@@ -54,6 +56,7 @@ export default class DeployPreview extends Command {
       flags: {
         dir,
         token,
+        label,
         netlifySite,
         netlifyToken,
         alias = `preview-${pullRequestNumber}`,
@@ -81,22 +84,17 @@ export default class DeployPreview extends Command {
 
     const octokit = getOctokit(token);
     const previewURL = deploy_ssl_url || deploy_url;
-
-    const content = [
-      DEPLOY_MESSAGE_TITLE,
-      `Built with commit ${context.sha}`,
-      previewURL,
-    ].join('\n');
+    const content = [`Built with commit ${context.sha}`, previewURL].join('\n');
 
     await sendReport({
+      label,
       octokit,
       content,
       pullRequestNumber,
+      title: DEPLOY_MESSAGE_TITLE,
       log: (message) => {
         this.log(message);
       },
-      matcher: (body) =>
-        body.startsWith(DEPLOY_MESSAGE_TITLE) && body.includes(previewURL),
     });
   }
 }
