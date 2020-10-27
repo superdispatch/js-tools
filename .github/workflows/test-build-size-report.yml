@@ -39,3 +39,7 @@ jobs:
       - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json --label custom-label
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
