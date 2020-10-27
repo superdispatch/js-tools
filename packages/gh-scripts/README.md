@@ -10,27 +10,8 @@ Node scripts for GitHub actions
 <!-- toc -->
 
 - [gh-scripts](#gh-scripts)
-- [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
-
-# Usage
-
-<!-- usage -->
-
-```sh-session
-$ npm install -g @superdispatch/gh-scripts
-$ gh-scripts COMMAND
-running command...
-$ gh-scripts (-v|--version|version)
-@superdispatch/gh-scripts/0.2.6 darwin-x64 node-v12.19.0
-$ gh-scripts --help [COMMAND]
-USAGE
-  $ gh-scripts COMMAND
-...
-```
-
-<!-- usagestop -->
 
 # Commands
 
