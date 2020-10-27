@@ -22,9 +22,9 @@
   ],
   "scripts": {
     "build": "rm -rf lib && tsc -b",
-    "prepack": "yarn oclif-dev manifest",
+    "prepack": "oclif-dev manifest",
     "postpack": "rm -f oclif.manifest.json",
-    "version": "yarn oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md"
   },
   "dependencies": {
     "@actions/github": "^4.0.0",
@@ -36,7 +36,9 @@
     "react-dev-utils": "^11.0.0",
     "tslib": "^2.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2"
+  },
   "engines": {
     "node": ">=10.0.0"
   },
