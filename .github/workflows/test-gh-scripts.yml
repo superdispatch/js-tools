@@ -109,6 +109,15 @@ jobs:
       - run: yarn gh-scripts build-size --help
       - run: yarn gh-scripts build-size:snapshot --help
 
+      - run: echo $ACTIONS_CACHE_URL
+      - run: echo $ACTIONS_RUNTIME_URL
+      - run: echo $ENV_CONTEXT
+        env:
+          ENV_CONTEXT: ${{ toJson(env) }}
+      - run: echo $GITHUB_CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
       - uses: actions/cache@v2
         with:
           path: packages/gh-scripts/lib/size.json
