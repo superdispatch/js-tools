@@ -7,7 +7,7 @@ import { measureFileSizesBeforeBuild } from 'react-dev-utils/FileSizeReporter';
 
 import { sendReport } from '../../utils/sendReport';
 
-import prettyBytes = require('pretty-bytes');
+import filesize = require('filesize');
 
 const SIZE_REPORT_TITLE = 'Build Size Report';
 
@@ -19,12 +19,16 @@ function formatRow(
   currentSize: number,
   previousSize: number,
 ): [size: string, delta: string, diff: string] {
-  const formattedSize = prettyBytes(currentSize);
+  const formattedSize = filesize(currentSize);
 
-  const delta = currentSize - previousSize;
-  const formattedDelta = prettyBytes(delta, {
-    signed: true,
-  });
+  let delta = currentSize - previousSize;
+
+  // Reduce noise from the insignificant changes.
+  if (Math.abs(delta) < 512) {
+    delta = 0;
+  }
+
+  let formattedDelta = filesize(delta);
 
   const diff = delta / currentSize;
   let formattedDiff = diff.toLocaleString('en-us', {
@@ -33,6 +37,7 @@ function formatRow(
 
   if (diff > 0) {
     formattedDiff = `+${formattedDiff} 🔺`;
+    formattedDelta = `+${formattedDelta}`;
   } else if (diff < 0) {
     formattedDiff = `${formattedDiff} 🔽`;
   }

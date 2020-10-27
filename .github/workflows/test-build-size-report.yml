@@ -33,6 +33,8 @@ jobs:
         with:
           path: packages/gh-scripts/lib/size.json
           key: build-size-${{ github.event.pull_request.base.sha }}
+          restore-keys: |
+            build-size-
       - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
