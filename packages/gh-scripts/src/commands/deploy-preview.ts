@@ -84,18 +84,14 @@ export default class DeployPreview extends Command {
 
     const octokit = getOctokit(token);
     const previewURL = deploy_ssl_url || deploy_url;
-
-    const title = !label
-      ? DEPLOY_MESSAGE_TITLE
-      : `${DEPLOY_MESSAGE_TITLE} (${label})`;
-
     const content = [`Built with commit ${context.sha}`, previewURL].join('\n');
 
     await sendReport({
-      title,
+      label,
       octokit,
       content,
       pullRequestNumber,
+      title: DEPLOY_MESSAGE_TITLE,
       log: (message) => {
         this.log(message);
       },

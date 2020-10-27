@@ -3,6 +3,7 @@ import { context, getOctokit } from '@actions/github';
 const GITHUB_ACTIONS_BOT_LOGIN = 'github-actions[bot]';
 
 interface UpsertCommentOptions {
+  label?: string;
   title: string;
   content: string;
   octokit: ReturnType<typeof getOctokit>;
@@ -12,12 +13,14 @@ interface UpsertCommentOptions {
 
 export async function sendReport({
   log,
+  label,
   title,
   content,
   octokit,
   pullRequestNumber,
 }: UpsertCommentOptions): Promise<void> {
   let previousCommentID: number | undefined = undefined;
+  const reportTitle = `### ${!label ? title : `${title} (${label})`}\n`;
 
   log?.('Looking for the previous report…');
 
@@ -34,7 +37,7 @@ export async function sendReport({
       body,
       user: { login },
     } of comments) {
-      if (login === GITHUB_ACTIONS_BOT_LOGIN && body.startsWith(title)) {
+      if (login === GITHUB_ACTIONS_BOT_LOGIN && body.startsWith(reportTitle)) {
         if (previousCommentID == null) {
           log?.(`Found previous report with ID "${id}"`);
 
@@ -46,7 +49,7 @@ export async function sendReport({
     }
   }
 
-  const body = `### ${title}\n${content}`;
+  const body = reportTitle + content;
 
   if (previousCommentID != null) {
     log?.(`Updating previous report with ID "${previousCommentID}"…`);

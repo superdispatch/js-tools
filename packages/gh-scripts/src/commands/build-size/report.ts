@@ -126,16 +126,14 @@ export default class BuildSizeSnapshot extends Command {
     reports.push(`| | ${totalSize} | ${totalDelta} (${totalDiff}) |`);
 
     const octokit = getOctokit(token);
-    const title = !label
-      ? SIZE_REPORT_TITLE
-      : `${SIZE_REPORT_TITLE} (${label})`;
     const content = reports.join('\n');
 
     await sendReport({
-      title,
+      label,
       content,
       octokit,
       pullRequestNumber,
+      title: SIZE_REPORT_TITLE,
       log: (message) => {
         this.log(message);
       },
