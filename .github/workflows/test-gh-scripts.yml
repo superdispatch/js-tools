@@ -1,0 +1,151 @@
+name: Test GH Scripts
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+    branches:
+      - '**'
+
+jobs:
+  deploy-preview:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test deploy-preview') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn workspace @superdispatch/gh-scripts build
+
+      - run: yarn gh-scripts deploy-preview --help
+
+      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - run: yarn gh-scripts deploy-preview --dir packages/gh-scripts/__fixtures__/deploy-preview --label custom-label --alias custom-alias-${{ github.event.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+  upload-artifacts:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test upload-artifacts') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-1-${{ github.event.number }}
+          path: package.json
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-2-${{ github.event.number }}
+          path: package.json
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-3-${{ github.event.number }}
+          path: package.json
+
+  prune-artifacts:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test prune-artifacts') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn workspace @superdispatch/gh-scripts build
+
+      - run: yarn gh-scripts prune-artifacts --help
+
+      - run: yarn gh-scripts prune-artifacts --pattern "^test-1-${{ github.event.number }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts prune-artifacts --pattern "^test-"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-size-snapshot:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn workspace @superdispatch/gh-scripts build
+
+      - run: yarn gh-scripts build-size --help
+      - run: yarn gh-scripts build-size:snapshot --help
+
+      - uses: actions/cache@v2
+        with:
+          path: packages/gh-scripts/lib/size.json
+          key: build-size-${{ github.event.pull_request.base.sha }}
+      - run: yarn gh-scripts build-size:snapshot --dir packages/gh-scripts/lib --out packages/gh-scripts/lib/size.json
+
+  build-size-report:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size') }}
+    needs:
+      - build-size-snapshot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn workspace @superdispatch/gh-scripts build
+
+      - run: yarn gh-scripts build-size --help
+      - run: yarn gh-scripts build-size:report --help
+
+      - uses: actions/cache@v2
+        with:
+          path: packages/gh-scripts/lib/size.json
+          key: build-size-${{ github.event.pull_request.base.sha }}
+          restore-keys: |
+            build-size-
+      - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: yarn gh-scripts build-size:report --dir packages/gh-scripts/lib --snapshot packages/gh-scripts/lib/size.json --label custom-label
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
