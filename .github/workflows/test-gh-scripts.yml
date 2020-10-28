@@ -118,15 +118,16 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      - uses: actions/cache@v2
+      - uses: superdispatch/js-tools/.github/actions/build-size@cache-test
         with:
-          path: packages/gh-scripts/lib/size.json
-          key: build-size-${{ github.event.pull_request.base.sha }}
-      - run: yarn gh-scripts build-size:snapshot --dir packages/gh-scripts/lib --out packages/gh-scripts/lib/size.json
+          step: snapshot
+          dir: packages/gh-scripts/lib
 
-      - uses: actions/github-script@v3
+      - uses: superdispatch/js-tools/.github/actions/build-size@cache-test
         with:
-          script: require('@superdispatch/gh-scripts').run(['build-size:snapshot', '--dir', 'packages/gh-scripts/lib', '--out', 'packages/gh-scripts/lib/size.json'])
+          step: snapshot
+          label: custom-label
+          dir: packages/gh-scripts/lib
 
   build-size-report:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'Test build-size') }}

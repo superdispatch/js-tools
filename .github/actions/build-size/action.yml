@@ -1,0 +1,20 @@
+name: 'Your name here'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+inputs:
+  step:
+    required: true
+    description: 'snapshot or report'
+  dir:
+    required: true
+    description: 'path to the build folder'
+  label:
+    required: false
+    description: 'custom label to distinguish multiple builds'
+  token:
+    required: true
+    description: 'github token'
+    default: '${{ github.token }}'
+runs:
+  using: 'node12'
+  main: 'index.js'
