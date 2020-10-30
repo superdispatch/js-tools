@@ -23,11 +23,8 @@ const restrictedGlobals = new Map(
  * @param {string} path
  * */
 function addExtends(config, path) {
-  if (!config.extends) {
-    config.extends = [];
-  } else if (!Array.isArray(config.extends)) {
-    config.extends = [config.extends];
-  }
+  if (!config.extends) config.extends = [];
+  else if (!Array.isArray(config.extends)) config.extends = [config.extends];
 
   config.extends.push(path);
 }
@@ -37,9 +34,7 @@ function addExtends(config, path) {
  * @param {string} plugin
  * */
 function addPlugin(config, plugin) {
-  if (!config.plugins) {
-    config.plugins = [];
-  }
+  if (!config.plugins) config.plugins = [];
 
   config.plugins.push(plugin);
 }
@@ -75,7 +70,7 @@ function createBaseConfig() {
        *
        * @see https://eslint.org/docs/rules/curly
        */
-      curly: ['error', 'all'],
+      curly: ['error', 'multi-line', 'consistent'],
 
       /**
        * Enforce dot notation whenever possible.
