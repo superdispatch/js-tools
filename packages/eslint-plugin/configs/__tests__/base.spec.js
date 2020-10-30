@@ -102,7 +102,8 @@ it('extends dependencies', async () => {
       ],
       "curly": Array [
         "error",
-        "all",
+        "multi",
+        "consistent",
       ],
       "dot-location": Array [
         "off",
