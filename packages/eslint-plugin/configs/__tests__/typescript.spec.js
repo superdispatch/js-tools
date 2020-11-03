@@ -298,6 +298,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/space-before-function-paren": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/space-infix-ops": Array [
+    +     "off",
+    +   ],
     +   "@typescript-eslint/triple-slash-reference": Array [
     +     "error",
     +   ],
@@ -342,11 +345,11 @@ it('extends dependencies', async () => {
     +     "off",
         ],
     @@ --- --- @@
-          "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
+        "no-arrow-condition": Array [
     @@ --- --- @@
         "no-const-assign": Array [
     -     "error",
