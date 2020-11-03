@@ -18,7 +18,7 @@ function createError(message) {
  * @typedef {Object} PresetOptions
  * @property {string | null} [targets]
  * @property {boolean} [loose]
- * @property {boolean} [jsx]
+ * @property {boolean | string} [jsx]
  * @property {boolean} [typescript]
  * @property {{ react?: boolean, runtime?: boolean, pureCalls?: boolean, devExpressions?: boolean }} [optimize]
  * */
@@ -55,12 +55,6 @@ module.exports = (
     );
   }
 
-  if (!isTest && !isProduction && !isDevelopment) {
-    throw new Error(
-      'Unknown "env", expected one of: "test", "production", "development".',
-    );
-  }
-
   const unknownOptionKeys = Object.keys(unknownOptions);
 
   if (unknownOptionKeys.length > 0) {
@@ -77,8 +71,19 @@ module.exports = (
 
   if (targets && typeof targets !== 'string') {
     throw new Error(
-      `Invalid "targets", expected "string", but got: ${JSON.stringify(
+      `Invalid "targets" option, expected "string", but got: ${JSON.stringify(
         targets,
+      )}`,
+    );
+  }
+
+  if (
+    typeof transpileJSX != 'boolean' &&
+    transpileJSX !== 'automatic-runtime'
+  ) {
+    throw new Error(
+      `Invalid "jsx" option, expected "boolean" or "automatic-runtime", but got: ${JSON.stringify(
+        transpileJSX,
       )}`,
     );
   }
@@ -168,11 +173,23 @@ module.exports = (
         useBuiltIns: true,
 
         /**
+         * When spreading props, use inline object with spread elements
+         * directly instead of Babel's extend helper or `Object.assign`.
+         */
+        useSpread: true,
+
+        /**
          * Toggles plugins that aid in development, such as
          * `@babel/plugin-transform-react-jsx-self` and
          * `@babel/plugin-transform-react-jsx-source`.
          */
         development: isTest || isDevelopment,
+
+        /**
+         * `"automatic"` auto imports the functions that JSX transpiles to.
+         * `"classic"` does not automatic import anything.
+         */
+        runtime: transpileJSX === 'automatic-runtime' ? 'automatic' : 'classic',
       },
     ]);
   }

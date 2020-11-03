@@ -44,7 +44,7 @@ expect.addSnapshotSerializer({
     serialize(String(value).replace(cwd, '<rootDir>')),
 });
 
-it('exposes default settings', () => {
+test('details', () => {
   const defaultPreset = getConfig(undefined);
 
   expect(defaultPreset).toMatchInlineSnapshot(`
@@ -96,7 +96,9 @@ it('exposes default settings', () => {
           "@babel/preset-react",
           Object {
             "development": false,
+            "runtime": "classic",
             "useBuiltIns": true,
+            "useSpread": true,
           },
         ],
         "@babel/preset-typescript",
@@ -131,8 +133,8 @@ it('exposes default settings', () => {
             Object {
     -         "development": false,
     +         "development": true,
+              "runtime": "classic",
               "useBuiltIns": true,
-            },
   `);
 
   expect(diff(defaultPreset, getConfig('production'))).toMatchInlineSnapshot(`
@@ -150,12 +152,12 @@ it('exposes default settings', () => {
             Object {
     -         "development": false,
     +         "development": true,
+              "runtime": "classic",
               "useBuiltIns": true,
-            },
   `);
 });
 
-it('configures `options.jsx`', () => {
+test('options.jsx', () => {
   expect(
     diff(getConfig('development'), getConfig('development', { jsx: false })),
   ).toMatchInlineSnapshot(`
@@ -170,7 +172,9 @@ it('configures `options.jsx`', () => {
     -       "@babel/preset-react",
     -       Object {
     -         "development": true,
+    -         "runtime": "classic",
     -         "useBuiltIns": true,
+    -         "useSpread": true,
     -       },
     -     ],
           "@babel/preset-typescript",
@@ -190,7 +194,9 @@ it('configures `options.jsx`', () => {
     -       "@babel/preset-react",
     -       Object {
     -         "development": false,
+    -         "runtime": "classic",
     -         "useBuiltIns": true,
+    -         "useSpread": true,
     -       },
     -     ],
           "@babel/preset-typescript",
@@ -210,15 +216,71 @@ it('configures `options.jsx`', () => {
     -       "@babel/preset-react",
     -       Object {
     -         "development": true,
+    -         "runtime": "classic",
     -         "useBuiltIns": true,
+    -         "useSpread": true,
     -       },
     -     ],
           "@babel/preset-typescript",
         ],
   `);
+
+  expect(
+    diff(
+      getConfig('development'),
+      getConfig('development', { jsx: 'automatic-runtime' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            Object {
+              "development": true,
+    -         "runtime": "classic",
+    +         "runtime": "automatic",
+              "useBuiltIns": true,
+              "useSpread": true,
+  `);
+
+  expect(
+    diff(
+      getConfig('production'),
+      getConfig('production', { jsx: 'automatic-runtime' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            Object {
+              "development": false,
+    -         "runtime": "classic",
+    +         "runtime": "automatic",
+              "useBuiltIns": true,
+              "useSpread": true,
+  `);
+
+  expect(
+    diff(getConfig('test'), getConfig('test', { jsx: 'automatic-runtime' })),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+            Object {
+              "development": true,
+    -         "runtime": "classic",
+    +         "runtime": "automatic",
+              "useBuiltIns": true,
+              "useSpread": true,
+  `);
 });
 
-it('configures `options.typescript`', () => {
+test('options.typescript', () => {
   expect(
     diff(
       getConfig('development'),
@@ -321,7 +383,7 @@ it('configures `options.typescript`', () => {
   `);
 });
 
-it('configures `options.optimize.react`', () => {
+test('options.optimize.react', () => {
   expect(
     diff(
       getConfig('development'),
@@ -389,7 +451,7 @@ it('configures `options.optimize.react`', () => {
   `);
 });
 
-it('configures `options.optimize.runtime`', () => {
+test('options.optimize.runtime', () => {
   expect(
     diff(
       getConfig('development'),
@@ -463,7 +525,7 @@ it('configures `options.optimize.runtime`', () => {
   `);
 });
 
-it('configures `options.optimize.pureCalls`', () => {
+test('options.optimize.pureCalls', () => {
   expect(
     diff(
       getConfig('development'),
@@ -519,7 +581,7 @@ it('configures `options.optimize.pureCalls`', () => {
   `);
 });
 
-it('configures `options.optimize.devExpressions`', () => {
+test('options.optimize.devExpressions', () => {
   expect(
     diff(
       getConfig('development'),
