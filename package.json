@@ -13,7 +13,7 @@
     "prerelease": "yarn install --frozen-lockfile && yarn tsc && yarn lint && yarn test",
     "release": "lerna publish",
     "tdd": "jest --watch",
-    "test": "jest --coverage"
+    "test": "jest --coverage --forceExit"
   },
   "husky": {
     "hooks": {
