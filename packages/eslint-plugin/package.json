@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/eslint-plugin",
-  "version": "0.2.9",
+  "version": "0.2.12",
   "description": "Shared ESLint plugin",
   "keywords": [
     "eslint"
