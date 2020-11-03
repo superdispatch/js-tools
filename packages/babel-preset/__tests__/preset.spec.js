@@ -228,7 +228,7 @@ test('options.jsx', () => {
   expect(
     diff(
       getConfig('development'),
-      getConfig('development', { jsx: 'automatic-runtime' }),
+      getConfig('development', { jsx: 'runtime' }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -245,10 +245,7 @@ test('options.jsx', () => {
   `);
 
   expect(
-    diff(
-      getConfig('production'),
-      getConfig('production', { jsx: 'automatic-runtime' }),
-    ),
+    diff(getConfig('production'), getConfig('production', { jsx: 'runtime' })),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -263,9 +260,8 @@ test('options.jsx', () => {
               "useSpread": true,
   `);
 
-  expect(
-    diff(getConfig('test'), getConfig('test', { jsx: 'automatic-runtime' })),
-  ).toMatchInlineSnapshot(`
+  expect(diff(getConfig('test'), getConfig('test', { jsx: 'runtime' })))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value

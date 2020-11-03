@@ -77,12 +77,9 @@ module.exports = (
     );
   }
 
-  if (
-    typeof transpileJSX != 'boolean' &&
-    transpileJSX !== 'automatic-runtime'
-  ) {
+  if (typeof transpileJSX != 'boolean' && transpileJSX !== 'runtime') {
     throw new Error(
-      `Invalid "jsx" option, expected "boolean" or "automatic-runtime", but got: ${JSON.stringify(
+      `Invalid "jsx" option, expected "boolean" or "runtime", but got: ${JSON.stringify(
         transpileJSX,
       )}`,
     );
@@ -189,7 +186,7 @@ module.exports = (
          * `"automatic"` auto imports the functions that JSX transpiles to.
          * `"classic"` does not automatic import anything.
          */
-        runtime: transpileJSX === 'automatic-runtime' ? 'automatic' : 'classic',
+        runtime: transpileJSX === 'runtime' ? 'automatic' : 'classic',
       },
     ]);
   }
