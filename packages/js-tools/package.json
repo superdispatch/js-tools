@@ -24,8 +24,8 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "peerDependencies": {
-    "eslint": "6.x - 7.x",
-    "prettier": "1.x - 2.x"
+    "eslint": "7.x",
+    "prettier": "2.x"
   },
   "engines": {
     "node": ">=10.0.0"
