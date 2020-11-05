@@ -5,119 +5,7 @@ const path = require('path');
 const execa = require('execa');
 
 const yarnLockFileName = 'yarn.lock';
-const eslintExtensions = [
-  //
-  // JavaScript
-  '.js',
-  '._js',
-  '.bones',
-  '.es',
-  '.es6',
-  '.frag',
-  '.gs',
-  '.jake',
-  '.jsb',
-  '.jscad',
-  '.jsfl',
-  '.jsm',
-  '.jss',
-  '.mjs',
-  '.njs',
-  '.pac',
-  '.sjs',
-  '.ssjs',
-  '.xsjs',
-  '.xsjslib',
-  //
-  // JSX
-  '.jsx',
-
-  //
-  // TypeScript
-  '.ts',
-  '.tsx',
-];
-
-const prettierExtensions = [
-  ...eslintExtensions,
-
-  //
-  // CSS
-  '.css',
-  //
-  // PostCSS
-  '.pcss',
-  //
-  // Less
-  '.less',
-  //
-  // SCSS
-  '.scss',
-  //
-  // GraphQL
-  '.graphql',
-  '.gql',
-  //
-  // Handlebars
-  '.handlebars',
-  '.hbs',
-  //
-  // HTML
-  '.html',
-  '.htm',
-  '.html.hl',
-  '.inc',
-  '.st',
-  '.xht',
-  '.xhtml',
-  //
-  // Vue
-  '.vue',
-  //
-  // JSON
-  '.json',
-  '.avsc',
-  '.geojson',
-  '.gltf',
-  '.JSON-tmLanguage',
-  '.jsonl',
-  '.tfstate',
-  '.tfstate.backup',
-  '.topojson',
-  '.webapp',
-  '.webmanifest',
-  //
-  // JSON5
-  '.json5',
-  //
-  // Flow
-  '.js.flow',
-  //
-  // Markdown
-  '.md',
-  '.markdown',
-  '.mdown',
-  '.mdwn',
-  '.mkd',
-  '.mkdn',
-  '.mkdown',
-  '.ronn',
-  '.workbook',
-  //
-  // MDX,
-  '.mdx',
-  //
-  // YAML
-  '.yml',
-  '.mir',
-  '.reek',
-  '.rviz',
-  '.sublime-syntax',
-  '.syntax',
-  '.yaml',
-  '.yaml-tmlanguage',
-  '.yml.mysql',
-];
+const esExtensions = ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.tsx'];
 
 /**
  * @param {string} cmd
@@ -147,9 +35,9 @@ module.exports = async ({ fix, files, quiet, tools }) => {
   const skipYarnDeduplicate =
     tools != null && !tools.includes('yarn-deduplicate');
 
-  const eslintArgs = [];
+  const eslintArgs = ['--ext', esExtensions.join(',')];
   const eslintFiles = [];
-  const prettierArgs = [];
+  const prettierArgs = ['--ignore-unknown'];
   const prettierFiles = [];
   const yarnDeduplicateFiles = [];
   const yarnDeduplicateArgs = [];
@@ -158,7 +46,7 @@ module.exports = async ({ fix, files, quiet, tools }) => {
     eslintArgs.push('--fix');
     prettierArgs.push('--write');
   } else {
-    prettierArgs.push('--list-different');
+    prettierArgs.push('--check');
     yarnDeduplicateArgs.push('--list', '--fail');
   }
 
@@ -167,30 +55,28 @@ module.exports = async ({ fix, files, quiet, tools }) => {
   }
 
   if (files.length === 0) {
-    eslintFiles.push(`**/*{${eslintExtensions.join(',')}}`);
-    prettierFiles.push(`**/*{${prettierExtensions.join(',')}}`);
+    eslintFiles.push('.');
+    prettierFiles.push('.');
 
     // Check yarn.lock file in root
     if (fs.existsSync(yarnLockFileName)) {
       yarnDeduplicateFiles.push(yarnLockFileName);
     }
   } else {
-    files.forEach((file) => {
+    for (const file of files) {
       const ext = path.extname(file);
       const basename = path.basename(file);
 
-      if (eslintExtensions.includes(ext)) {
-        eslintFiles.push(file);
-      }
+      prettierFiles.push(file);
 
-      if (prettierExtensions.includes(ext)) {
-        prettierFiles.push(file);
+      if (esExtensions.includes(ext)) {
+        eslintFiles.push(file);
       }
 
       if (basename === yarnLockFileName) {
         yarnDeduplicateFiles.push(file);
       }
-    });
+    }
   }
 
   if (!skipYarnDeduplicate && yarnDeduplicateFiles.length > 0) {
