@@ -46,11 +46,7 @@ it('extends dependencies', async () => {
         "error",
       ],
       "import/no-extraneous-dependencies": Array [
-        "error",
-        Object {
-          "devDependencies": true,
-          "peerDependencies": true,
-        },
+        "off",
       ],
       "jest/expect-expect": Array [
         "off",
@@ -208,6 +204,13 @@ it('extends dependencies', async () => {
           "message": "Deprecated method. Throws an error instead. Fixing requires updating all query* to find* queries. see https://github.com/testing-library/cypress-testing-library/pull/130",
           "object": "cy",
           "property": "queryAllByTitle",
+        },
+      ],
+      "quotes": Array [
+        "error",
+        "single",
+        Object {
+          "allowTemplateLiterals": true,
         },
       ],
       "testing-library/await-async-query": Array [

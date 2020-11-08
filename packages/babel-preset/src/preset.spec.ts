@@ -139,6 +139,12 @@ test('basic', () => {
   `);
 });
 
+test('errors', () => {
+  expect(() => createPreset('noop')).toThrowErrorMatchingInlineSnapshot(
+    `"Unknown \\"env\\", expected one of: \\"test\\", \\"production\\", \\"development\\" but got \\"noop\\"."`,
+  );
+});
+
 test('options.jsx', () => {
   expect(
     presetDiff(

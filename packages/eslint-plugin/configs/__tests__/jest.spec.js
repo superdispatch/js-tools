@@ -24,11 +24,7 @@ it('extends dependencies', async () => {
   expect(rules).toMatchInlineSnapshot(`
     Object {
       "import/no-extraneous-dependencies": Array [
-        "error",
-        Object {
-          "devDependencies": true,
-          "peerDependencies": true,
-        },
+        "off",
       ],
       "jest/expect-expect": Array [
         "error",
@@ -104,6 +100,13 @@ it('extends dependencies', async () => {
       ],
       "jest/valid-title": Array [
         "error",
+      ],
+      "quotes": Array [
+        "error",
+        "single",
+        Object {
+          "allowTemplateLiterals": true,
+        },
       ],
       "testing-library/await-async-query": Array [
         "error",
