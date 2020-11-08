@@ -8,7 +8,6 @@
 
 const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
-const stripANSI = require('strip-ansi');
 
 const plugin = require('../../index');
 
@@ -43,13 +42,11 @@ async function getFullConfig(name, fileName = 'config/foo.js', parserOptions) {
  * @param {unknown} b
  */
 function diff(a, b) {
-  return stripANSI(
-    snapshotDiff(a, b, {
-      colors: false,
-      contextLines: 1,
-      stablePatchmarks: true,
-    }),
-  );
+  return snapshotDiff(a, b, {
+    colors: false,
+    contextLines: 1,
+    stablePatchmarks: true,
+  });
 }
 
 /**

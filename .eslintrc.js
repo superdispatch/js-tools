@@ -37,12 +37,11 @@ module.exports = {
     {
       files: ['**/__tests__/**/*.js', '**/__testutils__/**/*.js'],
       extends: 'plugin:@superdispatch/jest',
-      rules: {
-        'import/no-extraneous-dependencies': [
-          'error',
-          { packageDir: __dirname },
-        ],
-      },
+    },
+
+    {
+      files: ['**/*.spec.ts'],
+      extends: 'plugin:@superdispatch/ts-jest',
     },
   ],
 };

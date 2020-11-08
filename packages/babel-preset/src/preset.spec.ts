@@ -1,51 +1,30 @@
-'use strict';
+import snapshotDiff from 'snapshot-diff';
 
-const snapshotDiff = require('snapshot-diff');
-const stripANSI = require('strip-ansi');
+import preset, { PresetOptions } from './preset';
 
-const preset = require('../index');
-
-/**
- * @param {any} a
- * @param {any} b
- */
-function diff(a, b) {
-  return stripANSI(
-    snapshotDiff(a, b, { contextLines: 2, stablePatchmarks: true }),
-  );
+function presetDiff(before: unknown, after: unknown) {
+  return snapshotDiff(before, after, {
+    contextLines: 2,
+    stablePatchmarks: true,
+  });
 }
 
-/**
- * @param {string | undefined} env
- * @param {import("../index").PresetOptions | undefined} [options]
- */
-function getConfig(env, options) {
-  const { NODE_ENV } = process.env;
-
+function createPreset(env?: string, options?: PresetOptions) {
   if (env) {
     process.env.NODE_ENV = env;
   } else {
     delete process.env.NODE_ENV;
   }
 
-  // @ts-ignore
   const config = preset({}, options);
 
-  process.env.NODE_ENV = NODE_ENV;
+  process.env.NODE_ENV = 'test';
 
   return config;
 }
 
-const cwd = process.cwd();
-
-expect.addSnapshotSerializer({
-  test: (value) => typeof value === 'string' && value.includes(cwd),
-  print: (value, serialize) =>
-    serialize(String(value).replace(cwd, '<rootDir>')),
-});
-
-test('details', () => {
-  const defaultPreset = getConfig(undefined);
+test('basic', () => {
+  const defaultPreset = createPreset();
 
   expect(defaultPreset).toMatchInlineSnapshot(`
     Object {
@@ -106,7 +85,8 @@ test('details', () => {
     }
   `);
 
-  expect(diff(defaultPreset, getConfig('test'))).toMatchInlineSnapshot(`
+  expect(presetDiff(defaultPreset, createPreset('test')))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -137,12 +117,14 @@ test('details', () => {
               "useBuiltIns": true,
   `);
 
-  expect(diff(defaultPreset, getConfig('production'))).toMatchInlineSnapshot(`
+  expect(presetDiff(defaultPreset, createPreset('production')))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     Compared values have no visual difference.
   `);
 
-  expect(diff(defaultPreset, getConfig('development'))).toMatchInlineSnapshot(`
+  expect(presetDiff(defaultPreset, createPreset('development')))
+    .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -157,9 +139,55 @@ test('details', () => {
   `);
 });
 
+test('errors', () => {
+  expect(() => createPreset('noop')).toThrowErrorMatchingInlineSnapshot(
+    `"Unknown \\"env\\", expected one of: \\"test\\", \\"production\\", \\"development\\" but got \\"noop\\"."`,
+  );
+
+  expect(() =>
+    createPreset(undefined, {
+      // @ts-expect-error unknown options
+      foo: 1,
+      bar: 2,
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Unknown options: [\\"foo\\",\\"bar\\"]"`,
+  );
+
+  expect(() =>
+    createPreset(undefined, {
+      optimize: {
+        // @ts-expect-error unknown options
+        foo: 1,
+        bar: 2,
+      },
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Unknown optimization options: [\\"foo\\",\\"bar\\"]"`,
+  );
+
+  expect(() =>
+    createPreset(undefined, {
+      // @ts-expect-error invalid target
+      targets: { esmodules: true },
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Invalid \\"targets\\" option, expected \\"string\\", but got: {\\"esmodules\\":true}"`,
+  );
+
+  expect(() =>
+    createPreset(undefined, { jsx: 'noop' }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Invalid \\"jsx\\" option, expected \\"boolean\\" or \\"runtime\\", but got: \\"noop\\""`,
+  );
+});
+
 test('options.jsx', () => {
   expect(
-    diff(getConfig('development'), getConfig('development', { jsx: false })),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { jsx: false }),
+    ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -181,8 +209,12 @@ test('options.jsx', () => {
         ],
   `);
 
-  expect(diff(getConfig('production'), getConfig('production', { jsx: false })))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { jsx: false }),
+    ),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -203,7 +235,7 @@ test('options.jsx', () => {
         ],
   `);
 
-  expect(diff(getConfig('test'), getConfig('test', { jsx: false })))
+  expect(presetDiff(createPreset('test'), createPreset('test', { jsx: false })))
     .toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -226,9 +258,9 @@ test('options.jsx', () => {
   `);
 
   expect(
-    diff(
-      getConfig('development'),
-      getConfig('development', { jsx: 'runtime' }),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { jsx: 'runtime' }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -245,7 +277,10 @@ test('options.jsx', () => {
   `);
 
   expect(
-    diff(getConfig('production'), getConfig('production', { jsx: 'runtime' })),
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { jsx: 'runtime' }),
+    ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -260,8 +295,9 @@ test('options.jsx', () => {
               "useSpread": true,
   `);
 
-  expect(diff(getConfig('test'), getConfig('test', { jsx: 'runtime' })))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(createPreset('test'), createPreset('test', { jsx: 'runtime' })),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -276,11 +312,130 @@ test('options.jsx', () => {
   `);
 });
 
+test('options.targets', () => {
+  expect(
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { targets: '> 2%' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "browsers": "> 2%",
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { targets: '> 2%' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "browsers": "> 2%",
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(createPreset('test'), createPreset('test', { targets: '> 2%' })),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    Compared values have no visual difference.
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { targets: 'esmodules' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "esmodules": true,
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { targets: 'esmodules' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "esmodules": true,
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { targets: 'esmodules' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    Compared values have no visual difference.
+  `);
+});
+
 test('options.typescript', () => {
   expect(
-    diff(
-      getConfig('development'),
-      getConfig('development', { typescript: false }),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -313,9 +468,9 @@ test('options.typescript', () => {
   `);
 
   expect(
-    diff(
-      getConfig('production'),
-      getConfig('production', { typescript: false }),
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { typescript: false }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -347,8 +502,12 @@ test('options.typescript', () => {
       }
   `);
 
-  expect(diff(getConfig('test'), getConfig('test', { typescript: false })))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { typescript: false }),
+    ),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -381,9 +540,9 @@ test('options.typescript', () => {
 
 test('options.optimize.react', () => {
   expect(
-    diff(
-      getConfig('development'),
-      getConfig('development', { optimize: { react: false } }),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -404,9 +563,9 @@ test('options.optimize.react', () => {
   `);
 
   expect(
-    diff(
-      getConfig('production'),
-      getConfig('production', { optimize: { react: false } }),
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { optimize: { react: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -427,7 +586,10 @@ test('options.optimize.react', () => {
   `);
 
   expect(
-    diff(getConfig('test'), getConfig('test', { optimize: { react: false } })),
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { optimize: { react: false } }),
+    ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
@@ -449,9 +611,9 @@ test('options.optimize.react', () => {
 
 test('options.optimize.runtime', () => {
   expect(
-    diff(
-      getConfig('development'),
-      getConfig('development', { optimize: { runtime: false } }),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -473,9 +635,9 @@ test('options.optimize.runtime', () => {
   `);
 
   expect(
-    diff(
-      getConfig('production'),
-      getConfig('production', { optimize: { runtime: false } }),
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -497,9 +659,9 @@ test('options.optimize.runtime', () => {
   `);
 
   expect(
-    diff(
-      getConfig('test'),
-      getConfig('test', { optimize: { runtime: false } }),
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { optimize: { runtime: false } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -523,9 +685,9 @@ test('options.optimize.runtime', () => {
 
 test('options.optimize.pureCalls', () => {
   expect(
-    diff(
-      getConfig('development'),
-      getConfig('development', { optimize: { pureCalls: true } }),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { optimize: { pureCalls: true } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -541,9 +703,9 @@ test('options.optimize.pureCalls', () => {
   `);
 
   expect(
-    diff(
-      getConfig('production'),
-      getConfig('production', { optimize: { pureCalls: true } }),
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { optimize: { pureCalls: true } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -559,9 +721,9 @@ test('options.optimize.pureCalls', () => {
   `);
 
   expect(
-    diff(
-      getConfig('test'),
-      getConfig('test', { optimize: { pureCalls: true } }),
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { optimize: { pureCalls: true } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -579,9 +741,9 @@ test('options.optimize.pureCalls', () => {
 
 test('options.optimize.devExpressions', () => {
   expect(
-    diff(
-      getConfig('development'),
-      getConfig('development', { optimize: { devExpressions: true } }),
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { optimize: { devExpressions: true } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -589,9 +751,9 @@ test('options.optimize.devExpressions', () => {
   `);
 
   expect(
-    diff(
-      getConfig('production'),
-      getConfig('production', { optimize: { devExpressions: true } }),
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { optimize: { devExpressions: true } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -607,9 +769,9 @@ test('options.optimize.devExpressions', () => {
   `);
 
   expect(
-    diff(
-      getConfig('test'),
-      getConfig('test', { optimize: { devExpressions: true } }),
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { optimize: { devExpressions: true } }),
     ),
   ).toMatchInlineSnapshot(`
     Snapshot Diff:
