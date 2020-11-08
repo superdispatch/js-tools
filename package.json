@@ -9,6 +9,7 @@
     ]
   },
   "scripts": {
+    "build": "lerna run version --parallel",
     "lint": "js-tools lint",
     "prerelease": "yarn install --frozen-lockfile && yarn tsc && yarn lint && yarn test",
     "release": "lerna publish",
@@ -24,6 +25,28 @@
     "*": "js-tools lint --fix"
   },
   "prettier": "./packages/prettier-config",
+  "jest": {
+    "coverageProvider": "v8",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.test.json"
+      }
+    },
+    "preset": "ts-jest",
+    "roots": [
+      "<rootDir>/packages/babel-preset",
+      "<rootDir>/packages/eslint-plugin",
+      "<rootDir>/packages/prettier-config"
+    ],
+    "snapshotSerializers": [
+      "snapshot-diff/serializer"
+    ],
+    "testEnvironment": "node",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.10.4",
@@ -43,7 +66,7 @@
     "lint-staged": "^10.5.1",
     "prettier": "^2.0.5",
     "snapshot-diff": "^0.8.1",
-    "strip-ansi": "^6.0.0",
+    "ts-jest": "^26.4.3",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   }
