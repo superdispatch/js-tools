@@ -1,12 +1,12 @@
 import snapshotDiff from 'snapshot-diff';
-import stripANSI from 'strip-ansi';
 
 import preset, { PresetOptions } from './preset';
 
 function presetDiff(before: unknown, after: unknown) {
-  return stripANSI(
-    snapshotDiff(before, after, { contextLines: 2, stablePatchmarks: true }),
-  );
+  return snapshotDiff(before, after, {
+    contextLines: 2,
+    stablePatchmarks: true,
+  });
 }
 
 function createPreset(env?: string, options?: PresetOptions) {
