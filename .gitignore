@@ -5,6 +5,7 @@
 # Dependencies
 node_modules/
 
+
 # Logs
 yarn-debug.log*
 yarn-error.log*
@@ -13,4 +14,4 @@ yarn-error.log*
 coverage
 
 # Builds
-lib/
+dist/

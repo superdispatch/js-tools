@@ -1,14 +1,10 @@
 {
-  "extends": "./packages/tsconfig/tsconfig",
+  "extends": "./packages/tsconfig/tsconfig.json",
   "include": ["types", "packages"],
-  "exclude": ["**/lib"],
   "compilerOptions": {
-    "checkJs": true,
-    "allowJs": true,
     "target": "ES2019",
-    "lib": ["ES2019", "ES2020.String"],
     "module": "commonjs",
-    "declaration": true,
-    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
+    "lib": ["ES2019", "ES2020.String"],
+    "tsBuildInfoFile": "node_modules/.cache/tsconfig.tsbuildinfo"
   }
 }
