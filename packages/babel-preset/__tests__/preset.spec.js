@@ -73,7 +73,7 @@ test('details', () => {
           "@babel/plugin-transform-runtime",
           Object {
             "helpers": true,
-            "version": "7.12.1",
+            "version": "7.12.5",
           },
         ],
       ],
@@ -465,7 +465,7 @@ test('options.optimize.runtime', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.12.1",
+    -         "version": "7.12.5",
     -       },
     -     ],
         ],
@@ -489,7 +489,7 @@ test('options.optimize.runtime', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.12.1",
+    -         "version": "7.12.5",
     -       },
     -     ],
         ],
@@ -513,7 +513,7 @@ test('options.optimize.runtime', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.12.1",
+    -         "version": "7.12.5",
     -       },
     -     ],
         ],
