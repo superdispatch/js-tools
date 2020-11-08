@@ -312,6 +312,125 @@ test('options.jsx', () => {
   `);
 });
 
+test('options.targets', () => {
+  expect(
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { targets: '> 2%' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "browsers": "> 2%",
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { targets: '> 2%' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "browsers": "> 2%",
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(createPreset('test'), createPreset('test', { targets: '> 2%' })),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    Compared values have no visual difference.
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('development'),
+      createPreset('development', { targets: 'esmodules' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "esmodules": true,
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('production'),
+      createPreset('production', { targets: 'esmodules' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    - First value
+    + Second value
+
+    @@ --- --- @@
+                "transform-typeof-symbol",
+              ],
+    -         "ignoreBrowserslistConfig": false,
+    +         "ignoreBrowserslistConfig": true,
+              "loose": false,
+              "modules": false,
+    -         "targets": undefined,
+    +         "targets": Object {
+    +           "esmodules": true,
+    +         },
+              "useBuiltIns": "entry",
+            },
+  `);
+
+  expect(
+    presetDiff(
+      createPreset('test'),
+      createPreset('test', { targets: 'esmodules' }),
+    ),
+  ).toMatchInlineSnapshot(`
+    Snapshot Diff:
+    Compared values have no visual difference.
+  `);
+});
+
 test('options.typescript', () => {
   expect(
     presetDiff(
