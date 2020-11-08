@@ -118,6 +118,7 @@ it('extends dependencies', async () => {
         "single",
         Object {
           "allowTemplateLiterals": true,
+          "avoidEscape": true,
         },
       ],
       "testing-library/await-async-query": Array [

@@ -26,6 +26,7 @@
   },
   "prettier": "./packages/prettier-config",
   "jest": {
+    "coverageProvider": "v8",
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.test.json"

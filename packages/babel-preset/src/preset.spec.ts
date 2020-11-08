@@ -143,6 +143,43 @@ test('errors', () => {
   expect(() => createPreset('noop')).toThrowErrorMatchingInlineSnapshot(
     `"Unknown \\"env\\", expected one of: \\"test\\", \\"production\\", \\"development\\" but got \\"noop\\"."`,
   );
+
+  expect(() =>
+    createPreset(undefined, {
+      // @ts-expect-error unknown options
+      foo: 1,
+      bar: 2,
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Unknown options: [\\"foo\\",\\"bar\\"]"`,
+  );
+
+  expect(() =>
+    createPreset(undefined, {
+      optimize: {
+        // @ts-expect-error unknown options
+        foo: 1,
+        bar: 2,
+      },
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Unknown optimization options: [\\"foo\\",\\"bar\\"]"`,
+  );
+
+  expect(() =>
+    createPreset(undefined, {
+      // @ts-expect-error invalid target
+      targets: { esmodules: true },
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Invalid \\"targets\\" option, expected \\"string\\", but got: {\\"esmodules\\":true}"`,
+  );
+
+  expect(() =>
+    createPreset(undefined, { jsx: 'noop' }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Invalid \\"jsx\\" option, expected \\"boolean\\" or \\"runtime\\", but got: \\"noop\\""`,
+  );
 });
 
 test('options.jsx', () => {
