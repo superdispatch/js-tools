@@ -5,15 +5,13 @@
     "packages/eslint-plugin",
     "packages/js-tools",
     "packages/prettier-config",
-    "packages/tsconfig",
-    "packages/gh-scripts"
+    "packages/tsconfig"
   ],
   "publishDirectory": {
     "@superdispatch/babel-preset": "packages/babel-preset",
     "@superdispatch/eslint-plugin": "packages/eslint-plugin",
     "@superdispatch/js-tools": "packages/js-tools",
     "@superdispatch/prettier-config": "packages/prettier-config",
-    "@superdispatch/tsconfig": "packages/tsconfig",
-    "@superdispatch/gh-scripts": "packages/gh-scripts"
+    "@superdispatch/tsconfig": "packages/tsconfig"
   }
 }
