@@ -77,7 +77,6 @@ test('basic', () => {
             "development": false,
             "runtime": "classic",
             "useBuiltIns": true,
-            "useSpread": true,
           },
         ],
         "@babel/preset-typescript",
@@ -202,7 +201,6 @@ test('options.jsx', () => {
     -         "development": true,
     -         "runtime": "classic",
     -         "useBuiltIns": true,
-    -         "useSpread": true,
     -       },
     -     ],
           "@babel/preset-typescript",
@@ -228,7 +226,6 @@ test('options.jsx', () => {
     -         "development": false,
     -         "runtime": "classic",
     -         "useBuiltIns": true,
-    -         "useSpread": true,
     -       },
     -     ],
           "@babel/preset-typescript",
@@ -250,7 +247,6 @@ test('options.jsx', () => {
     -         "development": true,
     -         "runtime": "classic",
     -         "useBuiltIns": true,
-    -         "useSpread": true,
     -       },
     -     ],
           "@babel/preset-typescript",
@@ -273,7 +269,7 @@ test('options.jsx', () => {
     -         "runtime": "classic",
     +         "runtime": "automatic",
               "useBuiltIns": true,
-              "useSpread": true,
+            },
   `);
 
   expect(
@@ -292,7 +288,7 @@ test('options.jsx', () => {
     -         "runtime": "classic",
     +         "runtime": "automatic",
               "useBuiltIns": true,
-              "useSpread": true,
+            },
   `);
 
   expect(
@@ -308,7 +304,7 @@ test('options.jsx', () => {
     -         "runtime": "classic",
     +         "runtime": "automatic",
               "useBuiltIns": true,
-              "useSpread": true,
+            },
   `);
 });
 

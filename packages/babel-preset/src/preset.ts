@@ -174,12 +174,6 @@ export default function preset(
         useBuiltIns: true,
 
         /**
-         * When spreading props, use inline object with spread elements
-         * directly instead of Babel's extend helper or `Object.assign`.
-         */
-        useSpread: true,
-
-        /**
          * Toggles plugins that aid in development, such as
          * `@babel/plugin-transform-react-jsx-self` and
          * `@babel/plugin-transform-react-jsx-source`.
