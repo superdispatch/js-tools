@@ -7,7 +7,7 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/preset.js",
   "files": [
     "dist"
   ],
