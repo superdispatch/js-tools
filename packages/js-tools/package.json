@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/js-tools",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "CLI tools for JavaScript",
   "keywords": [
     "eslint",
