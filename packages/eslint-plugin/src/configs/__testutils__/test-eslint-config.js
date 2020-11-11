@@ -9,7 +9,7 @@
 const { CLIEngine } = require('eslint');
 const snapshotDiff = require('snapshot-diff');
 
-const plugin = require('../../index');
+const plugin = require('../../plugin');
 
 /**
  * @param {string} name

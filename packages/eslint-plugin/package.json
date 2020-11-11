@@ -7,7 +7,7 @@
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "src/plugin.js",
   "files": [
     "src",
     "!**/__tests__/**",
