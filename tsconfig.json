@@ -1,6 +1,6 @@
 {
   "extends": "./packages/tsconfig/tsconfig.json",
-  "include": ["types", "packages"],
+  "include": ["packages/eslint-plugin/types", "packages"],
   "compilerOptions": {
     "target": "ES2019",
     "module": "commonjs",

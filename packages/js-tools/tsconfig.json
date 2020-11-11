@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig",
-  "include": ["index.js", "bin.js", "commands/**/*", "../../types"],
+  "include": ["index.js", "bin.js", "commands/**/*", "../eslint-plugin/types"],
   "exclude": ["**/*.spec.*"]
 }
