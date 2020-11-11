@@ -1,5 +1,8 @@
 {
-  "extends": "../../tsconfig",
-  "include": ["index.js", "configs/**/*", "rules/**/*", "../../types"],
-  "exclude": ["**/*.spec.*"]
+  "include": ["src", "types"],
+  "extends": "../../tsconfig.build",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true
+  }
 }
