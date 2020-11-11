@@ -25,13 +25,13 @@ it('extends dependencies', async () => {
   expect(rules).toMatchInlineSnapshot(`
     Object {
       "@superdispatch/camelcase": Array [
-        "error",
+        "off",
       ],
       "@superdispatch/directory-name": Array [
-        "error",
+        "off",
       ],
       "@superdispatch/filename": Array [
-        "error",
+        "off",
       ],
       "@superdispatch/no-index-file": Array [
         "off",
