@@ -14,17 +14,23 @@ const { getNodePackageConfig } = require('./configs/node-pkg');
 const { getReactConfig } = require('./configs/react');
 const { getTypeScriptConfig } = require('./configs/typescript');
 
+const filenameRule = require('./rules/filename');
+const camelcaseRule = require('./rules/camelcase');
+const directoryNameRule = require('./rules/directory-name');
+const preferDesignSystemColorsRule = require('./rules/prefer-design-system-colors');
+const jsxNoSpreadObjectExpressionRule = require('./rules/jsx-no-spread-object-expression');
+
 /**
  * @property {Record<string, Config>} [configs] The definition of plugin configs.
  * @property {Record<string, RuleEntry>} [rules] The definition of plugin rules.
  */
 const plugin = {
   rules: {
-    filename: require('./rules/filename'),
-    camelcase: require('./rules/camelcase'),
-    'directory-name': require('./rules/directory-name'),
-    'prefer-design-system-colors': require('./rules/prefer-design-system-colors'),
-    'jsx-no-spread-object-expression': require('./rules/jsx-no-spread-object-expression'),
+    filename: filenameRule,
+    camelcase: camelcaseRule,
+    'directory-name': directoryNameRule,
+    'prefer-design-system-colors': preferDesignSystemColorsRule,
+    'jsx-no-spread-object-expression': jsxNoSpreadObjectExpressionRule,
   },
 
   configs: {
