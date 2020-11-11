@@ -472,9 +472,9 @@ function setupSuperDispatchPlugin(config) {
 
   config.rules = {
     ...config.rules,
-    '@superdispatch/camelcase': 'error',
-    '@superdispatch/directory-name': 'error',
-    '@superdispatch/filename': 'error',
+    '@superdispatch/camelcase': 'off',
+    '@superdispatch/directory-name': 'off',
+    '@superdispatch/filename': 'off',
     '@superdispatch/no-index-file': 'off',
   };
 }
