@@ -1,6 +1,6 @@
 'use strict';
 
-import { getBaseConfig } from './configs/base';
+import { createBaseConfig } from './configs/base';
 import { getJestConfig } from './configs/jest';
 import { getNodeConfig } from './configs/node';
 import { getNodePackageConfig } from './configs/node-pkg';
@@ -23,7 +23,7 @@ export const rules = {
 } as const;
 
 export const configs = {
-  base: getBaseConfig(),
+  base: createBaseConfig(),
   jest: getJestConfig(),
   'ts-jest': getTSJestConfig(),
   'ts-cypress': getTSCypressConfig(),

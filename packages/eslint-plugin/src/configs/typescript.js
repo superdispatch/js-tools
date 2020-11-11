@@ -4,7 +4,7 @@
  * @typedef {import("eslint").Linter.Config} Config
  * */
 
-const { getBaseConfig, addPlugin, addExtends } = require('./base');
+const { createBaseConfig, addPlugin, addExtends } = require('./base');
 
 /** @param {Config} config */
 function setupImportPlugin(config) {
@@ -98,7 +98,7 @@ function setupPrettierConfig(config) {
 
 /** @returns {Config}  */
 function getTypeScriptConfig() {
-  const config = getBaseConfig();
+  const config = createBaseConfig();
 
   setupImportPlugin(config);
   setupTypeScriptPlugin(config);

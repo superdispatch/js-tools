@@ -27,6 +27,14 @@ module.exports = {
       },
     },
 
+    // TODO: Remove after migration.
+    {
+      files: '**/packages/eslint-plugin/**/*.js',
+      rules: {
+        'node/no-missing-require': 'off',
+      },
+    },
+
     {
       files: '**/packages/eslint-plugin/configs/*.js',
       rules: {

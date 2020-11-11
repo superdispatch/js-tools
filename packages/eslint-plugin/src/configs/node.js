@@ -4,7 +4,7 @@
 
 'use strict';
 
-const { getBaseConfig, addPlugin, addExtends } = require('./base');
+const { createBaseConfig, addPlugin, addExtends } = require('./base');
 
 /** @param {Config} config */
 function setupNodePlugin(config) {
@@ -123,7 +123,7 @@ function setupImportPlugin(config) {
 
 /** @returns {Config} */
 function getNodeConfig() {
-  const config = getBaseConfig();
+  const config = createBaseConfig();
 
   config.env = { ...config.env, node: true };
 
