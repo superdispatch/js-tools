@@ -1,7 +1,7 @@
 'use strict';
 
 const { RuleTester } = require('eslint');
-const rule = require('../camelcase');
+const rule = require('./camelcase');
 
 const parserOptions = { ecmaVersion: 2020, sourceType: 'module' };
 

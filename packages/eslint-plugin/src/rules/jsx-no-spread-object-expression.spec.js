@@ -1,7 +1,7 @@
 'use strict';
 
 const { RuleTester } = require('eslint');
-const rule = require('../jsx-no-spread-object-expression');
+const rule = require('./jsx-no-spread-object-expression');
 
 const parserOptions = {
   ecmaVersion: 2018,
