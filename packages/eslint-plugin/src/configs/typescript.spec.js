@@ -4,7 +4,7 @@ const path = require('path');
 const {
   getConfigValues,
   getConfigsDiff,
-} = require('../__testutils__/test-eslint-config');
+} = require('./__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const rootDir = path.join(__dirname, '..', '..');

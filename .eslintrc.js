@@ -35,8 +35,15 @@ module.exports = {
     },
 
     {
-      files: ['**/__tests__/**/*.js', '**/__testutils__/**/*.js'],
+      files: [
+        '**/*.spec.js',
+        '**/__tests__/**/*.js',
+        '**/__testutils__/**/*.js',
+      ],
       extends: 'plugin:@superdispatch/jest',
+      rules: {
+        'node/no-unpublished-require': 'off',
+      },
     },
 
     {

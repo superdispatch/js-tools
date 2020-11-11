@@ -3,7 +3,7 @@
 const {
   getConfigsDiff,
   getConfigValues,
-} = require('../__testutils__/test-eslint-config');
+} = require('./__testutils__/test-eslint-config');
 
 it('extends dependencies', async () => {
   const [meta, rules] = getConfigsDiff(

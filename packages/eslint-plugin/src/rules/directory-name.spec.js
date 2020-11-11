@@ -2,7 +2,7 @@
 
 const path = require('path');
 const { RuleTester } = require('eslint');
-const rule = require('../directory-name');
+const rule = require('./directory-name');
 
 const parserOptions = { ecmaVersion: 2020, sourceType: 'module' };
 
