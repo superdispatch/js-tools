@@ -9,7 +9,7 @@ it('extends dependencies', async () => {
     Object {
       "env": Object {},
       "globals": Object {},
-      "parser": null,
+      "parser": undefined,
       "parserOptions": Object {
         "ecmaVersion": 2020,
       },

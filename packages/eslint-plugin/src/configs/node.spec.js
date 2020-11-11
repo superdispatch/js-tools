@@ -74,7 +74,7 @@ it('extends dependencies', async () => {
     +     "setInterval": "readonly",
     +     "setTimeout": "readonly",
     +   },
-        "parser": null,
+        "parser": undefined,
         "parserOptions": Object {
     +     "ecmaFeatures": Object {
     +       "globalReturn": true,

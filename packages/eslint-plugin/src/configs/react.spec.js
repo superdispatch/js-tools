@@ -11,7 +11,7 @@ it('extends dependencies', async () => {
         "browser": true,
       },
       "globals": Object {},
-      "parser": null,
+      "parser": undefined,
       "parserOptions": Object {
         "ecmaFeatures": Object {
           "jsx": true,

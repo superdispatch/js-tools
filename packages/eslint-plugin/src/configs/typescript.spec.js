@@ -23,7 +23,7 @@ it('extends dependencies', async () => {
 
     @@ --- --- @@
         "globals": Object {},
-    -   "parser": null,
+    -   "parser": undefined,
     +   "parser": "node_modules/@typescript-eslint/parser/dist/index.js",
         "parserOptions": Object {
           "ecmaVersion": 2020,

@@ -12,7 +12,7 @@ it('extends dependencies', async () => {
         "jest/globals": true,
       },
       "globals": Object {},
-      "parser": null,
+      "parser": undefined,
       "parserOptions": Object {},
       "plugins": Array [
         "jest",
