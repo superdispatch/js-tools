@@ -1,5 +1,5 @@
 {
-  "exclude": ["**/*.spec.*"],
+  "exclude": ["**/*.spec.*", "**/__testutils__/**"],
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false

@@ -42,6 +42,7 @@ module.exports = {
       ],
       extends: 'plugin:@superdispatch/jest',
       rules: {
+        'node/no-missing-require': 'off',
         'node/no-unpublished-require': 'off',
       },
     },
