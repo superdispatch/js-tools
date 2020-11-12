@@ -1,11 +1,6 @@
-'use strict';
+import { Linter } from 'eslint';
 
-/**
- * @typedef {import("eslint").Linter.Config} Config
- * */
-
-/** returns {Config} **/
-function getReactConfig() {
+export function getReactConfig(): Linter.Config {
   return {
     env: { browser: true },
     extends: ['plugin:react/recommended', 'prettier/react'],
@@ -165,5 +160,3 @@ function getReactConfig() {
     },
   };
 }
-
-module.exports = { getReactConfig };
