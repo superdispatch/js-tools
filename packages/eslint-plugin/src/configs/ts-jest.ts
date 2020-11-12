@@ -1,11 +1,21 @@
 import { Linter } from 'eslint';
 
-import { createJestConfig } from './jest';
+import { injectJestConfig } from './jest';
 import { createTypeScriptConfig } from './typescript';
-import { injectRules, mergeConfigs } from './utils/configUtils';
+import { injectRules } from './utils/configUtils';
 
 export function createTSJestConfig(): Linter.Config {
-  const config = mergeConfigs(createJestConfig(), createTypeScriptConfig());
+  const config = createTypeScriptConfig();
+
+  //
+  // @superdispatch/eslint-plugin
+  //
+
+  injectJestConfig(config);
+
+  //
+  // @typescript-eslint/eslint-plugin
+  //
 
   injectRules(config, {
     '@typescript-eslint/no-explicit-any': 'off',

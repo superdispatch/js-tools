@@ -34,7 +34,7 @@ export function createTypeScriptConfig(): Linter.Config {
   });
 
   //
-  // @typescript-eslint/plugin
+  // @typescript-eslint/eslint-plugin
   //
 
   injectConfigs(config, 'plugin:@typescript-eslint/recommended');

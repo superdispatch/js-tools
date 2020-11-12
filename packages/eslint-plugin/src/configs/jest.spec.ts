@@ -7,7 +7,7 @@ import {
 
 it('extends dependencies', async () => {
   const [meta, rules] = getConfigDataDiff(
-    await getConfigData('base'),
+    await getConfigData('node'),
     await getConfigData('jest'),
   );
 
@@ -18,17 +18,19 @@ it('extends dependencies', async () => {
 
     @@ --- --- @@
       Object {
-    -   "env": Object {},
-    +   "env": Object {
+        "env": Object {
     +     "jest/globals": true,
-    +   },
-        "globals": Object {},
-        "parser": undefined,
-        "parserOptions": Object {
-          "ecmaVersion": 2020,
+          "node": true,
+        },
+        "globals": Object {
+          "ArrayBuffer": "readonly",
+          "Atomics": "readonly",
+    @@ --- --- @@
+          "sourceType": "script",
         },
         "plugins": Array [
           "import",
+          "node",
     +     "jest",
     +     "testing-library",
           "eslint-comments",
