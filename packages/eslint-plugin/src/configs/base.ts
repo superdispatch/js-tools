@@ -165,8 +165,11 @@ export function createBaseConfig() {
     '@superdispatch/no-index-file': 'off',
   });
 
-  injectPlugins(config, 'eslint-comments');
+  //
+  // eslint-plugin-eslint-comments
+  //
 
+  injectPlugins(config, 'eslint-comments');
   injectRules(config, {
     'eslint-comments/disable-enable-pair': 'error',
     'eslint-comments/no-aggregating-enable': 'error',
@@ -177,7 +180,9 @@ export function createBaseConfig() {
     'eslint-comments/no-use': 'error',
   });
 
-  // We want to override all previous values.
+  //
+  // eslint-config-prettier - it should be last extended config.
+  //
   injectConfigs(config, 'prettier');
 
   return config;
