@@ -31,9 +31,9 @@ it('extends dependencies', async () => {
     @@ --- --- @@
         "plugins": Array [
           "import",
+          "@typescript-eslint",
           "jest",
           "testing-library",
-          "@typescript-eslint",
     +     "cypress",
           "simple-import-sort",
           "eslint-comments",

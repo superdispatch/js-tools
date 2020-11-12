@@ -1,11 +1,9 @@
 import { Linter } from 'eslint';
 
-import { createBaseConfig } from './base';
+import { createNodeConfig } from './node';
 import { injectConfigs, injectRules } from './utils/configUtils';
 
-export function createJestConfig(): Linter.Config {
-  const config = createBaseConfig();
-
+export function injectJestConfig(config: Linter.Config): void {
   //
   // eslint
   //
@@ -48,6 +46,12 @@ export function createJestConfig(): Linter.Config {
     'testing-library/prefer-presence-queries': 'error',
     'testing-library/prefer-wait-for': 'error',
   });
+}
+
+export function createJestConfig(): Linter.Config {
+  const config = createNodeConfig();
+
+  injectJestConfig(config);
 
   return config;
 }
