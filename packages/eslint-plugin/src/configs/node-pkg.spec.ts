@@ -21,9 +21,17 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
+        ],
+        "node/no-unpublished-import": Array [
+          "error",
+        ],
         "node/no-unpublished-require": Array [
     -     "off",
     +     "error",
         ],
+        "node/no-unsupported-features/es-builtins": Array [
+          "error",
+        ],
+        "node/no-unsupported-features/es-syntax": Array [
   `);
 });

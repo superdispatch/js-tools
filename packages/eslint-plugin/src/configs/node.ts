@@ -3,7 +3,7 @@ import { Linter } from 'eslint';
 import { createBaseConfig } from './base';
 import { injectConfigs, injectEnv, injectRules } from './utils/configUtils';
 
-export function getNodeConfig(): Linter.Config {
+export function createNodeConfig(): Linter.Config {
   const config = createBaseConfig();
 
   //

@@ -22,7 +22,8 @@ it('extends dependencies', async () => {
     - First value
     + Second value
 
-    @@ --- --- @@
+      Object {
+        "env": Object {},
         "globals": Object {},
     -   "parser": undefined,
     +   "parser": "node_modules/@typescript-eslint/parser/dist/index.js",
@@ -31,12 +32,13 @@ it('extends dependencies', async () => {
     +     "sourceType": "module",
     +     "tsconfigRootDir": "./tsconfig.json",
         },
-    @@ --- --- @@
+        "plugins": Array [
           "import",
     +     "@typescript-eslint",
     +     "simple-import-sort",
           "eslint-comments",
-    @@ --- --- @@
+          "@superdispatch",
+          "array-func",
         ],
     -   "settings": Object {},
     +   "settings": Object {
@@ -78,6 +80,10 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
+          "off",
+        ],
+        "@superdispatch/no-index-file": Array [
+          "off",
         ],
     +   "@typescript-eslint/adjacent-overload-signatures": Array [
     +     "error",
@@ -312,17 +318,35 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
         "array-bracket-newline": Array [
+          "off",
+        ],
+        "array-bracket-spacing": Array [
+          "off",
     @@ --- --- @@
+        ],
+        "computed-property-spacing": Array [
+          "off",
+        ],
         "constructor-super": Array [
     -     "error",
     +     "off",
         ],
+        "curly": Array [
+          "error",
+          "multi-line",
+          "consistent",
     @@ --- --- @@
+        ],
+        "generator-star-spacing": Array [
+          "off",
+        ],
         "getter-return": Array [
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "implicit-arrow-linebreak": Array [
+          "off",
+        ],
         "import/default": Array [
     -     2,
     +     "off",
@@ -331,7 +355,9 @@ it('extends dependencies', async () => {
     -     2,
     +     "off",
         ],
-    @@ --- --- @@
+        "import/first": Array [
+          "error",
+        ],
         "import/named": Array [
     -     2,
     +     "off",
@@ -340,23 +366,55 @@ it('extends dependencies', async () => {
     -     2,
     +     "off",
         ],
+        "import/no-anonymous-default-export": Array [
+          "error",
+          Object {
+            "allowAnonymousClass": false,
     @@ --- --- @@
+        ],
+        "import/no-named-as-default-member": Array [
+          "error",
+        ],
         "import/no-unresolved": Array [
     -     2,
     +     "off",
         ],
+        "indent": Array [
+          "off",
+        ],
+        "indent-legacy": Array [
     @@ --- --- @@
+          "off",
+        ],
+        "no-alert": Array [
+          "error",
         ],
     +   "no-array-constructor": Array [
     +     "off",
     +   ],
         "no-arrow-condition": Array [
+          "off",
+        ],
+        "no-async-promise-executor": Array [
+          "error",
     @@ --- --- @@
+        ],
+        "no-console": Array [
+          "error",
+        ],
         "no-const-assign": Array [
     -     "error",
     +     "off",
         ],
+        "no-constant-condition": Array [
+          "error",
+        ],
+        "no-control-regex": Array [
     @@ --- --- @@
+        ],
+        "no-div-regex": Array [
+          "error",
+        ],
         "no-dupe-args": Array [
     -     "error",
     +     "off",
@@ -365,28 +423,62 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "no-dupe-else-if": Array [
+          "error",
+        ],
         "no-dupe-keys": Array [
     -     "error",
     +     "off",
         ],
+        "no-duplicate-case": Array [
+          "error",
+        ],
+        "no-else-return": Array [
     @@ --- --- @@
+          },
+        ],
+        "no-empty-character-class": Array [
+          "error",
         ],
     +   "no-empty-function": Array [
     +     "off",
     +   ],
         "no-empty-pattern": Array [
+          "error",
+        ],
+        "no-ex-assign": Array [
+          "error",
     @@ --- --- @@
+        ],
+        "no-floating-decimal": Array [
+          "error",
+        ],
         "no-func-assign": Array [
     -     "error",
     +     "off",
         ],
+        "no-global-assign": Array [
+          "error",
+        ],
+        "no-implicit-coercion": Array [
     @@ --- --- @@
+            "number": true,
+            "string": true,
+          },
+        ],
         "no-import-assign": Array [
     -     "error",
     +     "off",
         ],
+        "no-inner-declarations": Array [
+          "error",
+        ],
+        "no-invalid-regexp": Array [
     @@ --- --- @@
+        ],
+        "no-multiple-empty-lines": Array [
+          "off",
+        ],
         "no-new-symbol": Array [
     -     "error",
     +     "off",
@@ -395,12 +487,25 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "no-octal": Array [
+          "error",
+        ],
+        "no-prototype-builtins": Array [
+          "error",
+        ],
         "no-redeclare": Array [
     -     "error",
     +     "off",
         ],
+        "no-regex-spaces": Array [
+          "error",
+        ],
+        "no-reserved-keys": Array [
     @@ --- --- @@
+        ],
+        "no-self-assign": Array [
+          "error",
+        ],
         "no-setter-return": Array [
     -     "error",
     +     "off",
@@ -409,12 +514,22 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
+        "no-shadow-restricted-names": Array [
+          "error",
+        ],
+        "no-space-before-semi": Array [
     @@ --- --- @@
+        ],
+        "no-tabs": Array [
+          0,
+        ],
         "no-this-before-super": Array [
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "no-trailing-spaces": Array [
+          "off",
+        ],
         "no-undef": Array [
     -     "error",
     +     "off",
@@ -423,12 +538,19 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "no-unexpected-multiline": Array [
+          0,
+        ],
+        "no-unneeded-ternary": Array [
+          "error",
+        ],
         "no-unreachable": Array [
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "no-unsafe-finally": Array [
+          "error",
+        ],
         "no-unsafe-negation": Array [
     -     "error",
     +     "off",
@@ -437,7 +559,9 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
-    @@ --- --- @@
+        "no-unused-labels": Array [
+          "error",
+        ],
         "no-unused-vars": Array [
     -     "error",
     -     Object {
@@ -453,7 +577,15 @@ it('extends dependencies', async () => {
     -     },
     +     "off",
         ],
+        "no-useless-catch": Array [
+          "error",
+        ],
+        "no-useless-computed-key": Array [
     @@ --- --- @@
+        ],
+        "prefer-numeric-literals": Array [
+          "error",
+        ],
         "prefer-object-spread": Array [
     +     "error",
     +   ],
@@ -462,22 +594,50 @@ it('extends dependencies', async () => {
     +   ],
     +   "prefer-spread": Array [
           "error",
+        ],
+        "prefer-template": Array [
+          "error",
+        ],
     @@ --- --- @@
+          Object {
+            "allowTemplateLiterals": false,
+            "avoidEscape": true,
+          },
         ],
     +   "require-await": Array [
     +     "off",
     +   ],
         "require-yield": Array [
+          "error",
+        ],
+        "rest-spread-spacing": Array [
+          "off",
     @@ --- --- @@
+        "semi-spacing": Array [
+          "off",
+        ],
+        "semi-style": Array [
           "off",
     +   ],
     +   "simple-import-sort/sort": Array [
     +     "error",
         ],
+        "space-after-function-name": Array [
+          "off",
+        ],
+        "space-after-keywords": Array [
     @@ --- --- @@
+        ],
+        "use-isnan": Array [
+          "error",
+        ],
         "valid-typeof": Array [
     -     "error",
     +     "off",
         ],
+        "wrap-iife": Array [
+          "off",
+        ],
+        "wrap-regex": Array [
   `);
 });

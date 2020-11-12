@@ -1,49 +1,36 @@
 import { Linter } from 'eslint';
 
-import { getTSJestConfig } from './ts-jest';
+import { createTSJestConfig } from './ts-jest';
 import { injectConfigs, injectEnv, injectRules } from './utils/configUtils';
 
-export function getTSCypressConfig(): Linter.Config {
-  const config = getTSJestConfig();
+export function createTSCypressConfig(): Linter.Config {
+  const config = createTSJestConfig();
 
-  if (config.env) {
-    delete config.env.jest;
-    delete config.env['jest/globals'];
-  }
+  //
+  // eslint-plugin-cypress
+  //
 
   injectConfigs(config, 'plugin:cypress/recommended');
-  injectEnv(config, { 'cypress/globals': true });
 
+  //
+  // eslint-plugin-jest
+  //
+
+  injectEnv(config, {
+    jest: false,
+    'jest/globals': false,
+  });
   injectRules(config, {
     'jest/expect-expect': 'off',
     'jest/valid-expect': 'off',
     'jest/valid-expect-in-promise': 'off',
-    'no-restricted-properties': [
-      'error',
-      ...[
-        'queryByAltText',
-        'queryByDisplayValue',
-        'queryByLabelText',
-        'queryByPlaceholderText',
-        'queryByRole',
-        'queryByTestId',
-        'queryByText',
-        'queryByTitle',
-        'queryAllByAltText',
-        'queryAllByDisplayValue',
-        'queryAllByLabelText',
-        'queryAllByPlaceholderText',
-        'queryAllByRole',
-        'queryAllByTestId',
-        'queryAllByText',
-        'queryAllByTitle',
-      ].map((property) => ({
-        message:
-          'Deprecated method. Throws an error instead. Fixing requires updating all query* to find* queries. see https://github.com/testing-library/cypress-testing-library/pull/130',
-        object: 'cy',
-        property,
-      })),
-    ],
+  });
+
+  //
+  // eslint-plugin-testing-library
+  //
+
+  injectRules(config, {
     'testing-library/await-async-query': 'off',
     'testing-library/prefer-wait-for': 'off',
   });

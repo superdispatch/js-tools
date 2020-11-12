@@ -1,13 +1,13 @@
 'use strict';
 
 import { createBaseConfig } from './configs/base';
-import { getJestConfig } from './configs/jest';
-import { getNodeConfig } from './configs/node';
-import { getNodePackageConfig } from './configs/node-pkg';
-import { getReactConfig } from './configs/react';
-import { getTSCypressConfig } from './configs/ts-cypress';
-import { getTSJestConfig } from './configs/ts-jest';
-import { getTypeScriptConfig } from './configs/typescript';
+import { createJestConfig } from './configs/jest';
+import { createNodeConfig } from './configs/node';
+import { createNodePackageConfig } from './configs/node-pkg';
+import { createReactConfig } from './configs/react';
+import { createTSCypressConfig } from './configs/ts-cypress';
+import { createTSJestConfig } from './configs/ts-jest';
+import { createTypeScriptConfig } from './configs/typescript';
 import camelcaseRule from './rules/camelcase';
 import directoryNameRule from './rules/directory-name';
 import filenameRule from './rules/filename';
@@ -24,11 +24,11 @@ export const rules = {
 
 export const configs = {
   base: createBaseConfig(),
-  jest: getJestConfig(),
-  'ts-jest': getTSJestConfig(),
-  'ts-cypress': getTSCypressConfig(),
-  node: getNodeConfig(),
-  'node-pkg': getNodePackageConfig(),
-  react: getReactConfig(),
-  typescript: getTypeScriptConfig(),
+  jest: createJestConfig(),
+  'ts-jest': createTSJestConfig(),
+  'ts-cypress': createTSCypressConfig(),
+  node: createNodeConfig(),
+  'node-pkg': createNodePackageConfig(),
+  react: createReactConfig(),
+  typescript: createTypeScriptConfig(),
 } as const;
