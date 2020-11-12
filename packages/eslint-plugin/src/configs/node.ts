@@ -23,6 +23,7 @@ export function createNodeConfig(): Linter.Config {
   injectConfigs(config, 'plugin:node/recommended-script');
   injectRules(config, {
     'node/exports-style': 'error',
+    'node/no-extraneous-import': 'off',
     'node/no-extraneous-require': 'off',
     'node/no-unpublished-require': 'off',
     'node/prefer-global/buffer': 'error',

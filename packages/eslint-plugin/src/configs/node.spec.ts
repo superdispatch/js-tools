@@ -160,7 +160,7 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "node/no-extraneous-import": Array [
-    +     "error",
+    +     "off",
     +   ],
     +   "node/no-extraneous-require": Array [
     +     "off",

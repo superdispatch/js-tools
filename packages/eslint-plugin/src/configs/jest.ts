@@ -18,6 +18,14 @@ export function injectJestConfig(config: Linter.Config): void {
   });
 
   //
+  // eslint-plugin-import
+  //
+
+  injectRules(config, {
+    'import/no-extraneous-dependencies': 'off',
+  });
+
+  //
   // eslint-plugin-jest
   //
 

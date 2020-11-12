@@ -45,11 +45,30 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
+        ],
+        "import/no-duplicates": Array [
+          "error",
+        ],
+        "import/no-extraneous-dependencies": Array [
+    -     "error",
+    -     Object {
+    -       "devDependencies": true,
+    -       "optionalDependencies": false,
+    -       "peerDependencies": false,
+    -     },
+    +     "off",
+        ],
+        "import/no-mutable-exports": Array [
+          "error",
+        ],
+        "import/no-named-as-default": Array [
+    @@ --- --- @@
+        "indent": Array [
           "off",
         ],
         "indent-legacy": Array [
           "off",
-        ],
+    +   ],
     +   "jest/expect-expect": Array [
     +     "error",
     +   ],
@@ -112,7 +131,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "jest/prefer-to-have-length": Array [
     +     "error",
-    +   ],
+        ],
     +   "jest/valid-describe": Array [
     +     "error",
     +   ],

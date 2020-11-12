@@ -1,11 +1,11 @@
 import { Linter } from 'eslint';
 
 import { injectJestConfig } from './jest';
-import { createTypeScriptConfig } from './typescript';
+import { createTSNodeConfig } from './ts-node';
 import { injectRules } from './utils/configUtils';
 
 export function createTSJestConfig(): Linter.Config {
-  const config = createTypeScriptConfig();
+  const config = createTSNodeConfig();
 
   //
   // @superdispatch/eslint-plugin

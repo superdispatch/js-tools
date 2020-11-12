@@ -9,17 +9,17 @@ module.exports = {
 
     {
       files: '*.ts',
-      extends: 'plugin:@superdispatch/typescript',
+      extends: 'plugin:@superdispatch/ts-node',
       parserOptions: { project: './tsconfig.json' },
     },
 
     {
-      files: '**/packages/**/*.js',
-      extends: 'plugin:@superdispatch/node-pkg',
+      files: ['**/packages/**/*.js', '**/packages/**/*.ts'],
       rules: {
         'import/no-extraneous-dependencies': [
           'error',
           {
+            devDependencies: true,
             peerDependencies: true,
             optionalDependencies: true,
           },
@@ -48,7 +48,7 @@ module.exports = {
     },
 
     {
-      files: ['**/*.spec.ts'],
+      files: ['**/*.spec.ts', '**/__testutils__/**/*.ts'],
       extends: 'plugin:@superdispatch/ts-jest',
     },
   ],
