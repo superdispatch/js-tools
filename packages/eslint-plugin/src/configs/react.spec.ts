@@ -1,9 +1,9 @@
 'use strict';
 
-const { getConfigValues } = require('./__testutils__/test-eslint-config');
+import { getConfigData } from './__testutils__/test-eslint-config';
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('react');
+  const [meta, rules] = await getConfigData('react');
 
   expect(meta).toMatchInlineSnapshot(`
     Object {
@@ -11,7 +11,7 @@ it('extends dependencies', async () => {
         "browser": true,
       },
       "globals": Object {},
-      "parser": null,
+      "parser": undefined,
       "parserOptions": Object {
         "ecmaFeatures": Object {
           "jsx": true,

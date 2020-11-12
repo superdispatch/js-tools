@@ -1,24 +1,20 @@
-/**
- * @typedef {import("eslint").Linter.Config} Config
- * */
+import { Linter } from 'eslint';
 
-'use strict';
+import { getTSJestConfig } from './ts-jest';
+import { injectConfigs, injectEnv, injectRules } from './utils/configUtils';
 
-const { addExtends } = require('./base');
-const { getTSJestConfig } = require('./ts-jest');
-
-/** @returns {Config} */
-function getTSCypressConfig() {
+export function getTSCypressConfig(): Linter.Config {
   const config = getTSJestConfig();
 
-  addExtends(config, 'plugin:cypress/recommended');
+  if (config.env) {
+    delete config.env.jest;
+    delete config.env['jest/globals'];
+  }
 
-  config.env = {
-    'cypress/globals': true,
-  };
+  injectConfigs(config, 'plugin:cypress/recommended');
+  injectEnv(config, { 'cypress/globals': true });
 
-  config.rules = {
-    ...config.rules,
+  injectRules(config, {
     'jest/expect-expect': 'off',
     'jest/valid-expect': 'off',
     'jest/valid-expect-in-promise': 'off',
@@ -50,9 +46,7 @@ function getTSCypressConfig() {
     ],
     'testing-library/await-async-query': 'off',
     'testing-library/prefer-wait-for': 'off',
-  };
+  });
 
   return config;
 }
-
-module.exports = { getTSCypressConfig };

@@ -1,9 +1,9 @@
 'use strict';
 
-const { getConfigValues } = require('./__testutils__/test-eslint-config');
+import { getConfigData } from './__testutils__/test-eslint-config';
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('jest');
+  const [meta, rules] = await getConfigData('ts-jest');
 
   expect(meta).toMatchInlineSnapshot(`
     Object {
@@ -12,7 +12,7 @@ it('extends dependencies', async () => {
         "jest/globals": true,
       },
       "globals": Object {},
-      "parser": null,
+      "parser": undefined,
       "parserOptions": Object {},
       "plugins": Array [
         "jest",
@@ -23,6 +23,18 @@ it('extends dependencies', async () => {
   `);
   expect(rules).toMatchInlineSnapshot(`
     Object {
+      "@typescript-eslint/no-explicit-any": Array [
+        "off",
+      ],
+      "@typescript-eslint/no-non-null-assertion": Array [
+        "off",
+      ],
+      "@typescript-eslint/no-unsafe-assignment": Array [
+        "off",
+      ],
+      "@typescript-eslint/no-unsafe-call": Array [
+        "off",
+      ],
       "import/no-extraneous-dependencies": Array [
         "off",
       ],

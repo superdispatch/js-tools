@@ -1,27 +1,22 @@
-/**
- * @typedef {import("estree").Node} ESTreeNode
- * @typedef {import("eslint").Rule.RuleModule} RuleModule
- * @typedef {import("eslint").Rule.RuleContext} RuleContext
- * @typedef {import("@typescript-eslint/typescript-estree").TSESTree.Node} Node
- * @typedef {import("@typescript-eslint/typescript-estree").TSESTree.Literal} Literal
- * @typedef {import("@typescript-eslint/typescript-estree").TSESTree.TemplateLiteral} TemplateLiteral
- *
- *  @typedef {{source: string, specifier: string}} ColorOption
- *  @typedef {{colors: Record<string, ColorOption> }} Option
- */
+import { Rule } from 'eslint';
+import { Node } from 'estree';
 
-'use strict';
-
-const cache = new WeakMap();
 const HEX_COLOR_PATTERN = /(#\b([a-f0-9]{3}|[a-f0-9]{6})\b)/gim;
 
-/**
- * @param {Record<string, ColorOption>} colors
- * @returns {Map<string, string>}
- */
-function getColorsMap(colors) {
+interface ColorOption {
+  source: string;
+  specifier: string;
+}
+
+const cache = new WeakMap<
+  Record<string, ColorOption>,
+  Map<string, ColorOption>
+>();
+function getColorsMap(
+  colors?: Record<string, ColorOption>,
+): Map<string, ColorOption> {
   if (!colors) {
-    return new Map();
+    return new Map<string, ColorOption>();
   }
 
   let colorsMap = cache.get(colors);
@@ -38,13 +33,10 @@ function getColorsMap(colors) {
   return colorsMap;
 }
 
-/**
- * @type {RuleModule}
- * */
-module.exports = {
+const rule: Rule.RuleModule = {
   meta: {
     type: 'suggestion',
-    scheme: [],
+    schema: [],
   },
 
   create(context) {
@@ -55,12 +47,8 @@ module.exports = {
       return {};
     }
 
-    /**
-     * @param text {string}
-     * @returns {Map<string, ColorOption>}
-     */
-    function findColors(text) {
-      const colors = new Map();
+    function findColors(text: string): Map<string, ColorOption> {
+      const colors = new Map<string, ColorOption>();
 
       for (const [, match] of text.matchAll(HEX_COLOR_PATTERN)) {
         const color = match.toLowerCase();
@@ -74,11 +62,7 @@ module.exports = {
       return colors;
     }
 
-    /**
-     * @param node {any}
-     * @param text {string}
-     */
-    function process(node, text) {
+    function process(node: Node, text: string): void {
       const usages = findColors(text);
 
       for (const { source, specifier } of usages.values()) {
@@ -90,18 +74,11 @@ module.exports = {
     }
 
     return {
-      /**
-       * @param {Literal} node
-       * */
       Literal(node) {
         if (typeof node.value === 'string') {
           process(node, node.value);
         }
       },
-
-      /**
-       * @param {TemplateLiteral} node
-       * */
       TemplateLiteral(node) {
         const text = node.quasis.reduce(
           (acc, { value }) => acc + value.raw,
@@ -113,3 +90,5 @@ module.exports = {
     };
   },
 };
+
+export default rule;
