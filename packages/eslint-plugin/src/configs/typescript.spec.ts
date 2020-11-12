@@ -462,10 +462,14 @@ it('extends dependencies', async () => {
         ],
         "no-implicit-coercion": Array [
     @@ --- --- @@
+            "boolean": true,
             "number": true,
             "string": true,
           },
         ],
+    +   "no-implied-eval": Array [
+    +     "off",
+    +   ],
         "no-import-assign": Array [
     -     "error",
     +     "off",

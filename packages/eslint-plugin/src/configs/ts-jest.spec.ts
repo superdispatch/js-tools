@@ -364,32 +364,46 @@ test('diff with jest', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
-        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
+          "error",
     @@ --- --- @@
+            "allowEmptyCatch": true,
           },
         ],
         "no-empty-character-class": Array [
           "error",
-        ],
+    +   ],
     +   "no-empty-function": Array [
     +     "off",
-    +   ],
+        ],
         "no-empty-pattern": Array [
           "error",
         ],
         "no-ex-assign": Array [
+    @@ --- --- @@
+            "boolean": true,
+            "number": true,
+            "string": true,
+          },
+        ],
+    +   "no-implied-eval": Array [
+    +     "off",
+    +   ],
+        "no-import-assign": Array [
+          "error",
+        ],
+        "no-inner-declarations": Array [
           "error",
     @@ --- --- @@
         ],
