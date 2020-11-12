@@ -1,44 +1,48 @@
 'use strict';
 
-/**
- * @typedef {import("eslint").Linter.Config} Config
- * */
+import { Linter } from 'eslint';
 
-const { createBaseConfig, addPlugin, addExtends } = require('./base');
+import { createBaseConfig } from './base';
+import { injectConfigs, injectPlugins, injectRules } from './utils/configUtils';
 
-/** @param {Config} config */
-function setupImportPlugin(config) {
-  addExtends(config, 'plugin:import/typescript');
+export function getTypeScriptConfig(): Linter.Config {
+  const config = createBaseConfig();
 
-  config.rules = {
-    ...config.rules,
-    'import/default': 'off',
-    'import/export': 'off',
-    'import/named': 'off',
-    'import/namespace': 'off',
-    'import/no-unresolved': 'off',
-  };
-}
+  //
+  // eslint
+  //
 
-/** @param {Config} config */
-function setupTypeScriptPlugin(config) {
-  addExtends(config, 'plugin:@typescript-eslint/recommended');
-  addExtends(
-    config,
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-  );
-
-  config.rules = {
-    ...config.rules,
+  injectRules(config, {
     'no-shadow': 'off',
     'no-undef-init': 'off',
     'no-unused-expressions': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
-  };
+  });
 
-  config.rules = {
-    ...config.rules,
+  //
+  // eslint-plugin-import
+  //
+
+  injectConfigs(config, 'plugin:import/typescript');
+  injectRules(config, {
+    'import/default': 'off',
+    'import/export': 'off',
+    'import/named': 'off',
+    'import/namespace': 'off',
+    'import/no-unresolved': 'off',
+  });
+
+  //
+  // @typescript-eslint/plugin
+  //
+
+  injectConfigs(config, 'plugin:@typescript-eslint/recommended');
+  injectConfigs(
+    config,
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  );
+  injectRules(config, {
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
@@ -81,33 +85,22 @@ function setupTypeScriptPlugin(config) {
       { checkCompoundAssignments: true },
     ],
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
-  };
-}
+  });
 
-/** @param {Config} config */
-function setupSimpleImportSortPlugin(config) {
-  addPlugin(config, 'simple-import-sort');
+  //
+  // eslint-plugin-simple-import-sort
+  //
 
-  config.rules = { ...config.rules, 'simple-import-sort/sort': 'error' };
-}
+  injectPlugins(config, 'simple-import-sort');
+  injectRules(config, {
+    'simple-import-sort/sort': 'error',
+  });
 
-/** @param {Config} config */
-function setupPrettierConfig(config) {
-  addExtends(config, 'prettier/@typescript-eslint');
-}
+  //
+  // eslint-config-prettier - should be last injected config
+  //
 
-/** @returns {Config}  */
-function getTypeScriptConfig() {
-  const config = createBaseConfig();
-
-  setupImportPlugin(config);
-  setupTypeScriptPlugin(config);
-  setupSimpleImportSortPlugin(config);
-
-  // Should be last.
-  setupPrettierConfig(config);
+  injectConfigs(config, 'prettier/@typescript-eslint');
 
   return config;
 }
-
-module.exports = { getTypeScriptConfig };
