@@ -1,9 +1,9 @@
 'use strict';
 
-const { getConfigValues } = require('./__testutils__/test-eslint-config');
+import { getConfigData } from './__testutils__/test-eslint-config';
 
 it('extends dependencies', async () => {
-  const [meta, rules] = await getConfigValues('ts-cypress');
+  const [meta, rules] = await getConfigData('ts-cypress');
 
   expect(meta).toMatchInlineSnapshot(`
     Object {

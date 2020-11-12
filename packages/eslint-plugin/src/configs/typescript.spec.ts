@@ -1,22 +1,23 @@
 'use strict';
 
-const path = require('path');
-const {
-  getConfigValues,
-  getConfigsDiff,
-} = require('./__testutils__/test-eslint-config');
+import path from 'path';
+
+import {
+  getConfigData,
+  getConfigDataDiff,
+} from './__testutils__/test-eslint-config';
+
+const CWD = process.cwd();
 
 it('extends dependencies', async () => {
-  const rootDir = path.join(__dirname, '..', '..');
-
-  const [meta, rules] = getConfigsDiff(
-    await getConfigValues('base'),
-    await getConfigValues('typescript', 'foo/bar.ts', {
-      tsconfigRootDir: path.join(rootDir, 'tsconfig.json'),
+  const [meta, rules] = getConfigDataDiff(
+    await getConfigData('base'),
+    await getConfigData('typescript', 'foo/bar.ts', {
+      tsconfigRootDir: path.join(CWD, 'tsconfig.json'),
     }),
   );
 
-  expect(meta.replace(rootDir, '.')).toMatchInlineSnapshot(`
+  expect(meta.replace(CWD, '.')).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value

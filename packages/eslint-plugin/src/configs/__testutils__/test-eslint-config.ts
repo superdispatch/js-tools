@@ -36,16 +36,16 @@ function diff(a: unknown, b: unknown) {
   });
 }
 
-export type ConfigValues = [
+export type ConfigData = [
   meta: Omit<Linter.Config, 'rules'>,
   rules: Partial<Linter.RulesRecord>,
 ];
 
-export async function getConfigValues(
+export async function getConfigData(
   name: keyof typeof configs,
   fileName?: string,
   parserOptions?: Linter.ParserOptions,
-): Promise<ConfigValues> {
+): Promise<ConfigData> {
   const { rules = {}, ...meta } = await getFullConfig(
     name,
     fileName,
@@ -55,9 +55,9 @@ export async function getConfigValues(
   return [meta, rules];
 }
 
-export function getConfigsDiff(
-  [baseMeta, baseRules]: ConfigValues,
-  [meta, rules]: ConfigValues,
+export function getConfigDataDiff(
+  [baseMeta, baseRules]: ConfigData,
+  [meta, rules]: ConfigData,
 ): [metaDiff: string, rulesDiff: string] {
   return [diff(baseMeta, meta), diff(baseRules, rules)];
 }
