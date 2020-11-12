@@ -1,5 +1,16 @@
 import { Linter } from 'eslint';
 
+export function injectEnv(
+  config: Linter.Config,
+  env: Record<string, boolean>,
+): void {
+  if (!config.env) {
+    config.env = {};
+  }
+
+  Object.assign(config.env, env);
+}
+
 export function injectConfigs(
   config: Linter.Config,
   ...configs: string[]
