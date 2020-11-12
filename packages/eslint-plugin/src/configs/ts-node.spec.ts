@@ -365,19 +365,19 @@ it('extends dependencies', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
-        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
+          "error",
     @@ --- --- @@
           },
         ],
@@ -392,6 +392,20 @@ it('extends dependencies', async () => {
         ],
         "no-ex-assign": Array [
           "error",
+    @@ --- --- @@
+            ],
+            "boolean": true,
+            "number": true,
+            "string": true,
+          },
+    +   ],
+    +   "no-implied-eval": Array [
+    +     "off",
+        ],
+        "no-import-assign": Array [
+          "error",
+        ],
+        "no-inner-declarations": Array [
     @@ --- --- @@
         ],
         "no-setter-return": Array [
