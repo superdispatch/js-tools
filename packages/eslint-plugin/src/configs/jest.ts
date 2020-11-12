@@ -1,11 +1,6 @@
-/**
- * @typedef {import("eslint").Linter.Config} Config
- * */
+import { Linter } from 'eslint';
 
-'use strict';
-
-/** @returns {Config} */
-function getJestConfig() {
+export function getJestConfig(): Linter.Config {
   return {
     env: { jest: true },
     extends: [
@@ -37,5 +32,3 @@ function getJestConfig() {
     },
   };
 }
-
-module.exports = { getJestConfig };

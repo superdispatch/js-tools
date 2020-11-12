@@ -1,9 +1,7 @@
-/**
- * @typedef {import("@typescript-eslint/typescript-estree").TSESTree.Identifier} Identifier
- * @typedef {import("eslint").Rule.RuleModule} RuleModule
- * */
-
 'use strict';
+
+import { TSESTree } from '@typescript-eslint/typescript-estree';
+import { Rule } from 'eslint';
 
 const forbidden = [
   'ClassDeclaration',
@@ -16,10 +14,7 @@ const forbidden = [
   'TSTypeParameterDeclaration',
 ];
 
-/**
- * @type {RuleModule}
- * */
-module.exports = {
+const rule: Rule.RuleModule = {
   meta: {
     schema: [],
     type: 'suggestion',
@@ -31,7 +26,7 @@ module.exports = {
      * @param {Identifier} node
      * @returns {boolean}
      */
-    function isException(node) {
+    function isException(node: TSESTree.Identifier) {
       if (node.parent && node.parent.type === 'Property') {
         // Skip: { foo_bar, foo_bar: fooBar }
         if (node.parent.key === node) {
@@ -85,11 +80,8 @@ module.exports = {
 
         // Bail: class { b_c = () => {} }
         if (
-          // TODO Remove @ts-ignore
-          // @ts-ignore
-          node.parent.value &&
-          // @ts-ignore
-          node.parent.value.type === 'ArrowFunctionExpression'
+          node.parent.type === 'ClassProperty' &&
+          node.parent.value?.type === 'ArrowFunctionExpression'
         ) {
           return false;
         }
@@ -107,17 +99,11 @@ module.exports = {
         return true;
       }
 
-      // @ts-expect-error
-      if (node.parent && node.parent.type === 'TSPropertySignature') {
-        return false;
-      }
-
       return !node.parent ? true : !forbidden.includes(node.parent.type);
     }
 
     return {
-      Identifier(estreeNode) {
-        const node = /** @type {Identifier} */ (estreeNode);
+      Identifier(node) {
         const isValid =
           !node.name.includes('_') || node.name === node.name.toUpperCase();
 
@@ -125,7 +111,7 @@ module.exports = {
           return;
         }
 
-        if (isException(node)) {
+        if (isException(node as TSESTree.Identifier)) {
           return;
         }
 
@@ -134,3 +120,5 @@ module.exports = {
     };
   },
 };
+
+export default rule;

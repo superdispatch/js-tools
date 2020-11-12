@@ -1,24 +1,17 @@
-/**
- * @typedef {import("eslint").Linter.Config} Config
- * */
+import { Linter } from 'eslint';
 
-'use strict';
+import { getJestConfig } from './jest';
+import { injectRules } from './utils/configUtils';
 
-const { getJestConfig } = require('./jest');
-
-/** @returns {Config} */
-function getTSJestConfig() {
+export function getTSJestConfig(): Linter.Config {
   const config = getJestConfig();
 
-  config.rules = {
-    ...config.rules,
+  injectRules(config, {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
-  };
+  });
 
   return config;
 }
-
-module.exports = { getTSJestConfig };

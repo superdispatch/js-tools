@@ -1,7 +1,8 @@
 'use strict';
 
-const { RuleTester } = require('eslint');
-const rule = require('./filename');
+import { RuleTester } from 'eslint';
+
+import rule from './filename';
 
 const parserOptions = { ecmaVersion: 2020, sourceType: 'module' };
 

@@ -1,7 +1,8 @@
 'use strict';
 
-const { RuleTester } = require('eslint');
-const rule = require('./prefer-design-system-colors');
+import { RuleTester } from 'eslint';
+
+import rule from './prefer-design-system-colors';
 
 const ruleTester = new RuleTester({
   parserOptions: {

@@ -28,7 +28,7 @@ module.exports = {
     },
 
     {
-      files: '**/packages/eslint-plugin/configs/*.js',
+      files: '**/packages/eslint-plugin/src/configs/*.ts',
       rules: {
         'sort-keys': ['error', 'asc', { natural: true }],
       },
@@ -42,6 +42,7 @@ module.exports = {
       ],
       extends: 'plugin:@superdispatch/jest',
       rules: {
+        'node/no-missing-require': 'off',
         'node/no-unpublished-require': 'off',
       },
     },
