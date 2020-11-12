@@ -4,9 +4,7 @@ import { injectJestConfig } from './jest';
 import { createTSNodeConfig } from './ts-node';
 import { injectRules } from './utils/configUtils';
 
-export function createTSJestConfig(): Linter.Config {
-  const config = createTSNodeConfig();
-
+export function injectTSJestConfig(config: Linter.Config): void {
   //
   // @superdispatch/eslint-plugin
   //
@@ -26,6 +24,12 @@ export function createTSJestConfig(): Linter.Config {
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
   });
+}
+
+export function createTSJestConfig(): Linter.Config {
+  const config = createTSNodeConfig();
+
+  injectTSJestConfig(config);
 
   return config;
 }

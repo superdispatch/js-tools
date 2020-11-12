@@ -5,7 +5,7 @@ import {
   getConfigDataDiff,
 } from './__testutils__/test-eslint-config';
 
-it('extends dependencies', async () => {
+test('diff with jest', async () => {
   const [meta, rules] = getConfigDataDiff(
     await getConfigData('jest'),
     await getConfigData('ts-jest'),

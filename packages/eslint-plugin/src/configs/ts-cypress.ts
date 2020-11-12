@@ -1,16 +1,18 @@
 import { Linter } from 'eslint';
 
-import { createTSJestConfig } from './ts-jest';
+import { injectTSJestConfig } from './ts-jest';
+import { createTypeScriptConfig } from './typescript';
 import { injectConfigs, injectEnv, injectRules } from './utils/configUtils';
 
 export function createTSCypressConfig(): Linter.Config {
-  const config = createTSJestConfig();
+  const config = createTypeScriptConfig();
 
   //
-  // eslint-plugin-cypress
+  // @superdispatch/eslint-plugin
   //
 
-  injectConfigs(config, 'plugin:cypress/recommended');
+  injectTSJestConfig(config);
+  // injectRules()
 
   //
   // eslint-plugin-jest
@@ -20,6 +22,7 @@ export function createTSCypressConfig(): Linter.Config {
     jest: false,
     'jest/globals': false,
   });
+
   injectRules(config, {
     'jest/expect-expect': 'off',
     'jest/valid-expect': 'off',
@@ -34,6 +37,12 @@ export function createTSCypressConfig(): Linter.Config {
     'testing-library/await-async-query': 'off',
     'testing-library/prefer-wait-for': 'off',
   });
+
+  //
+  // eslint-plugin-cypress
+  //
+
+  injectConfigs(config, 'plugin:cypress/recommended');
 
   return config;
 }
