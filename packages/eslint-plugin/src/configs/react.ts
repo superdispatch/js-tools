@@ -1,6 +1,6 @@
 import { Linter } from 'eslint';
 
-export function getReactConfig(): Linter.Config {
+export function createReactConfig(): Linter.Config {
   return {
     env: { browser: true },
     extends: ['plugin:react/recommended', 'prettier/react'],

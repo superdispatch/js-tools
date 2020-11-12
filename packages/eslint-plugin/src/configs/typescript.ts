@@ -5,7 +5,7 @@ import { Linter } from 'eslint';
 import { createBaseConfig } from './base';
 import { injectConfigs, injectPlugins, injectRules } from './utils/configUtils';
 
-export function getTypeScriptConfig(): Linter.Config {
+export function createTypeScriptConfig(): Linter.Config {
   const config = createBaseConfig();
 
   //

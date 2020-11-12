@@ -31,7 +31,7 @@ async function getFullConfig(
 function diff(a: unknown, b: unknown) {
   return snapshotDiff(a, b, {
     colors: false,
-    contextLines: 1,
+    contextLines: 5,
     stablePatchmarks: true,
   });
 }

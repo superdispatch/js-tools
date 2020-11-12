@@ -82,10 +82,14 @@ it('extends dependencies', async () => {
           "ecmaVersion": 2020,
     +     "sourceType": "script",
         },
-    @@ --- --- @@
+        "plugins": Array [
           "import",
     +     "node",
           "eslint-comments",
+          "@superdispatch",
+          "array-func",
+        ],
+        "settings": Object {},
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:
@@ -93,6 +97,10 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
+          "warn",
+        ],
+        "import/no-duplicates": Array [
+          "error",
         ],
     +   "import/no-extraneous-dependencies": Array [
     +     "error",
@@ -103,18 +111,42 @@ it('extends dependencies', async () => {
     +     },
     +   ],
         "import/no-mutable-exports": Array [
+          "error",
+        ],
+        "import/no-named-as-default": Array [
+          "error",
     @@ --- --- @@
+        ],
+        "no-confusing-arrow": Array [
+          0,
+        ],
         "no-console": Array [
     -     "error",
     +     "off",
         ],
+        "no-const-assign": Array [
+          "error",
+        ],
+        "no-constant-condition": Array [
     @@ --- --- @@
+          "error",
+        ],
+        "no-octal": Array [
+          "error",
         ],
     +   "no-process-exit": Array [
     +     "error",
     +   ],
         "no-prototype-builtins": Array [
+          "error",
+        ],
+        "no-redeclare": Array [
+          "error",
     @@ --- --- @@
+        ],
+        "no-with": Array [
+          "error",
+        ],
         "no-wrap-func": Array [
     +     "off",
     +   ],
@@ -194,12 +226,24 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
         "nonblock-statement-body-position": Array [
+          "off",
+        ],
+        "object-curly-newline": Array [
+          "off",
     @@ --- --- @@
+        "space-unary-ops": Array [
+          "off",
+        ],
+        "space-unary-word-ops": Array [
           "off",
     +   ],
     +   "strict": Array [
     +     "error",
     +     "global",
         ],
+        "switch-colon-spacing": Array [
+          "off",
+        ],
+        "template-curly-spacing": Array [
   `);
 });
