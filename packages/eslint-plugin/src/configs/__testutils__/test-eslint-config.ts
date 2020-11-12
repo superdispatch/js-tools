@@ -10,7 +10,7 @@ async function getFullConfig(
 ): Promise<Linter.Config> {
   const cli = new ESLint({
     useEslintrc: false,
-    baseConfig: configs[name] as Linter.Config,
+    baseConfig: configs[name],
     overrideConfig: { parserOptions },
   });
 
