@@ -1,16 +1,11 @@
 /**
- * @typedef {import("eslint").Rule.RuleModule} RuleModule
- * */
-
-'use strict';
-
-const path = require('path');
-const _ = require('lodash');
-
-/**
  * @param {string} text
  */
-function isValidDirname(text) {
+import { Rule } from 'eslint';
+import _ from 'lodash';
+import path from 'path';
+
+function isValidDirname(text: string) {
   return new RegExp(
     '^' +
       // Can possibly start with `__` (e.g: `__tests__`).
@@ -25,20 +20,16 @@ function isValidDirname(text) {
   ).test(text);
 }
 
-/**
- * @type {RuleModule}
- * */
-module.exports = {
+const rule: Rule.RuleModule = {
   meta: {
     schema: [],
     type: 'suggestion',
   },
 
   create(context) {
+    const cwd = ((context as unknown) as { getCwd: () => string }).getCwd();
     const baseDir = _.trim(
-      // TODO Remove @ts-ignore
-      // @ts-ignore
-      path.dirname(context.getFilename()).replace(context.getCwd(), ''),
+      path.dirname(context.getFilename()).replace(cwd, ''),
       path.sep,
     )
       .split(path.sep)
@@ -60,8 +51,8 @@ module.exports = {
               invalid: baseDir,
               valid: baseDir.replace(
                 /^(__)?(.*?)(__)?$/,
-                (_match, m1 = '', m2 = '', m3 = '') =>
-                  `${m1}${_.kebabCase(m2)}${m3}`,
+                (_match, m1: string, m2: string, m3: string) =>
+                  [m1, _.kebabCase(m2), m3].filter(Boolean).join(''),
               ),
             },
           });
@@ -70,3 +61,5 @@ module.exports = {
     };
   },
 };
+
+export default rule;
