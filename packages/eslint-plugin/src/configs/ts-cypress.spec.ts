@@ -23,14 +23,14 @@ it('extends dependencies', async () => {
     +     "cypress/globals": true,
     +     "jest": false,
     +     "jest/globals": false,
+          "node": true,
         },
-        "globals": Object {},
-        "parser": "node_modules/@typescript-eslint/parser/dist/index.js",
-        "parserOptions": Object {
-          "ecmaVersion": 2020,
+        "globals": Object {
+          "ArrayBuffer": "readonly",
+          "Atomics": "readonly",
     @@ --- --- @@
-        "plugins": Array [
           "import",
+          "node",
           "@typescript-eslint",
           "jest",
           "testing-library",

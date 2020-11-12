@@ -5,9 +5,7 @@ import { Linter } from 'eslint';
 import { createBaseConfig } from './base';
 import { injectConfigs, injectPlugins, injectRules } from './utils/configUtils';
 
-export function createTypeScriptConfig(): Linter.Config {
-  const config = createBaseConfig();
-
+export function injectTypeScriptConfig(config: Linter.Config): void {
   //
   // eslint
   //
@@ -101,6 +99,12 @@ export function createTypeScriptConfig(): Linter.Config {
   //
 
   injectConfigs(config, 'prettier/@typescript-eslint');
+}
+
+export function createTypeScriptConfig(): Linter.Config {
+  const config = createBaseConfig();
+
+  injectTypeScriptConfig(config);
 
   return config;
 }

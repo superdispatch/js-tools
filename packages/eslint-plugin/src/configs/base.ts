@@ -23,21 +23,6 @@ const restrictedGlobals = [
   }
 });
 
-/** @deprecated */
-export function addExtends(config: Linter.Config, path: string): void {
-  if (!config.extends) config.extends = [];
-  else if (!Array.isArray(config.extends)) config.extends = [config.extends];
-
-  config.extends.push(path);
-}
-
-/** @deprecated */
-export function addPlugin(config: Linter.Config, plugin: string): void {
-  if (!config.plugins) config.plugins = [];
-
-  config.plugins.push(plugin);
-}
-
 export function createBaseConfig() {
   const config: Linter.Config = {
     parserOptions: { ecmaVersion: 2020 },

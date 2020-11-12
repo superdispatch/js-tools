@@ -7,8 +7,8 @@ import {
 
 it('extends dependencies', async () => {
   const [meta, rules] = getConfigDataDiff(
-    await getConfigData('jest'),
-    await getConfigData('ts-jest'),
+    await getConfigData('node'),
+    await getConfigData('ts-node'),
   );
 
   expect(meta).toMatchInlineSnapshot(`
@@ -36,8 +36,6 @@ it('extends dependencies', async () => {
           "import",
           "node",
     +     "@typescript-eslint",
-          "jest",
-          "testing-library",
     +     "simple-import-sort",
           "eslint-comments",
           "@superdispatch",
@@ -159,7 +157,10 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-explicit-any": Array [
-    +     "off",
+    +     "error",
+    +     Object {
+    +       "ignoreRestArgs": true,
+    +     },
     +   ],
     +   "@typescript-eslint/no-extra-non-null-assertion": Array [
     +     "error",
@@ -204,7 +205,7 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-non-null-assertion": Array [
-    +     "off",
+    +     "error",
     +   ],
     +   "@typescript-eslint/no-shadow": Array [
     +     "error",
@@ -231,16 +232,16 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-assignment": Array [
-    +     "off",
+    +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-call": Array [
-    +     "off",
+    +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-member-access": Array [
-    +     "off",
+    +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-return": Array [
-    +     "off",
+    +     "error",
     +   ],
     +   "@typescript-eslint/no-unused-expressions": Array [
     +     "error",
@@ -293,7 +294,7 @@ it('extends dependencies', async () => {
     +     },
     +   ],
     +   "@typescript-eslint/restrict-template-expressions": Array [
-    +     "off",
+    +     "error",
     +   ],
     +   "@typescript-eslint/return-await": Array [
     +     "error",
@@ -477,7 +478,7 @@ it('extends dependencies', async () => {
     @@ --- --- @@
           "single",
           Object {
-            "allowTemplateLiterals": true,
+            "allowTemplateLiterals": false,
             "avoidEscape": true,
           },
     +   ],

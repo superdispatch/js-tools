@@ -7,6 +7,7 @@ import { createNodePackageConfig } from './configs/node-pkg';
 import { createReactConfig } from './configs/react';
 import { createTSCypressConfig } from './configs/ts-cypress';
 import { createTSJestConfig } from './configs/ts-jest';
+import { createTSNodeConfig } from './configs/ts-node';
 import { createTypeScriptConfig } from './configs/typescript';
 import camelcaseRule from './rules/camelcase';
 import directoryNameRule from './rules/directory-name';
@@ -28,6 +29,7 @@ export const configs = {
   'ts-jest': createTSJestConfig(),
   'ts-cypress': createTSCypressConfig(),
   node: createNodeConfig(),
+  'ts-node': createTSNodeConfig(),
   'node-pkg': createNodePackageConfig(),
   react: createReactConfig(),
   typescript: createTypeScriptConfig(),
