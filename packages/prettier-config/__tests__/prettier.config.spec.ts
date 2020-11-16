@@ -1,8 +1,8 @@
 'use strict';
 
-const { resolveConfig } = require('prettier');
+import { resolveConfig } from 'prettier';
 
-it('exposes config', async () => {
+test('config', async () => {
   expect(await resolveConfig(__filename)).toMatchInlineSnapshot(`
     Object {
       "singleQuote": true,
