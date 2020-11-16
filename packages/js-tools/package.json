@@ -25,6 +25,7 @@
     "version": "yarn build && oclif-dev readme && git add README.md"
   },
   "dependencies": {
+    "@oclif/parser": "^3.8.5",
     "@oclif/command": "^1.8.0",
     "@oclif/errors": "^1.3.4",
     "@oclif/config": "^1.17.0",

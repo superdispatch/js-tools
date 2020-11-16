@@ -1,49 +1,16 @@
-'use strict';
-
-import Command, { flags } from '@oclif/command';
 import { promises as fs } from 'fs';
-import path from 'path';
-import execa = require('execa');
+import * as path from 'path';
+
+import { BaseLintCommand } from '../../base/BaseLintCommand';
 
 const yarnLockFileName = 'yarn.lock';
 const esExtensions = ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.tsx'];
 
-async function execLinter(cmd: string, args: string[]): Promise<void> {
-  console.log(`${cmd} ${args.join(' ')}`);
-
-  await execa(cmd, args, { stdio: 'inherit', preferLocal: true });
-}
-
-export default class Lint extends Command {
-  static strict = false;
-
+export default class LintAll extends BaseLintCommand {
   static description = 'Run all linters';
 
-  static flags = {
-    help: flags.help(),
-
-    fix: flags.boolean({
-      default: false,
-      description: 'Run auto-fixes',
-    }),
-
-    quiet: flags.boolean({
-      default: false,
-      description: 'Do not emit warnings',
-    }),
-  };
-
-  static examples = [
-    '$ js-tools lint --fix',
-    '$ js-tools lint --quiet',
-    '$ js-tools lint foo.js bar.js',
-  ];
-
   async run() {
-    const {
-      argv: files,
-      flags: { fix, quiet },
-    } = this.parse(Lint);
+    const { fix, quiet, files } = this.options;
 
     const eslintArgs: string[] = ['--ext', esExtensions.join(',')];
     const eslintFiles: string[] = [];
@@ -92,18 +59,18 @@ export default class Lint extends Command {
     }
 
     if (yarnDeduplicateFiles.length > 0) {
-      await execLinter('yarn-deduplicate', [
+      await this.exec('yarn-deduplicate', [
         ...yarnDeduplicateArgs,
         ...yarnDeduplicateFiles,
       ]);
     }
 
     if (eslintFiles.length > 0) {
-      await execLinter('eslint', [...eslintArgs, ...eslintFiles]);
+      await this.exec('eslint', [...eslintArgs, ...eslintFiles]);
     }
 
     if (prettierFiles.length > 0) {
-      await execLinter('prettier', [...prettierArgs, ...prettierFiles]);
+      await this.exec('prettier', [...prettierArgs, ...prettierFiles]);
     }
   }
 }
