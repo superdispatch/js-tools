@@ -2,6 +2,8 @@
   "include": ["src"],
   "extends": "../../tsconfig.build",
   "compilerOptions": {
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": false,
     "rootDir": "src",
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
