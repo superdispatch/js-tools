@@ -8,39 +8,121 @@
 yarn add @superdispatch/js-tools -D
 ```
 
-#### `$ js-tools <cmd>`
+#### Usage
 
+<!-- usage -->
+
+```sh-session
+$ npm install -g @superdispatch/js-tools
+$ js-tools COMMAND
+running command...
+$ js-tools (-v|--version|version)
+@superdispatch/js-tools/0.2.18 darwin-x64 node-v14.15.0
+$ js-tools --help [COMMAND]
+USAGE
+  $ js-tools COMMAND
+...
 ```
-Commands:
-  js-tools lint [files...]  Run linters
 
-Options:
-  --help  Show help                                                    [boolean]
-```
-
-#### `$ js-tools lint [files...]`
-
-```
-Run linters
-
-Positionals:
-  files  Files to lint                                     [array] [default: []]
-
-Options:
-  --help   Show help                                                   [boolean]
-  --tools  Whitelist tools to run        [array] [choices: "eslint", "prettier"]
-  --fix    Run auto-fixes                             [boolean] [default: false]
-  --quiet  Do not emit warnings                       [boolean] [default: false]
-
-Examples:
-  js-tools                   lint all files
-  js-tools --fix             lint and fix all files
-  js-tools foo.js bar.js     lint only provided files
-  js-tools --tools prettier  lint only with Prettier
-```
+<!-- usagestop -->
 
 ##### With `lint-staged`:
 
 ```js
 module.exports = { '*': 'js-tools lint --fix' };
 ```
+
+#### Commands
+
+<!-- commands -->
+
+- [`js-tools lint`](#js-tools-lint)
+- [`js-tools lint:eslint`](#js-tools-linteslint)
+- [`js-tools lint:prettier`](#js-tools-lintprettier)
+- [`js-tools lint:yarn-deduplicate`](#js-tools-lintyarn-deduplicate)
+
+## `js-tools lint`
+
+Run all linters
+
+```
+USAGE
+  $ js-tools lint
+
+OPTIONS
+  --fix    Run auto-fixes
+  --help   show CLI help
+  --quiet  Do not emit warnings
+
+EXAMPLES
+  $ js-tools lint --fix
+  $ js-tools lint --quiet
+  $ js-tools lint foo.js bar.js
+```
+
+_See code: [dist/commands/lint/index.js](https://github.com/superdispatch/js-tools/blob/v0.2.18/dist/commands/lint/index.js)_
+
+## `js-tools lint:eslint`
+
+Run ESLint
+
+```
+USAGE
+  $ js-tools lint:eslint
+
+OPTIONS
+  --fix    Run auto-fixes
+  --help   show CLI help
+  --quiet  Do not emit warnings
+
+EXAMPLES
+  $ js-tools lint --fix
+  $ js-tools lint --quiet
+  $ js-tools lint foo.js bar.js
+```
+
+_See code: [dist/commands/lint/eslint.js](https://github.com/superdispatch/js-tools/blob/v0.2.18/dist/commands/lint/eslint.js)_
+
+## `js-tools lint:prettier`
+
+Run Prettier
+
+```
+USAGE
+  $ js-tools lint:prettier
+
+OPTIONS
+  --fix    Run auto-fixes
+  --help   show CLI help
+  --quiet  Do not emit warnings
+
+EXAMPLES
+  $ js-tools lint --fix
+  $ js-tools lint --quiet
+  $ js-tools lint foo.js bar.js
+```
+
+_See code: [dist/commands/lint/prettier.js](https://github.com/superdispatch/js-tools/blob/v0.2.18/dist/commands/lint/prettier.js)_
+
+## `js-tools lint:yarn-deduplicate`
+
+Deduplicate yarn dependencies
+
+```
+USAGE
+  $ js-tools lint:yarn-deduplicate
+
+OPTIONS
+  --fix    Run auto-fixes
+  --help   show CLI help
+  --quiet  Do not emit warnings
+
+EXAMPLES
+  $ js-tools lint --fix
+  $ js-tools lint --quiet
+  $ js-tools lint foo.js bar.js
+```
+
+_See code: [dist/commands/lint/yarn-deduplicate.js](https://github.com/superdispatch/js-tools/blob/v0.2.18/dist/commands/lint/yarn-deduplicate.js)_
+
+<!-- commandsstop -->
