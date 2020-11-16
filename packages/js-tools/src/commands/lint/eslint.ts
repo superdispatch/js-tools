@@ -5,7 +5,7 @@ import { BaseLintCommand } from '../../base/BaseLintCommand';
 const esExtensions = ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.tsx'];
 
 export default class LintESLint extends BaseLintCommand {
-  static description = 'Run ESLint linters';
+  static description = 'Run ESLint';
 
   async run() {
     const { fix, quiet, files } = this.options;

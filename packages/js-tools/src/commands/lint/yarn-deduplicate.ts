@@ -6,7 +6,7 @@ import { BaseLintCommand } from '../../base/BaseLintCommand';
 const LOCK_FILE_NAME = 'yarn.lock';
 
 export default class LintYarnDeduplicate extends BaseLintCommand {
-  static description = 'Run Prettier linters';
+  static description = 'Deduplicate yarn dependencies';
 
   async run() {
     const { fix, files } = this.options;

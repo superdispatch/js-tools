@@ -1,7 +1,7 @@
 import { BaseLintCommand } from '../../base/BaseLintCommand';
 
 export default class LintPrettier extends BaseLintCommand {
-  static description = 'Run Prettier linters';
+  static description = 'Run Prettier';
 
   async run() {
     const { fix, files } = this.options;
