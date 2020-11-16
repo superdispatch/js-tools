@@ -1,5 +1,9 @@
 {
-  "extends": "../../tsconfig",
-  "include": ["index.js", "bin.js", "commands/**/*", "../eslint-plugin/types"],
-  "exclude": ["**/*.spec.*"]
+  "include": ["src"],
+  "extends": "../../tsconfig.build",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
+  }
 }
