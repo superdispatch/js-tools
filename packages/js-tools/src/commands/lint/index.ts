@@ -13,30 +13,30 @@ export default class LintAll extends BaseLintCommand {
       [
         {
           title: 'yarn-deduplicate',
-          task: () => execa(bin, ['lint:yarn-deduplicate', ...args]),
+          task: () =>
+            execa(bin, ['lint:yarn-deduplicate', ...args], {
+              stderr: 'inherit',
+            }),
         },
 
         {
-          title: 'lint',
+          title: 'eslint',
           task: () =>
-            new Listr(
-              [
-                {
-                  title: 'eslint',
-                  task: () => execa(bin, ['lint:eslint', ...args]),
-                },
-                {
-                  title: 'prettier',
-                  task: () => execa(bin, ['lint:prettier', ...args]),
-                },
-              ],
+            execa(bin, ['lint:eslint', ...args], {
+              env: { FORCE_COLOR: 'true' },
+            }),
+        },
 
-              { concurrent: !fix },
-            ),
+        {
+          title: 'prettier',
+          task: () =>
+            execa(bin, ['lint:prettier', ...args], {
+              stderr: 'inherit',
+            }),
         },
       ],
       {
-        concurrent: true,
+        concurrent: !fix,
       },
     );
 
