@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "version": "tsc"
+    "build": "rimraf dist && tsc -b"
   },
   "dependencies": {
     "@babel/core": "^7.12.1",

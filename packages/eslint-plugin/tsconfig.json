@@ -2,8 +2,6 @@
   "include": ["src", "types"],
   "extends": "../../tsconfig.build",
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
     "rootDir": "src",
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
