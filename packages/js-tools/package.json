@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/js-tools",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "CLI tools for JavaScript",
   "keywords": [
     "eslint",
@@ -25,10 +25,10 @@
     "version": "yarn build && oclif-dev readme && git add README.md"
   },
   "dependencies": {
-    "@oclif/parser": "^3.8.5",
     "@oclif/command": "^1.8.0",
-    "@oclif/errors": "^1.3.4",
     "@oclif/config": "^1.17.0",
+    "@oclif/errors": "^1.3.4",
+    "@oclif/parser": "^3.8.5",
     "@oclif/plugin-help": "^3.2.0",
     "execa": "^4.1.0",
     "listr": "^0.14.3",
