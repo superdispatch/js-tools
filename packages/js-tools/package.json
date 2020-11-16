@@ -22,7 +22,7 @@
     "build": "rimraf dist && tsc -b",
     "prepack": "oclif-dev manifest",
     "postpack": "rimraf oclif.manifest.json",
-    "version": "yarn build && oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md"
   },
   "dependencies": {
     "@oclif/command": "^1.8.0",
