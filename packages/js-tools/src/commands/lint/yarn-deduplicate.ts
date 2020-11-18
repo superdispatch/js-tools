@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import * as fs from 'fs';
 import * as path from 'path';
 
 import { BaseLintCommand } from '../../base/BaseLintCommand';
@@ -19,9 +19,7 @@ export default class LintYarnDeduplicate extends BaseLintCommand {
     }
 
     if (files.length === 0) {
-      const lockFileStats = await fs.lstat(LOCK_FILE_NAME);
-
-      if (lockFileStats.isFile()) {
+      if (fs.existsSync(LOCK_FILE_NAME)) {
         lockFile = LOCK_FILE_NAME;
       }
     } else {
