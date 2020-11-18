@@ -23,7 +23,7 @@ it('extends dependencies', async () => {
     @@ --- --- @@
         ],
         "node/no-unpublished-import": Array [
-          "error",
+          "off",
         ],
         "node/no-unpublished-require": Array [
     -     "off",
