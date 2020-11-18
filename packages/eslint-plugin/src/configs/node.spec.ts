@@ -175,7 +175,7 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "node/no-unpublished-import": Array [
-    +     "error",
+    +     "off",
     +   ],
     +   "node/no-unpublished-require": Array [
           "off",
