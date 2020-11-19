@@ -4,7 +4,7 @@ export function createReactConfig(): Linter.Config {
   return {
     env: { browser: true },
     extends: ['plugin:react/recommended', 'prettier/react'],
-    plugins: ['react', 'react-hooks', 'jsx-a11y'],
+    plugins: ['react', 'react-hooks', 'jsx-a11y', '@superdispatch'],
 
     rules: {
       //
@@ -12,7 +12,6 @@ export function createReactConfig(): Linter.Config {
       //
 
       '@superdispatch/jsx-no-spread-object-expression': 'error',
-      '@superdispatch/prefer-design-system-colors': 'error',
 
       //
       // eslint-plugin-jsx-a11y

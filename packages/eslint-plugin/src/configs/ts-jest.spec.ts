@@ -40,7 +40,6 @@ test('diff with jest', async () => {
           "testing-library",
     +     "simple-import-sort",
           "eslint-comments",
-          "@superdispatch",
           "array-func",
         ],
     -   "settings": Object {},
@@ -83,11 +82,7 @@ test('diff with jest', async () => {
     + Second value
 
     @@ --- --- @@
-          "off",
-        ],
-        "@superdispatch/no-index-file": Array [
-          "off",
-        ],
+      Object {
     +   "@typescript-eslint/adjacent-overload-signatures": Array [
     +     "error",
     +   ],

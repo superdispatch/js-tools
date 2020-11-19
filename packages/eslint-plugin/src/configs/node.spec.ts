@@ -16,7 +16,6 @@ it('extends dependencies', async () => {
     - First value
     + Second value
 
-    @@ --- --- @@
       Object {
     -   "env": Object {},
     -   "globals": Object {},
@@ -86,10 +85,10 @@ it('extends dependencies', async () => {
           "import",
     +     "node",
           "eslint-comments",
-          "@superdispatch",
           "array-func",
         ],
         "settings": Object {},
+      }
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:

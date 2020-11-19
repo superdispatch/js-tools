@@ -18,6 +18,7 @@ it('extends dependencies', async () => {
         },
       },
       "plugins": Array [
+        "@superdispatch",
         "jsx-a11y",
         "react-hooks",
         "react",
@@ -28,9 +29,6 @@ it('extends dependencies', async () => {
   expect(rules).toMatchInlineSnapshot(`
     Object {
       "@superdispatch/jsx-no-spread-object-expression": Array [
-        "error",
-      ],
-      "@superdispatch/prefer-design-system-colors": Array [
         "error",
       ],
       "jsx-a11y/accessible-emoji": Array [

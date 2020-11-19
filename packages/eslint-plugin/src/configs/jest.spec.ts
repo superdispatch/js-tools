@@ -34,10 +34,10 @@ it('extends dependencies', async () => {
     +     "jest",
     +     "testing-library",
           "eslint-comments",
-          "@superdispatch",
           "array-func",
         ],
         "settings": Object {},
+      }
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:

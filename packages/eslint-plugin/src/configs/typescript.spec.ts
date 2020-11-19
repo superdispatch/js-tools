@@ -37,7 +37,6 @@ it('extends dependencies', async () => {
     +     "@typescript-eslint",
     +     "simple-import-sort",
           "eslint-comments",
-          "@superdispatch",
           "array-func",
         ],
     -   "settings": Object {},
@@ -80,11 +79,7 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
-          "off",
-        ],
-        "@superdispatch/no-index-file": Array [
-          "off",
-        ],
+      Object {
     +   "@typescript-eslint/adjacent-overload-signatures": Array [
     +     "error",
     +   ],
