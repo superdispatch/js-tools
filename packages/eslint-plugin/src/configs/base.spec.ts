@@ -16,7 +16,6 @@ it('extends dependencies', async () => {
       "plugins": Array [
         "import",
         "eslint-comments",
-        "@superdispatch",
         "array-func",
       ],
       "settings": Object {},
@@ -24,18 +23,6 @@ it('extends dependencies', async () => {
   `);
   expect(rules).toMatchInlineSnapshot(`
     Object {
-      "@superdispatch/camelcase": Array [
-        "off",
-      ],
-      "@superdispatch/directory-name": Array [
-        "off",
-      ],
-      "@superdispatch/filename": Array [
-        "off",
-      ],
-      "@superdispatch/no-index-file": Array [
-        "off",
-      ],
       "array-bracket-newline": Array [
         "off",
       ],

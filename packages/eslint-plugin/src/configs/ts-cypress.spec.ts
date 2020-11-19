@@ -38,9 +38,9 @@ it('extends dependencies', async () => {
     +     "cypress",
           "simple-import-sort",
           "eslint-comments",
-          "@superdispatch",
           "array-func",
         ],
+        "settings": Object {
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:

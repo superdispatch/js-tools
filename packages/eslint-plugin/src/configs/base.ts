@@ -139,18 +139,6 @@ export function createBaseConfig() {
   });
 
   //
-  // @superdispatch/eslint-plugin
-  //
-
-  injectPlugins(config, '@superdispatch/eslint-plugin');
-  injectRules(config, {
-    '@superdispatch/camelcase': 'off',
-    '@superdispatch/directory-name': 'off',
-    '@superdispatch/filename': 'off',
-    '@superdispatch/no-index-file': 'off',
-  });
-
-  //
   // eslint-plugin-eslint-comments
   //
 
