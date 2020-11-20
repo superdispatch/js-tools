@@ -13,10 +13,7 @@ export default class LintAll extends BaseLintCommand {
       [
         {
           title: 'yarn-deduplicate',
-          task: () =>
-            execa(bin, ['lint:yarn-deduplicate', ...args], {
-              stderr: 'inherit',
-            }),
+          task: () => execa(bin, ['lint:yarn-deduplicate', ...args]),
         },
 
         {
@@ -29,10 +26,7 @@ export default class LintAll extends BaseLintCommand {
 
         {
           title: 'prettier',
-          task: () =>
-            execa(bin, ['lint:prettier', ...args], {
-              stderr: 'inherit',
-            }),
+          task: () => execa(bin, ['lint:prettier', ...args]),
         },
       ],
       {
