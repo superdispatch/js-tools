@@ -31,7 +31,7 @@ export abstract class BaseLintCommand extends Command {
   }
 
   protected async exec(cmd: string, args: string[]): Promise<void> {
-    this.log('%s %j', cmd, args);
+    this.log([cmd, ...args].join(' '));
 
     await execa(cmd, args, { stdio: 'inherit', preferLocal: true });
   }
