@@ -17,7 +17,7 @@ $ npm install -g @superdispatch/js-tools
 $ js-tools COMMAND
 running command...
 $ js-tools (-v|--version|version)
-@superdispatch/js-tools/0.2.22 darwin-x64 node-v14.15.1
+@superdispatch/js-tools/0.2.24 darwin-x64 node-v14.15.1
 $ js-tools --help [COMMAND]
 USAGE
   $ js-tools COMMAND
@@ -50,6 +50,7 @@ USAGE
   $ js-tools lint
 
 OPTIONS
+  --cache  Only check changed files
   --fix    Run auto-fixes
   --help   show CLI help
   --quiet  Do not emit warnings
@@ -60,7 +61,7 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/index.js](https://github.com/superdispatch/js-tools/blob/v0.2.22/dist/commands/lint/index.js)_
+_See code: [dist/commands/lint/index.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/index.js)_
 
 ## `js-tools lint:eslint`
 
@@ -71,6 +72,7 @@ USAGE
   $ js-tools lint:eslint
 
 OPTIONS
+  --cache  Only check changed files
   --fix    Run auto-fixes
   --help   show CLI help
   --quiet  Do not emit warnings
@@ -81,7 +83,7 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/eslint.js](https://github.com/superdispatch/js-tools/blob/v0.2.22/dist/commands/lint/eslint.js)_
+_See code: [dist/commands/lint/eslint.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/eslint.js)_
 
 ## `js-tools lint:prettier`
 
@@ -92,6 +94,7 @@ USAGE
   $ js-tools lint:prettier
 
 OPTIONS
+  --cache  Only check changed files
   --fix    Run auto-fixes
   --help   show CLI help
   --quiet  Do not emit warnings
@@ -102,7 +105,7 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/prettier.js](https://github.com/superdispatch/js-tools/blob/v0.2.22/dist/commands/lint/prettier.js)_
+_See code: [dist/commands/lint/prettier.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/prettier.js)_
 
 ## `js-tools lint:yarn-deduplicate`
 
@@ -113,6 +116,7 @@ USAGE
   $ js-tools lint:yarn-deduplicate
 
 OPTIONS
+  --cache  Only check changed files
   --fix    Run auto-fixes
   --help   show CLI help
   --quiet  Do not emit warnings
@@ -123,6 +127,6 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/yarn-deduplicate.js](https://github.com/superdispatch/js-tools/blob/v0.2.22/dist/commands/lint/yarn-deduplicate.js)_
+_See code: [dist/commands/lint/yarn-deduplicate.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/yarn-deduplicate.js)_
 
 <!-- commandsstop -->
