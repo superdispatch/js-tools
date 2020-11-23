@@ -16,6 +16,11 @@ export abstract class BaseLintCommand extends Command {
       default: false,
       description: 'Do not emit warnings',
     }),
+
+    cache: flags.boolean({
+      default: false,
+      description: 'Only check changed files',
+    }),
   };
 
   static examples = [

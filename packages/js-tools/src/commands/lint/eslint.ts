@@ -1,6 +1,7 @@
 import * as path from 'path';
 
 import { BaseLintCommand } from '../../base/BaseLintCommand';
+import findCacheDir = require('find-cache-dir');
 
 const esExtensions = ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.tsx'];
 
@@ -8,7 +9,7 @@ export default class LintESLint extends BaseLintCommand {
   static description = 'Run ESLint';
 
   async run() {
-    const { fix, quiet, files } = this.options;
+    const { fix, quiet, files, cache } = this.options;
     const args: string[] = [];
     const esFiles: string[] = [];
 
@@ -20,6 +21,17 @@ export default class LintESLint extends BaseLintCommand {
 
     if (quiet) {
       args.push('--quiet');
+    }
+
+    if (cache) {
+      const cacheLocation = findCacheDir({ name: 'eslint', create: true });
+
+      if (cacheLocation) {
+        args.push('--cache');
+        args.push('--cache-location', cacheLocation);
+      } else {
+        this.warn('Failed to find cache directory.');
+      }
     }
 
     if (files.length === 0) {
