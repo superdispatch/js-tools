@@ -72,13 +72,13 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
-        "@typescript-eslint/no-shadow": Array [
+        "@typescript-eslint/no-parameter-properties": Array [
           "error",
         ],
-        "@typescript-eslint/no-this-alias": Array [
+        "@typescript-eslint/no-shadow": Array [
     @@ --- --- @@
         ],
-        "@typescript-eslint/no-unnecessary-type-assertion": Array [
+        "@typescript-eslint/no-unnecessary-type-constraint": Array [
           "error",
         ],
         "@typescript-eslint/no-unsafe-assignment": Array [

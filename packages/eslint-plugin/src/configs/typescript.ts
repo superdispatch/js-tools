@@ -43,6 +43,7 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
   injectRules(config, {
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
     '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/consistent-indexed-object-style': ['error', 'record'],
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': [
@@ -51,6 +52,20 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/method-signature-style': ['error', 'property'],
+    '@typescript-eslint/no-base-to-string': [
+      'error',
+      { ignoredTypeNames: ['RegExp'] },
+    ],
+    '@typescript-eslint/no-confusing-non-null-assertion': 'error',
+    '@typescript-eslint/no-confusing-void-expression': [
+      'error',
+      {
+        ignoreArrowShorthand: false,
+        ignoreVoidOperator: false,
+      },
+    ],
+    '@typescript-eslint/no-dynamic-delete': 'error',
     '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
     '@typescript-eslint/no-implicit-any-catch': [
@@ -59,12 +74,14 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
     ],
     '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/no-parameter-properties': 'error',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/no-unnecessary-qualifier': 'error',
     '@typescript-eslint/no-unnecessary-type-arguments': 'error',
+    '@typescript-eslint/no-unnecessary-type-constraint': 'error',
     '@typescript-eslint/no-unsafe-assignment': 'error',
     '@typescript-eslint/no-unsafe-call': 'error',
     '@typescript-eslint/no-unsafe-member-access': 'error',
@@ -74,7 +91,9 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
       'error',
       { classes: true, functions: false, typedefs: false },
     ],
+    '@typescript-eslint/prefer-for-of': 'error',
     '@typescript-eslint/prefer-function-type': 'error',
+    '@typescript-eslint/prefer-includes': 'error',
     '@typescript-eslint/prefer-optional-chain': 'error',
     '@typescript-eslint/prefer-reduce-type-parameter': 'error',
     '@typescript-eslint/require-array-sort-compare': 'error',

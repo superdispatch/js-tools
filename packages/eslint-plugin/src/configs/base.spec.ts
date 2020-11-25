@@ -51,11 +51,7 @@ it('extends dependencies', async () => {
         "error",
       ],
       "arrow-body-style": Array [
-        "error",
-        "as-needed",
-        Object {
-          "requireReturnForObjectLiteral": false,
-        },
+        0,
       ],
       "arrow-parens": Array [
         "off",
@@ -67,9 +63,6 @@ it('extends dependencies', async () => {
         "off",
       ],
       "brace-style": Array [
-        "off",
-      ],
-      "camelcase": Array [
         "off",
       ],
       "comma-dangle": Array [

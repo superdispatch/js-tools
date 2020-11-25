@@ -111,6 +111,10 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/comma-spacing": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/consistent-indexed-object-style": Array [
+    +     "error",
+    +     "record",
+    +   ],
     +   "@typescript-eslint/consistent-type-definitions": Array [
     +     "error",
     +     "interface",
@@ -142,7 +146,32 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/member-delimiter-style": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/method-signature-style": Array [
+    +     "error",
+    +     "property",
+    +   ],
     +   "@typescript-eslint/no-array-constructor": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-base-to-string": Array [
+    +     "error",
+    +     Object {
+    +       "ignoredTypeNames": Array [
+    +         "RegExp",
+    +       ],
+    +     },
+    +   ],
+    +   "@typescript-eslint/no-confusing-non-null-assertion": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-confusing-void-expression": Array [
+    +     "error",
+    +     Object {
+    +       "ignoreArrowShorthand": false,
+    +       "ignoreVoidOperator": false,
+    +     },
+    +   ],
+    +   "@typescript-eslint/no-dynamic-delete": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-empty-function": Array [
@@ -202,6 +231,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-non-null-assertion": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-parameter-properties": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-shadow": Array [
     +     "error",
     +   ],
@@ -224,6 +256,9 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unnecessary-type-assertion": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unnecessary-type-constraint": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-assignment": Array [
@@ -258,7 +293,13 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/prefer-for-of": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/prefer-function-type": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/prefer-includes": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/prefer-namespace-keyword": Array [
@@ -485,19 +526,19 @@ it('extends dependencies', async () => {
         ],
         "node/no-unsupported-features/node-builtins": Array [
     @@ --- --- @@
-          "single",
           Object {
             "allowTemplateLiterals": false,
             "avoidEscape": true,
           },
-    +   ],
+        ],
     +   "require-await": Array [
     +     "off",
-        ],
+    +   ],
         "require-yield": Array [
           "error",
         ],
         "rest-spread-spacing": Array [
+          "off",
     @@ --- --- @@
           "off",
         ],
