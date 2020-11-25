@@ -35,12 +35,6 @@ export function createBaseConfig() {
 
   injectConfigs(config, 'eslint:recommended');
   injectRules(config, {
-    'arrow-body-style': [
-      'error',
-      'as-needed',
-      { requireReturnForObjectLiteral: false },
-    ],
-    camelcase: 'off',
     curly: ['error', 'multi-line', 'consistent'],
     'dot-notation': 'error',
     eqeqeq: ['error', 'smart'],
