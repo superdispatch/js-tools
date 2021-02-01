@@ -1,9 +1,8 @@
 'use strict';
 
 import { Linter } from 'eslint';
-
 import { createBaseConfig } from './base';
-import { injectConfigs, injectPlugins, injectRules } from './utils/configUtils';
+import { injectConfigs, injectRules } from './utils/configUtils';
 
 export function injectTypeScriptConfig(config: Linter.Config): void {
   //
@@ -103,13 +102,6 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
     ],
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
   });
-
-  //
-  // eslint-plugin-simple-import-sort
-  //
-
-  injectPlugins(config, 'simple-import-sort');
-  injectRules(config, { 'simple-import-sort/imports': 'error' });
 
   //
   // eslint-config-prettier - should be last injected config

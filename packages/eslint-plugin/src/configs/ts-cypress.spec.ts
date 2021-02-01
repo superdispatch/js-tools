@@ -36,11 +36,11 @@ it('extends dependencies', async () => {
     +     "jest",
     +     "testing-library",
     +     "cypress",
-          "simple-import-sort",
           "eslint-comments",
           "array-func",
         ],
         "settings": Object {
+          "import/extensions": Array [
   `);
   expect(rules).toMatchInlineSnapshot(`
     Snapshot Diff:
