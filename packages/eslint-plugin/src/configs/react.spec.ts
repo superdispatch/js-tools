@@ -124,6 +124,9 @@ it('extends dependencies', async () => {
       "react/jsx-max-props-per-line": Array [
         "off",
       ],
+      "react/jsx-newline": Array [
+        "off",
+      ],
       "react/jsx-no-comment-textnodes": Array [
         2,
       ],

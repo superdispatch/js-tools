@@ -289,6 +289,9 @@ test('diff with jest', async () => {
     +   "@typescript-eslint/no-var-requires": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/object-curly-spacing": Array [
+    +     "off",
+    +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
     +   ],
@@ -544,7 +547,7 @@ test('diff with jest', async () => {
         "semi-style": Array [
           "off",
         ],
-    +   "simple-import-sort/sort": Array [
+    +   "simple-import-sort/imports": Array [
     +     "error",
     +   ],
         "space-after-function-name": Array [
