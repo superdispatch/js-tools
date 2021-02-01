@@ -1,6 +1,5 @@
 import { ESLint, Linter } from 'eslint';
 import snapshotDiff from 'snapshot-diff';
-
 import { configs } from '../../plugin';
 
 async function getFullConfig(

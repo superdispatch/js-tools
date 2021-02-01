@@ -1,6 +1,5 @@
 import confusingBrowserGlobals from 'confusing-browser-globals';
 import { Linter } from 'eslint';
-
 import { injectConfigs, injectPlugins, injectRules } from './utils/configUtils';
 
 const restrictedGlobals = [

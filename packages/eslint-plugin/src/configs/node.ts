@@ -1,5 +1,4 @@
 import { Linter } from 'eslint';
-
 import { createBaseConfig } from './base';
 import { injectConfigs, injectEnv, injectRules } from './utils/configUtils';
 

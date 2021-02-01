@@ -1,6 +1,6 @@
 import * as path from 'path';
-
 import { BaseLintCommand } from '../../base/BaseLintCommand';
+
 import findCacheDir = require('find-cache-dir');
 
 const esExtensions = ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.tsx'];
