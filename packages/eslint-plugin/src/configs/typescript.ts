@@ -109,9 +109,7 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
   //
 
   injectPlugins(config, 'simple-import-sort');
-  injectRules(config, {
-    'simple-import-sort/sort': 'error',
-  });
+  injectRules(config, { 'simple-import-sort/imports': 'error' });
 
   //
   // eslint-config-prettier - should be last injected config

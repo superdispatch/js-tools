@@ -50,9 +50,6 @@ it('extends dependencies', async () => {
       "array-func/prefer-flat-map": Array [
         "error",
       ],
-      "arrow-body-style": Array [
-        0,
-      ],
       "arrow-parens": Array [
         "off",
       ],

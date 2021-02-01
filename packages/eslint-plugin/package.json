@@ -15,11 +15,11 @@
     "build": "rimraf dist && tsc -b"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.7.0",
-    "@typescript-eslint/parser": "^4.7.0",
-    "@typescript-eslint/typescript-estree": "^4.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "@typescript-eslint/typescript-estree": "^4.14.1",
     "confusing-browser-globals": "^1.0.10",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -27,10 +27,10 @@
     "eslint-plugin-jest": "^24.1.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-simple-import-sort": "^5.0.3",
-    "eslint-plugin-testing-library": "^3.10.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-testing-library": "^3.10.1",
     "lodash": "^4.17.19"
   },
   "peerDependencies": {
