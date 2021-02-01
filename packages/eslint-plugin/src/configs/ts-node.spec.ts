@@ -36,11 +36,9 @@ it('extends dependencies', async () => {
           "import",
           "node",
     +     "@typescript-eslint",
-    +     "simple-import-sort",
           "eslint-comments",
           "array-func",
-        ],
-    -   "settings": Object {},
+    +   ],
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
@@ -52,7 +50,8 @@ it('extends dependencies', async () => {
     +     "import/external-module-folders": Array [
     +       "node_modules",
     +       "node_modules/@types",
-    +     ],
+          ],
+    -   "settings": Object {},
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
@@ -290,6 +289,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-var-requires": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/object-curly-spacing": Array [
+    +     "off",
+    +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
     +   ],
@@ -415,33 +417,33 @@ it('extends dependencies', async () => {
         "no-async-promise-executor": Array [
           "error",
     @@ --- --- @@
+            "allowEmptyCatch": true,
           },
         ],
         "no-empty-character-class": Array [
           "error",
-        ],
+    +   ],
     +   "no-empty-function": Array [
     +     "off",
-    +   ],
+        ],
         "no-empty-pattern": Array [
           "error",
         ],
         "no-ex-assign": Array [
-          "error",
     @@ --- --- @@
-            ],
             "boolean": true,
             "number": true,
             "string": true,
           },
-    +   ],
+        ],
     +   "no-implied-eval": Array [
     +     "off",
-        ],
+    +   ],
         "no-import-assign": Array [
           "error",
         ],
         "no-inner-declarations": Array [
+          "error",
     @@ --- --- @@
         ],
         "no-setter-return": Array [
@@ -538,20 +540,6 @@ it('extends dependencies', async () => {
           "error",
         ],
         "rest-spread-spacing": Array [
-          "off",
-    @@ --- --- @@
-          "off",
-        ],
-        "semi-style": Array [
-          "off",
-        ],
-    +   "simple-import-sort/sort": Array [
-    +     "error",
-    +   ],
-        "space-after-function-name": Array [
-          "off",
-        ],
-        "space-after-keywords": Array [
           "off",
     @@ --- --- @@
         ],

@@ -1,5 +1,4 @@
 import snapshotDiff from 'snapshot-diff';
-
 import preset, { PresetOptions } from './preset';
 
 function presetDiff(before: unknown, after: unknown) {

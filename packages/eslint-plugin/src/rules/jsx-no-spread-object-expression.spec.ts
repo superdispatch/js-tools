@@ -1,7 +1,6 @@
 'use strict';
 
 import { RuleTester } from 'eslint';
-
 import rule from './jsx-no-spread-object-expression';
 
 const parserOptions = {

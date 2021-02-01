@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/tsconfig",
-  "version": "0.2.22",
+  "version": "0.3.0",
   "description": "Shared config for TypeScript.",
   "keywords": [
     "typescript"
@@ -12,7 +12,7 @@
     "tsconfig.json"
   ],
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"

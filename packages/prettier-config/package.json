@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/prettier-config",
-  "version": "0.2.22",
+  "version": "0.3.0",
   "description": "Shared config for Prettier.",
   "keywords": [
     "prettier"
@@ -11,8 +11,12 @@
   "files": [
     "prettier.config.js"
   ],
+  "dependencies": {
+    "prettier-plugin-organize-imports": "^1.1.1",
+    "prettier-plugin-packagejson": "^2.2.9"
+  },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"
