@@ -17,7 +17,7 @@ $ npm install -g @superdispatch/js-tools
 $ js-tools COMMAND
 running command...
 $ js-tools (-v|--version|version)
-@superdispatch/js-tools/0.2.24 darwin-x64 node-v14.15.1
+@superdispatch/js-tools/0.3.0 darwin-x64 node-v14.15.3
 $ js-tools --help [COMMAND]
 USAGE
   $ js-tools COMMAND
@@ -61,7 +61,7 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/index.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/index.js)_
+_See code: [dist/commands/lint/index.js](https://github.com/superdispatch/js-tools/blob/v0.3.0/dist/commands/lint/index.js)_
 
 ## `js-tools lint:eslint`
 
@@ -83,7 +83,7 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/eslint.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/eslint.js)_
+_See code: [dist/commands/lint/eslint.js](https://github.com/superdispatch/js-tools/blob/v0.3.0/dist/commands/lint/eslint.js)_
 
 ## `js-tools lint:prettier`
 
@@ -105,7 +105,7 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/prettier.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/prettier.js)_
+_See code: [dist/commands/lint/prettier.js](https://github.com/superdispatch/js-tools/blob/v0.3.0/dist/commands/lint/prettier.js)_
 
 ## `js-tools lint:yarn-deduplicate`
 
@@ -127,6 +127,6 @@ EXAMPLES
   $ js-tools lint foo.js bar.js
 ```
 
-_See code: [dist/commands/lint/yarn-deduplicate.js](https://github.com/superdispatch/js-tools/blob/v0.2.24/dist/commands/lint/yarn-deduplicate.js)_
+_See code: [dist/commands/lint/yarn-deduplicate.js](https://github.com/superdispatch/js-tools/blob/v0.3.0/dist/commands/lint/yarn-deduplicate.js)_
 
 <!-- commandsstop -->
