@@ -1,7 +1,6 @@
 'use strict';
 
 import path from 'path';
-
 import {
   getConfigData,
   getConfigDataDiff,
@@ -35,11 +34,9 @@ it('extends dependencies', async () => {
         "plugins": Array [
           "import",
     +     "@typescript-eslint",
-    +     "simple-import-sort",
           "eslint-comments",
           "array-func",
-        ],
-    -   "settings": Object {},
+    +   ],
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
@@ -51,7 +48,8 @@ it('extends dependencies', async () => {
     +     "import/external-module-folders": Array [
     +       "node_modules",
     +       "node_modules/@types",
-    +     ],
+          ],
+    -   "settings": Object {},
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
@@ -423,19 +421,19 @@ it('extends dependencies', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
-        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
+          "error",
     @@ --- --- @@
         ],
         "no-console": Array [
@@ -626,16 +624,14 @@ it('extends dependencies', async () => {
         ],
         "no-useless-computed-key": Array [
     @@ --- --- @@
-        ],
-        "prefer-numeric-literals": Array [
           "error",
         ],
         "prefer-object-spread": Array [
-    +     "error",
-    +   ],
-    +   "prefer-rest-params": Array [
           "error",
         ],
+    +   "prefer-rest-params": Array [
+    +     "error",
+    +   ],
     +   "prefer-spread": Array [
     +     "error",
     +   ],
@@ -658,20 +654,6 @@ it('extends dependencies', async () => {
           "error",
         ],
         "rest-spread-spacing": Array [
-    @@ --- --- @@
-        "semi-spacing": Array [
-          "off",
-        ],
-        "semi-style": Array [
-          "off",
-    +   ],
-    +   "simple-import-sort/imports": Array [
-    +     "error",
-        ],
-        "space-after-function-name": Array [
-          "off",
-        ],
-        "space-after-keywords": Array [
     @@ --- --- @@
         ],
         "use-isnan": Array [

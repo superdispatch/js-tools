@@ -1,5 +1,4 @@
 import { Linter } from 'eslint';
-
 import { injectJestConfig } from './jest';
 import { createTSNodeConfig } from './ts-node';
 import { injectRules } from './utils/configUtils';

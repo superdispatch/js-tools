@@ -35,7 +35,8 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1.26.0"
+    "@oclif/dev-cli": "^1.26.0",
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "eslint": ">=7.0.0",
