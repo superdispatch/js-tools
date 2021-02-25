@@ -9,6 +9,10 @@ export default class LintAll extends BaseLintCommand {
     const { fix } = this.options;
     const [, bin, , ...args] = process.argv;
 
+    if (!bin) {
+      throw new Error('Missing required bin command.');
+    }
+
     const tasks = new Listr(
       [
         {
