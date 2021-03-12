@@ -96,10 +96,10 @@ it('extends dependencies', async () => {
     + Second value
 
     @@ --- --- @@
-          "warn",
+          },
         ],
         "import/no-duplicates": Array [
-          "error",
+          "off",
         ],
     +   "import/no-extraneous-dependencies": Array [
     +     "error",
@@ -113,7 +113,7 @@ it('extends dependencies', async () => {
           "error",
         ],
         "import/no-named-as-default": Array [
-          "error",
+          "off",
     @@ --- --- @@
         ],
         "no-confusing-arrow": Array [

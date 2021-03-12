@@ -135,10 +135,10 @@ it('extends dependencies', async () => {
         "dot-notation": Array [
           "error",
     @@ --- --- @@
-          "warn",
+          },
         ],
         "import/no-duplicates": Array [
-          "error",
+          "off",
         ],
     +   "import/no-extraneous-dependencies": Array [
     +     "off",
@@ -147,7 +147,7 @@ it('extends dependencies', async () => {
           "error",
         ],
         "import/no-named-as-default": Array [
-          "error",
+          "off",
     @@ --- --- @@
         ],
         "indent": Array [

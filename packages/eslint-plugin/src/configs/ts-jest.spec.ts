@@ -391,7 +391,7 @@ test('diff with jest', async () => {
     @@ --- --- @@
         ],
         "import/no-named-as-default-member": Array [
-          "error",
+          "off",
         ],
         "import/no-unresolved": Array [
     -     2,

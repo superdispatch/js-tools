@@ -171,20 +171,17 @@ it('extends dependencies', async () => {
           "allowObject": false,
         },
       ],
-      "import/no-deprecated": Array [
-        "warn",
-      ],
       "import/no-duplicates": Array [
-        "error",
+        "off",
       ],
       "import/no-mutable-exports": Array [
         "error",
       ],
       "import/no-named-as-default": Array [
-        "error",
+        "off",
       ],
       "import/no-named-as-default-member": Array [
-        "error",
+        "off",
       ],
       "import/no-unresolved": Array [
         2,

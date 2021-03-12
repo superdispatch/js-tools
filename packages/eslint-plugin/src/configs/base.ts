@@ -110,11 +110,10 @@ export function createBaseConfig() {
         allowObject: false,
       },
     ],
-    'import/no-deprecated': 'warn',
-    'import/no-duplicates': 'error',
+    'import/no-duplicates': 'off',
     'import/no-mutable-exports': 'error',
-    'import/no-named-as-default': 'error',
-    'import/no-named-as-default-member': 'error',
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
   });
 
   //

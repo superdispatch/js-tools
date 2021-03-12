@@ -12,10 +12,10 @@
     "build": "lerna run build --parallel",
     "prelint": "yarn build",
     "lint": "js-tools lint",
-    "prerelease": "yarn install --frozen-lockfile && yarn tsc && yarn lint && yarn test",
+    "prerelease": "yarn --force && yarn tsc && yarn lint && yarn test",
     "release": "lerna publish",
     "tdd": "jest --watch",
-    "test": "jest --coverage --forceExit"
+    "test": "jest --coverage"
   },
   "husky": {
     "hooks": {

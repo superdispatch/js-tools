@@ -47,7 +47,7 @@ it('extends dependencies', async () => {
     @@ --- --- @@
         ],
         "import/no-duplicates": Array [
-          "error",
+          "off",
         ],
         "import/no-extraneous-dependencies": Array [
     -     "error",
