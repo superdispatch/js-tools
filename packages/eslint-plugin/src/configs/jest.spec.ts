@@ -119,7 +119,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "jest/no-try-expect": Array [
     +     "error",
-    +   ],
+        ],
     +   "jest/prefer-to-be-null": Array [
     +     "error",
     +   ],
@@ -131,7 +131,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "jest/prefer-to-have-length": Array [
     +     "error",
-        ],
+    +   ],
     +   "jest/valid-describe": Array [
     +     "error",
     +   ],
@@ -151,17 +151,22 @@ it('extends dependencies', async () => {
           "off",
     @@ --- --- @@
         ],
+        "quote-props": Array [
+          "off",
+        ],
         "quotes": Array [
-          "error",
-          "single",
-          Object {
-    -       "allowTemplateLiterals": false,
+    -     0,
+    +     "error",
+    +     "single",
+    +     Object {
     +       "allowTemplateLiterals": true,
-            "avoidEscape": true,
-          },
+    +       "avoidEscape": true,
+    +     },
         ],
         "require-yield": Array [
           "error",
+        ],
+        "rest-spread-spacing": Array [
     @@ --- --- @@
         "template-curly-spacing": Array [
           "off",

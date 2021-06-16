@@ -115,11 +115,12 @@ it('extends dependencies', async () => {
           "in-try-catch",
         ],
     @@ --- --- @@
+        ],
         "curly": Array [
           "error",
           "multi-line",
           "consistent",
-        ],
+    +   ],
     +   "cypress/no-assigning-return-values": Array [
     +     "error",
     +   ],
@@ -128,34 +129,31 @@ it('extends dependencies', async () => {
     +   ],
     +   "cypress/no-unnecessary-waiting": Array [
     +     "error",
-    +   ],
+        ],
         "dot-location": Array [
           "off",
         ],
         "dot-notation": Array [
-          "error",
     @@ --- --- @@
+            "allowLiteral": false,
+            "allowObject": false,
           },
         ],
         "import/no-duplicates": Array [
-          "off",
-        ],
-    +   "import/no-extraneous-dependencies": Array [
     +     "off",
     +   ],
+    +   "import/no-extraneous-dependencies": Array [
+          "off",
+        ],
         "import/no-mutable-exports": Array [
           "error",
         ],
-        "import/no-named-as-default": Array [
-          "off",
     @@ --- --- @@
-        ],
-        "indent": Array [
           "off",
         ],
         "indent-legacy": Array [
-    +     "off",
-    +   ],
+          "off",
+        ],
     +   "jest/expect-expect": Array [
     +     "off",
     +   ],
@@ -226,28 +224,34 @@ it('extends dependencies', async () => {
     +     "off",
     +   ],
     +   "jest/valid-expect-in-promise": Array [
-          "off",
+    +     "off",
     +   ],
     +   "jest/valid-title": Array [
     +     "error",
-        ],
+    +   ],
         "jsx-quotes": Array [
           "off",
         ],
         "key-spacing": Array [
+          "off",
     @@ --- --- @@
         ],
+        "quote-props": Array [
+          "off",
+        ],
         "quotes": Array [
-          "error",
-          "single",
-          Object {
-    -       "allowTemplateLiterals": false,
+    -     0,
+    +     "error",
+    +     "single",
+    +     Object {
     +       "allowTemplateLiterals": true,
-            "avoidEscape": true,
-          },
+    +       "avoidEscape": true,
+    +     },
         ],
         "require-await": Array [
           "off",
+        ],
+        "require-yield": Array [
     @@ --- --- @@
         ],
         "template-curly-spacing": Array [

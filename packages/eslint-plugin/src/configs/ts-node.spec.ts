@@ -528,10 +528,10 @@ it('extends dependencies', async () => {
         ],
         "node/no-unsupported-features/node-builtins": Array [
     @@ --- --- @@
-          Object {
-            "allowTemplateLiterals": false,
-            "avoidEscape": true,
-          },
+          "off",
+        ],
+        "quotes": Array [
+          0,
         ],
     +   "require-await": Array [
     +     "off",

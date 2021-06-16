@@ -807,12 +807,7 @@ it('extends dependencies', async () => {
         "off",
       ],
       "quotes": Array [
-        "error",
-        "single",
-        Object {
-          "allowTemplateLiterals": false,
-          "avoidEscape": true,
-        },
+        0,
       ],
       "require-yield": Array [
         "error",

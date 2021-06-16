@@ -640,12 +640,9 @@ it('extends dependencies', async () => {
         ],
         "quote-props": Array [
           "off",
-    @@ --- --- @@
-          "single",
-          Object {
-            "allowTemplateLiterals": false,
-            "avoidEscape": true,
-          },
+        ],
+        "quotes": Array [
+          0,
     +   ],
     +   "require-await": Array [
     +     "off",

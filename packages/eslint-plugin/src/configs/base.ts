@@ -83,11 +83,6 @@ export function createBaseConfig() {
     'prefer-numeric-literals': 'error',
     'prefer-object-spread': 'error',
     'prefer-template': 'error',
-    quotes: [
-      'error',
-      'single',
-      { allowTemplateLiterals: false, avoidEscape: true },
-    ],
     yoda: ['error', 'never', { exceptRange: true }],
   });
 
