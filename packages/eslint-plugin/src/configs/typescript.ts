@@ -107,7 +107,7 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
   // eslint-config-prettier - should be last injected config
   //
 
-  injectConfigs(config, 'prettier/@typescript-eslint');
+  injectConfigs(config, 'prettier');
 }
 
 export function createTypeScriptConfig(): Linter.Config {

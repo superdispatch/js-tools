@@ -3,7 +3,7 @@ import { Linter } from 'eslint';
 export function createReactConfig(): Linter.Config {
   return {
     env: { browser: true },
-    extends: ['plugin:react/recommended', 'prettier/react'],
+    extends: ['plugin:react/recommended', 'prettier'],
     plugins: ['react', 'react-hooks', 'jsx-a11y', '@superdispatch'],
 
     rules: {

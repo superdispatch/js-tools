@@ -43,7 +43,7 @@ export function injectJestConfig(config: Linter.Config): void {
 
   injectConfigs(
     config,
-    'plugin:testing-library/recommended',
+    'plugin:testing-library/dom',
     'plugin:testing-library/react',
   );
 
