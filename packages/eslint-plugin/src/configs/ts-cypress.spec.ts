@@ -267,7 +267,7 @@ Snapshot Diff:
 +     "off",
 +   ],
 +   "testing-library/await-async-utils": Array [
-+     "error",
+      "off",
 +   ],
 +   "testing-library/no-await-sync-query": Array [
 +     "error",
@@ -298,10 +298,10 @@ Snapshot Diff:
 +     "error",
 +   ],
 +   "testing-library/prefer-screen-queries": Array [
-+     "error",
++     "off",
 +   ],
 +   "testing-library/prefer-wait-for": Array [
-      "off",
++     "off",
 +   ],
 +   "testing-library/render-result-naming-convention": Array [
 +     "error",

@@ -34,6 +34,8 @@ export function createTSCypressConfig(): Linter.Config {
 
   injectRules(config, {
     'testing-library/await-async-query': 'off',
+    'testing-library/await-async-utils': 'off',
+    'testing-library/prefer-screen-queries': 'off',
     'testing-library/prefer-wait-for': 'off',
   });
 
