@@ -82,7 +82,6 @@ export function createBaseConfig() {
     ],
     'prefer-numeric-literals': 'error',
     'prefer-object-spread': 'error',
-    'prefer-template': 'error',
     yoda: ['error', 'never', { exceptRange: true }],
   });
 

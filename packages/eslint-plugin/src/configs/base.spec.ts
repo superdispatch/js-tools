@@ -800,9 +800,6 @@ it('extends dependencies', async () => {
       "prefer-object-spread": Array [
         "error",
       ],
-      "prefer-template": Array [
-        "error",
-      ],
       "quote-props": Array [
         "off",
       ],

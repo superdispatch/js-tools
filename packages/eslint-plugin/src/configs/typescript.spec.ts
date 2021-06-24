@@ -635,9 +635,6 @@ it('extends dependencies', async () => {
     +   "prefer-spread": Array [
     +     "error",
     +   ],
-        "prefer-template": Array [
-          "error",
-        ],
         "quote-props": Array [
           "off",
         ],
