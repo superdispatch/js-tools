@@ -15,7 +15,7 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["typescript"],
+      "matchPackageNames": ["typescript"],
       "groupName": "typescript"
     }
   ]
