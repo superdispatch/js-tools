@@ -1,9 +1,14 @@
 {
   "extends": [
-    "config:base",
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    ":autodetectPinVersions",
+    ":prHourlyLimit2",
+    ":prConcurrentLimit20",
+    "workarounds:all",
     "group:allNonMajor",
     ":automergeAll",
-    ":dependencyDashboard",
     ":maintainLockFilesWeekly"
   ],
   "schedule": ["before 3am on Monday", "before 3am on Thursday"],
