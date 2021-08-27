@@ -12,5 +12,11 @@
     ":maintainLockFilesWeekly"
   ],
   "schedule": ["before 3am on Monday", "before 3am on Thursday"],
-  "postUpdateOptions": ["yarnDedupeHighest"]
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["typescript"],
+      "groupName": "typescript"
+    }
+  ]
 }
