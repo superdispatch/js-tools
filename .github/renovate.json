@@ -1,11 +1,5 @@
 {
   "extends": [
-    "config:base",
-    "group:all",
-    ":automergeAll",
-    ":dependencyDashboard",
-    ":maintainLockFilesWeekly"
-  ],
-  "schedule": ["before 3am on Monday", "before 3am on Thursday"],
-  "postUpdateOptions": ["yarnDedupeHighest"]
+    "github>superdispatch/js-tools//renovate-config/public"
+  ]
 }
