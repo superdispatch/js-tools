@@ -17,6 +17,10 @@
     {
       "matchPackageNames": ["typescript"],
       "groupName": "typescript"
+    },
+    {
+      "matchPackagePatterns": ["^@superdispatch/"],
+      "groupName": "superdispatch"
     }
   ]
 }
