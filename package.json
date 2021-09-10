@@ -56,7 +56,7 @@
     "@types/node": "15.12.4",
     "@types/prettier": "2.3.0",
     "eslint": "7.29.0",
-    "husky": "6.0.0",
+    "husky": "7.0.2",
     "jest": "27.0.5",
     "jest-watch-typeahead": "0.6.4",
     "lerna": "4.0.0",
