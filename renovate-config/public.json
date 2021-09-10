@@ -15,6 +15,10 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
+      "matchUpdateTypes": "pin",
+      "groupName": "all pins"
+    },
+    {
       "matchPackageNames": ["typescript"],
       "groupName": "typescript"
     },
