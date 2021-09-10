@@ -19,8 +19,34 @@
       "groupName": "typescript"
     },
     {
-      "matchPackagePatterns": ["^@superdispatch/"],
-      "groupName": "superdispatch"
+      "matchPackageNames": [
+        "@superdispatch/eslint-plugin-ui",
+        "@superdispatch/forms",
+        "@superdispatch/dates",
+        "@superdispatch/phones",
+        "@superdispatch/ui",
+        "@superdispatch/ui-lab"
+      ],
+      "groupName": "@superdispatch/ui"
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/jestutils",
+        "@superdispatch/js-tools",
+        "@superdispatch/prettier-config",
+        "@superdispatch/sdk",
+        "@superdispatch/tsconfig",
+        "@superdispatch/eslint-plugin",
+        "@superdispatch/gh-scripts"
+      ],
+      "groupName": "@superdispatch/js-tools"
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/http",
+        "@superdispatch/http-resource"
+      ],
+      "groupName": "@superdispatch/http"
     }
   ]
 }
