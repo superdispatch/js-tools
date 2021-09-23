@@ -9,9 +9,9 @@
     "workarounds:all",
     "group:allNonMajor",
     ":automergeAll",
-    ":maintainLockFilesWeekly"
+    ":maintainLockFilesWeekly",
+    "schedule:earlyMondays"
   ],
-  "schedule": ["before 3am on Monday", "before 3am on Thursday"],
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
