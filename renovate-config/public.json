@@ -54,7 +54,7 @@
       "groupName": "@superdispatch/http"
     },
     {
-      "separateMajorMinor": true,
+      "separateMinorPatch": true,
       "matchCurrentVersion": "/^0\\./"
     }
   ]
