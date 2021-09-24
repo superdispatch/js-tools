@@ -10,7 +10,8 @@
     "group:allNonMajor",
     ":automergeAll",
     ":maintainLockFilesWeekly",
-    "schedule:earlyMondays"
+    "schedule:earlyMondays",
+    ":separateMajorReleases"
   ],
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
