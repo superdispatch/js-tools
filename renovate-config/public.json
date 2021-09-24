@@ -52,6 +52,10 @@
         "@superdispatch/http-resource"
       ],
       "groupName": "@superdispatch/http"
+    },
+    {
+      "separateMajorMinor": true,
+      "matchCurrentVersion": "/^0\\./"
     }
   ]
 }
