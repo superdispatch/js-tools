@@ -9,7 +9,6 @@
     "workarounds:all",
     "group:allNonMajor",
     ":automergeAll",
-    ":maintainLockFilesWeekly",
     "schedule:earlyMondays",
     ":separateMajorReleases"
   ],
