@@ -54,6 +54,10 @@
       "groupName": "@superdispatch/http"
     },
     {
+      "matchPackagePatterns": ["^@sdkit/"],
+      "groupName": "sdkit"
+    },
+    {
       "separateMinorPatch": true,
       "matchCurrentVersion": "/^0\\./"
     }
