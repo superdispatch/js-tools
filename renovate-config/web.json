@@ -8,6 +8,7 @@
     ":prConcurrentLimit20",
     "workarounds:all",
     "group:allNonMajor",
+    "group:monorepos",
     ":automergeAll",
     "schedule:earlyMondays",
     ":separateMajorReleases"
