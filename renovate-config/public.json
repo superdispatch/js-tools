@@ -10,7 +10,8 @@
     "group:monorepos",
     ":automergeAll",
     "schedule:earlyMondays",
-    ":separateMajorReleases"
+    ":separateMajorReleases",
+    ":reviewer(doniyor2109)"
   ],
   "commitMessageSuffix": "({{updateType}})",
   "postUpdateOptions": ["yarnDedupeHighest"],
