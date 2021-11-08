@@ -12,7 +12,7 @@
     "schedule:earlyMondays",
     ":separateMajorReleases"
   ],
-  "commitMessageSuffix": "({{depType}})",
+  "commitMessageSuffix": "({{updateType}})",
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
