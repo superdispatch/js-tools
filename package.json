@@ -57,7 +57,7 @@
     "@types/prettier": "2.3.0",
     "eslint": "7.29.0",
     "husky": "7.0.2",
-    "jest": "27.0.5",
+    "jest": "27.3.1",
     "jest-watch-typeahead": "1.0.0",
     "lerna": "4.0.0",
     "lint-staged": "11.0.0",
