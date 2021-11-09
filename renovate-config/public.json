@@ -11,7 +11,8 @@
     ":automergeAll",
     "schedule:earlyMondays",
     ":separateMajorReleases",
-    ":assignAndReview(doniyor2109)"
+    ":assignAndReview(doniyor2109)",
+    ":enableVulnerabilityAlerts"
   ],
   "commitMessageSuffix": "({{updateType}})",
   "postUpdateOptions": ["yarnDedupeHighest"],
