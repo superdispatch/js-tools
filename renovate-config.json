@@ -57,10 +57,6 @@
     {
       "matchPackagePatterns": ["^@sdkit/"],
       "groupName": "sdkit"
-    },
-    {
-      "separateMinorPatch": true,
-      "matchCurrentVersion": "/^0\\./"
     }
   ]
 }
