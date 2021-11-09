@@ -1,0 +1,66 @@
+{
+  "extends": [
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    ":autodetectPinVersions",
+    ":prHourlyLimit2",
+    ":prConcurrentLimit20",
+    "workarounds:all",
+    "group:monorepos",
+    ":automergeAll",
+    "schedule:earlyMondays",
+    ":separateMajorReleases",
+    ":assignAndReview(doniyor2109)"
+  ],
+  "commitMessageSuffix": "({{updateType}})",
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": "pin",
+      "groupName": "all pins"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "groupName": "typescript"
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/eslint-plugin-ui",
+        "@superdispatch/forms",
+        "@superdispatch/dates",
+        "@superdispatch/phones",
+        "@superdispatch/ui",
+        "@superdispatch/ui-lab"
+      ],
+      "groupName": "@superdispatch/ui"
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/jestutils",
+        "@superdispatch/js-tools",
+        "@superdispatch/prettier-config",
+        "@superdispatch/sdk",
+        "@superdispatch/tsconfig",
+        "@superdispatch/eslint-plugin",
+        "@superdispatch/gh-scripts"
+      ],
+      "groupName": "@superdispatch/js-tools"
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/http",
+        "@superdispatch/http-resource"
+      ],
+      "groupName": "@superdispatch/http"
+    },
+    {
+      "matchPackagePatterns": ["^@sdkit/"],
+      "groupName": "sdkit"
+    },
+    {
+      "separateMinorPatch": true,
+      "matchCurrentVersion": "/^0\\./"
+    }
+  ]
+}
