@@ -11,7 +11,7 @@
     ":automergeAll",
     "schedule:earlyMondays",
     ":separateMajorReleases",
-    ":reviewer(doniyor2109)"
+    ":assignAndReview(doniyor2109)"
   ],
   "commitMessageSuffix": "({{updateType}})",
   "postUpdateOptions": ["yarnDedupeHighest"],
