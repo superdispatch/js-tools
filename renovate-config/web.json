@@ -1,13 +1,6 @@
 {
   "extends": [
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":ignoreModulesAndTests",
-    ":autodetectPinVersions",
-    ":prHourlyLimit2",
-    ":prConcurrentLimit20",
-    "workarounds:all",
-    "group:monorepos",
+    "config:base",
     ":automergeAll",
     "schedule:earlyMondays",
     ":separateMajorReleases",
