@@ -67,10 +67,6 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
     '@typescript-eslint/no-dynamic-delete': 'error',
     '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
-    '@typescript-eslint/no-implicit-any-catch': [
-      'error',
-      { allowExplicitAny: true },
-    ],
     '@typescript-eslint/no-implied-eval': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-parameter-properties': 'error',
