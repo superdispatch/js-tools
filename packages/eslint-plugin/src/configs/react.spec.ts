@@ -1,5 +1,3 @@
-'use strict';
-
 import { getConfigData } from './__testutils__/test-eslint-config';
 
 it('extends dependencies', async () => {

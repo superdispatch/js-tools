@@ -278,7 +278,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-unused-vars": Array [
           "off",
-        ],
+    +   ],
     +   "@typescript-eslint/no-use-before-define": Array [
     +     "error",
     +     Object {
@@ -289,13 +289,13 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-var-requires": Array [
     +     "error",
-    +   ],
+        ],
         "@typescript-eslint/object-curly-spacing": Array [
           "off",
     +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/prefer-for-of": Array [
     +     "error",
     +   ],
@@ -313,16 +313,16 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/prefer-reduce-type-parameter": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/quotes": Array [
           0,
-    +   ],
+        ],
     +   "@typescript-eslint/require-array-sort-compare": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/require-await": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/restrict-plus-operands": Array [
     +     "error",
     +     Object {
@@ -428,27 +428,26 @@ it('extends dependencies', async () => {
         ],
         "no-ex-assign": Array [
     @@ --- --- @@
+            "boolean": true,
             "disallowTemplateShorthand": false,
             "number": true,
             "string": true,
           },
-        ],
+    +   ],
     +   "no-implied-eval": Array [
     +     "off",
-    +   ],
+        ],
         "no-import-assign": Array [
           "error",
         ],
         "no-inner-declarations": Array [
-          "error",
     @@ --- --- @@
-        "no-irregular-whitespace": Array [
-          "error",
         ],
         "no-lonely-if": Array [
           "error",
-    +   ],
-    +   "no-loss-of-precision": Array [
+        ],
+        "no-loss-of-precision": Array [
+    -     "error",
     +     "off",
         ],
         "no-misleading-character-class": Array [
@@ -483,7 +482,7 @@ it('extends dependencies', async () => {
         "no-unneeded-ternary": Array [
     @@ --- --- @@
         ],
-        "no-unsafe-negation": Array [
+        "no-unsafe-optional-chaining": Array [
           "error",
         ],
         "no-unused-expressions": Array [
@@ -508,10 +507,10 @@ it('extends dependencies', async () => {
     -     },
     +     "off",
         ],
-        "no-useless-catch": Array [
+        "no-useless-backreference": Array [
           "error",
         ],
-        "no-useless-computed-key": Array [
+        "no-useless-catch": Array [
     @@ --- --- @@
         ],
         "node/no-extraneous-require": Array [
