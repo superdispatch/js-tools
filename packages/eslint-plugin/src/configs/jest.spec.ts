@@ -125,7 +125,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "jest/prefer-to-have-length": Array [
     +     "error",
-        ],
+    +   ],
     +   "jest/valid-describe-callback": Array [
     +     "error",
     +   ],
@@ -134,7 +134,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "jest/valid-expect-in-promise": Array [
     +     "error",
-    +   ],
+        ],
     +   "jest/valid-title": Array [
     +     "error",
     +   ],
@@ -180,7 +180,7 @@ it('extends dependencies', async () => {
     +   "testing-library/no-container": Array [
     +     "error",
     +   ],
-    +   "testing-library/no-debug": Array [
+    +   "testing-library/no-debugging-utils": Array [
     +     "error",
     +   ],
     +   "testing-library/no-dom-import": Array [
@@ -193,13 +193,31 @@ it('extends dependencies', async () => {
     +   "testing-library/no-promise-in-fire-event": Array [
     +     "error",
     +   ],
+    +   "testing-library/no-render-in-setup": Array [
+    +     "error",
+    +   ],
+    +   "testing-library/no-unnecessary-act": Array [
+    +     "error",
+    +   ],
     +   "testing-library/no-wait-for-empty-callback": Array [
+    +     "error",
+    +   ],
+    +   "testing-library/no-wait-for-multiple-assertions": Array [
+    +     "error",
+    +   ],
+    +   "testing-library/no-wait-for-side-effects": Array [
+    +     "error",
+    +   ],
+    +   "testing-library/no-wait-for-snapshot": Array [
     +     "error",
     +   ],
     +   "testing-library/prefer-find-by": Array [
     +     "error",
     +   ],
     +   "testing-library/prefer-presence-queries": Array [
+    +     "error",
+    +   ],
+    +   "testing-library/prefer-query-by-disappearance": Array [
     +     "error",
     +   ],
     +   "testing-library/prefer-screen-queries": Array [

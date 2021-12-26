@@ -40,25 +40,23 @@ test('diff with jest', async () => {
           "testing-library",
           "eslint-comments",
           "array-func",
-    +   ],
+        ],
+    -   "settings": Object {},
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
     +       ".tsx",
-    +       ".d.ts",
     +       ".js",
     +       ".jsx",
     +     ],
     +     "import/external-module-folders": Array [
     +       "node_modules",
     +       "node_modules/@types",
-          ],
-    -   "settings": Object {},
+    +     ],
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
     +         ".tsx",
-    +         ".d.ts",
     +       ],
     +     },
     +     "import/resolver": Object {
@@ -66,7 +64,6 @@ test('diff with jest', async () => {
     +         "extensions": Array [
     +           ".ts",
     +           ".tsx",
-    +           ".d.ts",
     +           ".js",
     +           ".jsx",
     +         ],
@@ -105,11 +102,11 @@ test('diff with jest', async () => {
     +     "error",
     +   ],
         "@typescript-eslint/brace-style": Array [
-    +     "off",
-    +   ],
-    +   "@typescript-eslint/camelcase": Array [
           "off",
         ],
+    +   "@typescript-eslint/camelcase": Array [
+    +     "off",
+    +   ],
         "@typescript-eslint/comma-dangle": Array [
           "off",
         ],
@@ -125,8 +122,8 @@ test('diff with jest', async () => {
     +     "interface",
     +   ],
     +   "@typescript-eslint/explicit-function-return-type": Array [
-          "off",
-        ],
+    +     "off",
+    +   ],
     +   "@typescript-eslint/explicit-member-accessibility": Array [
     +     "error",
     +     Object {
@@ -134,8 +131,8 @@ test('diff with jest', async () => {
     +     },
     +   ],
     +   "@typescript-eslint/explicit-module-boundary-types": Array [
-    +     "off",
-    +   ],
+          "off",
+        ],
         "@typescript-eslint/func-call-spacing": Array [
           "off",
         ],
@@ -187,10 +184,10 @@ test('diff with jest', async () => {
     +   ],
     +   "@typescript-eslint/no-explicit-any": Array [
           "off",
-    +   ],
+        ],
     +   "@typescript-eslint/no-extra-non-null-assertion": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/no-extra-parens": Array [
           "off",
         ],
@@ -212,6 +209,9 @@ test('diff with jest', async () => {
     +   "@typescript-eslint/no-inferrable-types": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-loss-of-precision": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-misused-new": Array [
     +     "error",
     +   ],
@@ -225,8 +225,8 @@ test('diff with jest', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-non-null-assertion": Array [
-    +     "off",
-    +   ],
+          "off",
+        ],
     +   "@typescript-eslint/no-parameter-properties": Array [
     +     "error",
     +   ],
@@ -257,8 +257,11 @@ test('diff with jest', async () => {
     +   "@typescript-eslint/no-unnecessary-type-constraint": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-unsafe-argument": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-unsafe-assignment": Array [
-          "off",
+    +     "off",
     +   ],
     +   "@typescript-eslint/no-unsafe-call": Array [
     +     "off",
@@ -285,7 +288,7 @@ test('diff with jest', async () => {
     +   ],
     +   "@typescript-eslint/no-var-requires": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/object-curly-spacing": Array [
           "off",
     +   ],
@@ -297,31 +300,28 @@ test('diff with jest', async () => {
     +   ],
     +   "@typescript-eslint/prefer-function-type": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/prefer-includes": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/prefer-namespace-keyword": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/prefer-optional-chain": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/prefer-reduce-type-parameter": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/prefer-regexp-exec": Array [
-    +     "error",
-    +   ],
         "@typescript-eslint/quotes": Array [
           0,
-        ],
+    +   ],
     +   "@typescript-eslint/require-array-sort-compare": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/require-await": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/restrict-plus-operands": Array [
     +     "error",
     +     Object {
@@ -343,10 +343,10 @@ test('diff with jest', async () => {
         ],
         "@typescript-eslint/space-infix-ops": Array [
           "off",
-        ],
+    +   ],
     +   "@typescript-eslint/triple-slash-reference": Array [
     +     "error",
-    +   ],
+        ],
         "@typescript-eslint/type-annotation-spacing": Array [
           "off",
         ],
@@ -400,33 +400,33 @@ test('diff with jest', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
-        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-    +   ],
+        ],
     +   "no-array-constructor": Array [
     +     "off",
-        ],
+    +   ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
+          "error",
     @@ --- --- @@
-            "allowEmptyCatch": true,
           },
         ],
         "no-empty-character-class": Array [
           "error",
-    +   ],
+        ],
     +   "no-empty-function": Array [
     +     "off",
-        ],
+    +   ],
         "no-empty-pattern": Array [
           "error",
         ],
         "no-ex-assign": Array [
+          "error",
     @@ --- --- @@
             "boolean": true,
             "disallowTemplateShorthand": false,
@@ -441,6 +441,19 @@ test('diff with jest', async () => {
           "error",
         ],
         "no-inner-declarations": Array [
+    @@ --- --- @@
+        ],
+        "no-lonely-if": Array [
+          "error",
+        ],
+        "no-loss-of-precision": Array [
+    -     "error",
+    +     "off",
+        ],
+        "no-misleading-character-class": Array [
+          "error",
+        ],
+        "no-mixed-operators": Array [
     @@ --- --- @@
         ],
         "no-setter-return": Array [
@@ -469,7 +482,7 @@ test('diff with jest', async () => {
         "no-unneeded-ternary": Array [
     @@ --- --- @@
         ],
-        "no-unsafe-negation": Array [
+        "no-unsafe-optional-chaining": Array [
           "error",
         ],
         "no-unused-expressions": Array [
@@ -494,10 +507,10 @@ test('diff with jest', async () => {
     -     },
     +     "off",
         ],
-        "no-useless-catch": Array [
+        "no-useless-backreference": Array [
           "error",
         ],
-        "no-useless-computed-key": Array [
+        "no-useless-catch": Array [
     @@ --- --- @@
         ],
         "node/no-extraneous-require": Array [

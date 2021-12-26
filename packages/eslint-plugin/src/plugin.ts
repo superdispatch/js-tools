@@ -1,5 +1,3 @@
-'use strict';
-
 import { createBaseConfig } from './configs/base';
 import { createJestConfig } from './configs/jest';
 import { createNodeConfig } from './configs/node';

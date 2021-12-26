@@ -36,25 +36,23 @@ it('extends dependencies', async () => {
     +     "@typescript-eslint",
           "eslint-comments",
           "array-func",
-    +   ],
+        ],
+    -   "settings": Object {},
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
     +       ".tsx",
-    +       ".d.ts",
     +       ".js",
     +       ".jsx",
     +     ],
     +     "import/external-module-folders": Array [
     +       "node_modules",
     +       "node_modules/@types",
-          ],
-    -   "settings": Object {},
+    +     ],
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
     +         ".tsx",
-    +         ".d.ts",
     +       ],
     +     },
     +     "import/resolver": Object {
@@ -62,7 +60,6 @@ it('extends dependencies', async () => {
     +         "extensions": Array [
     +           ".ts",
     +           ".tsx",
-    +           ".d.ts",
     +           ".js",
     +           ".jsx",
     +         ],
@@ -121,17 +118,17 @@ it('extends dependencies', async () => {
     +     "interface",
     +   ],
     +   "@typescript-eslint/explicit-function-return-type": Array [
-    +     "off",
+          "off",
     +   ],
     +   "@typescript-eslint/explicit-member-accessibility": Array [
     +     "error",
     +     Object {
     +       "accessibility": "no-public",
     +     },
-    +   ],
-    +   "@typescript-eslint/explicit-module-boundary-types": Array [
-          "off",
         ],
+    +   "@typescript-eslint/explicit-module-boundary-types": Array [
+    +     "off",
+    +   ],
         "@typescript-eslint/func-call-spacing": Array [
           "off",
         ],
@@ -180,7 +177,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-empty-interface": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/no-explicit-any": Array [
     +     "error",
     +     Object {
@@ -189,7 +186,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-extra-non-null-assertion": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/no-extra-parens": Array [
           "off",
         ],
@@ -209,6 +206,9 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-inferrable-types": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-loss-of-precision": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-misused-new": Array [
@@ -256,6 +256,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-unnecessary-type-constraint": Array [
     +     "error",
     +   ],
+    +   "@typescript-eslint/no-unsafe-argument": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-unsafe-assignment": Array [
     +     "error",
     +   ],
@@ -273,7 +276,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-unused-vars": Array [
           "off",
-        ],
+    +   ],
     +   "@typescript-eslint/no-use-before-define": Array [
     +     "error",
     +     Object {
@@ -281,7 +284,7 @@ it('extends dependencies', async () => {
     +       "functions": false,
     +       "typedefs": false,
     +     },
-    +   ],
+        ],
     +   "@typescript-eslint/no-var-requires": Array [
     +     "error",
     +   ],
@@ -290,10 +293,10 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/prefer-for-of": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/prefer-function-type": Array [
     +     "error",
     +   ],
@@ -309,9 +312,6 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/prefer-reduce-type-parameter": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/prefer-regexp-exec": Array [
-    +     "error",
-    +   ],
         "@typescript-eslint/quotes": Array [
           0,
     +   ],
@@ -320,7 +320,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/require-await": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/restrict-plus-operands": Array [
     +     "error",
     +     Object {
@@ -329,7 +329,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/restrict-template-expressions": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/return-await": Array [
     +     "error",
     +     "in-try-catch",
@@ -496,15 +496,14 @@ it('extends dependencies', async () => {
         ],
         "no-implicit-coercion": Array [
     @@ --- --- @@
-            "boolean": true,
             "disallowTemplateShorthand": false,
             "number": true,
             "string": true,
           },
-    +   ],
+        ],
     +   "no-implied-eval": Array [
     +     "off",
-        ],
+    +   ],
         "no-import-assign": Array [
     -     "error",
     +     "off",
@@ -515,12 +514,28 @@ it('extends dependencies', async () => {
         "no-invalid-regexp": Array [
     @@ --- --- @@
         ],
+        "no-lonely-if": Array [
+          "error",
+        ],
+        "no-loss-of-precision": Array [
+    -     "error",
+    +     "off",
+        ],
+        "no-misleading-character-class": Array [
+          "error",
+        ],
+        "no-mixed-operators": Array [
+    @@ --- --- @@
+        ],
         "no-multiple-empty-lines": Array [
           "off",
         ],
         "no-new-symbol": Array [
     -     "error",
     +     "off",
+        ],
+        "no-nonoctal-decimal-escape": Array [
+          "error",
         ],
         "no-obj-calls": Array [
     -     "error",
@@ -594,6 +609,9 @@ it('extends dependencies', async () => {
     -     "error",
     +     "off",
         ],
+        "no-unsafe-optional-chaining": Array [
+          "error",
+        ],
         "no-unused-expressions": Array [
     -     "error",
     +     "off",
@@ -616,10 +634,10 @@ it('extends dependencies', async () => {
     -     },
     +     "off",
         ],
-        "no-useless-catch": Array [
+        "no-useless-backreference": Array [
           "error",
         ],
-        "no-useless-computed-key": Array [
+        "no-useless-catch": Array [
     @@ --- --- @@
         ],
         "prefer-numeric-literals": Array [
