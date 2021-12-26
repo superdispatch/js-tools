@@ -36,25 +36,23 @@ it('extends dependencies', async () => {
     +     "@typescript-eslint",
           "eslint-comments",
           "array-func",
-    +   ],
+        ],
+    -   "settings": Object {},
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
     +       ".tsx",
-    +       ".d.ts",
     +       ".js",
     +       ".jsx",
     +     ],
     +     "import/external-module-folders": Array [
     +       "node_modules",
     +       "node_modules/@types",
-          ],
-    -   "settings": Object {},
+    +     ],
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
     +         ".tsx",
-    +         ".d.ts",
     +       ],
     +     },
     +     "import/resolver": Object {
@@ -62,7 +60,6 @@ it('extends dependencies', async () => {
     +         "extensions": Array [
     +           ".ts",
     +           ".tsx",
-    +           ".d.ts",
     +           ".js",
     +           ".jsx",
     +         ],
