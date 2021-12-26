@@ -33,7 +33,7 @@
     "lodash": "^4.17.19"
   },
   "peerDependencies": {
-    "eslint": "^7.0.0",
+    "eslint": "^7.0.0 || ^8.0.0",
     "prettier": "^2.0.0",
     "typescript": "^4"
   },
