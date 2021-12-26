@@ -29,7 +29,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-testing-library": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.0.1",
     "lodash": "^4.17.19"
   },
   "peerDependencies": {

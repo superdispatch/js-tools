@@ -48,7 +48,7 @@ export function injectJestConfig(config: Linter.Config): void {
   );
 
   injectRules(config, {
-    'testing-library/no-debug': 'error',
+    'testing-library/no-debugging-utils': 'error',
     'testing-library/no-wait-for-empty-callback': 'error',
     'testing-library/prefer-presence-queries': 'error',
     'testing-library/prefer-wait-for': 'error',
