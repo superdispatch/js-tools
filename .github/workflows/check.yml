@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: umidbekk/actions/npm/prepare-node-repo@v2
+      - uses: umidbekk/actions/prepare-node-repo@v2
         with:
           cache-key: npm-v2-
 
