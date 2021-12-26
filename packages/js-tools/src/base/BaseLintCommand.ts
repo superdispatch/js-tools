@@ -1,5 +1,5 @@
 import Command, { flags } from '@oclif/command';
-import * as execa from 'execa';
+import execa = require('execa');
 
 export abstract class BaseLintCommand extends Command {
   static strict = false;
