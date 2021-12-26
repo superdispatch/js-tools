@@ -78,7 +78,7 @@ it('extends dependencies', async () => {
         "@typescript-eslint/no-shadow": Array [
     @@ --- --- @@
         ],
-        "@typescript-eslint/no-unnecessary-type-constraint": Array [
+        "@typescript-eslint/no-unsafe-argument": Array [
           "error",
         ],
         "@typescript-eslint/no-unsafe-assignment": Array [
