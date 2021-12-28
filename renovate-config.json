@@ -34,6 +34,7 @@
         "@superdispatch/jestutils",
         "@superdispatch/js-tools",
         "@superdispatch/prettier-config",
+        "@superdispatch/babel-preset",
         "@superdispatch/sdk",
         "@superdispatch/tsconfig",
         "@superdispatch/eslint-plugin",
