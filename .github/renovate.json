@@ -1,3 +1,4 @@
 {
-  "extends": ["github>superdispatch/js-tools:renovate-config"]
+  "extends": ["github>superdispatch/js-tools:renovate-config", "config:js-lib"],
+  "rangeStrategy": "bump"
 }
