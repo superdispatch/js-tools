@@ -4,6 +4,7 @@
     ":automergeAll",
     "schedule:earlyMondays",
     ":separateMajorReleases",
+    ":maintainLockFilesWeekly",
     ":enableVulnerabilityAlerts"
   ],
   "commitMessageSuffix": "({{updateType}})",
