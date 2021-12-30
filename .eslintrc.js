@@ -35,8 +35,16 @@ module.exports = {
     },
 
     {
+      files: '**/packages/eslint-plugin/src/rules/*.ts',
+      extends: ['plugin:eslint-plugin/rules-recommended'],
+    },
+
+    {
       files: ['**/*.spec.ts', '**/__testutils__/**/*.ts'],
-      extends: 'plugin:@superdispatch/ts-jest',
+      extends: [
+        'plugin:@superdispatch/ts-jest',
+        'plugin:eslint-plugin/tests-recommended',
+      ],
     },
   ],
 };
