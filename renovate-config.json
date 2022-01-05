@@ -11,6 +11,10 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
+      "matchPackagePatterns": ["^@sentry/"],
+      "extend": ["schedule:weekdays"]
+    },
+    {
       "matchUpdateTypes": "pin",
       "groupName": "all pins"
     },
