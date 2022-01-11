@@ -12,7 +12,7 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["^@sentry/"],
-      "extend": ["schedule:weekdays"]
+      "extends": ["schedule:weekdays"]
     },
     {
       "matchUpdateTypes": "pin",
