@@ -1,4 +1,5 @@
 {
   "extends": ["github>superdispatch/js-tools:renovate-config", "config:js-lib"],
-  "rangeStrategy": "bump"
+  "rangeStrategy": "bump",
+  "reviewers": ["doniyor2109"]
 }
