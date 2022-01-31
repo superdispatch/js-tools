@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/renovate-config",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "renovate-config": {
     "default": {
       "extends": [
