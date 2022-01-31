@@ -1,6 +1,15 @@
 {
   "name": "@superdispatch/renovate-config",
   "version": "0.7.1",
+  "description": "Shared config for Renovate.",
+  "keywords": [
+    "typescript"
+  ],
+  "repository": "https://github.com/superdispatch/js-tools.git",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "renovate-config": {
     "default": {
       "extends": [
