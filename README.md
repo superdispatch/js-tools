@@ -7,3 +7,4 @@
 - [@superdispatch/js-tools](https://github.com/superdispatch/js-tools/tree/master/packages/js-tools) - CLI utilities
 - [@superdispatch/prettier-config](https://github.com/superdispatch/js-tools/tree/master/packages/prettier-config) - shared Prettier config
 - [@superdispatch/tsconfig](https://github.com/superdispatch/js-tools/tree/master/packages/tsconfig) - shared TypeScript config
+- [@superdispatch/renovate-config](https://github.com/superdispatch/js-tools/tree/master/packages/renovate-config) - shared Renovate config
