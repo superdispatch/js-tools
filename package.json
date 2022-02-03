@@ -55,7 +55,7 @@
     "@types/listr": "0.14.4",
     "@types/lodash": "4.14.178",
     "@types/node": "16.11.22",
-    "@types/prettier": "2.4.2",
+    "@types/prettier": "2.4.3",
     "enhanced-resolve": "5.8.3",
     "eslint": "8.6.0",
     "eslint-plugin-eslint-plugin": "4.1.0",
