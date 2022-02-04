@@ -14,10 +14,9 @@
     "default": {
       "extends": [
         "config:base",
-        ":automergeAll",
+        ":automergePatch",
         "schedule:earlyMondays",
         ":separateMajorReleases",
-        ":maintainLockFilesWeekly",
         ":enableVulnerabilityAlerts"
       ],
       "assignAutomerge": true,
