@@ -19,7 +19,7 @@ jobs:
 
       - run: yarn tsc
       - run: yarn lint
-      - run: yarn test
+      - run: yarn test -u
       - uses: codecov/codecov-action@v2
       - run: yarn build
 
