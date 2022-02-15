@@ -26,4 +26,5 @@ jobs:
       - if: ${{ failure() && github.event_name == 'pull_request' }}
         uses: EndBug/add-and-commit@v7
         with:
+          push: true
           message: 'Updated snapshot files'
