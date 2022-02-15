@@ -618,7 +618,7 @@ test('options.optimize.runtime', () => {
     @@ --- --- @@
             },
           ],
-    -     Array [
+         Array [
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,

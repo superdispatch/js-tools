@@ -22,5 +22,8 @@ jobs:
       - run: yarn test
       - uses: codecov/codecov-action@v2
       - run: yarn build
-      - uses: EndBug/add-and-commit@v7
-        if: ${{ failure() && github.actor == 'renovate[bot]' }}
+
+      - if: ${{ failure() && github.event_name == "pull_request" }}
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Updated snapshot files'
