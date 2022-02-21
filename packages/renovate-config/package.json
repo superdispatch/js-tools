@@ -30,9 +30,7 @@
           "matchPackagePatterns": [
             "^@sentry/"
           ],
-          "extends": [
-            "schedule:weekdays"
-          ]
+          "prPriority": 1
         },
         {
           "matchUpdateTypes": "pin",
