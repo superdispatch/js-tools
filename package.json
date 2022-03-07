@@ -56,7 +56,7 @@
     "@types/lodash": "4.14.179",
     "@types/node": "16.11.26",
     "@types/prettier": "2.4.4",
-    "enhanced-resolve": "5.8.3",
+    "enhanced-resolve": "5.9.2",
     "eslint": "8.10.0",
     "eslint-plugin-eslint-plugin": "4.1.0",
     "husky": "7.0.4",
