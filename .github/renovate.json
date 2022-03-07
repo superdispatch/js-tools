@@ -1,5 +1,5 @@
 {
   "extends": ["@superdispatch", "config:js-lib"],
   "rangeStrategy": "bump",
-  "reviewers": ["doniyor2109"]
+  "reviewers": ["diyorbek"]
 }
