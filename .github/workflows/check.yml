@@ -19,8 +19,9 @@ jobs:
 
       - run: yarn tsc
       - run: yarn lint
-      - run: yarn test
+      - uses: superdispatch/actions/update-snapshots@v1.5.0
+        with:
+          command: yarn test
+          update-command: yarn test -u
       - uses: codecov/codecov-action@v2
       - run: yarn build
-      - uses: EndBug/add-and-commit@v7
-        if: ${{ failure() && github.actor == 'renovate[bot]' }}
