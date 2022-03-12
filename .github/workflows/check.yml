@@ -19,7 +19,7 @@ jobs:
 
       - run: yarn tsc
       - run: yarn lint
-      - uses: superdispatch/update-snapshots@1
+      - uses: superdispatch/update-snapshots@v1.5.0
         with:
           command: yarn test
           update-command: yarn test -u
