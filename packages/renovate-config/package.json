@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/renovate-config",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Shared config for Renovate.",
   "keywords": [
     "typescript"
