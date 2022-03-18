@@ -14,7 +14,6 @@
     "default": {
       "extends": [
         "config:base",
-        ":automergePatch",
         "schedule:earlyMondays",
         ":separateMajorReleases",
         ":enableVulnerabilityAlerts"
@@ -30,7 +29,10 @@
           "matchPackagePatterns": [
             "^@sentry/"
           ],
-          "prPriority": 1
+          "prPriority": 1,
+          "extends": [
+            ":automergePatch"
+          ]
         },
         {
           "matchUpdateTypes": "pin",
