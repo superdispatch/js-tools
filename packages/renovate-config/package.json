@@ -53,7 +53,8 @@
             "@superdispatch/ui",
             "@superdispatch/ui-lab"
           ],
-          "groupName": "@superdispatch/ui"
+          "groupName": "@superdispatch/ui",
+          "prPriority": 1
         },
         {
           "matchPackageNames": [
@@ -66,20 +67,23 @@
             "@superdispatch/eslint-plugin",
             "@superdispatch/gh-scripts"
           ],
-          "groupName": "@superdispatch/js-tools"
+          "groupName": "@superdispatch/js-tools",
+          "prPriority": 1
         },
         {
           "matchPackageNames": [
             "@superdispatch/http",
             "@superdispatch/http-resource"
           ],
-          "groupName": "@superdispatch/http"
+          "groupName": "@superdispatch/http",
+          "prPriority": 1
         },
         {
           "matchPackagePatterns": [
             "^@sdkit/"
           ],
-          "groupName": "sdkit"
+          "groupName": "sdkit",
+          "prPriority": 1
         },
         {
           "matchPackagePatterns": [
