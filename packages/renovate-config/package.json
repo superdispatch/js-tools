@@ -35,6 +35,12 @@
             ":automergePatch"
           ]
         },
+         {
+          "matchPackagePatterns": [
+            "^cypress"
+          ],
+          "prPriority": 1
+        },
         {
           "matchUpdateTypes": "pin",
           "groupName": "all pins"
