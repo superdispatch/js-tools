@@ -35,7 +35,7 @@
             ":automergePatch"
           ]
         },
-         {
+        {
           "matchPackagePatterns": [
             "^cypress"
           ],
@@ -76,7 +76,7 @@
           "groupName": "@superdispatch/js-tools",
           "prPriority": 1
         },
-         {
+        {
           "matchPackageNames": [
             "@superdispatch/sdk"
           ],
