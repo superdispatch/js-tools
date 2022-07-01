@@ -69,12 +69,18 @@
             "@superdispatch/js-tools",
             "@superdispatch/prettier-config",
             "@superdispatch/babel-preset",
-            "@superdispatch/sdk",
             "@superdispatch/tsconfig",
             "@superdispatch/eslint-plugin",
             "@superdispatch/gh-scripts"
           ],
           "groupName": "@superdispatch/js-tools",
+          "prPriority": 1
+        },
+         {
+          "matchPackageNames": [
+            "@superdispatch/sdk"
+          ],
+          "groupName": "@superdispatch/sdk",
           "prPriority": 1
         },
         {
