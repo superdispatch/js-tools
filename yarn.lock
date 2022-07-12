@@ -4090,10 +4090,10 @@ eslint-plugin-eslint-comments@^3.2.0:
     escape-string-regexp "^1.0.5"
     ignore "^5.0.5"
 
-eslint-plugin-eslint-plugin@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-eslint-plugin/-/eslint-plugin-eslint-plugin-4.3.0.tgz#ff83102e3c7f6b3a85d61f8021a6a5f06189f153"
-  integrity sha512-0xZ++ilIpGY+gBwsaW/uIhG/Rrl/sltPCai3UUPzWbaOPud2tel9UCWj8sLTADNmVqBD+vcqLHzHY86q/b71yg==
+eslint-plugin-eslint-plugin@4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-eslint-plugin/-/eslint-plugin-eslint-plugin-4.4.1.tgz#f0b59fd96ebb3828e011fe75a65e9c49df25985a"
+  integrity sha512-e4jJGw/ezJseAPutnIasBfnO0XMdp0wPD/upBvRtzN5tqMM3xiwXtcCmDyH5NHO79ij7olxpaNGATFqS+5480g==
   dependencies:
     eslint-utils "^3.0.0"
     estraverse "^5.2.0"
