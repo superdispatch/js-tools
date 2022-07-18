@@ -57,7 +57,7 @@
     "@types/node": "16.11.43",
     "@types/prettier": "2.4.4",
     "enhanced-resolve": "5.10.0",
-    "eslint": "8.19.0",
+    "eslint": "8.20.0",
     "eslint-plugin-eslint-plugin": "4.4.1",
     "husky": "7.0.4",
     "jest": "27.4.7",
