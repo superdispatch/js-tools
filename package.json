@@ -54,7 +54,7 @@
     "@types/jest": "27.5.2",
     "@types/listr": "0.14.4",
     "@types/lodash": "4.14.186",
-    "@types/node": "16.11.63",
+    "@types/node": "16.11.64",
     "@types/prettier": "2.7.1",
     "enhanced-resolve": "5.10.0",
     "eslint": "8.23.0",
