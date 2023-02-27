@@ -26,41 +26,41 @@ test('basic', () => {
   const defaultPreset = createPreset();
 
   expect(defaultPreset).toMatchInlineSnapshot(`
-    Object {
-      "plugins": Array [
+    {
+      "plugins": [
         "@babel/plugin-proposal-numeric-separator",
-        Array [
+        [
           "@babel/plugin-proposal-decorators",
-          Object {
+          {
             "legacy": true,
           },
         ],
-        Array [
+        [
           "@babel/plugin-proposal-class-properties",
-          Object {
+          {
             "loose": false,
           },
         ],
-        Array [
+        [
           "babel-plugin-transform-react-remove-prop-types",
-          Object {
+          {
             "mode": "wrap",
           },
         ],
-        Array [
+        [
           "@babel/plugin-transform-runtime",
-          Object {
+          {
             "helpers": true,
             "version": "7.18.9",
           },
         ],
       ],
-      "presets": Array [
-        Array [
+      "presets": [
+        [
           "@babel/preset-env",
-          Object {
+          {
             "corejs": 3,
-            "exclude": Array [
+            "exclude": [
               "transform-typeof-symbol",
             ],
             "ignoreBrowserslistConfig": false,
@@ -70,9 +70,9 @@ test('basic', () => {
             "useBuiltIns": "entry",
           },
         ],
-        Array [
+        [
           "@babel/preset-react",
-          Object {
+          {
             "development": false,
             "runtime": "classic",
             "useBuiltIns": true,
@@ -139,7 +139,7 @@ test('basic', () => {
 
 test('errors', () => {
   expect(() => createPreset('noop')).toThrowErrorMatchingInlineSnapshot(
-    `"Unknown \\"env\\", expected one of: \\"test\\", \\"production\\", \\"development\\" but got \\"noop\\"."`,
+    `"Unknown "env", expected one of: "test", "production", "development" but got "noop"."`,
   );
 
   expect(() =>
@@ -148,9 +148,7 @@ test('errors', () => {
       foo: 1,
       bar: 2,
     }),
-  ).toThrowErrorMatchingInlineSnapshot(
-    `"Unknown options: [\\"foo\\",\\"bar\\"]"`,
-  );
+  ).toThrowErrorMatchingInlineSnapshot(`"Unknown options: ["foo","bar"]"`);
 
   expect(() =>
     createPreset(undefined, {
@@ -161,7 +159,7 @@ test('errors', () => {
       },
     }),
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Unknown optimization options: [\\"foo\\",\\"bar\\"]"`,
+    `"Unknown optimization options: ["foo","bar"]"`,
   );
 
   expect(() =>
@@ -170,13 +168,13 @@ test('errors', () => {
       targets: { esmodules: true },
     }),
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Invalid \\"targets\\" option, expected \\"string\\", but got: {\\"esmodules\\":true}"`,
+    `"Invalid "targets" option, expected "string", but got: {"esmodules":true}"`,
   );
 
   expect(() =>
     createPreset(undefined, { jsx: 'noop' }),
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Invalid \\"jsx\\" option, expected \\"boolean\\" or \\"runtime\\", but got: \\"noop\\""`,
+    `"Invalid "jsx" option, expected "boolean" or "runtime", but got: "noop""`,
   );
 });
 

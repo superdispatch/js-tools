@@ -28,6 +28,12 @@
       "packageRules": [
         {
           "matchPackagePatterns": [
+            "^@datadog/"
+          ],
+          "prPriority": 1
+        },
+        {
+          "matchPackagePatterns": [
             "^@sentry/"
           ],
           "prPriority": 1,
