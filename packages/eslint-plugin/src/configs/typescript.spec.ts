@@ -343,7 +343,7 @@ it('extends dependencies', async () => {
         "@typescript-eslint/space-infix-ops": Array [
           "off",
     +   ],
-    +   "@typescript-eslint/strict-boolean-expressions ": Array [
+    +   "@typescript-eslint/strict-boolean-expressions": Array [
     +     "error",
     +     Object {
     +       "allowNullableNumber": false,
