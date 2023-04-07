@@ -97,6 +97,10 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
       { checkCompoundAssignments: true },
     ],
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+    '@typescript-eslint/strict-boolean-expressions ': [
+      'error',
+      { allowNullableNumber: false, allowNullableObject: false },
+    ],
   });
 
   //

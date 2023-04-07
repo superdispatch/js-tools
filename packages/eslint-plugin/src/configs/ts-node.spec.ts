@@ -120,8 +120,8 @@ it('extends dependencies', async () => {
     +     "interface",
     +   ],
     +   "@typescript-eslint/explicit-function-return-type": Array [
-          "off",
-        ],
+    +     "off",
+    +   ],
     +   "@typescript-eslint/explicit-member-accessibility": Array [
     +     "error",
     +     Object {
@@ -129,17 +129,17 @@ it('extends dependencies', async () => {
     +     },
     +   ],
     +   "@typescript-eslint/explicit-module-boundary-types": Array [
-    +     "off",
-    +   ],
+          "off",
+        ],
         "@typescript-eslint/func-call-spacing": Array [
           "off",
         ],
         "@typescript-eslint/indent": Array [
-          "off",
-        ],
-    +   "@typescript-eslint/interface-name-prefix": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/interface-name-prefix": Array [
+          "off",
+        ],
         "@typescript-eslint/keyword-spacing": Array [
           "off",
         ],
@@ -170,7 +170,7 @@ it('extends dependencies', async () => {
     +       "ignoreArrowShorthand": false,
     +       "ignoreVoidOperator": false,
     +     },
-    +   ],
+        ],
     +   "@typescript-eslint/no-dynamic-delete": Array [
     +     "error",
     +   ],
@@ -188,7 +188,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-extra-non-null-assertion": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/no-extra-parens": Array [
           "off",
         ],
@@ -295,7 +295,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/prefer-for-of": Array [
     +     "error",
     +   ],
@@ -313,13 +313,13 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/prefer-reduce-type-parameter": Array [
     +     "error",
-    +   ],
+        ],
         "@typescript-eslint/quotes": Array [
           0,
-        ],
+    +   ],
     +   "@typescript-eslint/require-array-sort-compare": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/require-await": Array [
     +     "error",
     +   ],
@@ -344,10 +344,17 @@ it('extends dependencies', async () => {
         ],
         "@typescript-eslint/space-infix-ops": Array [
           "off",
+        ],
+    +   "@typescript-eslint/strict-boolean-expressions ": Array [
+    +     "error",
+    +     Object {
+    +       "allowNullableNumber": false,
+    +       "allowNullableObject": false,
+    +     },
     +   ],
     +   "@typescript-eslint/triple-slash-reference": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/type-annotation-spacing": Array [
           "off",
     +   ],
@@ -400,19 +407,19 @@ it('extends dependencies', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
+        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-        ],
+    +   ],
     +   "no-array-constructor": Array [
     +     "off",
-    +   ],
+        ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
-          "error",
     @@ --- --- @@
             "allowEmptyCatch": true,
           },
