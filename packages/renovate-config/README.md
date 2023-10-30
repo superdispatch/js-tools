@@ -14,4 +14,4 @@ Add to `renovate.json`:
 
 #### Contributing
 
-Make sure to sync changes in both `renovate-config.json` and `package.json` files.
+Make sure to sync changes in both `default.json` and `package.json` files.
