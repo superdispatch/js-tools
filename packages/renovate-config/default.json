@@ -1,0 +1,83 @@
+{
+  "extends": [
+    "config:base",
+    "schedule:earlyMondays",
+    ":separateMajorReleases",
+    ":enableVulnerabilityAlerts"
+  ],
+  "assignAutomerge": true,
+  "platformAutomerge": true,
+  "prConcurrentLimit": 5,
+  "commitMessageSuffix": "({{updateType}})",
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@datadog/"],
+      "prPriority": 1
+    },
+    {
+      "matchPackagePatterns": ["^@sentry/"],
+      "prPriority": 1,
+      "extends": [":automergePatch"]
+    },
+    {
+      "matchPackagePatterns": ["^cypress"],
+      "prPriority": 1
+    },
+    {
+      "matchUpdateTypes": "pin",
+      "groupName": "all pins"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "groupName": "typescript"
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/eslint-plugin-ui",
+        "@superdispatch/forms",
+        "@superdispatch/dates",
+        "@superdispatch/phones",
+        "@superdispatch/ui",
+        "@superdispatch/ui-lab"
+      ],
+      "groupName": "@superdispatch/ui",
+      "prPriority": 1
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/jestutils",
+        "@superdispatch/js-tools",
+        "@superdispatch/prettier-config",
+        "@superdispatch/babel-preset",
+        "@superdispatch/tsconfig",
+        "@superdispatch/eslint-plugin",
+        "@superdispatch/gh-scripts"
+      ],
+      "groupName": "@superdispatch/js-tools",
+      "prPriority": 1
+    },
+    {
+      "matchPackageNames": ["@superdispatch/sdk"],
+      "groupName": "@superdispatch/sdk",
+      "prPriority": 1
+    },
+    {
+      "matchPackageNames": [
+        "@superdispatch/http",
+        "@superdispatch/http-resource"
+      ],
+      "groupName": "@superdispatch/http",
+      "prPriority": 1
+    },
+    {
+      "matchPackagePatterns": ["^@sdkit/"],
+      "groupName": "sdkit",
+      "prPriority": 1
+    },
+    {
+      "matchPackagePatterns": ["^@testing-library/"],
+      "groupName": "testing-library"
+    }
+  ]
+}

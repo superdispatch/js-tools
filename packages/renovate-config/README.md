@@ -11,3 +11,7 @@ Add to `renovate.json`:
   "extends": ["@superdispatch"]
 }
 ```
+
+#### Contributing
+
+Make sure to sync changes in both `default.json` and `package.json` files.
