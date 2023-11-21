@@ -10,6 +10,13 @@
   "prConcurrentLimit": 5,
   "commitMessageSuffix": "({{updateType}})",
   "postUpdateOptions": ["yarnDedupeHighest"],
+  "prBodyNotes": [
+    "### Checklist",
+    "- [ ] I checked this package version in [snyk](https://security.snyk.io/vuln/npm)",
+    "- [ ] I labeled PR as 'PR needs visual test'",
+    "- [ ] I checked this update locally",
+    "- [ ] QA engineers checked this update"
+  ],
   "packageRules": [
     {
       "matchPackagePatterns": ["^@datadog/"],
