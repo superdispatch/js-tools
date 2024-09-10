@@ -83,9 +83,6 @@ test('diff with jest', async () => {
         "@babel/semi": Array [
           "off",
         ],
-    +   "@typescript-eslint/adjacent-overload-signatures": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/array-type": Array [
     +     "error",
     +     Object {
@@ -122,8 +119,8 @@ test('diff with jest', async () => {
     +     "interface",
     +   ],
     +   "@typescript-eslint/explicit-function-return-type": Array [
-    +     "off",
-    +   ],
+          "off",
+        ],
     +   "@typescript-eslint/explicit-member-accessibility": Array [
     +     "error",
     +     Object {
@@ -131,8 +128,8 @@ test('diff with jest', async () => {
     +     },
     +   ],
     +   "@typescript-eslint/explicit-module-boundary-types": Array [
-          "off",
-        ],
+    +     "off",
+    +   ],
         "@typescript-eslint/func-call-spacing": Array [
           "off",
         ],
@@ -146,12 +143,12 @@ test('diff with jest', async () => {
           "off",
         ],
         "@typescript-eslint/member-delimiter-style": Array [
-    +     "off",
+          "off",
     +   ],
     +   "@typescript-eslint/method-signature-style": Array [
     +     "error",
     +     "property",
-    +   ],
+        ],
     +   "@typescript-eslint/no-array-constructor": Array [
     +     "error",
     +   ],
@@ -173,18 +170,18 @@ test('diff with jest', async () => {
     +       "ignoreVoidOperator": false,
     +     },
     +   ],
+    +   "@typescript-eslint/no-duplicate-enum-values": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-duplicate-type-constituents": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-dynamic-delete": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/no-empty-function": Array [
-    +     "error",
-    +   ],
-    +   "@typescript-eslint/no-empty-interface": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/no-explicit-any": Array [
-          "off",
-        ],
+    +     "off",
+    +   ],
     +   "@typescript-eslint/no-extra-non-null-assertion": Array [
     +     "error",
     +   ],
@@ -192,7 +189,7 @@ test('diff with jest', async () => {
           "off",
         ],
         "@typescript-eslint/no-extra-semi": Array [
-    +     "error",
+    +     "off",
     +   ],
     +   "@typescript-eslint/no-floating-promises": Array [
     +     "error",
@@ -204,9 +201,6 @@ test('diff with jest', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-implied-eval": Array [
-    +     "error",
-    +   ],
-    +   "@typescript-eslint/no-inferrable-types": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-loss-of-precision": Array [
@@ -225,9 +219,12 @@ test('diff with jest', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-non-null-assertion": Array [
-          "off",
-        ],
+    +     "off",
+    +   ],
     +   "@typescript-eslint/no-parameter-properties": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-redundant-type-constituents": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-shadow": Array [
@@ -261,10 +258,16 @@ test('diff with jest', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-assignment": Array [
-    +     "off",
-    +   ],
+          "off",
+        ],
     +   "@typescript-eslint/no-unsafe-call": Array [
     +     "off",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-declaration-merging": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-enum-comparison": Array [
+    +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-member-access": Array [
     +     "off",
@@ -291,7 +294,7 @@ test('diff with jest', async () => {
     +   ],
         "@typescript-eslint/object-curly-spacing": Array [
           "off",
-    +   ],
+        ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
     +   ],
@@ -300,11 +303,8 @@ test('diff with jest', async () => {
     +   ],
     +   "@typescript-eslint/prefer-function-type": Array [
     +     "error",
-        ],
-    +   "@typescript-eslint/prefer-includes": Array [
-    +     "error",
     +   ],
-    +   "@typescript-eslint/prefer-namespace-keyword": Array [
+    +   "@typescript-eslint/prefer-includes": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/prefer-optional-chain": Array [
@@ -321,16 +321,16 @@ test('diff with jest', async () => {
     +   ],
     +   "@typescript-eslint/require-await": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/restrict-plus-operands": Array [
     +     "error",
     +     Object {
-    +       "checkCompoundAssignments": true,
+    +       "skipCompoundAssignments": true,
     +     },
     +   ],
     +   "@typescript-eslint/restrict-template-expressions": Array [
     +     "off",
-    +   ],
+        ],
     +   "@typescript-eslint/return-await": Array [
     +     "error",
     +     "in-try-catch",
@@ -343,21 +343,20 @@ test('diff with jest', async () => {
         ],
         "@typescript-eslint/space-infix-ops": Array [
           "off",
-    +   ],
+        ],
     +   "@typescript-eslint/triple-slash-reference": Array [
     +     "error",
-        ],
+    +   ],
         "@typescript-eslint/type-annotation-spacing": Array [
           "off",
-        ],
+    +   ],
     +   "@typescript-eslint/unbound-method": Array [
     +     "error",
-    +   ],
+        ],
         "array-bracket-newline": Array [
           "off",
         ],
         "array-bracket-spacing": Array [
-          "off",
     @@ --- --- @@
         ],
         "implicit-arrow-linebreak": Array [
@@ -400,47 +399,33 @@ test('diff with jest', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
+        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-        ],
+    +   ],
     +   "no-array-constructor": Array [
     +     "off",
-    +   ],
+        ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
-          "error",
     @@ --- --- @@
-          },
-        ],
-        "no-empty-character-class": Array [
-          "error",
-        ],
-    +   "no-empty-function": Array [
-    +     "off",
-    +   ],
-        "no-empty-pattern": Array [
-          "error",
-        ],
-        "no-ex-assign": Array [
-          "error",
-    @@ --- --- @@
-            "boolean": true,
             "disallowTemplateShorthand": false,
             "number": true,
             "string": true,
           },
-    +   ],
+        ],
     +   "no-implied-eval": Array [
     +     "off",
-        ],
+    +   ],
         "no-import-assign": Array [
           "error",
         ],
         "no-inner-declarations": Array [
+          "error",
     @@ --- --- @@
         ],
         "no-lonely-if": Array [
