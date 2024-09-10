@@ -11,6 +11,9 @@ module.exports = {
       files: '*.ts',
       extends: 'plugin:@superdispatch/ts-node',
       parserOptions: { project: './tsconfig.json' },
+      rules: {
+        '@typescript-eslint/no-parameter-properties': 'off',
+      },
     },
 
     {
@@ -31,12 +34,16 @@ module.exports = {
       files: '**/packages/eslint-plugin/src/configs/*.ts',
       rules: {
         'sort-keys': ['error', 'asc', { natural: true }],
+        '@typescript-eslint/no-parameter-properties': 'off',
       },
     },
 
     {
       files: '**/packages/eslint-plugin/src/rules/*.ts',
       extends: ['plugin:eslint-plugin/rules-recommended'],
+      rules: {
+        '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+      },
     },
 
     {
@@ -45,6 +52,9 @@ module.exports = {
         'plugin:@superdispatch/ts-jest',
         'plugin:eslint-plugin/tests-recommended',
       ],
+      rules: {
+        '@typescript-eslint/no-parameter-properties': 'off',
+      },
     },
   ],
 };
