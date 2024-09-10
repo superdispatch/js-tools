@@ -15,9 +15,9 @@
     "build": "rimraf dist && tsc -b"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
-    "@typescript-eslint/typescript-estree": "^5.8.0",
+    "@typescript-eslint/typescript-estree": "6.21.0",
     "confusing-browser-globals": "^1.0.10",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-array-func": "^3.1.7",
