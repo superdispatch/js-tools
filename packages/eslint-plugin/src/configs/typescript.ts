@@ -94,7 +94,7 @@ export function injectTypeScriptConfig(config: Linter.Config): void {
     '@typescript-eslint/require-array-sort-compare': 'error',
     '@typescript-eslint/restrict-plus-operands': [
       'error',
-      { checkCompoundAssignments: true },
+      { skipCompoundAssignments: true },
     ],
     '@typescript-eslint/return-await': ['error', 'in-try-catch'],
   });

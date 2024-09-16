@@ -79,9 +79,6 @@ it('extends dependencies', async () => {
         "@babel/semi": Array [
           "off",
         ],
-    +   "@typescript-eslint/adjacent-overload-signatures": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/array-type": Array [
     +     "error",
     +     Object {
@@ -98,11 +95,11 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
         "@typescript-eslint/brace-style": Array [
-    +     "off",
-    +   ],
-    +   "@typescript-eslint/camelcase": Array [
           "off",
         ],
+    +   "@typescript-eslint/camelcase": Array [
+    +     "off",
+    +   ],
         "@typescript-eslint/comma-dangle": Array [
           "off",
         ],
@@ -118,26 +115,26 @@ it('extends dependencies', async () => {
     +     "interface",
     +   ],
     +   "@typescript-eslint/explicit-function-return-type": Array [
-          "off",
+    +     "off",
     +   ],
     +   "@typescript-eslint/explicit-member-accessibility": Array [
     +     "error",
     +     Object {
     +       "accessibility": "no-public",
     +     },
-        ],
-    +   "@typescript-eslint/explicit-module-boundary-types": Array [
-    +     "off",
     +   ],
+    +   "@typescript-eslint/explicit-module-boundary-types": Array [
+          "off",
+        ],
         "@typescript-eslint/func-call-spacing": Array [
           "off",
         ],
         "@typescript-eslint/indent": Array [
-          "off",
-        ],
-    +   "@typescript-eslint/interface-name-prefix": Array [
     +     "off",
     +   ],
+    +   "@typescript-eslint/interface-name-prefix": Array [
+          "off",
+        ],
         "@typescript-eslint/keyword-spacing": Array [
           "off",
         ],
@@ -169,21 +166,21 @@ it('extends dependencies', async () => {
     +       "ignoreVoidOperator": false,
     +     },
     +   ],
+    +   "@typescript-eslint/no-duplicate-enum-values": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-duplicate-type-constituents": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/no-dynamic-delete": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/no-empty-function": Array [
-    +     "error",
-    +   ],
-    +   "@typescript-eslint/no-empty-interface": Array [
-    +     "error",
-        ],
     +   "@typescript-eslint/no-explicit-any": Array [
     +     "error",
     +     Object {
     +       "ignoreRestArgs": true,
     +     },
-    +   ],
+        ],
     +   "@typescript-eslint/no-extra-non-null-assertion": Array [
     +     "error",
     +   ],
@@ -191,7 +188,7 @@ it('extends dependencies', async () => {
           "off",
         ],
         "@typescript-eslint/no-extra-semi": Array [
-    +     "error",
+    +     "off",
     +   ],
     +   "@typescript-eslint/no-floating-promises": Array [
     +     "error",
@@ -203,9 +200,6 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-implied-eval": Array [
-    +     "error",
-    +   ],
-    +   "@typescript-eslint/no-inferrable-types": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-loss-of-precision": Array [
@@ -227,6 +221,9 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-parameter-properties": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-redundant-type-constituents": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-shadow": Array [
@@ -263,6 +260,12 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-call": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-declaration-merging": Array [
+    +     "error",
+    +   ],
+    +   "@typescript-eslint/no-unsafe-enum-comparison": Array [
     +     "error",
     +   ],
     +   "@typescript-eslint/no-unsafe-member-access": Array [
@@ -303,9 +306,6 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/prefer-includes": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/prefer-namespace-keyword": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/prefer-optional-chain": Array [
     +     "error",
     +   ],
@@ -320,16 +320,16 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/require-await": Array [
     +     "error",
-    +   ],
+        ],
     +   "@typescript-eslint/restrict-plus-operands": Array [
     +     "error",
     +     Object {
-    +       "checkCompoundAssignments": true,
+    +       "skipCompoundAssignments": true,
     +     },
     +   ],
     +   "@typescript-eslint/restrict-template-expressions": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/return-await": Array [
     +     "error",
     +     "in-try-catch",
@@ -418,19 +418,19 @@ it('extends dependencies', async () => {
         ],
         "indent-legacy": Array [
     @@ --- --- @@
+        "newline-per-chained-call": Array [
           "off",
         ],
         "no-alert": Array [
           "error",
-        ],
+    +   ],
     +   "no-array-constructor": Array [
     +     "off",
-    +   ],
+        ],
         "no-arrow-condition": Array [
           "off",
         ],
         "no-async-promise-executor": Array [
-          "error",
     @@ --- --- @@
         ],
         "no-console": Array [
@@ -469,20 +469,6 @@ it('extends dependencies', async () => {
         ],
         "no-else-return": Array [
     @@ --- --- @@
-          },
-        ],
-        "no-empty-character-class": Array [
-          "error",
-        ],
-    +   "no-empty-function": Array [
-    +     "off",
-    +   ],
-        "no-empty-pattern": Array [
-          "error",
-        ],
-        "no-ex-assign": Array [
-          "error",
-    @@ --- --- @@
         ],
         "no-floating-decimal": Array [
           "error",
@@ -496,14 +482,15 @@ it('extends dependencies', async () => {
         ],
         "no-implicit-coercion": Array [
     @@ --- --- @@
+            "boolean": true,
             "disallowTemplateShorthand": false,
             "number": true,
             "string": true,
           },
-        ],
+    +   ],
     +   "no-implied-eval": Array [
     +     "off",
-    +   ],
+        ],
         "no-import-assign": Array [
     -     "error",
     +     "off",
@@ -647,16 +634,14 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "prefer-rest-params": Array [
-          "error",
-        ],
-    +   "prefer-spread": Array [
     +     "error",
     +   ],
+    +   "prefer-spread": Array [
+          "error",
+        ],
         "quote-props": Array [
           "off",
         ],
-        "quotes": Array [
-          0,
     @@ --- --- @@
         ],
         "react/jsx-tag-spacing": Array [
@@ -671,18 +656,5 @@ it('extends dependencies', async () => {
         "require-yield": Array [
           "error",
         ],
-    @@ --- --- @@
-        ],
-        "use-isnan": Array [
-          "error",
-        ],
-        "valid-typeof": Array [
-    -     "error",
-    +     "off",
-        ],
-        "vue/array-bracket-newline": Array [
-          "off",
-        ],
-        "vue/array-bracket-spacing": Array [
   `);
 });

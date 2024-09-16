@@ -49,7 +49,7 @@ it('extends dependencies', async () => {
 
     @@ --- --- @@
         ],
-        "@typescript-eslint/no-empty-interface": Array [
+        "@typescript-eslint/no-dynamic-delete": Array [
           "error",
         ],
         "@typescript-eslint/no-explicit-any": Array [
@@ -75,7 +75,7 @@ it('extends dependencies', async () => {
         "@typescript-eslint/no-parameter-properties": Array [
           "error",
         ],
-        "@typescript-eslint/no-shadow": Array [
+        "@typescript-eslint/no-redundant-type-constituents": Array [
     @@ --- --- @@
         ],
         "@typescript-eslint/no-unsafe-argument": Array [
@@ -88,6 +88,12 @@ it('extends dependencies', async () => {
         "@typescript-eslint/no-unsafe-call": Array [
     -     "error",
     +     "off",
+        ],
+        "@typescript-eslint/no-unsafe-declaration-merging": Array [
+          "error",
+        ],
+        "@typescript-eslint/no-unsafe-enum-comparison": Array [
+          "error",
         ],
         "@typescript-eslint/no-unsafe-member-access": Array [
     -     "error",
@@ -103,7 +109,7 @@ it('extends dependencies', async () => {
         "@typescript-eslint/no-unused-vars": Array [
     @@ --- --- @@
           Object {
-            "checkCompoundAssignments": true,
+            "skipCompoundAssignments": true,
           },
         ],
         "@typescript-eslint/restrict-template-expressions": Array [
