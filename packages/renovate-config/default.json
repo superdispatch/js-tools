@@ -5,6 +5,7 @@
     ":separateMajorReleases",
     ":enableVulnerabilityAlerts"
   ],
+  "reviewersFromCodeOwners": true,
   "assignAutomerge": true,
   "platformAutomerge": true,
   "prConcurrentLimit": 5,
