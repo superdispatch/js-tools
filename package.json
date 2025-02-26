@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@babel/cli": "7.18.10",
-    "@babel/core": "7.18.13",
-    "@babel/runtime": "7.18.9",
+    "@babel/core": "7.26.9",
+    "@babel/runtime": "7.26.9",
     "@types/eslint": "8.4.6",
     "@types/find-cache-dir": "3.2.1",
     "@types/jest": "27.5.2",
