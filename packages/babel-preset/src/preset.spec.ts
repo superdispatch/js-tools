@@ -28,7 +28,7 @@ test('basic', () => {
   expect(defaultPreset).toMatchInlineSnapshot(`
     {
       "plugins": [
-        "@babel/plugin-proposal-numeric-separator",
+        "@babel/plugin-transform-numeric-separator",
         [
           "@babel/plugin-proposal-decorators",
           {
@@ -36,7 +36,7 @@ test('basic', () => {
           },
         ],
         [
-          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-transform-class-properties",
           {
             "loose": false,
           },
@@ -51,7 +51,7 @@ test('basic', () => {
           "@babel/plugin-transform-runtime",
           {
             "helpers": true,
-            "version": "7.18.9",
+            "version": "7.26.9",
           },
         ],
       ],
@@ -436,7 +436,7 @@ test('options.typescript', () => {
     + Second value
 
     @@ --- --- @@
-          "@babel/plugin-proposal-numeric-separator",
+          "@babel/plugin-transform-numeric-separator",
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
@@ -444,7 +444,7 @@ test('options.typescript', () => {
     -       },
     -     ],
     -     Array [
-    -       "@babel/plugin-proposal-class-properties",
+    -       "@babel/plugin-transform-class-properties",
     -       Object {
     -         "loose": false,
     -       },
@@ -471,7 +471,7 @@ test('options.typescript', () => {
     + Second value
 
     @@ --- --- @@
-          "@babel/plugin-proposal-numeric-separator",
+          "@babel/plugin-transform-numeric-separator",
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
@@ -479,7 +479,7 @@ test('options.typescript', () => {
     -       },
     -     ],
     -     Array [
-    -       "@babel/plugin-proposal-class-properties",
+    -       "@babel/plugin-transform-class-properties",
     -       Object {
     -         "loose": false,
     -       },
@@ -506,7 +506,7 @@ test('options.typescript', () => {
     + Second value
 
     @@ --- --- @@
-          "@babel/plugin-proposal-numeric-separator",
+          "@babel/plugin-transform-numeric-separator",
           Array [
     -       "@babel/plugin-proposal-decorators",
     -       Object {
@@ -514,7 +514,7 @@ test('options.typescript', () => {
     -       },
     -     ],
     -     Array [
-    -       "@babel/plugin-proposal-class-properties",
+    -       "@babel/plugin-transform-class-properties",
     -       Object {
     -         "loose": false,
     -       },
@@ -620,7 +620,7 @@ test('options.optimize.runtime', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.18.9",
+    -         "version": "7.26.9",
     -       },
     -     ],
         ],
@@ -644,7 +644,7 @@ test('options.optimize.runtime', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.18.9",
+    -         "version": "7.26.9",
     -       },
     -     ],
         ],
@@ -668,7 +668,7 @@ test('options.optimize.runtime', () => {
     -       "@babel/plugin-transform-runtime",
     -       Object {
     -         "helpers": true,
-    -         "version": "7.18.9",
+    -         "version": "7.26.9",
     -       },
     -     ],
         ],
