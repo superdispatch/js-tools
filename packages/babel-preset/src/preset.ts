@@ -156,9 +156,9 @@ export default function preset(
   }
 
   /**
-   * @link https://babeljs.io/docs/en/babel-plugin-proposal-numeric-separator
+   * @link https://babeljs.io/docs/en/babel-plugin-transform-numeric-separator
    */
-  plugins.push('@babel/plugin-proposal-numeric-separator');
+  plugins.push('@babel/plugin-transform-numeric-separator');
 
   if (transpileJSX) {
     /**
@@ -212,7 +212,7 @@ export default function preset(
      * @link https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
      */
     plugins.push([
-      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-transform-class-properties',
       {
         /**
          * Class properties are compiled to use an assignment expression
