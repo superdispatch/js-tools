@@ -17,15 +17,12 @@ importers:
       '@types/babel__core':
         specifier: 7.20.5
         version: 7.20.5
-      '@types/execa':
-        specifier: 2.0.2
-        version: 2.0.2
       eslint:
         specifier: '>=7.0.0'
         version: 9.23.0
       execa:
-        specifier: ^5.0.0
-        version: 5.1.1
+        specifier: 5.0.0
+        version: 5.0.0
       find-cache-dir:
         specifier: ^3.3.1
         version: 3.3.2
@@ -249,10 +246,6 @@ packages:
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
-
-  '@types/execa@2.0.2':
-    resolution: {integrity: sha512-8QSXFMO4F5rq03O94b/xRPBfseKGJYaBRv4zT/VE/OUU0PAuc21j4Ewvq7S18TT8GUoxGa+Y7sOtecCK9n0gkA==}
-    deprecated: This is a stub types definition. execa provides its own type definitions, so you do not need this installed.
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -531,8 +524,8 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
 
-  execa@5.1.1:
-    resolution: {integrity: sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==}
+  execa@5.0.0:
+    resolution: {integrity: sha512-ov6w/2LCiuyO4RLYGdpFGjkcs0wMTgGE8PrkTHikeUy5iJekXyPIKUjifk5CsE0pt7sMCrMZ3YNqoCj6idQOnQ==}
     engines: {node: '>=10'}
 
   fast-deep-equal@3.1.3:
@@ -1456,10 +1449,6 @@ snapshots:
 
   '@types/estree@1.0.7': {}
 
-  '@types/execa@2.0.2':
-    dependencies:
-      execa: 5.1.1
-
   '@types/json-schema@7.0.15': {}
 
   '@types/node@22.13.14':
@@ -1721,7 +1710,7 @@ snapshots:
 
   esutils@2.0.3: {}
 
-  execa@5.1.1:
+  execa@5.0.0:
     dependencies:
       cross-spawn: 7.0.6
       get-stream: 6.0.1
