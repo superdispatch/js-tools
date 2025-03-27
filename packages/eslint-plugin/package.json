@@ -31,7 +31,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-testing-library": "^5.0.1",
     "lodash": "4.17.19",
-    "rimraf": "6.0.1"
+    "rimraf": "3.0.2"
   },
   "peerDependencies": {
     "eslint": "^7.0.0 || ^8.0.0",
