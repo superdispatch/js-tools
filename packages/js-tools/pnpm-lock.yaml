@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@babel/core':
-        specifier: ^7.26.10
+        specifier: 7.26.10
         version: 7.26.10
       '@oclif/command':
         specifier: ^1.8.0
@@ -24,7 +24,7 @@ importers:
         specifier: ^3.8.5
         version: 3.8.17
       '@types/babel__core':
-        specifier: ^7.20.5
+        specifier: 7.20.5
         version: 7.20.5
       eslint:
         specifier: '>=7.0.0'

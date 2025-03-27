@@ -22,7 +22,8 @@
     "build": "rimraf dist && tsc -b",
     "prepack": "oclif-dev manifest",
     "postpack": "rimraf oclif.manifest.json",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "postinstall": "pnpm install"
   },
   "dependencies": {
     "@babel/core": "7.26.10",
