@@ -6,7 +6,8 @@ export default class LintAll extends BaseLintCommand {
   static description = 'Run all linters';
 
   async run() {
-    const { fix } = this.options;
+    const options = await this.options();
+    const { fix } = options;
     const [, bin, , ...args] = process.argv;
 
     if (!bin) {
