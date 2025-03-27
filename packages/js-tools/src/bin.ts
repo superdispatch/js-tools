@@ -1,5 +1,3 @@
-import { run } from '@oclif/command';
-import { handle } from '@oclif/errors';
-import flush = require('@oclif/command/flush');
+import { run } from '@oclif/core';
 
-run().then(flush, handle);
+run().catch(Error);

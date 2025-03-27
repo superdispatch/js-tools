@@ -13,15 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - uses: umidbekk/actions/prepare-node-repo@v2
         with:
           cache-key: npm-v2-
 
-      - run: yarn tsc
-      - run: yarn lint
+      - run: pnpm tsc
+      - run: pnpm lint
       - uses: superdispatch/actions/update-snapshots@v1.6
         with:
-          command: yarn test
-          update-command: yarn test -u
+          command: pnpm test
+          update-command: pnpm test -u
       - uses: codecov/codecov-action@v2
-      - run: yarn build
+      - run: pnpm build

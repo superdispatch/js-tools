@@ -9,12 +9,11 @@ node_modules/
 
 
 # Logs
-yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
+pnpm-error.log*
 
 # Coverage directory used by tools like istanbul
 coverage
 
 # Builds
 dist/
-

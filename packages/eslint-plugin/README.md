@@ -5,7 +5,7 @@
 #### Installation
 
 ```bash
-yarn add eslint prettier typescript @superdispatch/eslint-plugin -D
+pnpm add eslint prettier typescript @superdispatch/eslint-plugin -D
 ```
 
 #### Usage

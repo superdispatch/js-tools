@@ -5,7 +5,7 @@
 #### Installation
 
 ```bash
-yarn add @superdispatch/prettier-config -D
+pnpm add @superdispatch/prettier-config -D
 ```
 
 #### Usage

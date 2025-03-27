@@ -7,11 +7,6 @@ import { createTSCypressConfig } from './configs/ts-cypress';
 import { createTSJestConfig } from './configs/ts-jest';
 import { createTSNodeConfig } from './configs/ts-node';
 import { createTypeScriptConfig } from './configs/typescript';
-import jsxNoSpreadObjectExpressionRule from './rules/jsx-no-spread-object-expression';
-
-export const rules = {
-  'jsx-no-spread-object-expression': jsxNoSpreadObjectExpressionRule,
-} as const;
 
 export const configs = {
   base: createBaseConfig(),
