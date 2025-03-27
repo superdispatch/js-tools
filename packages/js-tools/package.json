@@ -33,7 +33,6 @@
     "oclif": "2.6.3"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "1.26.10",
     "rimraf": "3.0.2"
   },
   "peerDependencies": {
