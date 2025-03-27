@@ -1,6 +1,6 @@
 import { TSESTree } from '@typescript-eslint/types';
 import { Rule } from 'eslint';
-import { BaseNode, Node } from 'estree';
+import type { BaseNode, Node } from '@typescript-eslint/types/dist/ast-spec';
 
 const rule: Rule.RuleModule = {
   meta: {
