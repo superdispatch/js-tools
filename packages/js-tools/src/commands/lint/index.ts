@@ -1,6 +1,6 @@
 import { BaseLintCommand } from '../../base/BaseLintCommand';
 import Listr = require('listr');
-import * as execa from 'execa';
+import { execa } from 'execa';
 
 export default class LintAll extends BaseLintCommand {
   static description = 'Run all linters';
