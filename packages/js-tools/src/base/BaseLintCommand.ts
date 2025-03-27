@@ -1,4 +1,4 @@
-import * as execa from 'execa';
+import { execa } from 'execa';
 import { Command, Flags } from '@oclif/core';
 
 export abstract class BaseLintCommand extends Command {
