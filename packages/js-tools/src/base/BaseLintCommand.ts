@@ -1,23 +1,23 @@
 import execa = require('execa');
-import Command, { flags } from '@oclif/command';
+import { Command, Flags } from '@oclif/core';
 
 export abstract class BaseLintCommand extends Command {
   static strict = false;
 
   static flags = {
-    help: flags.help(),
+    help: Flags.help(),
 
-    fix: flags.boolean({
+    fix: Flags.boolean({
       default: false,
       description: 'Run auto-fixes',
     }),
 
-    quiet: flags.boolean({
+    quiet: Flags.boolean({
       default: false,
       description: 'Do not emit warnings',
     }),
 
-    cache: flags.boolean({
+    cache: Flags.boolean({
       default: false,
       description: 'Only check changed files',
     }),
@@ -29,8 +29,8 @@ export abstract class BaseLintCommand extends Command {
     '$ js-tools lint foo.js bar.js',
   ];
 
-  protected get options() {
-    const parsed = this.parse(BaseLintCommand);
+  protected async options() {
+    const parsed = await this.parse(BaseLintCommand);
 
     return { ...parsed.flags, files: parsed.argv };
   }
