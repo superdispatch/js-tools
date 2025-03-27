@@ -17,6 +17,9 @@ importers:
       '@types/babel__core':
         specifier: 7.20.5
         version: 7.20.5
+      '@types/execa':
+        specifier: ^2.0.2
+        version: 2.0.2
       eslint:
         specifier: '>=7.0.0'
         version: 9.23.0
@@ -253,6 +256,10 @@ packages:
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
+
+  '@types/execa@2.0.2':
+    resolution: {integrity: sha512-8QSXFMO4F5rq03O94b/xRPBfseKGJYaBRv4zT/VE/OUU0PAuc21j4Ewvq7S18TT8GUoxGa+Y7sOtecCK9n0gkA==}
+    deprecated: This is a stub types definition. execa provides its own type definitions, so you do not need this installed.
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -1484,6 +1491,10 @@ snapshots:
       '@types/node': 22.13.14
 
   '@types/estree@1.0.7': {}
+
+  '@types/execa@2.0.2':
+    dependencies:
+      execa: 9.5.2
 
   '@types/json-schema@7.0.15': {}
 
