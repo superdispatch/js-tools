@@ -1,4 +1,4 @@
-import { TSESTree } from '@typescript-eslint/typescript-estree';
+import { TSESTree } from '@typescript-eslint/types';
 import { Rule } from 'eslint';
 import { BaseNode, Node } from 'estree';
 
