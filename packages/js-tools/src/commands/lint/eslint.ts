@@ -9,7 +9,8 @@ export default class LintESLint extends BaseLintCommand {
   static description = 'Run ESLint';
 
   async run() {
-    const { fix, quiet, files, cache } = this.options;
+    const options = await this.options();
+    const { fix, quiet, files, cache } = options;
     const args: string[] = [];
     const esFiles: string[] = [];
 
@@ -38,10 +39,10 @@ export default class LintESLint extends BaseLintCommand {
       esFiles.push('.');
     } else {
       for (const file of files) {
-        const ext = path.extname(file);
+        const ext = path.extname(file as string);
 
         if (esExtensions.includes(ext)) {
-          esFiles.push(file);
+          esFiles.push(file as string);
         }
       }
     }
