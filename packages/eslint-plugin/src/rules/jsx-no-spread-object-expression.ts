@@ -1,6 +1,6 @@
-import { TSESTree } from '@typescript-eslint/types';
 import { Rule } from 'eslint';
-import type { BaseNode, Node } from '@typescript-eslint/types/dist/ast-spec';
+import { Node } from 'estree';
+import { TSESTree } from '@typescript-eslint/typescript-estree';
 
 const rule: Rule.RuleModule = {
   meta: {
@@ -13,8 +13,9 @@ const rule: Rule.RuleModule = {
     const sourceCode = context.getSourceCode();
 
     return {
-      JSXSpreadAttribute(estreeNode: BaseNode) {
-        const { argument } = estreeNode as TSESTree.JSXSpreadAttribute;
+      JSXSpreadAttribute(estreeNode: Node) {
+        const node = estreeNode as unknown as TSESTree.JSXSpreadAttribute;
+        const { argument } = node;
 
         if (argument.type !== 'ObjectExpression') {
           return;
