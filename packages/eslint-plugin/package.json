@@ -39,7 +39,7 @@
     "typescript": "^4"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
