@@ -4,6 +4,7 @@
   "compilerOptions": {
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": false,
+    "declaration": false,
     "rootDir": "src",
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
