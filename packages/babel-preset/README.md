@@ -5,5 +5,5 @@
 #### Installation
 
 ```bash
-yarn add @superdispatch/babel-preset -D
+pnpm add @superdispatch/babel-preset -D
 ```

@@ -16,11 +16,6 @@ export default class LintAll extends BaseLintCommand {
     const tasks = new Listr(
       [
         {
-          title: 'yarn-deduplicate',
-          task: () => execa(bin, ['lint:yarn-deduplicate', ...args]),
-        },
-
-        {
           title: 'eslint',
           task: () =>
             execa(bin, ['lint:eslint', ...args], {

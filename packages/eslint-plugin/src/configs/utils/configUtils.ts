@@ -53,39 +53,3 @@ export function injectRules(
 
   Object.assign(config.rules, rules);
 }
-
-export function mergeConfigs(...configs: Linter.Config[]): Linter.Config {
-  const base: Linter.Config = {};
-
-  for (const {
-    env,
-    rules,
-    plugins,
-    extends: extendsConfigs,
-    ...config
-  } of configs) {
-    Object.assign(base, config);
-
-    if (env) {
-      injectEnv(base, env);
-    }
-
-    if (rules) {
-      injectRules(base, rules);
-    }
-
-    if (plugins) {
-      injectPlugins(base, ...plugins);
-    }
-
-    if (extendsConfigs) {
-      if (Array.isArray(extendsConfigs)) {
-        injectConfigs(base, ...extendsConfigs);
-      } else {
-        injectConfigs(base, extendsConfigs);
-      }
-    }
-  }
-
-  return base;
-}

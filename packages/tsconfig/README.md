@@ -5,7 +5,7 @@
 #### Installation
 
 ```bash
-yarn add @superdispatch/tsconfig -D
+pnpm add @superdispatch/tsconfig -D
 ```
 
 #### Usage

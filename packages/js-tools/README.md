@@ -5,7 +5,7 @@
 #### Installation
 
 ```bash
-yarn add @superdispatch/js-tools -D
+pnpm add @superdispatch/js-tools -D
 ```
 
 #### Usage
@@ -39,7 +39,6 @@ module.exports = { '*': 'js-tools lint --fix' };
 - [`js-tools lint`](#js-tools-lint)
 - [`js-tools lint:eslint`](#js-tools-linteslint)
 - [`js-tools lint:prettier`](#js-tools-lintprettier)
-- [`js-tools lint:yarn-deduplicate`](#js-tools-lintyarn-deduplicate)
 
 ## `js-tools lint`
 
@@ -106,27 +105,5 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/lint/prettier.js](https://github.com/superdispatch/js-tools/blob/v0.8.0/dist/commands/lint/prettier.js)_
-
-## `js-tools lint:yarn-deduplicate`
-
-Deduplicate yarn dependencies
-
-```
-USAGE
-  $ js-tools lint:yarn-deduplicate
-
-OPTIONS
-  --cache  Only check changed files
-  --fix    Run auto-fixes
-  --help   show CLI help
-  --quiet  Do not emit warnings
-
-EXAMPLES
-  $ js-tools lint --fix
-  $ js-tools lint --quiet
-  $ js-tools lint foo.js bar.js
-```
-
-_See code: [dist/commands/lint/yarn-deduplicate.js](https://github.com/superdispatch/js-tools/blob/v0.8.0/dist/commands/lint/yarn-deduplicate.js)_
 
 <!-- commandsstop -->
