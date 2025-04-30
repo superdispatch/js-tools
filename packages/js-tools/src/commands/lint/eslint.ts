@@ -9,7 +9,7 @@ export default class LintESLint extends BaseLintCommand {
   static description = 'Run ESLint';
 
   async run() {
-    const { fix, quiet, files, cache } = this.options;
+    const { fix, quiet, files, cache, maxWarnings } = this.options;
     const args: string[] = [];
     const esFiles: string[] = [];
 
@@ -21,6 +21,10 @@ export default class LintESLint extends BaseLintCommand {
 
     if (quiet) {
       args.push('--quiet');
+    }
+
+    if (maxWarnings > -1) {
+      args.push('--max-warnings', maxWarnings.toString());
     }
 
     if (cache) {
