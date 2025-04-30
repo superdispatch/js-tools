@@ -21,6 +21,12 @@ export abstract class BaseLintCommand extends Command {
       default: false,
       description: 'Only check changed files',
     }),
+
+    maxWarnings: flags.integer({
+      default: 0,
+      description:
+        'Maximum number of warnings after which the command will exit with a non-zero exit code',
+    }),
   };
 
   static examples = [
