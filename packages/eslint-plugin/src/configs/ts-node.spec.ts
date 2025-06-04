@@ -222,9 +222,6 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-non-null-assertion": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/no-parameter-properties": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/no-redundant-type-constituents": Array [
     +     "error",
     +   ],
@@ -295,6 +292,9 @@ it('extends dependencies', async () => {
     +   ],
         "@typescript-eslint/object-curly-spacing": Array [
           "off",
+    +   ],
+    +   "@typescript-eslint/parameter-properties": Array [
+    +     "error",
     +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",

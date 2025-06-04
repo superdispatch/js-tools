@@ -220,9 +220,6 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/no-non-null-assertion": Array [
     +     "error",
     +   ],
-    +   "@typescript-eslint/no-parameter-properties": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/no-redundant-type-constituents": Array [
     +     "error",
     +   ],
@@ -279,7 +276,7 @@ it('extends dependencies', async () => {
     +   ],
     +   "@typescript-eslint/no-unused-vars": Array [
           "off",
-    +   ],
+        ],
     +   "@typescript-eslint/no-use-before-define": Array [
     +     "error",
     +     Object {
@@ -287,16 +284,19 @@ it('extends dependencies', async () => {
     +       "functions": false,
     +       "typedefs": false,
     +     },
-        ],
+    +   ],
     +   "@typescript-eslint/no-var-requires": Array [
     +     "error",
     +   ],
         "@typescript-eslint/object-curly-spacing": Array [
           "off",
+        ],
+    +   "@typescript-eslint/parameter-properties": Array [
+    +     "error",
     +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
-        ],
+    +   ],
     +   "@typescript-eslint/prefer-for-of": Array [
     +     "error",
     +   ],

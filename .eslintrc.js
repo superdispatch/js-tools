@@ -12,7 +12,7 @@ module.exports = {
       extends: 'plugin:@superdispatch/ts-node',
       parserOptions: { project: './tsconfig.json' },
       rules: {
-        '@typescript-eslint/no-parameter-properties': 'off',
+        '@typescript-eslint/parameter-properties': 'off',
       },
     },
 
@@ -34,7 +34,7 @@ module.exports = {
       files: '**/packages/eslint-plugin/src/configs/*.ts',
       rules: {
         'sort-keys': ['error', 'asc', { natural: true }],
-        '@typescript-eslint/no-parameter-properties': 'off',
+        '@typescript-eslint/parameter-properties': 'off',
       },
     },
 
@@ -53,7 +53,7 @@ module.exports = {
         'plugin:eslint-plugin/tests-recommended',
       ],
       rules: {
-        '@typescript-eslint/no-parameter-properties': 'off',
+        '@typescript-eslint/parameter-properties': 'off',
       },
     },
   ],

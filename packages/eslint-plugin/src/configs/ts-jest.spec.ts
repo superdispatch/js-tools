@@ -221,9 +221,6 @@ test('diff with jest', async () => {
     +   "@typescript-eslint/no-non-null-assertion": Array [
     +     "off",
     +   ],
-    +   "@typescript-eslint/no-parameter-properties": Array [
-    +     "error",
-    +   ],
     +   "@typescript-eslint/no-redundant-type-constituents": Array [
     +     "error",
     +   ],
@@ -295,6 +292,9 @@ test('diff with jest', async () => {
         "@typescript-eslint/object-curly-spacing": Array [
           "off",
         ],
+    +   "@typescript-eslint/parameter-properties": Array [
+    +     "error",
+    +   ],
     +   "@typescript-eslint/prefer-as-const": Array [
     +     "error",
     +   ],
