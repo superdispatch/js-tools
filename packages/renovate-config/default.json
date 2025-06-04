@@ -57,7 +57,8 @@
         "@superdispatch/babel-preset",
         "@superdispatch/tsconfig",
         "@superdispatch/eslint-plugin",
-        "@superdispatch/gh-scripts"
+        "@superdispatch/gh-scripts",
+        "@superdispatch/renovate-config"
       ],
       "groupName": "@superdispatch/js-tools",
       "prPriority": 1
