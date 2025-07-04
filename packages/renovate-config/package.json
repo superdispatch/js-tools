@@ -2,9 +2,7 @@
   "name": "@superdispatch/renovate-config",
   "version": "0.12.0",
   "description": "Shared config for Renovate.",
-  "keywords": [
-    "typescript"
-  ],
+  "keywords": ["typescript"],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "publishConfig": {
@@ -22,29 +20,19 @@
       "platformAutomerge": true,
       "prConcurrentLimit": 5,
       "commitMessageSuffix": "({{updateType}})",
-      "postUpdateOptions": [
-        "yarnDedupeHighest"
-      ],
+      "postUpdateOptions": ["yarnDedupeHighest"],
       "packageRules": [
         {
-          "matchPackagePatterns": [
-            "^@datadog/"
-          ],
+          "matchPackagePatterns": ["^@datadog/"],
           "prPriority": 1
         },
         {
-          "matchPackagePatterns": [
-            "^@sentry/"
-          ],
+          "matchPackagePatterns": ["^@sentry/"],
           "prPriority": 1,
-          "extends": [
-            ":automergePatch"
-          ]
+          "extends": [":automergePatch"]
         },
         {
-          "matchPackagePatterns": [
-            "^cypress"
-          ],
+          "matchPackagePatterns": ["^cypress"],
           "prPriority": 1
         },
         {
@@ -52,9 +40,7 @@
           "groupName": "all pins"
         },
         {
-          "matchPackageNames": [
-            "typescript"
-          ],
+          "matchPackageNames": ["typescript"],
           "groupName": "typescript"
         },
         {
@@ -83,9 +69,7 @@
           "prPriority": 1
         },
         {
-          "matchPackageNames": [
-            "@superdispatch/sdk"
-          ],
+          "matchPackageNames": ["@superdispatch/sdk"],
           "groupName": "@superdispatch/sdk",
           "prPriority": 1
         },
@@ -98,16 +82,12 @@
           "prPriority": 1
         },
         {
-          "matchPackagePatterns": [
-            "^@sdkit/"
-          ],
+          "matchPackagePatterns": ["^@sdkit/"],
           "groupName": "sdkit",
           "prPriority": 1
         },
         {
-          "matchPackagePatterns": [
-            "^@testing-library/"
-          ],
+          "matchPackagePatterns": ["^@testing-library/"],
           "groupName": "testing-library"
         }
       ]

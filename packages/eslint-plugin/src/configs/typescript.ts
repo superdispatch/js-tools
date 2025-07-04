@@ -1,5 +1,3 @@
-'use strict';
-
 import { Linter } from 'eslint';
 import { createBaseConfig } from './base';
 import { injectConfigs, injectRules } from './utils/configUtils';

@@ -2,10 +2,7 @@
   "name": "@superdispatch/js-tools",
   "version": "0.12.0",
   "description": "CLI tools for JavaScript",
-  "keywords": [
-    "eslint",
-    "prettier"
-  ],
+  "keywords": ["eslint", "prettier"],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "main": "dist/index.js",
@@ -13,11 +10,7 @@
   "bin": {
     "js-tools": "bin"
   },
-  "files": [
-    "/bin",
-    "/dist",
-    "/oclif.manifest.json"
-  ],
+  "files": ["/bin", "/dist", "/oclif.manifest.json"],
   "scripts": {
     "build": "rimraf dist && tsc -b",
     "prepack": "oclif-dev manifest",
@@ -43,7 +36,7 @@
     "prettier": ">=2.0.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": "20"
   },
   "publishConfig": {
     "access": "public"

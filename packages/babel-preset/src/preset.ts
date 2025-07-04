@@ -79,7 +79,7 @@ export default function preset(
     );
   }
 
-  if (typeof transpileJSX != 'boolean' && transpileJSX !== 'runtime') {
+  if (typeof transpileJSX !== 'boolean' && transpileJSX !== 'runtime') {
     throw new Error(
       format(
         'Invalid "jsx" option, expected "boolean" or "runtime", but got: %j',
@@ -107,8 +107,8 @@ export default function preset(
           targets === 'esmodules'
             ? { esmodules: true }
             : targets
-            ? { browsers: targets }
-            : undefined,
+              ? { browsers: targets }
+              : undefined,
 
         /**
          * Enable "loose" transformations for any plugins in this preset that
