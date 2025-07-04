@@ -1,5 +1,3 @@
-'use strict';
-
 import path from 'path';
 import {
   getConfigData,
@@ -41,9 +39,13 @@ it('extends dependencies', async () => {
     +   "settings": Object {
     +     "import/extensions": Array [
     +       ".ts",
+    +       ".cts",
+    +       ".mts",
     +       ".tsx",
     +       ".js",
     +       ".jsx",
+    +       ".mjs",
+    +       ".cjs",
     +     ],
     +     "import/external-module-folders": Array [
     +       "node_modules",
@@ -52,6 +54,8 @@ it('extends dependencies', async () => {
     +     "import/parsers": Object {
     +       "@typescript-eslint/parser": Array [
     +         ".ts",
+    +         ".cts",
+    +         ".mts",
     +         ".tsx",
     +       ],
     +     },
@@ -59,9 +63,13 @@ it('extends dependencies', async () => {
     +       "node": Object {
     +         "extensions": Array [
     +           ".ts",
+    +           ".cts",
+    +           ".mts",
     +           ".tsx",
     +           ".js",
     +           ".jsx",
+    +           ".mjs",
+    +           ".cjs",
     +         ],
     +       },
     +     },
@@ -94,6 +102,9 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/ban-types": Array [
     +     "error",
     +   ],
+        "@typescript-eslint/block-spacing": Array [
+          "off",
+        ],
         "@typescript-eslint/brace-style": Array [
           "off",
         ],
@@ -135,8 +146,12 @@ it('extends dependencies', async () => {
     +   "@typescript-eslint/interface-name-prefix": Array [
           "off",
         ],
-        "@typescript-eslint/keyword-spacing": Array [
+        "@typescript-eslint/key-spacing": Array [
           "off",
+        ],
+    @@ --- --- @@
+        "@typescript-eslint/lines-around-comment": Array [
+          0,
         ],
         "@typescript-eslint/member-delimiter-style": Array [
           "off",
@@ -337,6 +352,9 @@ it('extends dependencies', async () => {
         "@typescript-eslint/semi": Array [
           "off",
         ],
+        "@typescript-eslint/space-before-blocks": Array [
+          "off",
+    @@ --- --- @@
         "@typescript-eslint/space-before-function-paren": Array [
           "off",
         ],

@@ -1,4 +1,5 @@
 import { BaseLintCommand } from '../../base/BaseLintCommand';
+
 import Listr = require('listr');
 import execa = require('execa');
 

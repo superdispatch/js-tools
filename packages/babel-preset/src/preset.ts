@@ -79,7 +79,7 @@ export default function preset(
     );
   }
 
-  if (typeof transpileJSX != 'boolean' && transpileJSX !== 'runtime') {
+  if (typeof transpileJSX !== 'boolean' && transpileJSX !== 'runtime') {
     throw new Error(
       format(
         'Invalid "jsx" option, expected "boolean" or "runtime", but got: %j',

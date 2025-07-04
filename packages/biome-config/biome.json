@@ -1,0 +1,98 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "expand": "auto"
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**/*", "!**/dist/**"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": { "recommended": false }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["*.js", "!public/**/*.js", "!src/**/*.js"],
+      "linter": {
+        "rules": { "correctness": { "noUndeclaredDependencies": "error" } }
+      }
+    },
+    {
+      "includes": ["scripts/**/*.ts"],
+      "linter": {
+        "rules": { "correctness": { "noUndeclaredDependencies": "error" } }
+      }
+    },
+    {
+      "includes": ["**/*.{ts,tsx}"],
+      "linter": {
+        "rules": {
+          "complexity": { "noBannedTypes": "warn", "useOptionalChain": "warn" },
+          "correctness": { "useExhaustiveDependencies": "warn" },
+          "style": { "noRestrictedImports": "warn" },
+          "suspicious": { "noAlert": "warn", "noEmptyBlockStatements": "warn" }
+        }
+      }
+    },
+    { "includes": ["src/**/*.{js,jsx}"], "linter": { "rules": {} } },
+    {
+      "includes": ["src/service-worker.ts"],
+      "linter": {
+        "rules": {
+          "style": { "noRestrictedGlobals": { "level": "off", "options": {} } }
+        }
+      }
+    },
+    {
+      "includes": [
+        "setup-vitest.ts",
+        "**/*.{test,spec}.{ts,tsx,js,jsx}",
+        "**/{__tests__,__testutils__}/**/*.{ts,tsx,js,jsx}"
+      ],
+      "linter": {
+        "rules": {
+          "correctness": { "noUndeclaredDependencies": "error" },
+          "style": {
+            "noNonNullAssertion": "off",
+            "noRestrictedImports": "off"
+          },
+          "suspicious": {
+            "noEmptyBlockStatements": "warn",
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["e2e/**/*.{ts,tsx}"],
+      "linter": {
+        "rules": {
+          "complexity": { "noBannedTypes": "warn" },
+          "correctness": { "noUndeclaredDependencies": "error" }
+        }
+      }
+    },
+    { "includes": ["types"] }
+  ],
+  "html": { "formatter": { "selfCloseVoidElements": "always" } }
+}

@@ -1,5 +1,3 @@
-'use strict';
-
 import { getConfigData } from './__testutils__/test-eslint-config';
 
 it('extends dependencies', async () => {
@@ -29,6 +27,9 @@ it('extends dependencies', async () => {
       "@babel/semi": [
         "off",
       ],
+      "@typescript-eslint/block-spacing": [
+        "off",
+      ],
       "@typescript-eslint/brace-style": [
         "off",
       ],
@@ -44,8 +45,14 @@ it('extends dependencies', async () => {
       "@typescript-eslint/indent": [
         "off",
       ],
+      "@typescript-eslint/key-spacing": [
+        "off",
+      ],
       "@typescript-eslint/keyword-spacing": [
         "off",
+      ],
+      "@typescript-eslint/lines-around-comment": [
+        0,
       ],
       "@typescript-eslint/member-delimiter-style": [
         "off",
@@ -63,6 +70,9 @@ it('extends dependencies', async () => {
         0,
       ],
       "@typescript-eslint/semi": [
+        "off",
+      ],
+      "@typescript-eslint/space-before-blocks": [
         "off",
       ],
       "@typescript-eslint/space-before-function-paren": [
@@ -302,6 +312,9 @@ it('extends dependencies', async () => {
       ],
       "max-len": [
         0,
+      ],
+      "max-statements-per-line": [
+        "off",
       ],
       "multiline-ternary": [
         "off",
@@ -1053,6 +1066,9 @@ it('extends dependencies', async () => {
       "vue/array-bracket-spacing": [
         "off",
       ],
+      "vue/array-element-newline": [
+        "off",
+      ],
       "vue/arrow-spacing": [
         "off",
       ],
@@ -1113,6 +1129,9 @@ it('extends dependencies', async () => {
       "vue/multiline-html-element-content-newline": [
         "off",
       ],
+      "vue/multiline-ternary": [
+        "off",
+      ],
       "vue/mustache-interpolation-spacing": [
         "off",
       ],
@@ -1135,6 +1154,9 @@ it('extends dependencies', async () => {
         "off",
       ],
       "vue/operator-linebreak": [
+        "off",
+      ],
+      "vue/quote-props": [
         "off",
       ],
       "vue/script-indent": [
