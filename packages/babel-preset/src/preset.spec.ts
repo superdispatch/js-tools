@@ -83,8 +83,9 @@ test('basic', () => {
     }
   `);
 
-  expect(presetDiff(defaultPreset, createPreset('test')))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(defaultPreset, createPreset('test')),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -115,14 +116,16 @@ test('basic', () => {
               "useBuiltIns": true,
   `);
 
-  expect(presetDiff(defaultPreset, createPreset('production')))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(defaultPreset, createPreset('production')),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     Compared values have no visual difference.
   `);
 
-  expect(presetDiff(defaultPreset, createPreset('development')))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(defaultPreset, createPreset('development')),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value
@@ -229,8 +232,9 @@ test('options.jsx', () => {
         ],
   `);
 
-  expect(presetDiff(createPreset('test'), createPreset('test', { jsx: false })))
-    .toMatchInlineSnapshot(`
+  expect(
+    presetDiff(createPreset('test'), createPreset('test', { jsx: false })),
+  ).toMatchInlineSnapshot(`
     Snapshot Diff:
     - First value
     + Second value

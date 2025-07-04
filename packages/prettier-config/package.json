@@ -2,23 +2,22 @@
   "name": "@superdispatch/prettier-config",
   "version": "0.12.0",
   "description": "Shared config for Prettier.",
-  "keywords": [
-    "prettier"
-  ],
+  "keywords": ["prettier"],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
   "main": "prettier.config.js",
-  "files": [
-    "prettier.config.js"
-  ],
+  "files": ["prettier.config.js"],
   "dependencies": {
     "prettier-plugin-organize-imports": "^2.1.0",
     "prettier-plugin-packagejson": "^2.2.9"
   },
   "engines": {
-    "node": ">=12"
+    "node": "20"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
   }
 }
