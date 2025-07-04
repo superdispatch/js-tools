@@ -1,20 +1,23 @@
 {
-  "name": "@superdispatch/tsconfig",
+  "name": "@superdispatch/biome-config",
   "version": "0.12.0",
-  "description": "Shared config for TypeScript.",
+  "description": "Shared config for Biomejs.",
   "keywords": [
-    "typescript"
+    "biome"
   ],
   "repository": "https://github.com/superdispatch/js-tools.git",
   "license": "MIT",
-  "main": "tsconfig.json",
+  "main": "biome.json",
   "files": [
-    "tsconfig.json"
+    "biome.json"
   ],
   "engines": {
     "node": "20"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.6"
   }
 }

@@ -16,9 +16,12 @@
     "prettier-plugin-packagejson": "^2.2.9"
   },
   "engines": {
-    "node": ">=12"
+    "node": "20"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
   }
 }

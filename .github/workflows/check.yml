@@ -16,6 +16,7 @@ jobs:
       - uses: umidbekk/actions/prepare-node-repo@v2
         with:
           cache-key: npm-v2-
+          node-version: 20
 
       - run: yarn tsc
       - run: yarn lint
@@ -24,4 +25,3 @@ jobs:
           command: yarn test
           update-command: yarn test -u
       - uses: codecov/codecov-action@v2
-      - run: yarn build

@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   getConfigData,
   getConfigDataDiff,
@@ -56,6 +54,9 @@ it('extends dependencies', async () => {
     +     "error",
     +   ],
     +   "cypress/no-unnecessary-waiting": Array [
+    +     "error",
+    +   ],
+    +   "cypress/unsafe-to-chain-command": Array [
     +     "error",
     +   ],
         "dot-location": Array [
