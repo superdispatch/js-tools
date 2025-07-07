@@ -1,6 +1,6 @@
 {
   "name": "@superdispatch/biome-config",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "Shared config for Biomejs.",
   "keywords": [
     "biome"
