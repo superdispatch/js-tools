@@ -27,37 +27,6 @@
       ],
       "packageRules": [
         {
-          "matchPackagePatterns": [
-            "^@datadog/"
-          ],
-          "prPriority": 1
-        },
-        {
-          "matchPackagePatterns": [
-            "^@sentry/"
-          ],
-          "prPriority": 1,
-          "extends": [
-            ":automergePatch"
-          ]
-        },
-        {
-          "matchPackagePatterns": [
-            "^cypress"
-          ],
-          "prPriority": 1
-        },
-        {
-          "matchUpdateTypes": "pin",
-          "groupName": "all pins"
-        },
-        {
-          "matchPackageNames": [
-            "typescript"
-          ],
-          "groupName": "typescript"
-        },
-        {
           "matchPackageNames": [
             "@superdispatch/eslint-plugin-ui",
             "@superdispatch/forms",
@@ -67,7 +36,10 @@
             "@superdispatch/ui-lab"
           ],
           "groupName": "@superdispatch/ui",
-          "prPriority": 1
+          "prPriority": 1,
+          "schedule": [
+            "at any time"
+          ]
         },
         {
           "matchPackageNames": [
@@ -80,14 +52,20 @@
             "@superdispatch/gh-scripts"
           ],
           "groupName": "@superdispatch/js-tools",
-          "prPriority": 1
+          "prPriority": 1,
+          "schedule": [
+            "at any time"
+          ]
         },
         {
           "matchPackageNames": [
             "@superdispatch/sdk"
           ],
           "groupName": "@superdispatch/sdk",
-          "prPriority": 1
+          "prPriority": 1,
+          "schedule": [
+            "at any time"
+          ]
         },
         {
           "matchPackageNames": [
@@ -95,20 +73,20 @@
             "@superdispatch/http-resource"
           ],
           "groupName": "@superdispatch/http",
-          "prPriority": 1
+          "prPriority": 1,
+          "schedule": [
+            "at any time"
+          ]
         },
         {
           "matchPackagePatterns": [
             "^@sdkit/"
           ],
           "groupName": "sdkit",
-          "prPriority": 1
-        },
-        {
-          "matchPackagePatterns": [
-            "^@testing-library/"
-          ],
-          "groupName": "testing-library"
+          "prPriority": 1,
+          "schedule": [
+            "at any time"
+          ]
         }
       ]
     }
