@@ -8,7 +8,6 @@
   "reviewersFromCodeOwners": true,
   "assignAutomerge": true,
   "platformAutomerge": true,
-  "prConcurrentLimit": 5,
   "commitMessageSuffix": "({{updateType}})",
   "postUpdateOptions": ["yarnDedupeHighest"],
   "prBodyNotes": [
