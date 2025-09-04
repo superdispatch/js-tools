@@ -32,7 +32,8 @@
             "@superdispatch/dates",
             "@superdispatch/phones",
             "@superdispatch/ui",
-            "@superdispatch/ui-lab"
+            "@superdispatch/ui-lab",
+            "@superdispatch/hooks"
           ],
           "groupName": "@superdispatch/ui",
           "prPriority": 1,
