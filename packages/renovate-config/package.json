@@ -23,8 +23,7 @@
       "platformAutomerge": true,
       "commitMessageSuffix": "({{updateType}})",
       "postUpdateOptions": [
-        "yarnDedupeHighest",
-        "pnpmDedupe"
+        "yarnDedupeHighest"
       ],
       "packageRules": [
         {

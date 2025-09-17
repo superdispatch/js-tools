@@ -10,7 +10,7 @@
   "assignAutomerge": true,
   "platformAutomerge": true,
   "commitMessageSuffix": "({{updateType}})",
-  "postUpdateOptions": ["yarnDedupeHighest", "pnpmDedupe"],
+  "postUpdateOptions": ["yarnDedupeHighest"],
   "prBodyNotes": [
     "### Checklist",
     "- [ ] I checked this package version in [snyk](https://security.snyk.io/vuln/npm) \\ \n - [ ] I labeled PR as 'PR needs visual test' \\ \n - [ ] I checked this update locally \\ \n - [ ] QA engineers checked this update"
