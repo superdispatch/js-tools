@@ -35,7 +35,8 @@
             "@superdispatch/phones",
             "@superdispatch/ui",
             "@superdispatch/ui-lab",
-            "@superdispatch/hooks"
+            "@superdispatch/hooks",
+            "@superdispatch/jestutils"
           ],
           "groupName": "@superdispatch/ui",
           "prPriority": 1,
@@ -45,7 +46,6 @@
         },
         {
           "matchPackageNames": [
-            "@superdispatch/jestutils",
             "@superdispatch/js-tools",
             "@superdispatch/prettier-config",
             "@superdispatch/babel-preset",
