@@ -24,6 +24,7 @@
         "@superdispatch/phones",
         "@superdispatch/ui",
         "@superdispatch/ui-lab",
+        "@superdispatch/hooks",
         "@superdispatch/jestutils",
         "@superdispatch/testutils"
       ],
