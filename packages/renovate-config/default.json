@@ -24,7 +24,8 @@
         "@superdispatch/phones",
         "@superdispatch/ui",
         "@superdispatch/ui-lab",
-        "@superdispatch/jestutils"
+        "@superdispatch/jestutils",
+        "@superdispatch/testutils"
       ],
       "groupName": "@superdispatch/ui",
       "prPriority": 1,

@@ -35,7 +35,8 @@
             "@superdispatch/ui",
             "@superdispatch/ui-lab",
             "@superdispatch/hooks",
-            "@superdispatch/jestutils"
+            "@superdispatch/jestutils",
+            "@superdispatch/testutils"
           ],
           "groupName": "@superdispatch/ui",
           "prPriority": 1,
