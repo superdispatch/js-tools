@@ -36,6 +36,11 @@
       "prPriority": 1
     },
     {
+      "matchPackageNames": ["caniuse-lite"],
+      "groupName": "caniuse-lite",
+      "prPriority": 1
+    },
+    {
       "extends": ["schedule:officeHours"],
       "matchPackageNames": [
         "@superdispatch/eslint-plugin-ui",
