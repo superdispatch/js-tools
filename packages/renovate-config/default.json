@@ -43,6 +43,11 @@
       "prPriority": 1
     },
     {
+      "matchPackageNames": ["^@chargebee/"],
+      "groupName": "chargebee",
+      "prPriority": 1
+    },
+    {
       "extends": ["schedule:officeHours"],
       "matchPackageNames": [
         "@superdispatch/eslint-plugin-ui",
