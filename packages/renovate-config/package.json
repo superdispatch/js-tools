@@ -37,7 +37,8 @@
           "minimumReleaseAge": "3 days",
           "automerge": true,
           "groupName": "minor",
-          "prPriority": 1
+          "prPriority": 1,
+          "allowedVersions": ">=1.0.0"
         },
         {
           "matchUpdateTypes": [
@@ -50,7 +51,8 @@
           "minimumReleaseAge": "3 days",
           "automerge": true,
           "groupName": "digest",
-          "prPriority": 1
+          "prPriority": 1,
+          "allowedVersions": ">=1.0.0"
         },
         {
           "matchPackageNames": [
