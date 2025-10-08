@@ -38,7 +38,7 @@
           "automerge": true,
           "groupName": "minor",
           "prPriority": 1,
-          "allowedVersions": ">=1.0.0"
+          "matchCurrentVersion": ">=1.0.0"
         },
         {
           "matchUpdateTypes": [
@@ -52,7 +52,7 @@
           "automerge": true,
           "groupName": "digest",
           "prPriority": 1,
-          "allowedVersions": ">=1.0.0"
+          "matchCurrentVersion": ">=1.0.0"
         },
         {
           "matchPackageNames": [
