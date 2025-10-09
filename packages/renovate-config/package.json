@@ -15,7 +15,7 @@
       "extends": [
         "config:base",
         "schedule:earlyMondays",
-        ":separateMajorReleases",
+        ":separateMultipleMajorReleases",
         ":enableVulnerabilityAlerts",
         ":prHourlyLimit4"
       ],
