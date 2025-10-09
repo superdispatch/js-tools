@@ -63,7 +63,7 @@
         },
         {
           "matchPackageNames": [
-            "^@chargebee/"
+            "@chargebee/**"
           ],
           "groupName": "chargebee",
           "prPriority": 1

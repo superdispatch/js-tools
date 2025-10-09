@@ -43,7 +43,7 @@
       "prPriority": 1
     },
     {
-      "matchPackageNames": ["^@chargebee/"],
+      "matchPackageNames": ["@chargebee/**"],
       "groupName": "chargebee",
       "prPriority": 1
     },
