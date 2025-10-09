@@ -22,6 +22,7 @@
       "reviewersFromCodeOwners": true,
       "assignAutomerge": true,
       "platformAutomerge": true,
+      "commitMessageSuffix": "({{updateType}})",
       "postUpdateOptions": [
         "yarnDedupeHighest"
       ],
