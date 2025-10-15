@@ -50,6 +50,12 @@
     },
     {
       "extends": ["schedule:officeHours"],
+      "matchPackageNames": ["superdispatch/actions/**"],
+      "groupName": "superdispatch/actions",
+      "prPriority": 1
+    },
+    {
+      "extends": ["schedule:officeHours"],
       "matchPackageNames": [
         "@superdispatch/eslint-plugin-ui",
         "@superdispatch/forms",
