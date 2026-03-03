@@ -17,6 +17,10 @@
   ],
   "packageRules": [
     {
+      "matchPackageNames": ["@superdispatch/oxc-config"],
+      "registryUrls": ["https://npm.pkg.github.com/"]
+    },
+    {
       "matchUpdateTypes": ["minor"],
       "minimumReleaseAge": "3 days",
       "automerge": true,
@@ -104,6 +108,18 @@
       "matchPackagePatterns": ["^@sdkit/"],
       "groupName": "sdkit",
       "prPriority": 1
+    }
+  ],
+  "hostRules": [
+    {
+      "hostType": "npm",
+      "matchHost": "npm-registry.superdispatch.org",
+      "token": "{{ secrets.GHP_TOKEN }}"
+    },
+    {
+      "hostType": "npm",
+      "matchHost": "npm.pkg.github.com",
+      "token": "{{ secrets.GHP_TOKEN }}"
     }
   ]
 }
