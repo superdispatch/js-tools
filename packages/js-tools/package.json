@@ -10,9 +10,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "bin": {
-    "js-tools": "bin"
-  },
+  "bin": "bin",
   "files": [
     "/bin",
     "/dist",
@@ -43,7 +41,7 @@
     "prettier": ">=2.0.0"
   },
   "engines": {
-    "node": "20"
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
