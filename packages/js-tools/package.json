@@ -10,7 +10,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "bin": "bin",
+  "bin": {
+    "js-tools": "bin"
+  },
   "files": [
     "/bin",
     "/dist",

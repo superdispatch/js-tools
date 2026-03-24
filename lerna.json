@@ -1,10 +1,6 @@
 {
   "version": "0.13.1",
   "npmClient": "pnpm",
-  "useWorkspaces": true,
-  "packages": [
-    "packages/*"
-  ],
   "command": {
     "publish": {
       "message": "%s",
