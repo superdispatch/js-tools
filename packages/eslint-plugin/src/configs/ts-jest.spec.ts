@@ -21,7 +21,7 @@ test('diff with jest', async () => {
           "setTimeout": "readonly",
         },
     -   "parser": undefined,
-    +   "parser": "node_modules/@typescript-eslint/parser/dist/index.js",
+    +   "parser": "node_modules/.pnpm/@typescript-eslint+parser@6.21.0_eslint@8.23.0_typescript@4.8.4/node_modules/@typescript-eslint/parser/dist/index.js",
         "parserOptions": Object {
           "ecmaFeatures": Object {
             "globalReturn": true,
