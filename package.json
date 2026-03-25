@@ -10,10 +10,10 @@
   },
   "scripts": {
     "build": "lerna run build --parallel",
-    "prelint": "yarn build",
+    "prelint": "pnpm build",
     "lint": "js-tools lint",
     "prepare": "husky install",
-    "prerelease": "yarn --force && yarn tsc && yarn lint && yarn test",
+    "prerelease": "pnpm install && pnpm tsc && pnpm lint && pnpm test",
     "release": "lerna publish",
     "tdd": "jest --watch",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage"
@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@superdispatch/js-tools": "workspace:*",
     "@babel/cli": "7.18.10",
     "@babel/core": "7.26.9",
     "@babel/runtime": "7.26.9",
@@ -70,6 +71,6 @@
     "typescript": "4.8.4"
   },
   "engines": {
-    "node": "20"
+    "node": ">=20"
   }
 }
