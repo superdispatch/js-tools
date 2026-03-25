@@ -1,5 +1,5 @@
 {
-  "node": "20",
+  "node": "24",
   "buildCommand": "build",
   "packages": [
     "packages/babel-preset",

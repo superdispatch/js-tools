@@ -2,9 +2,9 @@
   "extends": "./packages/tsconfig/tsconfig.json",
   "include": ["packages/eslint-plugin/types", "packages"],
   "compilerOptions": {
-    "target": "ES2019",
+    "target": "ES2022",
     "module": "commonjs",
-    "lib": ["ES2019", "ES2020.String"],
+    "lib": ["ES2022"],
     "tsBuildInfoFile": "node_modules/.cache/tsconfig.tsbuildinfo"
   }
 }
