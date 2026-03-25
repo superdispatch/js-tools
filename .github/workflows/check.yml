@@ -16,7 +16,7 @@ jobs:
       - uses: superdispatch/actions/prepare-node-repo@v2
         with:
           cache-key: cache-v1-
-          node-version: 20
+          node-version: 24
           pnpm-version: 10.25
 
       - run: pnpm tsc
