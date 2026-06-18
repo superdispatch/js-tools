@@ -23,14 +23,14 @@ consume for linting, formatting, transpiling, and TypeScript setup.
 
 Published packages (see `README.md`):
 
-| Package | Purpose |
-|---|---|
-| `@superdispatch/babel-preset` | Shared Babel preset |
-| `@superdispatch/eslint-plugin` | Shared ESLint config + custom rules |
-| `@superdispatch/js-tools` | CLI utilities (`js-tools` binary, oclif-based) |
-| `@superdispatch/prettier-config` | Shared Prettier config |
-| `@superdispatch/tsconfig` | Shared TypeScript config |
-| `@superdispatch/renovate-config` | Shared Renovate config |
+| Package                          | Purpose                                        |
+| -------------------------------- | ---------------------------------------------- |
+| `@superdispatch/babel-preset`    | Shared Babel preset                            |
+| `@superdispatch/eslint-plugin`   | Shared ESLint config + custom rules            |
+| `@superdispatch/js-tools`        | CLI utilities (`js-tools` binary, oclif-based) |
+| `@superdispatch/prettier-config` | Shared Prettier config                         |
+| `@superdispatch/tsconfig`        | Shared TypeScript config                       |
+| `@superdispatch/renovate-config` | Shared Renovate config                         |
 
 ### Prerequisites
 
@@ -96,16 +96,16 @@ pnpm release                  # Publish via lerna publish
 This repo lints itself with its own ESLint plugin and formats with its own
 Prettier config. Follow what the configs enforce — do not add new tooling.
 
-| Rule | Detail |
-|------|--------|
-| Formatting | Prettier via `./packages/prettier-config` (set as root `prettier` field) |
-| Linting | `js-tools lint` (the repo's own CLI); `--fix` for autofix |
-| TS source | `*.ts` extends `plugin:@superdispatch/ts-node` |
-| JS source | `*.js` extends `plugin:@superdispatch/node` |
-| Config files | `eslint-plugin/src/configs/*.ts` enforce `sort-keys` ascending (natural) |
-| Custom rules | `eslint-plugin/src/rules/*.ts` follow `eslint-plugin/rules-recommended` |
-| Module system | Root tsconfig compiles to CommonJS, target/lib ES2022 |
-| Engines | Every package pins `node >= 24` |
+| Rule          | Detail                                                                   |
+| ------------- | ------------------------------------------------------------------------ |
+| Formatting    | Prettier via `./packages/prettier-config` (set as root `prettier` field) |
+| Linting       | `js-tools lint` (the repo's own CLI); `--fix` for autofix                |
+| TS source     | `*.ts` extends `plugin:@superdispatch/ts-node`                           |
+| JS source     | `*.js` extends `plugin:@superdispatch/node`                              |
+| Config files  | `eslint-plugin/src/configs/*.ts` enforce `sort-keys` ascending (natural) |
+| Custom rules  | `eslint-plugin/src/rules/*.ts` follow `eslint-plugin/rules-recommended`  |
+| Module system | Root tsconfig compiles to CommonJS, target/lib ES2022                    |
+| Engines       | Every package pins `node >= 24`                                          |
 
 ESLint behavior is governed by the root `.eslintrc.js` overrides (per file glob)
 plus the configs shipped in `packages/eslint-plugin/src/configs/`.
@@ -177,11 +177,11 @@ template. Use a minimal, conventional flow:
 
 ## Quick Links
 
-| Location | Content |
-|---|---|
-| `README.md` | Package list + npm links |
-| `packages/*/README.md` | Per-package documentation |
-| `.github/workflows/check.yml` | CI pipeline |
-| `.eslintrc.js` / `packages/eslint-plugin/src/configs/` | Lint configuration |
-| `package.json` | Scripts, Jest config, devDependencies |
-| `lerna.json` / `pnpm-workspace.yaml` | Monorepo / publishing config |
+| Location                                               | Content                               |
+| ------------------------------------------------------ | ------------------------------------- |
+| `README.md`                                            | Package list + npm links              |
+| `packages/*/README.md`                                 | Per-package documentation             |
+| `.github/workflows/check.yml`                          | CI pipeline                           |
+| `.eslintrc.js` / `packages/eslint-plugin/src/configs/` | Lint configuration                    |
+| `package.json`                                         | Scripts, Jest config, devDependencies |
+| `lerna.json` / `pnpm-workspace.yaml`                   | Monorepo / publishing config          |
